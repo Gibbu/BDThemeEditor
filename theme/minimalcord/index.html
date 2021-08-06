@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/images/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/nprogress.css">
+
+		<title>MinimalCord - Theme Editor</title><meta property="og:title" content="MinimalCord - Theme Editor" data-svelte="svelte-1w4hfqk"><meta name="description" content="Customize MinimalCord with a easy to use interface" data-svelte="svelte-1w4hfqk"><meta property="og:image" content="https://camo.githubusercontent.com/e9a46ff5510743194cef44df2f4ba72978d690f327d0eb039cef092833b99f7a/68747470733a2f2f692e696d6775722e636f6d2f57333364674d4a2e706e67" data-svelte="svelte-1w4hfqk"><meta property="og:description" content="Customize MinimalCord with a easy to use interface" data-svelte="svelte-1w4hfqk">
+
+		
+
+		<link rel="modulepreload" href="/./_app/start-4a759baa.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-7ee8b605.js">
+		<link rel="modulepreload" href="/./_app/chunks/singletons-a3499a4c.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-3dd506b2.js">
+		<link rel="modulepreload" href="/./_app/chunks/Button.svelte_svelte&type=style&lang-423ceab3.js">
+		<link rel="modulepreload" href="/./_app/chunks/Image.svelte_svelte&type=style&lang-d830bc88.js">
+		<link rel="modulepreload" href="/./_app/pages/theme/[slug].svelte-d1bdb4b9.js">
+		<link rel="modulepreload" href="/./_app/chunks/index-2da7f38b.js">
+		<link rel="stylesheet" href="/./_app/assets/start-9aa571ba.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-8192b472.css">
+		<link rel="stylesheet" href="/./_app/assets/Button.svelte_svelte&type=style&lang-ad84065c.css">
+		<link rel="stylesheet" href="/./_app/assets/Image.svelte_svelte&type=style&lang-6411f756.css">
+
+		<script type="module">
+			import { start } from "/./_app/start-4a759baa.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":"/."},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-3dd506b2.js"),
+						import("/./_app/pages/theme/[slug].svelte-d1bdb4b9.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/theme/minimalcord",
+						query: new URLSearchParams(""),
+						params: {"slug":"minimalcord"}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<nav class="nav svelte-1r1lhcj disabled"><button class="nav-btn nav-back svelte-1r1lhcj"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="heroicon outline " width="100%" height="100%">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+	</nav>
+<aside class="sidebar svelte-1r1lhcj disabled"><div class="actions svelte-1s63yqp"><div class="actions-top"><input type="text" class="input svelte-48o723" placeholder="Theme name" value=""></div>
+	<div class="actions-bottom svelte-1s63yqp"><button type="button" class="btn secondary medium svelte-1dg9w3u" ><div class="iconL svelte-1dg9w3u"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="heroicon outline " width="100%" height="100%">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+	</div>
+<span class="svelte-1dg9w3u">Import
+</span></button>
+<button type="button" class="btn primary medium svelte-1dg9w3u" ><div class="iconL svelte-1dg9w3u"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="heroicon outline " width="100%" height="100%">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+	</div>
+<span class="svelte-1dg9w3u">Download
+</span></button></div>
+	
+</div>
+	<div class="sidebar-body scroller"><div class="scroller-inner svelte-1r1lhcj"><p class="no-theme svelte-1r1lhcj">Select a theme to start editing</p></div></div></aside>
+
+<div id="page" class="svelte-1r1lhcj">
+
+<div class="preview svelte-12g6ou6"><iframe src="/preview/index.html?id=1628238123582" title="preview" frameborder="0" class="w-full m-4 svelte-12g6ou6"></iframe>
+</div></div>
+
+
+
+
+
+
+
+
+	
+</div>
+		<div id="layers">
+			<div id="pickrs"></div>
+			<div id="portal"></div>
+			<div id="tooltips"></div>
+		</div>
+	</body>
+</html>
