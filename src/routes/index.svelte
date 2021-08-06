@@ -1,15 +1,14 @@
 <script>
-	import {loaded} from '$lib/stores';
-	import {onMount} from 'svelte';
-	import Icon, {Cog} from 'svelte-hero-icons';
+	import {browser} from '$app/env';
+	import Icon, {ColorSwatch, Clock} from 'svelte-hero-icons';
 
 	import themes from '$data/themes';
+
+	const history = browser && JSON.parse(localStorage.history || '[]') || [];
 
 	import {Button} from '$components/common/Button';
 
 	const getHref = (href: string) => `/theme/${href.replace(/ /g, '').toLowerCase()}`;
-
-	onMount(() => $loaded = true);
 </script>
 
 <svelte:head>
@@ -22,25 +21,40 @@
 <div class="home">
 	<div class="scroller">
 		<div class="scroller-inner">
-			<div class="wrapper">
-				<header class="header">
+			<header class="header">
+				<div class="wrapper">
 					<h1 class="header-title"><span>BetterDiscord</span> Theme Editor</h1>
 					<p class="header-text">Get your desired theme in a manor of minutes with no CSS knowledge required.</p>
-				</header>
+				</div>
+			</header>
+			<div class="wrapper">
+
+				{#if history.length > 0}
+					<section class="section">
+						<h3 class="section-title">Recently made themes</h3>
+					</section>
+				{/if}
 			
-				<main class="themes">
-					{#each themes as theme}
-						<a href={getHref(theme.name)} class="theme">
-							<div class="theme-head r16-9">
-								<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail">
-							</div>
-							<div class="theme-info">
-								<h3 class="theme-name">{theme.name}</h3>
-							</div>
-						</a>
-					{/each}
-				</main>
-			
+				<section class="section">
+					<h3 class="section-title">Available themes</h3>
+					<main class="themes">
+						{#each themes as theme}
+							<a href={getHref(theme.name)} class="theme">
+								<div class="theme-head r16-9">
+									<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail r16-9-item">
+								</div>
+								<div class="theme-body">
+									<img src="https://github.com/{theme.developer.github}.png" alt="Developer avatar" class="theme-developer">
+									<div class="theme-info">
+										<h4 class="theme-name">{theme.name}</h4>
+										<p class="theme-description">{theme.meta.description}</p>
+									</div>
+								</div>
+							</a>
+						{/each}
+					</main>
+				</section>
+
 				<footer class="footer">
 					<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
 				</footer>
@@ -51,26 +65,29 @@
 
 
 <style lang="scss">
-
 	.home {
 		display: flex;
 		height: 100vh;
 	}
-
-	.wrapper {
-		margin: rem(50) auto;
-	}
-
 	.header {
-		margin-bottom: rem(50);
+		padding: rem(56) 0;
+		margin-bottom: rem(56);
+		border-bottom: rem(1) solid var(--border);
 		&-title {
 			color: var(--text-primary);
+			margin-bottom: rem(8);
 			span {
 				color: hsl(var(--accent));
 			}
 		}
-		&-text {
-			margin-top: rem(8);
+	}
+
+	.section {
+		margin-bottom: rem(128);
+		&-title {
+			margin-bottom: rem(16);
+			font-weight: 500;
+			font-size: rem(16);
 		}
 	}
 
@@ -83,22 +100,45 @@
 		background: var(--card);
 		border: rem(1) solid var(--border);
 		border-radius: rem(4);
-		overflow: hidden;
+		transition: .15s ease border-color,
+								.15s ease box-shadow;
 
-		&-head {
-			max-height: 0;
-			overflow: hidden;
-		}
 		&-thumbnail {
 			width: 100%;
 		}
-		&-info {
+		&-body {
 			padding: rem(16);
+			display: flex;
+			align-items: center;
+		}
+		&-developer {
+			width: rem(32);
+			height: rem(32);
+			border-radius: 50%;
+			background: var(--c8);
+		}
+		&-info {
+			margin-left: rem(16);
+			width: calc(100% - #{rem(48)});
+		}
+		&-name {
+			color: var(--text-primary);
+		}
+		&-description {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size: rem(14);
+			margin-top: rem(2);
+		}
+
+		&:hover {
+			border-color: hsl(var(--accent));
+			box-shadow: 0 0 0 rem(4) hsl(var(--accent) / .2);
 		}
 	}
 
 	.footer {
-		margin-top: rem(50);
 		font-size: rem(14);
 		opacity: .5;
 	}

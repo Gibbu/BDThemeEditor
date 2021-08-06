@@ -1,21 +1,15 @@
 <script>
-	import Icon, {Download, Upload, Check, ChevronLeft} from 'svelte-hero-icons';
-	import {tick} from 'svelte';
+	import {onMount} from 'svelte';
+	import Icon, {Download, Save, Upload, Check, ChevronLeft, X} from 'svelte-hero-icons';
 	import {THEME, preview} from '$lib/stores';
-	import tooltip from '$lib/tooltip';
-	import {goto} from '$app/navigation';
-	import FileSaver from 'file-saver';
-
-	import type {ThemeVars} from '$types/theme';
-	import type {IAddon} from '$types/addon';
+	import DLTheme from '$lib/download';
 
 	import {Input} from '$components/common/Input';
 	import {Button} from '$components/common/Button';
+	import {ModalRoot, ModalBody, ModalHeader, ModalFooter} from '$components/common/Modal';
 
 	let value: string = '';
 	let error: string = '';
-
-	let donateModal: boolean = false;
 
 	// Validate
 	const validate = (): boolean => {
@@ -33,110 +27,108 @@
 	}
 
 	// Download
-	const download = (): void => {
+	let saveModal: boolean = false;
+
+	const save = (): void => {
 		if (validate()) {
-			$THEME.meta.name = value;
-
-			let theme: string;
-
-			// Meta
-			theme = `/**\n${Object.entries($THEME.meta).map(([key, value]) => ` * @${key} ${value}\n`).join('')}*/\n\n`;
-
-			// Fonts
-			theme += $THEME.fonts ? $THEME.fonts.map(url => `@import url('${url}');\n`).join('') : '';
-
-			// Imports
-			theme += $THEME.imports.map(url => `@import url('${url}');\n`).join('');
-			let addonImports = $THEME.addons.filter(obj => obj.use);
-			addonImports.forEach(obj => obj.imports.forEach(url => theme += `@import url('${url}');\n`));
-
-			// Variables
-			theme += '\n:root {\n';
-			theme += vars($THEME.variables, 'theme');
-			if ($THEME.hiddenVars) theme += vars($THEME.hiddenVars, 'hidden');
-			theme += vars($THEME.addons, 'addon');
-			theme += '}';
-
-			let file = new Blob([theme], {type: 'text/plain;charset=uft-8'});
-			FileSaver.saveAs(file, `${value}.theme.css`);
-
-			const hasPaypal: boolean = $THEME.developers.some(el => el.paypal);
-			if (!localStorage.getItem(`${$THEME.name}-donate`) && hasPaypal) {
-				donateModal = true;
-			}
+			DLTheme($THEME);
 		}
 	}
 
-	// Helpers
-	const vars = (vars: Record<string, any>[], type: 'addon' | 'theme' | 'hidden') => {
-		let object: Record<string, any>[] = [];
-		if (type === 'addon') vars = vars.filter(obj => obj.use == true);
+	// Donate
+	let showDonateWindow: boolean = true;
 
-		if (type === 'theme' || type === 'addon') {
-			vars.forEach(group => {
-				const inputs = type === 'theme' ? group.inputs : group.variables;
-				inputs.forEach(input => {
-					object = [...object, varOutput(input.details)]
-				})
-			})
-		} else {
-			vars.forEach(input => {
-				object = [...object, varOutput(input)];
-			})
-		}
+	const hideDonate = (): void => {
+		showDonateWindow = false;
+		localStorage.setItem(`donate_${$THEME.name.replace(/ /g, '')}`, 'true');
+	}
 
-		return object.map(({variable, output}) => `  --${variable}: ${output};\n`).join('');
-	}
-	const varOutput = (input: Record<string, any>) => {
-		let output = ((input.value || input.start) || 0)+(input?.unit || '');
-		if (typeof output === 'string' && (output.includes('http') || output.includes('base64'))) {
-			output = `url('${output}')`;
-		}
-		return {
-			variable: input.variable,
-			output
-		}
-	}
+	onMount(() => {
+		showDonateWindow = !localStorage.getItem(`donate_${$THEME.name.replace(/ /g, '')}`);
+	})
 </script>
 
 <div class="actions">
-	<div class="actions-top">
-		<Input placeholder="Theme name" bind:value />
-	</div>
-	<div class="actions-bottom">
-		<Button type="secondary">
-			<svelte:fragment slot="iconL">
-				<Icon src={Upload} />
-			</svelte:fragment>
-			Import
-		</Button>
-		<Button type="primary" disabled={error} on:click={download}>
+	<Button type="secondary">
+		<svelte:fragment slot="iconL">
+			<Icon src={Upload} />
+		</svelte:fragment>
+		Import
+	</Button>
+	<Button type="primary" on:click={() => saveModal = true}>
+		<svelte:fragment slot="iconL">
+			<Icon src={Save} />
+		</svelte:fragment>
+		Save
+	</Button>
+</div>
+
+<ModalRoot bind:visible={saveModal}>
+	<ModalHeader title="Save" on:close={() => saveModal = false} />
+	<ModalBody markdown={false}>
+		{#if $THEME.developer.paypal && showDonateWindow}
+		<div class="donate">
+			<h4 class="donate-title">
+				Like {$THEME.name}?
+				<button on:click={hideDonate}>
+					<Icon src={X} />
+				</button>
+			</h4>
+			<p class="donate-text">Consider donating to {$THEME.developer.name}.</p>
+			
+		</div>
+		{/if}
+		<p class="save-title">Give your theme a name:</p>
+		<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />
+		{#if error}
+			<small class="save-error">{error}</small>
+		{/if}
+	</ModalBody>
+	<ModalFooter>
+		<Button type="primary" disabled={error} on:click={save}>
 			<svelte:fragment slot="iconL">
 				<Icon src={Download} />
 			</svelte:fragment>
 			Download
 		</Button>
-	</div>
-	{#if error}
-		<small class="error">{error}</small>
-	{/if}
-</div>
+	</ModalFooter>
+</ModalRoot>
 
 
 
 <style lang="scss">
 	.actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: rem(16);
 		padding: rem(16) 0;
 		margin: 0 rem(16);
 		border-bottom: rem(1) solid var(--border);
-		&-bottom {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			margin-top: rem(16);
-			gap: rem(16);
+	}
+
+	.save {
+		&-title {
+			margin-bottom: rem(8);
+			font-size: rem(14);
+		}
+		&-error {
+			display: block;
+			color: hsl(var(--red));
+			margin-top: rem(4);
 		}
 	}
-	.error {
-		color: hsl(var(--red));
+
+	.donate {
+		border-radius: rem(4);
+		border: rem(1) solid var(--border);
+		margin-bottom: rem(16);
+		padding: rem(16);
+		&-title {
+			color: var(--text-primary);
+		}
+		&-text {
+			font-size: rem(14);
+			margin-top: rem(4);
+		}
 	}
 </style>

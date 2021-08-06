@@ -5,7 +5,7 @@ const theme: ITheme = {
 	name: 'Frosted Glass',
 	previewUrl: 'https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.theme.css',
 	thumbnail: 'https://i.imgur.com/Gr8JJAv.jpg',
-	developers: [Gibbu],
+	developer: Gibbu,
 	tags: ['Background Image', 'Home Button', 'Colours', 'Custom Font', 'Addons'],
 	meta: {
 		name: 'Frosted Glass',

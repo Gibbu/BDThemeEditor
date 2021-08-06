@@ -22,6 +22,7 @@
 	let fileInput: HTMLInputElement;
 	let fileInputName: string;
 	let fileUploadModal: boolean = false;
+	let fileUploading: boolean = false;
 	let fileUploadProgress: number = 0;
 
 	// Other vars
@@ -66,6 +67,7 @@
 	 * button if a web host is chosen.
 	 */
 	 const prepareFile = (files: FileList): void => {
+		error = '';
 		const allowed = ['jpg', 'jpeg', 'gif', 'png', 'apng'];
 
 		if (files.length > 1) {
@@ -96,6 +98,7 @@
 
 		if (uploadType === 'imgur') {
 			error = '';
+			fileUploading = true;
 
 			const formData = new FormData();
 			formData.append('image', file);
@@ -113,6 +116,7 @@
 
 			value = link
 
+			fileUploading = false;
 			fileUploadModal = false;
 			fileUploadProgress = 0;
 
@@ -148,7 +152,7 @@
 			class="dropzone"
 			class:dragover
 			class:error
-			disabled={fileUploadProgress !== 0 && fileUploadProgress !== 100}
+			disabled={fileUploading}
 			on:dragover|preventDefault={() => dragover = true}
 			on:dragleave={() => dragover = false}
 			on:dragend={() => dragover = false}
@@ -166,7 +170,7 @@
 		</label>
 		{#if !error && thumbnail}
 			<div class="uploadArea">
-				{#if !fileUploadProgress}
+				{#if !fileUploading}
 					<Button type="primary" size="extralarge" long on:click={local}>
 						<svelte:fragment slot="iconL">
 							{#if uploadType === 'b64'}
@@ -212,6 +216,8 @@
 			font-size: rem(14);
 			transition: .15s ease color;
 			color: var(--text-tertiary);
+			user-select: none;
+			pointer-events: none;
 		}
 		&-preview {
 			overflow: hidden;

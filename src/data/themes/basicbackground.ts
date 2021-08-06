@@ -5,7 +5,7 @@ const theme: ITheme = {
 	name: 'BasicBackground',
 	previewUrl: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css',
 	thumbnail: 'https://i.imgur.com/XORsntg.jpg',
-	developers: [DevilBro],
+	developer: DevilBro,
 	tags: ['Background Image', 'Custom Font', 'Colours', 'Addons'],
 	meta: {
 		name: 'BasicBackground',

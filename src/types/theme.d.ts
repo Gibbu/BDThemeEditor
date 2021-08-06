@@ -34,7 +34,7 @@ export interface ITheme {
 	name: string,
 	previewUrl: string,
 	thumbnail: string,
-	developers: IDev[],
+	developer: IDev,
 	meta: Meta,
 	imports: string[],
 	fonts: string[],
@@ -47,7 +47,7 @@ export interface ITheme {
 export interface IStoreTheme {
 	name: string,
   meta: Meta,
-  developers: IDev[],
+  developer: IDev,
   imports: string[],
   fonts: string[],
   variables: ThemeVars[],

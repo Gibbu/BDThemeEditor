@@ -5,7 +5,7 @@ const theme: ITheme = {
 	name: 'DiscordRecolor',
 	previewUrl: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.theme.css',
 	thumbnail: 'https://i.imgur.com/dF6Ic4U.png',
-	developers: [DevilBro],
+	developer: DevilBro,
 	tags: ['Colours', 'Custom Font', 'Addons'],
 	meta: {
 		name: 'DiscordRecolor',

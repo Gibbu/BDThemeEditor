@@ -5,7 +5,7 @@ const theme: ITheme = {
 	name: 'MinimalCord',
 	previewUrl: 'https://discordstyles.github.io/MinimalCord/dist/MinimalCord.theme.css',
 	thumbnail: 'https://camo.githubusercontent.com/e9a46ff5510743194cef44df2f4ba72978d690f327d0eb039cef092833b99f7a/68747470733a2f2f692e696d6775722e636f6d2f57333364674d4a2e706e67',
-	developers: [Gibbu],
+	developer: Gibbu,
 	tags: ['Addons'],
 	meta: {
 		name: 'MinimalCord',

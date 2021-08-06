@@ -5,7 +5,7 @@ const theme: ITheme = {
 	name: 'Clear Vision',
 	previewUrl: 'https://clearvision.github.io/ClearVision-v6/ClearVision_v6.theme.css',
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
-	developers: [ClearVision],
+	developer: ClearVision,
 	tags: ['Background Image', 'Colours', 'Home Button', 'Custom Font', 'Addons'],
 	meta: {
 		name: 'ClearVision',

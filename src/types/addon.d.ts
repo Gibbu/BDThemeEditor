@@ -8,6 +8,7 @@ interface IAddon {
 	developer: IDev,
 	selector: string,
 	previewUrl: string[],
+	group: string,
 	use: boolean,
 	variables: Inputs[],
 	hiddenVars?: {

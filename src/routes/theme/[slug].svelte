@@ -10,12 +10,17 @@
 				error: 'That theme does not exist.'
 			}
 		}
-		return {}
+		return {
+			status: 200,
+			props: {
+				slug: page.params.slug,
+				historyIndex: parseInt(page.query.get('historyIndex'))
+			}
+		}
 	}
 </script>
 
 <script>
-	import {page} from '$app/stores';
 	import {THEME, isMounted} from '$lib/stores';
 	import {onMount, onDestroy} from 'svelte';
 
@@ -25,7 +30,8 @@
 	import type {IAddon} from '$types/addon';
 	import type {ITheme} from '$types/theme';
 
-	const {slug} = $page.params;
+	export let slug: string;
+	export let historyIndex: number;
 
 	// Data
 	import addonsData from '$data/addons';
@@ -40,7 +46,7 @@
 	$THEME = {
 		name: setTheme.name,
 		meta: setTheme.meta,
-		developers: setTheme.developers,
+		developer: setTheme.developer,
 		imports: setTheme.imports,
 		fonts: setTheme.fonts,
 		variables: setTheme.variables,
@@ -48,7 +54,11 @@
 		addons: setAddons
 	}
 
-	onMount(() => $isMounted = true);
+	console.log('script');
+	onMount(() => {
+		$isMounted = true
+		console.log('mounted');
+	})
 	onDestroy(() => $isMounted = false);
 </script>
 

@@ -8,12 +8,32 @@
 	export let inputType: 'text'|'number' = 'text';
 
 	export let placeholder: string = null;
+
+	export let error: any = null;
 </script>
 
 {#if inputType === 'text'}
-	<input type="text" class="input" {placeholder} bind:value on:change on:input>
+	<input
+		type="text"
+		class="input"
+		class:error
+		{placeholder}
+		bind:value
+		on:change
+		on:input
+		on:keyup
+	>
 {:else}
-	<input type="number" class="input" {placeholder} bind:value on:change on:input>
+	<input
+		type="number"
+		class="input"
+		class:error
+		{placeholder}
+		bind:value
+		on:change
+		on:input
+		on:keyup
+	>
 {/if}
 
 <style lang="scss">
@@ -35,6 +55,14 @@
 			border-color: hsl(var(--accent));
 			box-shadow: 0 0 0 5px hsl(var(--accent) / .2);
 			color: var(--text-primary);
+		}
+		
+		&.error {
+			border-color: hsl(var(--red));
+			&:focus {
+				border-color: hsl(var(--red));
+				box-shadow: 0 0 0 5px hsl(var(--red) / .2);
+			}
 		}
 	}
 </style>
