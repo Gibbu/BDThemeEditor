@@ -1,0 +1,275 @@
+@use './functions' as *;
+
+// Page wrapper
+.wrapper {
+	padding: 0 rem(64);
+	max-width: rem(1280);
+	width: 100%;
+	margin: 0 auto;
+	will-change: padding;
+}
+
+// 16:9 resolution scaling
+.r16-9 {
+	position: relative;
+  padding-bottom: 56.2%;
+	width: 100%;
+	&-item {
+		position: absolute;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// Default anchor tag
+.anchor {
+	color: hsl(var(--accent)) !important;
+	font-weight: 500 !important;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+// Flex scroller
+.scroller {
+	display: flex;
+	flex: 1 1 0%;
+	overflow: hidden auto;
+	position: relative;
+	&-inner {
+		height: 100%;
+		min-height: min-content;
+		overflow: hidden auto;
+		width: 100%;
+	}
+}
+
+// Markdown
+.markdown {
+	font-size: rem(16);
+	color: var(--text-secondary);
+
+	// Spacing
+	& > *:first-child {
+		margin-top: 0 !important;
+	}
+	& > *:last-child {
+		margin-bottom: 0 !important;
+	}
+	& > *:only-child {
+		margin: 0 !important;
+	}
+	blockquote, 
+	details, 
+	dl, 
+	ol, 
+	p, 
+	pre, 
+	table, 
+	ul {
+		margin-top: 0;
+		margin-bottom: rem(16);
+	}
+
+	// Images
+	img {
+		max-width: 100%;
+		height: auto;
+		border-radius: rem(3);
+	}
+
+	// Header text (<h1> through <h6>)
+	h1, 
+	h2 {
+		padding-bottom: 0.3em;
+		border-bottom: rem(1) solid var(--bg4);
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: rem(24);
+		margin-bottom: rem(16);
+		font-weight: 600;
+		line-height: 1.25;
+		color:var(--text-primary);
+	}
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.5em;
+	}
+	h3 {
+		font-size: 1.25em;
+	}
+	h4 {
+		font-size: 1em;
+	}
+	h5 {
+		font-size: 0.875em;
+	}
+	h6 {
+		font-size: 0.85em;
+		color: var(--text-secondary);
+	}
+
+	// Ordered & unordered lists
+	ol ol,
+	ol ul,
+	ul ol,
+	ul ul {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	ol, ul {
+		padding-left: 2em;
+	}
+	li {
+		word-wrap: break-all;
+	}
+	li+li {
+		margin-top: 0.25em;
+	}
+	ol ol, ul ol {
+		list-style-type: lower-roman;
+	}
+	ol, ul {
+		padding-left: 2em;
+	}
+
+	// HLJS Codeblocks
+	// For syntaax highlighting, see ./_hljs.scss
+	code {
+		padding: 0.2em 0.4em;
+		margin: 0;
+		font-size: 85%;
+		background-color: var(--bg4);
+		border-radius: rem(3);
+	}
+	pre {
+		padding: rem(10);
+		overflow: auto;
+		overflow: overlay;
+		font-size: 85%;
+		line-height: 1.45;
+		box-shadow: 0 rem(2) rem(4) rgba(0,0,0,0.1);
+		background-color: var(--bg4);
+		border-radius: rem(3);
+
+		// Codeblock scrollbars
+		&::-webkit-scrollbar {
+			width: rem(4);
+			height: rem(4);
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(255,255,255,0.05);
+			border: none;
+			&:hover {
+				background-color: rgba(255,255,255,0.1);
+			}
+			&:active {
+				background-color: rgba(255,255,255,0.15);
+			}
+		}
+	}
+
+	// Blockquotes
+	blockquote {
+		margin: 0;
+		padding: 0 rem(1);
+		color: var(--text-tertiary);
+		border-left: 0.25em solid var(--bg4);
+	}
+
+	// Details (expander)
+	details {
+		border: rem(1) solid var(--bg4);
+		border-radius: rem(5);
+		summary {
+			border-radius: rem(5);
+			padding: 0.5em 1em;
+			cursor: pointer;
+		}
+		& > *:not(summary) {
+			margin-left: rem(16);
+			margin-right: rem(16);
+			&:nth-child(2) {
+				margin-top: rem(16);
+			}
+			&:last-child {
+				margin-bottom: rem(16);
+			}
+		}
+		&[open] summary {
+			border-radius: rem(5) rem(5) 0 0;
+			background-color: var(--bg3-alt);
+		}
+	}
+
+	// Keybind indicators
+	kbd {
+		user-select: none;
+		position: relative;
+		background-color: var(--bg4);
+		box-shadow: inset 0 rem(-4) 0 var(--bg3-alt);
+		border: thin solid var(--bg1);
+		padding: rem(3) rem(6) rem(4);
+		border-radius: rem(2);
+		min-width: rem(14);
+		min-height: rem(14);
+		text-align: center;
+		font-size: rem(12);
+		&:active {
+			box-shadow: none;
+			padding-bottom: rem(2);
+			top: rem(2);
+		}
+	}
+
+	// Anchors
+	a {
+		color: hsl(var(--accent)) !important;
+		text-decoration: underline;
+		&:hover {
+			box-shadow: inset 0 -2px 0 currentColor;
+		}
+	}
+
+	// Horizontal dividers
+	hr {
+		height: 0.15em;
+		padding: 0;
+		margin: rem(24) 0;
+		background-color: var(--bg4);
+		border: 0;
+	}
+
+	// Tables
+	table {
+		display: block;
+		width: 100%;
+		overflow: auto;
+		overflow: overlay;
+		border-collapse: collapse;
+		th,
+		td {
+			padding: rem(6) rem(13);
+			border: 1px solid var(--bg4);
+		}
+		th {
+			font-weight: 600;
+			background-color: var(--bg3-alt);
+		}
+		tr {
+			background-color: var(--bg3);
+			border-top: rem(1) solid var(--bg4);
+			&:nth-child(2n) {
+				background-color: var(--bg2-alt);
+			}
+		}
+	}
+}
