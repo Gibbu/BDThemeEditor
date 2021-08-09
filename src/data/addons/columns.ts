@@ -39,8 +39,8 @@ const addon: IAddon = {
 				value: '0',
 				customValue: false,
 				options: [
-					{title: 'True', value: '0'},
-					{title: 'False', value: '1'}
+					{label: 'True', value: '0'},
+					{label: 'False', value: '1'}
 				],
 				title: 'Align DMs'
 			}

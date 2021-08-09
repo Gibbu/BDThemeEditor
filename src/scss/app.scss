@@ -8,21 +8,22 @@
 	--yellow: 27 96% 61%;
 	--red: 0 84% 60%;
 
-	--c1: hsl(0, 0%, 10%);
-	--c2: hsl(0, 0%, 12%);
-	--c3: hsl(0, 0%, 14%);
-	--c4: hsl(0, 0%, 16%);
-	--c5: hsl(0, 0%, 18%);
-	--c6: hsl(0, 0%, 20%);
-	--c7: hsl(0, 0%, 22%);
-	--c8: hsl(0, 0%, 24%);
+	--c0: hsl(0 0% 6%);
+	--c1: hsl(0 0% 10%);
+	--c2: hsl(0 0% 12%);
+	--c3: hsl(0 0% 14%);
+	--c4: hsl(0 0% 16%);
+	--c5: hsl(0 0% 18%);
+	--c6: hsl(0 0% 20%);
+	--c7: hsl(0 0% 22%);
+	--c8: hsl(0 0% 24%);
 
 	--bg: var(--c1);
 	--bg-alt: var(--c1);
 
-	--text-primary: hsl(0, 0%, 100%);
-	--text-secondary: hsl(0, 0%, 80%);
-	--text-tertiary: hsl(0, 0%, 50%);
+	--text-primary: hsl(0 0% 100%);
+	--text-secondary: hsl(0 0% 80%);
+	--text-tertiary: hsl(0 0% 50%);
 
 	--border: var(--c4);
 	--border-hover: var(--c8);
@@ -38,6 +39,7 @@
 ::selection {
 	background: hsl(var(--accent));
 	color: #000;
+	text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
 }
 
 html {

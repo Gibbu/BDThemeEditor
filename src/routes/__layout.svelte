@@ -1,30 +1,19 @@
 <script>
-	import {THEME, isMounted, loaded} from '$lib/stores';
+	import {THEME, isMounted} from '$lib/stores';
 	import {browser} from '$app/env';
 	import {navigating} from '$app/stores';
 	import {goto} from '$app/navigation';
 	import tooltip from '$lib/tooltip';
-	import Icon, {Check, Adjustments, ChevronRight, ChevronLeft, Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat} from 'svelte-hero-icons';
+	import Icon, {Check, ExclamationCircle, DesktopComputer, ChevronLeft, Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat} from 'svelte-hero-icons';
 	import NProgress from 'nprogress';
 
 	// Components
 	import {Button} from '$components/common/Button';
 	import {ModalRoot, ModalBody, ModalHeader, ModalFooter} from '$components/common/Modal';
-	import {Component, Actions} from '$components/editor'
+	import {Component, Actions, Addons} from '$components/editor'
 
 	// Icons
-	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat}
-
-	// Active setting
-	let activeSetting: number = 0;
-
-	const setSetting = (index: number): void => {
-		activeSetting = index;
-	}
-
-	// Browser warning
-	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-	let visible: boolean = browser && !localStorage.browser_warning;
+	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer}
 
 	$: if ($navigating) {
 		NProgress.start();
@@ -32,9 +21,28 @@
 		NProgress.done();
 	}
 
+	// Developer warning
+	let devWarning: boolean = browser && !localStorage.dev_warning;
+
+	const closeDevWarning = (): void => {
+		devWarning = false;
+		localStorage.dev_warning = 'true';
+	}
+
+	// Browser warning
+	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+	let visible: boolean = browser && !localStorage.browser_warning;
+
 	const closeWarning = () => {
 		visible = false;
 		localStorage.browser_warning = true;
+	}
+
+	// Active setting
+	let activeSetting: number = 100;
+
+	const setSetting = (index: number): void => {
+		activeSetting = index;
 	}
 
 	// Back modal
@@ -45,32 +53,70 @@
 	}
 	const goBack = (): void => {
 		backModal = false;
-		setTimeout(() => goto('/'), 300);
+		setTimeout(() => {
+			goto('/');
+			activeSetting = 0;
+		}, 300);
 	}
 
-	// Mouting fix
 	import '$scss/app.scss';
 </script>
 
-<nav class="nav" class:disabled={!$isMounted}>
-	<button class="nav-btn nav-back" use:tooltip={{content: 'Back to theme selection', placement: 'right', offset: [0, 15]}} on:click={toggleBack}>
+<nav class="nav">
+	<button class="nav-btn nav-back" disabled={!$isMounted} use:tooltip={{content: 'Back to theme selection', placement: 'right', offset: [0, 15]}} on:click={toggleBack}>
 		<Icon src={ChevronLeft} />
 	</button>
-	{#if $isMounted}
-		{#each $THEME.variables as group, i}
-			<button
-				class="nav-btn"
-				class:active={activeSetting === i}
-				use:tooltip={{content: group.title, placement: 'right', offset: [0, 15]}}
-				on:click={() => setSetting(i)}
-			>
-				<Icon src={icons[group.icon]} />
-			</button>
-		{/each}
-	{/if}
+	<hr class="nav-divider">
+	<div class="scroller">
+		<div class="scroller-inner">
+			{#if $isMounted}
+				{#each $THEME.variables as group, i}
+					<button
+						class="nav-btn"
+						class:active={activeSetting === i}
+						use:tooltip={{content: group.title, placement: 'right', offset: [0, 15]}}
+						on:click={() => setSetting(i)}
+					>
+						<Icon src={icons[group.icon]} />
+					</button>
+				{/each}
+				{#if $THEME.addons && $THEME.addons.length > 0}
+					<button
+						class="nav-btn"
+						class:active={activeSetting === 100}
+						use:tooltip={{content: 'Addons', placement: 'right', offset: [0, 15]}}
+						on:click={() => setSetting(100)}
+					>
+						<Icon src={Puzzle} />
+					</button>
+				{/if}
+			{/if}
+		</div>
+	</div>
+	<hr class="nav-divider">
+	<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer" class="nav-btn" use:tooltip={{content: 'Found a bug?', placement: 'right', offset: [0, 15]}}>
+		<Icon src={ExclamationCircle} />
+	</a>
 </nav>
-<aside class="sidebar" class:disabled={!$isMounted}>
+<aside class="sidebar">
 	<Actions />
+	<hr class="sidebar-divider">
+	{#if $isMounted && devWarning}
+		<div class="devWarning">
+			<div class="markdown">
+				<p>Before you start editing, just a little heads up:</p>
+				<p>If you find any bugs with this editor, please do not annoy the theme developers.</p>
+				<p>Join my <a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer">Discord Server</a> and tell me about them there.</p>
+				<p>After closing this, you can still join my server and report a bug by pressing the button in the very bottom left of your screen.</p>
+			</div>
+			<Button type="secondary" on:click={closeDevWarning}>
+				<svelte:fragment slot="iconL">
+					<Icon src={Check} />
+				</svelte:fragment>
+				I Understand
+			</Button>
+		</div>
+	{/if}
 	<div class="sidebar-body scroller">
 		<div class="scroller-inner">
 			{#if $isMounted}
@@ -83,6 +129,11 @@
 						{/each}
 					</div>
 				{/each}
+				{#if $THEME.addons && $THEME.addons.length > 0}
+					<div class="setting" class:active={activeSetting === 100}>
+						<Addons />
+					</div>
+				{/if}
 			{:else}
 				<p class="no-theme">Select a theme to start editing</p>
 			{/if}
@@ -146,8 +197,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		&-back {
-			border-bottom: rem(1) solid var(--border);
+		&-divider {
+			height: rem(1);
+			border: none;
+			width: 100%;
+			background: var(--border);
+			margin: 0;
 		}
 		&-btn {
 			width: rem(64);
@@ -180,6 +235,14 @@
 				}
 			}
 		}
+		&-back {
+			height: rem(70);
+			&[disabled] {
+				opacity: .5;
+				pointer-events: none;
+				user-select: none;
+			}
+		}
 	}
 
 	.sidebar {
@@ -188,11 +251,17 @@
 		border-right: rem(1) solid var(--border);
 		display: flex;
 		flex-direction: column;
-	}
+		&-divider {
+			width: 100%;
+			margin: 0;
+			border: none;
+			height: rem(1);
+			background: var(--border);
+		}
 
-	.disabled {
-		user-select: none;
-		pointer-events: none;
+		.scroller-inner {
+			padding: rem(16);
+		}
 	}
 
 	.no-theme {
@@ -203,10 +272,8 @@
 		height: 100%;
 		color: var(--text-tertiary);
 		opacity: .5;
-	}
-	
-	.scroller-inner {
-		padding: rem(16);
+		pointer-events: none;
+		user-select: none;
 	}
 
 	.setting {
@@ -218,6 +285,18 @@
 
 	.option:not(:last-child) {
 		margin-bottom: rem(16);
+	}
+
+	.devWarning {
+		background: var(--c0);
+		padding: rem(16);
+		border-bottom: rem(1) solid var(--border);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		.markdown {
+			margin-bottom: rem(16);
+		}
 	}
 
 	#page {

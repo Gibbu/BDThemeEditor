@@ -93,8 +93,6 @@
 		span {
 			width: min-content;
 			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 		}
 
 		&.long {
@@ -120,6 +118,7 @@
 		&.primary {
 			background: hsl(var(--accent));
 			color: #000;
+			text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
 			&:hover {
 				background: hsl(var(--accent-dark));
 			}
@@ -132,13 +131,13 @@
 		}
 
 		&.secondary {
-			background: var(--c6);
+			background: var(--c4);
 			color: var(--text-secondary);
 			&:hover {
-				background: var(--c7);
+				background: var(--c5);
 			}
 			&:focus {
-				background: var(--c8);
+				background: var(--c7);
 				color: var(--text-primary);
 			}
 		}

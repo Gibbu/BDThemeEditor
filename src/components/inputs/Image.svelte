@@ -9,6 +9,8 @@
 	import {ModalRoot, ModalBody, ModalHeader} from '$components/common/Modal';
 	import {Button} from '$components/common/Button';
 	import {RadioGroup, RadioGroupItem} from '$components/common/RadioGroup';
+	import {Select} from '$components/common/Select';
+	import {Input} from '$components/common/Input';
 
 	// Required vars
 	export let variable: string;
@@ -90,9 +92,9 @@
 	}
 
 	/**
-	 * When clicking the upload button, upload to the desired location.
+	 * Either upload the file to the desired web host or base64 the image.
 	 */
-	const local = async(): Promise<void> => {
+	const localFile = async(): Promise<void> => {
 		const file = files[0];
 		fileInputName = file.name;
 
@@ -132,17 +134,56 @@
 		}
 	}
 
+	$: if (value === 'transparent' && value === start) {
+		value = '';
+	}
+
+	const transparent = (option: string): void => {
+		if (option === 'transparent') {
+			updatePreview('transparent');
+		} else {
+			updatePreview(value || start);
+		}
+	}
+
 
 	const updatePreview = (value: any): void => {
 		dispatch('update', {variable, value})
 	}
 
+	// Dropdown stuff
+	let selectedOption: 'url'|'file'|'transparent' = 'url';
+	const selectOptions = [
+		{label: 'Internet URL', value: 'url'},
+		{label: 'Computer file', value: 'file'},
+		{label: 'Transparent Background', value: 'transparent'}
+	]
+
+	const setOption = ({detail}): void => {
+		error = '';
+		selectedOption = detail;
+	}
 </script>
 
-<button on:click={() => fileUploadModal = true}>open</button>
+<header class="option-header">
+	<p class="option-title">{title}</p>
+</header>
+<div class="option-body">
+	<Select options={selectOptions} custom={false} on:update={setOption} />
+	{#if selectedOption === 'url'}
+		<Input placeholder="Image URL" {error} bind:value on:keyup={web} />
+		{#if error}
+			<small class="error">{error}</small>
+		{/if}
+	{:else if selectedOption === 'file'}
+		<Button type="primary" on:click={() => fileUploadModal = true}>
+			Browse
+		</Button>
+	{/if}
+</div>
 
 <ModalRoot bind:visible={fileUploadModal} maxWidth={550}>
-	<ModalHeader title="How should we upload?" />
+	<ModalHeader title="How should we upload?" on:close={() => fileUploadModal = false} />
 	<ModalBody markdown={false}>
 		<RadioGroup>
 			<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">Imgur.com</RadioGroupItem>
@@ -171,7 +212,7 @@
 		{#if !error && thumbnail}
 			<div class="uploadArea">
 				{#if !fileUploading}
-					<Button type="primary" size="extralarge" long on:click={local}>
+					<Button type="primary" size="extralarge" long on:click={localFile}>
 						<svelte:fragment slot="iconL">
 							{#if uploadType === 'b64'}
 								<Icon src={Check} />
@@ -198,6 +239,17 @@
 </ModalRoot>
 
 <style lang="scss">
+	.option {
+		&-header {
+			margin-bottom: rem(8);
+		}
+		&-body {
+			display: flex;
+			flex-direction: column;
+			gap: rem(8);
+		}
+	}
+
 	.dropzone {
 		$self: &;
 
@@ -283,5 +335,9 @@
 				transition: .15s ease width;
 			}
 		}
+	}
+	.error {
+		color: hsl(var(--red));
+		display: block;
 	}
 </style>

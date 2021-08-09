@@ -13,14 +13,14 @@
 		return {
 			status: 200,
 			props: {
-				slug: page.params.slug,
-				historyIndex: parseInt(page.query.get('historyIndex'))
+				slug: page.params.slug
 			}
 		}
 	}
 </script>
 
 <script>
+	import {browser} from '$app/env';
 	import {THEME, isMounted} from '$lib/stores';
 	import {onMount, onDestroy} from 'svelte';
 
@@ -31,7 +31,6 @@
 	import type {ITheme} from '$types/theme';
 
 	export let slug: string;
-	export let historyIndex: number;
 
 	// Data
 	import addonsData from '$data/addons';
@@ -54,11 +53,7 @@
 		addons: setAddons
 	}
 
-	console.log('script');
-	onMount(() => {
-		$isMounted = true
-		console.log('mounted');
-	})
+	onMount(() => $isMounted = true)
 	onDestroy(() => $isMounted = false);
 </script>
 

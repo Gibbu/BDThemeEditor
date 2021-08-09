@@ -63,15 +63,15 @@ const theme: ITheme = {
 						variable: 'friends-icon-position',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Image position'
 					}

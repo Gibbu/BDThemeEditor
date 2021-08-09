@@ -1,7 +1,7 @@
 <script>
-	import {onMount} from 'svelte';
-	import Icon, {Download, Save, Upload, Check, ChevronLeft, X} from 'svelte-hero-icons';
-	import {THEME, preview} from '$lib/stores';
+	import {browser} from '$app/env';
+	import Icon, {Download, Save, Clock, Check, ChevronLeft, X} from 'svelte-hero-icons';
+	import {THEME, preview, isMounted} from '$lib/stores';
 	import DLTheme from '$lib/download';
 
 	import {Input} from '$components/common/Input';
@@ -31,6 +31,8 @@
 
 	const save = (): void => {
 		if (validate()) {
+			$THEME.meta.name = value;
+
 			DLTheme($THEME);
 		}
 	}
@@ -43,17 +45,17 @@
 		localStorage.setItem(`donate_${$THEME.name.replace(/ /g, '')}`, 'true');
 	}
 
-	onMount(() => {
-		showDonateWindow = !localStorage.getItem(`donate_${$THEME.name.replace(/ /g, '')}`);
-	})
+	$: if (browser && $isMounted && localStorage.getItem(`donate_${$THEME.name.replace(/ /g, '')}`)) {
+		showDonateWindow = false;
+	}
 </script>
 
-<div class="actions">
+<div class="actions" disabled={!$isMounted}>
 	<Button type="secondary">
 		<svelte:fragment slot="iconL">
-			<Icon src={Upload} />
+			<Icon src={Clock} />
 		</svelte:fragment>
-		Import
+		History
 	</Button>
 	<Button type="primary" on:click={() => saveModal = true}>
 		<svelte:fragment slot="iconL">
@@ -75,7 +77,6 @@
 				</button>
 			</h4>
 			<p class="donate-text">Consider donating to {$THEME.developer.name}.</p>
-			
 		</div>
 		{/if}
 		<p class="save-title">Give your theme a name:</p>
@@ -101,9 +102,12 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: rem(16);
-		padding: rem(16) 0;
-		margin: 0 rem(16);
-		border-bottom: rem(1) solid var(--border);
+		padding: rem(16);
+		&[disabled="true"] {
+			opacity: .5;
+			pointer-events: none;
+			user-select: none;
+		}
 	}
 
 	.save {

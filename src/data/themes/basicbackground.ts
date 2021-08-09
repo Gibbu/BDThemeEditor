@@ -41,12 +41,12 @@ const theme: ITheme = {
 						variable: 'backgroundsize',
 						value: 'cover',
 						options: [
-							{title: 'Cover', value: 'cover'},
-							{title: 'Contain', value: 'contain'},
-							{title: 'Auto', value: 'auto'},
-							{title: '100%', value: '100%'},
-							{title: '150%', value: '150%'},
-							{title: '200%', value: '200%'}
+							{label: 'Cover', value: 'cover'},
+							{label: 'Contain', value: 'contain'},
+							{label: 'Auto', value: 'auto'},
+							{label: '100%', value: '100%'},
+							{label: '150%', value: '150%'},
+							{label: '200%', value: '200%'}
 						],
 						title: 'Size'
 					}
@@ -57,15 +57,15 @@ const theme: ITheme = {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Position'
 					}
@@ -102,12 +102,12 @@ const theme: ITheme = {
 						variable: 'popoutsize',
 						value: 'var(--backgroundsize)',
 						options: [
-							{title: 'Cover', value: 'cover'},
-							{title: 'Contain', value: 'contain'},
-							{title: 'Auto', value: 'auto'},
-							{title: '100%', value: '100%'},
-							{title: '150%', value: '150%'},
-							{title: '200%', value: '200%'}
+							{label: 'Cover', value: 'cover'},
+							{label: 'Contain', value: 'contain'},
+							{label: 'Auto', value: 'auto'},
+							{label: '100%', value: '100%'},
+							{label: '150%', value: '150%'},
+							{label: '200%', value: '200%'}
 						],
 						title: 'Size'
 					}
@@ -118,15 +118,15 @@ const theme: ITheme = {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Position'
 					}
@@ -328,8 +328,8 @@ const theme: ITheme = {
 						title: 'Show setting icons',
 						value: '1',
 						options: [
-							{title: 'True', value: '1'},
-							{title: 'False', value: '0'}
+							{label: 'True', value: '1'},
+							{label: 'False', value: '0'}
 						],
 						customValue: false
 					}

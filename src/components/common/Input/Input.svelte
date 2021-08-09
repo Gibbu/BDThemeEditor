@@ -10,6 +10,12 @@
 	export let placeholder: string = null;
 
 	export let error: any = null;
+
+	/** Minimum number when the `inputType` is set to `number` */
+	export let min: number = 0;
+
+	/** Maximum number when the `inputType` is set to `number` */
+	export let max: number = 100;
 </script>
 
 {#if inputType === 'text'}
@@ -29,6 +35,8 @@
 		class="input"
 		class:error
 		{placeholder}
+		{min}
+		{max}
 		bind:value
 		on:change
 		on:input

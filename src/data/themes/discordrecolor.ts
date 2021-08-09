@@ -206,8 +206,8 @@ const theme: ITheme = {
 						variable: 'settingsicons',
 						value: '1',
 						options: [
-							{title: 'True', value: '1'},
-							{title: 'False', value: '0'}
+							{label: 'True', value: '1'},
+							{label: 'False', value: '0'}
 						],
 						title: 'Show settings icons',
 						customValue: false

@@ -1,12 +1,13 @@
 <script>
 	import {browser} from '$app/env';
-	import Icon, {ColorSwatch, Clock} from 'svelte-hero-icons';
+	import Icon, {ColorSwatch, Clock, DotsHorizontal} from 'svelte-hero-icons';
 
 	import themes from '$data/themes';
 
 	const history = browser && JSON.parse(localStorage.history || '[]') || [];
 
-	import {Button} from '$components/common/Button';
+	import {Menu, MenuButton, MenuDropdown, MenuGroup, MenuItem} from '$components/common/Menu';
+	import {ModalRoot, ModalHeader, ModalBody} from '$components/common/Modal';
 
 	const getHref = (href: string) => `/theme/${href.replace(/ /g, '').toLowerCase()}`;
 </script>
@@ -34,7 +35,7 @@
 						<h3 class="section-title">Recently made themes</h3>
 					</section>
 				{/if}
-			
+
 				<section class="section">
 					<h3 class="section-title">Available themes</h3>
 					<main class="themes">
@@ -100,6 +101,8 @@
 		background: var(--card);
 		border: rem(1) solid var(--border);
 		border-radius: rem(4);
+		overflow: hidden;
+		position: relative;
 		transition: .15s ease border-color,
 								.15s ease box-shadow;
 
@@ -132,7 +135,7 @@
 			margin-top: rem(2);
 		}
 
-		&:hover {
+		&:hover, &:focus-visible {
 			border-color: hsl(var(--accent));
 			box-shadow: 0 0 0 rem(4) hsl(var(--accent) / .2);
 		}

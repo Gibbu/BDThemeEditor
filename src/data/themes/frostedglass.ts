@@ -54,12 +54,12 @@ const theme: ITheme = {
 						variable: 'background-image-size',
 						value: 'cover',
 						options: [
-							{title: 'Cover', value: 'cover'},
-							{title: 'Contain', value: 'contain'},
-							{title: 'Auto', value: 'auto'},
-							{title: '100%', value: '100%'},
-							{title: '150%', value: '150%'},
-							{title: '200%', value: '200%'}
+							{label: 'Cover', value: 'cover'},
+							{label: 'Contain', value: 'contain'},
+							{label: 'Auto', value: 'auto'},
+							{label: '100%', value: '100%'},
+							{label: '150%', value: '150%'},
+							{label: '200%', value: '200%'}
 						],
 						title: 'Size'
 					}
@@ -70,15 +70,15 @@ const theme: ITheme = {
 						variable: 'background-image-position',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Position'
 					}
@@ -115,12 +115,12 @@ const theme: ITheme = {
 						variable: 'popout-modal-size',
 						value: 'cover',
 						options: [
-							{title: 'Cover', value: 'cover'},
-							{title: 'Contain', value: 'contain'},
-							{title: 'Auto', value: 'auto'},
-							{title: '100%', value: '100%'},
-							{title: '150%', value: '150%'},
-							{title: '200%', value: '200%'}
+							{label: 'Cover', value: 'cover'},
+							{label: 'Contain', value: 'contain'},
+							{label: 'Auto', value: 'auto'},
+							{label: '100%', value: '100%'},
+							{label: '150%', value: '150%'},
+							{label: '200%', value: '200%'}
 						],
 						title: 'Size'
 					}
@@ -131,15 +131,15 @@ const theme: ITheme = {
 						variable: 'popout-modal-position',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Position'
 					}
@@ -165,12 +165,12 @@ const theme: ITheme = {
 						variable: 'home-button-size',
 						value: 'cover',
 						options: [
-							{title: 'Cover', value: 'cover'},
-							{title: 'Contain', value: 'contain'},
-							{title: 'Auto', value: 'auto'},
-							{title: '100%', value: '100%'},
-							{title: '150%', value: '150%'},
-							{title: '200%', value: '200%'}
+							{label: 'Cover', value: 'cover'},
+							{label: 'Contain', value: 'contain'},
+							{label: 'Auto', value: 'auto'},
+							{label: '100%', value: '100%'},
+							{label: '150%', value: '150%'},
+							{label: '200%', value: '200%'}
 						],
 						title: 'Image size'
 					}
@@ -181,15 +181,15 @@ const theme: ITheme = {
 						variable: 'home-button-position',
 						value: 'center',
 						options: [
-							{title: 'Top left', value: 'top left'},
-							{title: 'Top centre', value: 'top center'},
-							{title: 'Top right', value: 'top right'},
-							{title: 'Centre left', value: 'center left'},
-							{title: 'Centre', value: 'center'},
-							{title: 'Centre right', value: 'center right'},
-							{title: 'Bottom left', value: 'Bottom left'},
-							{title: 'Bottom centre', value: 'Bottom center'},
-							{title: 'Bottom right', value: 'bottom right'}
+							{label: 'Top left', value: 'top left'},
+							{label: 'Top centre', value: 'top center'},
+							{label: 'Top right', value: 'top right'},
+							{label: 'Centre left', value: 'center left'},
+							{label: 'Centre', value: 'center'},
+							{label: 'Centre right', value: 'center right'},
+							{label: 'Bottom left', value: 'Bottom left'},
+							{label: 'Bottom centre', value: 'Bottom center'},
+							{label: 'Bottom right', value: 'bottom right'}
 						],
 						title: 'Image position'
 					}
@@ -350,8 +350,8 @@ const theme: ITheme = {
 			]
 		},
 		{
-			title: 'Others',
-			icon: 'Cog',
+			title: 'App settings',
+			icon: 'DesktopComputer',
 			inputs: [
 				{
 					type: 'slider',
@@ -375,19 +375,6 @@ const theme: ITheme = {
 						step: 1,
 						title: 'Window rounded',
 						hint: 'Roundness of Discord'
-					}
-				},
-				{
-					type: 'select',
-					details: {
-						variable: 'show-gift-gif-buttons',
-						value: 'none',
-						options: [
-							{title: 'True', value: 'block'},
-							{title: 'False', value: 'none'},
-						],
-						title: 'Show Gift and Gif buttons',
-						customValue: false
 					}
 				}
 			]

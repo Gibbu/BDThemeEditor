@@ -57,7 +57,7 @@ export interface ISelect extends Defaults {
 		variable: string,
 		title: string,
 		options: {
-			title: string,
+			label: string,
 			value: string
 		}[],
 		addon?: boolean,

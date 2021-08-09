@@ -2,7 +2,7 @@ import type {Inputs} from './inputs';
 import type {IDev} from './dev';
 import type {IAddon} from './addon';
 
-export type Icons = ('Photograph'|'Sun'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat');
+export type Icons = ('Photograph'|'Sun'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat'|'DesktopComputer');
 
 interface ThemeVars {
 	title: string,

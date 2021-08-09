@@ -1,7 +1,7 @@
 <script>
 	import {THEME, preview} from '$lib/stores';
 
-	import {Colour, Font, Image} from '../inputs';
+	import {Colour, Font, Image, Slider, Select, Number} from '../inputs';
 
 	interface Details {
 		variable: string,
@@ -13,7 +13,10 @@
 	const inputs = {
 		colour: Colour,
 		font: Font,
-		image: Image
+		image: Image,
+		slider: Slider,
+		select: Select,
+		number: Number
 	}
 
 	export let data: {
