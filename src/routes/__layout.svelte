@@ -7,6 +7,9 @@
 	import Icon, {Check, ExclamationCircle, DesktopComputer, ChevronLeft, Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat} from 'svelte-hero-icons';
 	import NProgress from 'nprogress';
 
+	// Types
+	import type {IStoreTheme} from '$types/theme';
+
 	// Components
 	import {Button} from '$components/common/Button';
 	import {ModalRoot, ModalBody, ModalHeader, ModalFooter} from '$components/common/Modal';
@@ -39,10 +42,18 @@
 	}
 
 	// Active setting
-	let activeSetting: number = 100;
+	let activeSetting: number = 0;
 
 	const setSetting = (index: number): void => {
 		activeSetting = index;
+	}
+
+	// History
+	let history: IStoreTheme[] = $isMounted && browser && JSON.parse(localStorage.getItem(`${$THEME.name}_history`) || '[]');
+	let historyTab: boolean = false;
+
+	const toggleHistory = (): void => {
+		historyTab = !historyTab;
 	}
 
 	// Back modal
@@ -98,8 +109,9 @@
 		<Icon src={ExclamationCircle} />
 	</a>
 </nav>
+
 <aside class="sidebar">
-	<Actions />
+	<Actions on:showHistory={toggleHistory} />
 	<hr class="sidebar-divider">
 	{#if $isMounted && devWarning}
 		<div class="devWarning">
@@ -120,19 +132,23 @@
 	<div class="sidebar-body scroller">
 		<div class="scroller-inner">
 			{#if $isMounted}
-				{#each $THEME.variables as group, i}
-					<div class="setting" class:active={activeSetting === i}>
-						{#each group.inputs as setting}
-							<div class="option">
-								<Component data={setting} />
-							</div>
-						{/each}
-					</div>
-				{/each}
-				{#if $THEME.addons && $THEME.addons.length > 0}
-					<div class="setting" class:active={activeSetting === 100}>
-						<Addons />
-					</div>
+				{#if historyTab}
+					<p>history</p>
+				{:else}
+					{#each $THEME.variables as group, i}
+						<div class="setting" class:active={activeSetting === i}>
+							{#each group.inputs as setting}
+								<div class="option">
+									<Component data={setting} />
+								</div>
+							{/each}
+						</div>
+					{/each}
+					{#if $THEME.addons && $THEME.addons.length > 0}
+						<div class="setting" class:active={activeSetting === 100}>
+							<Addons />
+						</div>
+					{/if}
 				{/if}
 			{:else}
 				<p class="no-theme">Select a theme to start editing</p>

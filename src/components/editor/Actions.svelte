@@ -1,8 +1,11 @@
 <script>
+	import {createEventDispatcher} from 'svelte';
 	import {browser} from '$app/env';
 	import Icon, {Download, Save, Clock, Check, ChevronLeft, X} from 'svelte-hero-icons';
 	import {THEME, preview, isMounted} from '$lib/stores';
 	import DLTheme from '$lib/download';
+
+	const dispatch = createEventDispatcher();
 
 	import {Input} from '$components/common/Input';
 	import {Button} from '$components/common/Button';
@@ -37,6 +40,11 @@
 		}
 	}
 
+	// History
+	const showHistory = (): void => {
+		dispatch('showHistory');
+	}
+
 	// Donate
 	let showDonateWindow: boolean = true;
 
@@ -51,7 +59,7 @@
 </script>
 
 <div class="actions" disabled={!$isMounted}>
-	<Button type="secondary">
+	<Button type="secondary" on:click={showHistory}>
 		<svelte:fragment slot="iconL">
 			<Icon src={Clock} />
 		</svelte:fragment>
