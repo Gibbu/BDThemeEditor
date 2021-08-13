@@ -31,27 +31,29 @@
 	}
 </script>
 
-<header class="option-header">
-	<div class="option-info">
-		<p class="option-title">
-			{title}
-			<small class="option-unit">({value+unit})</small>
-		</p>
-		<button on:click={changeInput} class="switch-input" use:tooltip={{content: 'Switch input', delay: [350, 0]}}>
-			<Icon src={SwitchHorizontal} />
-		</button>
+<template>
+	<header class="option-header">
+		<div class="option-info">
+			<p class="option-title">
+				{title}
+				<small class="option-unit">({value+unit})</small>
+			</p>
+			<button on:click={changeInput} class="switch-input" use:tooltip={{content: 'Switch input', delay: [350, 0]}}>
+				<Icon src={SwitchHorizontal} />
+			</button>
+		</div>
+		{#if hint}
+			<small class="option-hint">{hint}</small>
+		{/if}
+	</header>
+	<div class="option-body">
+		{#if !switchType}
+			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update}>
+		{:else}
+			<Input inputType="number" {min} {max} bind:value on:input={update} />
+		{/if}
 	</div>
-	{#if hint}
-		<small class="option-hint">{hint}</small>
-	{/if}
-</header>
-<div class="option-body">
-	{#if !switchType}
-		<input type="range" class="slider" {min} {max} {step} bind:value on:input={update}>
-	{:else}
-		<Input inputType="number" {min} {max} bind:value on:input={update} />
-	{/if}
-</div>
+</template>
 
 <style lang="scss">
 	.option {

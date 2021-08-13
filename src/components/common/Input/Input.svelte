@@ -18,31 +18,33 @@
 	export let max: number = 100;
 </script>
 
-{#if inputType === 'text'}
-	<input
-		type="text"
-		class="input"
-		class:error
-		{placeholder}
-		bind:value
-		on:change
-		on:input
-		on:keyup
-	>
-{:else}
-	<input
-		type="number"
-		class="input"
-		class:error
-		{placeholder}
-		{min}
-		{max}
-		bind:value
-		on:change
-		on:input
-		on:keyup
-	>
-{/if}
+<template>
+	{#if inputType === 'text'}
+		<input
+			type="text"
+			class="input"
+			class:error
+			{placeholder}
+			bind:value
+			on:change
+			on:input
+			on:keyup
+		>
+	{:else}
+		<input
+			type="number"
+			class="input"
+			class:error
+			{placeholder}
+			{min}
+			{max}
+			bind:value
+			on:change
+			on:input
+			on:keyup
+		>
+	{/if}
+</template>
 
 <style lang="scss">
 	.input {

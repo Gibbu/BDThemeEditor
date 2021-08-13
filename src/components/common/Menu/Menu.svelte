@@ -9,13 +9,15 @@
 	setContext('menuBtn', menuBtn);
 </script>
 
-<div
-	class="menu"
-	class:active={$visible}
-	{...$$restProps}
->
-	<slot />
-</div>
+<template>
+	<div
+		class="menu"
+		class:active={$visible}
+		{...$$restProps}
+	>
+		<slot />
+	</div>
+</template>
 
 <style lang="scss">
 	.menu {

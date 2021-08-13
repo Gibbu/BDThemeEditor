@@ -4,7 +4,6 @@
 
 
 	// Components
-	import {Message} from '$components/common/Message';
 	import {Input} from '$components/common/Input';
 	
 	// Required input vars
@@ -30,21 +29,23 @@
 	}
 </script>
 
-<header class="option-header">
-	<p class="option-title">
-		{title}
-		<small class="option-value">({value+unit})</small>
-	</p>
-	{#if hint}
-		<div class="option-hint">{hint}</div>
-	{/if}
-</header>
-<div class="option-body">
-	<Input inputType="number" {min} bind:value on:input={update} {error} />
-	{#if error}
-		<small class="option-error">{error}</small>
-	{/if}
-</div>
+<template>
+	<header class="option-header">
+		<p class="option-title">
+			{title}
+			<small class="option-value">({value+unit})</small>
+		</p>
+		{#if hint}
+			<div class="option-hint">{hint}</div>
+		{/if}
+	</header>
+	<div class="option-body">
+		<Input inputType="number" {min} bind:value on:input={update} {error} />
+		{#if error}
+			<small class="option-error">{error}</small>
+		{/if}
+	</div>
+</template>
 
 <style lang="scss">
 	.option {

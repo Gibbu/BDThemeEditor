@@ -5,10 +5,10 @@
 
 	import Component from './Component.svelte';
 
-	let states = {
-		hsl: false,
-		columns: false,
-		rs: false
+	$: states = {
+		hsl: $THEME.addons.some(addon => addon.selector === 'hsl' && addon.use),
+		columns: $THEME.addons.some(addon => addon.selector === 'columns' && addon.use),
+		rs: $THEME.addons.some(addon => addon.selector === 'rs' && addon.use)
 	}
 
 	/**
@@ -16,7 +16,7 @@
 	 */
 	const toggle = (e: any): void => {
 		const checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(`[name="${e.target.name}"]`);
-			
+
 		checkboxes.forEach(checkbox => {
 			const addon = $THEME.addons.find(obj => obj.selector === checkbox.value);
 
@@ -24,7 +24,7 @@
 				checkbox.checked = false;
 				states[checkbox.value] = false;
 			}
-			if (e.target.value === checkbox.value && checkbox.checked == true) {
+			if (e.target.value === checkbox.value && checkbox.checked == true && checkbox.checked) {
 				applyAddon(addon);
 				states[checkbox.value] = true;
 			} else {
@@ -71,31 +71,31 @@
 	}
 </script>
 
-{#each $THEME.addons as addon}
-	<div class="addon">
-		<div class="addon-header">
-			<input type="checkbox" class="addon-checkbox" name={addon.group} value={addon.selector} on:change={toggle}>
-			<div class="addon-info">
-				<div class="addon-meta">
-					<h4 class="addon-name">{addon.name}</h4>
-					<p class="addon-description">{addon.description}</p>
+<template>
+	{#each $THEME.addons as addon}
+		<div class="addon">
+			<div class="addon-header">
+				<input type="checkbox" class="addon-checkbox" name={addon.group} value={addon.selector} checked={states[addon.selector]} on:change={toggle}>
+				<div class="addon-info">
+					<div class="addon-meta">
+						<h4 class="addon-name">{addon.name}</h4>
+						<p class="addon-description">{addon.description}</p>
+					</div>
+					<a href="https://github.com/{addon.developer.github}" target="_blank" rel="noreferrer" class="addon-developer">
+						<img src="https://github.com/{addon.developer.github}.png" alt="Developer avatar" class="addon-avatar">
+					</a>
 				</div>
-				<a href="https://github.com/{addon.developer.github}" target="_blank" rel="noreferrer" class="addon-developer">
-					<img src="https://github.com/{addon.developer.github}.png" alt="Developer avatar" class="addon-avatar">
-				</a>
+			</div>
+			<div class="addon-body" class:active={states[addon.selector]}>
+				{#each addon.variables as data}
+					<div class="option">
+						<Component {data} />
+					</div>
+				{/each}
 			</div>
 		</div>
-		<div class="addon-body" class:active={states[addon.selector]}>
-			{#each addon.variables as data}
-				<div class="option">
-					<Component {data} />
-				</div>
-			{/each}
-		</div>
-	</div>
-{/each}
-
-
+	{/each}
+</template>
 
 <style lang="scss">
 	.addon {
@@ -115,6 +115,9 @@
 			border-radius: rem(4);
 			background-color: var(--c4);
 			cursor: pointer;
+			&:hover {
+				background-color: var(--c7);
+			}
 			&:checked {
 				background-color: hsl(var(--accent));
 				background-image: url('data:image/svg+xml; utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>');

@@ -1,5 +1,4 @@
 <script>
-	import {browser} from '$app/env';
 	import {fade, scale} from 'svelte/transition';
 	import portal from '$lib/portal';
 
@@ -18,22 +17,21 @@
 	 */
 	export let clickOutside: boolean = true;
 
-	$: if (visible) document.body.classList.add('modal-active');
-	$: if (browser && !visible) document.body.classList.remove('modal-active');
-
 	const close = () => {
 		if (clickOutside) visible = false;
 	}
 </script>
 
-{#if visible}
-	<div class="modal-container" use:portal={"#portal"}>
-		<div class="backdrop" transition:fade={{duration: 200}} on:click={close}></div>
-		<div class="modal" transition:scale={{duration: 200, start: .95}} style="max-width: {maxWidth}px;">
-			<slot />
+<template>
+	{#if visible}
+		<div class="modal-container" use:portal={"#portal"}>
+			<div class="backdrop" transition:fade={{duration: 150}} on:click={close}></div>
+			<div class="modal" transition:scale={{duration: 200, start: .95}} style="max-width: {maxWidth}px;">
+				<slot />
+			</div>
 		</div>
-	</div>
-{/if}
+	{/if}
+</template>
 
 <style lang="scss">
 	.modal-container {

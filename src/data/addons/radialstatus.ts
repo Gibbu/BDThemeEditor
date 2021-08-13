@@ -152,16 +152,25 @@ const addon: IAddon = {
 				addon: true
 			}
 		},
+		{
+			type: 'select',
+			details: {
+				variable: 'rs-phone-visible',
+				customValue: false,
+				options: [
+					{label: 'Visible', value: 'block'},
+					{label: 'Hidden', value: 'none'}
+				],
+				value: 'block',
+				title: 'Phone indicator visibility'
+			}
+		}
 	],
 	hiddenVars: [
 		{
 			variable: 'rs-invisible-color',
 			value: '#747f8d'
 		},
-		{
-			variable: 'rs-phone-visible',
-			value: 'block'
-		}
 	]
 }
 

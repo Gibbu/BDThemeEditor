@@ -32,7 +32,7 @@
 			$THEME.fonts[index] = fontUrl;
 
 			if (!$preview.querySelector(`#font-${index}`)) {
-				let style: HTMLStyleElement = document.createElement('style');
+				const style: HTMLStyleElement = document.createElement('style');
 				style.setAttribute('id', `font-${index}`);
 				style.setAttribute('class', 'customfont');
 				style.innerText = fontImport;
@@ -43,42 +43,18 @@
 		}
 
 		dispatch('update', {variable, value: output.join(',')});
-
-
-		// const output: string[] = value.split(',').map(el => el.trim());
-
-		// if (!value.includes('Whitney') && !local) {
-		// 	const url: string = `https://fonts.googleapis.com/css2?family=${output[0].replace(/ /g, '+')}:wght@100;300;400;500&display=swap`;
-		// 	const fontURL: string = `@import url('${url}');`;
-
-		// 	$THEME.fonts[index] = url;
-
-		// 	if (!font) {
-		// 		let style: HTMLStyleElement = document.createElement('style');
-		// 		style.setAttribute('id', `font-${index}`);
-		// 		style.setAttribute('class', 'customfont');
-		// 		style.innerText = fontURL;
-		// 		$preview.querySelector('head').appendChild(style);
-		// 	} else {
-		// 		font.innerText = fontURL;
-		// 	}
-		// }
-		// if (value.length > 0) {
-
-			
-
-		// 	dispatch('update', {variable, value: output.map(el => `'${el}'`).join(',')});
-		// }
 	}
 </script>
 
-<header class="option-header">
-	<p class="option-title">{title}</p>
-</header>
-<div class="option-body">
-	<Input placeholder="Font name" bind:value on:change={update} />
-	<small class="option-hint">Click away or press Enter to update preview.</small>
-</div>
+<template>
+	<header class="option-header">
+		<p class="option-title">{title}</p>
+	</header>
+	<div class="option-body">
+		<Input placeholder="Font name" bind:value on:change={update} />
+		<small class="option-hint">Click away or press Enter to update preview.</small>
+	</div>
+</template>
 
 <style lang="scss">
 	.option {

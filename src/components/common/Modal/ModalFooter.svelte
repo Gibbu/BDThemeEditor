@@ -1,6 +1,8 @@
-<footer class="modal-footer">
-	<slot />
-</footer>
+<template>
+	<footer class="modal-footer">
+		<slot />
+	</footer>
+</template>
 
 <style lang="scss">
 	.modal-footer {

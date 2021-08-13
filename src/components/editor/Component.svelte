@@ -1,5 +1,6 @@
 <script>
 	import {THEME, preview} from '$lib/stores';
+	import {varOutput} from '$lib/helpers';
 
 	import {Colour, Font, Image, Slider, Select, Number} from '../inputs';
 
@@ -22,15 +23,12 @@
 	export let data: {
 		type: string,
 		details: Record<string, any>
-	};
+	}
 
 	const update = ({detail}: {detail: Details}): void => {
 		let {variable, value, unit, addon} = detail;
 
-		if (typeof value === 'string' && (value.includes('http') || value.includes('base64'))) {
-			value = `url(${value})`;
-		}
-		$preview.style.setProperty(`--${variable}`, value+(unit || ''));
+		$preview.style.setProperty(`--${variable}`, varOutput(detail).output);
 
 		if (addon) {
 			$THEME.addons.forEach(group => group.variables.forEach(input => {
@@ -48,4 +46,6 @@
 	}
 </script>
 
-<svelte:component this={inputs[data.type]} {...data.details} on:update={update} />
+<template>
+	<svelte:component this={inputs[data.type]} {...data.details} on:update={update} />
+</template>

@@ -1,6 +1,5 @@
 <script>
-	import {tick} from 'svelte';
-	import {createEventDispatcher, onMount, onDestroy} from 'svelte';
+	import {tick, createEventDispatcher, onMount, onDestroy} from 'svelte';
 	import '@simonwep/pickr/dist/themes/monolith.min.css';
 
 	import type Pickr from '@simonwep/pickr';
@@ -19,14 +18,25 @@
 	export let alpha: boolean = false;
 	export let hint: string = null;
 
-	// Other vars
+	// PickrJS stuff
 	let pickrEl: HTMLElement;
+	let PickrModule: any;
+	let pickr: any;
+
 	let isMounted: boolean = false;
 
+	// Re-mount pickr when value is updated.
+	$: render(value);
+
 	onMount(async(): Promise<void> => {
+		PickrModule = await import('@simonwep/pickr');
+		
 		isMounted = true;
 
 		render(value);
+	})
+	onDestroy(() => {
+		if (isMounted) pickr.destroyAndRemove();
 	})
 
 	const render = async(value: string): Promise<void> => {
@@ -39,7 +49,7 @@
 		
 		if (isMounted) {
 			// Create Pickr
-			(await import('@simonwep/pickr')).default.create({
+			pickr = PickrModule.create({
 				el: pickrEl,
 				container: '#pickrs',
 				theme: 'monolith',
@@ -91,15 +101,19 @@
 	const rd = (value: number): number => Math.round(value);
 </script>
 
-<div class="colour">
-	<div bind:this={pickrEl}></div>
-	<div class="colour-info">
-		<p class="colour-title">{title}</p>
-		{#if hint}
-			<small class="colour-hint">{hint}</small>
-		{/if}
-	</div>
-</div>
+<template>
+	{#key value}
+		<div class="colour">
+			<div bind:this={pickrEl}></div>
+			<div class="colour-info">
+				<p class="colour-title">{title}</p>
+				{#if hint}
+					<small class="colour-hint">{hint}</small>
+				{/if}
+			</div>
+		</div>
+	{/key}
+</template>
 
 <style lang="scss">
 	.colour {

@@ -4,20 +4,22 @@
 	import type {Writable} from 'svelte/store';
 
 	let visible: Writable<boolean> = getContext('visible');
-	let menuBtn: Writable<HTMLElement|null> = getContext('menuBtn');
+	let menuBtn: Writable<HTMLElement> = getContext('menuBtn');
 </script>
 
-{#if $menuBtn}
-	<div
-		class="menu-dropdown"
-		role="menu"
-		aria-expanded={$visible}
-		use:clickOutside={$menuBtn}
-		on:clickedOutside={() => $visible = false}
-	>
-		<slot />
-	</div>
-{/if}
+<template>
+	{#if $menuBtn}
+		<div
+			class="menu-dropdown"
+			role="menu"
+			aria-expanded={$visible}
+			use:clickOutside={$menuBtn}
+			on:clickedOutside={() => $visible = false}
+		>
+			<slot />
+		</div>
+	{/if}
+</template>
 
 <style lang="scss">
 	.menu-dropdown {
@@ -28,7 +30,7 @@
 		background: var(--c0);
 		border: rem(1) solid var(--border);
 		border-radius: rem(4);
-		padding: rem(8) 0;
+		padding: rem(8);
 		opacity: 0;
 		visibility: hidden;
 		overflow: hidden;
@@ -36,6 +38,7 @@
 		transform-origin: top right;
 		transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
 		z-index: 3;
+		box-shadow: 0 3px 7px hsl(0 0% 0% / .1), 0 5px 28px hsl(0 0% 0% / .25);
 		&[aria-expanded="true"] {
 			opacity: 1;
 			visibility: visible;

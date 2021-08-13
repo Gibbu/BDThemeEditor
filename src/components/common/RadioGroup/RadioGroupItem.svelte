@@ -14,22 +14,24 @@
 	}
 </script>
 
-<label class="radio-item" class:selected={checked} aria-selected={checked} {disabled}>
-	<input
-		type="radio"
-		bind:group
-		on:change={handleEvent}
-		on:focus={handleEvent}
-		on:blur={handleEvent}
-		{value}
-		{checked}
-		hidden
-	>
-	<div class="radio-box"></div>
-	<div class="radio-content">
-		<slot />
-	</div>
-</label>
+<template>
+	<label class="radio-item" class:selected={checked} aria-selected={checked} {disabled}>
+		<input
+			type="radio"
+			bind:group
+			on:change={handleEvent}
+			on:focus={handleEvent}
+			on:blur={handleEvent}
+			{value}
+			{checked}
+			hidden
+		>
+		<div class="radio-box"></div>
+		<div class="radio-content">
+			<slot />
+		</div>
+	</label>
+</template>
 
 <style lang="scss">
 	.radio {

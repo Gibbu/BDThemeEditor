@@ -1,5 +1,5 @@
 <script>
-	import Icon, {Selector} from 'svelte-hero-icons';
+	import Icon, {Selector, Check} from 'svelte-hero-icons';
 	import clickOutside from '$lib/clickOutside';
 	import {createEventDispatcher} from 'svelte';
 
@@ -46,34 +46,46 @@
 	}
 </script>
 
-<div class="select">
-	<button bind:this={selectBtn} class="btn" on:click={toggle}>
-		<span class="btn-text">{selected.label}</span>
-		<div class="btn-icon">
-			<Icon src={Selector} />
-		</div>
-	</button>
-	{#if visible}
-		<div class="dropdown" use:clickOutside={selectBtn} on:clickedOutside={hide}>
-			{#each options as option}
-				<button class="option" class:active={selected.value === option.value} on:click={() => setOption(option)}>
-					{option.label}
-				</button>
-			{/each}
-			{#if custom}
-				<hr class="dropdown-divider">
-				<button class="option" class:active={selected.value === 'custom'} on:click={() => setOption({label: 'Custom value', value: 'custom'})}>
-					Custom value
-				</button>
-			{/if}
+<template>
+	<div class="select">
+		<button bind:this={selectBtn} class="btn" on:click={toggle}>
+			<span class="btn-text">{selected.label}</span>
+			<div class="btn-icon">
+				<Icon src={Selector} />
+			</div>
+		</button>
+		{#if visible}
+			<div class="dropdown" use:clickOutside={selectBtn} on:clickedOutside={hide}>
+				{#each options as option}
+					<button class="option" class:active={selected.value === option.value} on:click={() => setOption(option)}>
+						<span class="option-label">{option.label}</span>
+						{#if selected.value === option.value}
+							<div class="option-check">
+								<Icon src={Check} />
+							</div>
+						{/if}
+					</button>
+				{/each}
+				{#if custom}
+					<hr class="dropdown-divider">
+					<button class="option" class:active={selected.value === 'custom'} on:click={() => setOption({label: 'Custom value', value: 'custom'})}>
+						<span class="option-label">Custom value</span>
+						{#if selected.value === 'custom'}
+							<div class="option-check">
+								<Icon src={Check} />
+							</div>
+						{/if}
+					</button>
+				{/if}
+			</div>
+		{/if}
+	</div>
+	{#if selected.value === 'custom'}
+		<div class="select-custom">
+			<Input placeholder="Custom value" bind:value={customValue} on:input={() => update(customValue)} />
 		</div>
 	{/if}
-</div>
-{#if selected.value === 'custom'}
-	<div class="select-custom">
-		<Input placeholder="Custom value" bind:value={customValue} on:input={() => update(customValue)} />
-	</div>
-{/if}
+</template>
 
 <style lang="scss">
 	.select {
@@ -127,13 +139,21 @@
 		}
 	}
 	.option {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		width: 100%;
 		padding: rem(8);
 		text-align: left;
 		border-radius: rem(4);
 		font-size: rem(14);
 		font-weight: 500;
+
+		&-check {
+			height: rem(18);
+			width: rem(18);
+		}
+
 		&:not(:last-child) {
 			margin-bottom: rem(4);
 		}

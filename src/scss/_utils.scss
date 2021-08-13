@@ -47,229 +47,212 @@
 
 // Markdown
 .markdown {
-	font-size: rem(16);
 	color: var(--text-secondary);
 
-	// Spacing
-	& > *:first-child {
-		margin-top: 0 !important;
-	}
-	& > *:last-child {
-		margin-bottom: 0 !important;
-	}
-	& > *:only-child {
-		margin: 0 !important;
-	}
-	blockquote, 
-	details, 
-	dl, 
-	ol, 
-	p, 
-	pre, 
-	table, 
-	ul {
+	:first-child {
 		margin-top: 0;
-		margin-bottom: rem(16);
 	}
-
-	// Images
-	img {
-		max-width: 100%;
-		height: auto;
-		border-radius: rem(3);
-	}
-
-	// Header text (<h1> through <h6>)
-	h1, 
-	h2 {
-		padding-bottom: 0.3em;
-		border-bottom: rem(1) solid var(--bg4);
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin-top: rem(24);
-		margin-bottom: rem(16);
-		font-weight: 600;
-		line-height: 1.25;
-		color:var(--text-primary);
-	}
-	h1 {
-		font-size: 2em;
-	}
-	h2 {
-		font-size: 1.5em;
-	}
-	h3 {
-		font-size: 1.25em;
-	}
-	h4 {
-		font-size: 1em;
-	}
-	h5 {
-		font-size: 0.875em;
-	}
-	h6 {
-		font-size: 0.85em;
-		color: var(--text-secondary);
-	}
-
-	// Ordered & unordered lists
-	ol ol,
-	ol ul,
-	ul ol,
-	ul ul {
-		margin-top: 0;
+	:last-child {
 		margin-bottom: 0;
 	}
-	ol, ul {
-		padding-left: 2em;
-	}
-	li {
-		word-wrap: break-all;
-	}
-	li+li {
-		margin-top: 0.25em;
-	}
-	ol ol, ul ol {
-		list-style-type: lower-roman;
-	}
-	ol, ul {
-		padding-left: 2em;
+
+	h1, h2, h3, h4 {
+		font-family: 'Montserrat';
+		margin: rem(35) 0 rem(15);
+		padding-bottom: rem(5);
+		border-bottom: rem(1) solid var(--border);
 	}
 
-	// HLJS Codeblocks
-	// For syntaax highlighting, see ./_hljs.scss
-	code {
-		padding: 0.2em 0.4em;
-		margin: 0;
-		font-size: 85%;
-		background-color: var(--bg4);
-		border-radius: rem(3);
-	}
-	pre {
-		padding: rem(10);
-		overflow: auto;
-		overflow: overlay;
-		font-size: 85%;
-		line-height: 1.45;
-		box-shadow: 0 rem(2) rem(4) rgba(0,0,0,0.1);
-		background-color: var(--bg4);
-		border-radius: rem(3);
-
-		// Codeblock scrollbars
-		&::-webkit-scrollbar {
-			width: rem(4);
-			height: rem(4);
-		}
-		&::-webkit-scrollbar-thumb {
-			background-color: rgba(255,255,255,0.05);
-			border: none;
+	h1, h2 {
+		font-family: 'Montserrat';
+		color: var(--text-primary);
+		a {
+			color: inherit;
+			text-decoration: none;
 			&:hover {
-				background-color: rgba(255,255,255,0.1);
-			}
-			&:active {
-				background-color: rgba(255,255,255,0.15);
+				box-shadow: none;
 			}
 		}
 	}
-
-	// Blockquotes
-	blockquote {
-		margin: 0;
-		padding: 0 rem(1);
-		color: var(--text-tertiary);
-		border-left: 0.25em solid var(--bg4);
+	p {
+		margin-bottom: rem(10);
 	}
 
-	// Details (expander)
-	details {
-		border: rem(1) solid var(--bg4);
-		border-radius: rem(5);
-		summary {
-			border-radius: rem(5);
-			padding: 0.5em 1em;
-			cursor: pointer;
-		}
-		& > *:not(summary) {
-			margin-left: rem(16);
-			margin-right: rem(16);
-			&:nth-child(2) {
-				margin-top: rem(16);
-			}
-			&:last-child {
-				margin-bottom: rem(16);
-			}
-		}
-		&[open] summary {
-			border-radius: rem(5) rem(5) 0 0;
-			background-color: var(--bg3-alt);
-		}
-	}
-
-	// Keybind indicators
-	kbd {
-		user-select: none;
-		position: relative;
-		background-color: var(--bg4);
-		box-shadow: inset 0 rem(-4) 0 var(--bg3-alt);
-		border: thin solid var(--bg1);
-		padding: rem(3) rem(6) rem(4);
-		border-radius: rem(2);
-		min-width: rem(14);
-		min-height: rem(14);
-		text-align: center;
-		font-size: rem(12);
-		&:active {
-			box-shadow: none;
-			padding-bottom: rem(2);
-			top: rem(2);
-		}
-	}
-
-	// Anchors
 	a {
-		color: hsl(var(--accent)) !important;
+		color: hsl(var(--accent));
 		text-decoration: underline;
 		&:hover {
-			box-shadow: inset 0 -2px 0 currentColor;
+			box-shadow: inset 0 rem(-2) 0 hsl(var(--accent));
 		}
 	}
 
-	// Horizontal dividers
+	ul {
+		list-style-type: disc;
+		padding-left: rem(25);
+		margin-bottom: rem(15);
+		ul {
+			list-style-type: unset;
+		}
+	}
+	ol {
+		list-style-type: decimal;
+		padding-left: rem(25);
+		margin-bottom: rem(15);
+	}
+	li {
+		margin-bottom: rem(5);
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	blockquote {
+		border-left: rem(4) solid var(--border);
+		color: var(--text-tertiary);
+		font-style: italic;
+		margin-bottom: rem(15);
+		padding-left: rem(15);
+	}
+
 	hr {
-		height: 0.15em;
-		padding: 0;
-		margin: rem(24) 0;
-		background-color: var(--bg4);
-		border: 0;
+		height: rem(4);
+		background: var(--border);
+		margin-bottom: rem(15);
 	}
 
-	// Tables
+	details {
+		margin-bottom: rem(15);
+	}
+	summary {
+		cursor: pointer;
+	}
+
+	kbd {
+		border: rem(1) solid var(--border);
+		padding: rem(5);
+		border-radius: rem(4);
+		background: var(--c6);
+		box-shadow: inset 0 -rem(2) 0 var(--border);
+	}
+
 	table {
-		display: block;
-		width: 100%;
+		background: var(--c3);
+		margin-bottom: rem(15);
+		th, td {
+			border: rem(1) solid var(--border);
+			padding: rem(10);
+		}
+		tr:nth-child(even) {
+			background: var(--c2);
+		}
+	}
+	// Syntax highlighting
+	pre {
+		background: var(--c2);
+		border-radius: rem(4);
+		padding: rem(15);
+		margin-bottom: rem(15);
 		overflow: auto;
-		overflow: overlay;
-		border-collapse: collapse;
-		th,
-		td {
-			padding: rem(6) rem(13);
-			border: 1px solid var(--bg4);
-		}
-		th {
-			font-weight: 600;
-			background-color: var(--bg3-alt);
-		}
-		tr {
-			background-color: var(--bg3);
-			border-top: rem(1) solid var(--bg4);
-			&:nth-child(2n) {
-				background-color: var(--bg2-alt);
-			}
-		}
+	}
+	code:not(pre code) {
+		border: rem(1) solid var(--border);
+		background: var(--c2);
+		padding: rem(2) rem(5);
+		border-radius: rem(4);
+	}
+	pre[class*="language-"],
+	code[class*="language-"] {
+		color: var(--text-secondary);
+		font-size: rem(13);
+		text-shadow: none;
+		font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		direction: ltr;
+		text-align: left;
+		white-space: pre;
+		word-spacing: normal;
+		word-break: normal;
+		line-height: 1.5;
+		tab-size: 4;
+		hyphens: none;
+	}
+	pre[class*="language-"] {
+		padding: 1em;
+		margin: .5em 0;
+		overflow: auto;
+	}
+	.namespace {
+		opacity: .7;
+	}
+	.token.comment,
+	.token.prolog,
+	.token.doctype,
+	.token.cdata {
+		color: var(--text-tertiary);
+	}
+	.token.punctuation {
+		color: var(--text-secondary);
+	}
+	.token.property,
+	.token.tag,
+	.token.boolean,
+	.token.number,
+	.token.constant,
+	.token.symbol,
+	.token.deleted {
+		color: var(--syntax-orange-1);
+	}
+	.token.selector,
+	.token.attr-name,
+	.token.string,
+	.token.char,
+	.token.builtin,
+	.token.inserted {
+		color: var(--syntax-orange-2);
+	}
+	.token.operator {
+		color: var(--text-secondary);
+	}
+	.token.interpolation {
+		color: var(--syntax-red);
+	}
+	.token.interpolation-punctuation {
+		color: var(--syntax-purple);
+	}
+	.token.interpolation .token.operator {
+		color: var(--text-secondary);
+	}
+	.token.entity,
+	.token.url,
+	.language-css .token.string,
+	.style .token.string,
+	.token.attr-value {
+		color: var(--syntax-orange-2);
+	}
+	.token.atrule,
+	.token.keyword {
+		color: var(--syntax-purple);
+	}
+	.token.function {
+		color: var(--syntax-teal);
+	}
+	.token.regex,
+	.token.important,
+	.token.variable {
+		color: var(--syntax-orange-2);
+	}
+	.token.important,
+	.token.bold {
+		font-weight: bold;
+	}
+	.token.italic {
+		font-style: italic;
+	}
+	.token.entity {
+		cursor: help;
+	}
+
+	// Language specific
+	pre[class*="javascript"], code[class*="javascript"] {
+		color: var(--syntax-red);
 	}
 }

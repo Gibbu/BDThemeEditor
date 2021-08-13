@@ -21,15 +21,17 @@
 	}
 </script>
 
-<header class="option-header">
-	<p class="option-title">{title}</p>
-	{#if hint}
-		<small class="option-hint">{hint}</small>
-	{/if}
-</header>
-<div class="option-body">
-	<Select {options} {value} custom={customValue} on:update={update} />
-</div>
+<template>
+	<header class="option-header">
+		<p class="option-title">{title}</p>
+		{#if hint}
+			<small class="option-hint">{hint}</small>
+		{/if}
+	</header>
+	<div class="option-body">
+		<Select {options} {value} custom={customValue} on:update={update} />
+	</div>
+</template>
 
 <style lang="scss">
 	.option {

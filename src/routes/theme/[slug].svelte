@@ -20,7 +20,6 @@
 </script>
 
 <script>
-	import {browser} from '$app/env';
 	import {THEME, isMounted} from '$lib/stores';
 	import {onMount, onDestroy} from 'svelte';
 
@@ -65,4 +64,6 @@
 	<meta property="og:description" content="Customize {setTheme.name} with a easy to use interface">
 </svelte:head>
 
-<Preview url={setTheme.previewUrl} />
+<template>
+	<Preview url={setTheme.previewUrl} />
+</template>

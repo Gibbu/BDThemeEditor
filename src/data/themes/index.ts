@@ -5,7 +5,6 @@ import notanotheranimetheme from './notanotheranimetheme';
 import reborn from './reborn';
 import tranquil from './tranquil';
 import discordrecolor from './discordrecolor';
-import minimalcord from './minimalcord';
 
 const themes = [
 	frostedglass,
@@ -15,7 +14,6 @@ const themes = [
 	reborn,
 	tranquil,
 	discordrecolor,
-	minimalcord,
 ]
 
 export const fallbacks = themes.map(el => el.name.replace(/ /g, '').toLowerCase());

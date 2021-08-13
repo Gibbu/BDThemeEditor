@@ -19,17 +19,19 @@
 	<title>Error - BDThemeEditor</title>
 </svelte:head>
 
-<div class="error wrap">
-	<div class="info">
-		<h1>{status}</h1>
-		<p>{error.message}</p>
+<template>
+	<div class="error wrap">
+		<div class="info">
+			<h1>{status}</h1>
+			<p>{error.message}</p>
+		</div>
+		<div class="stack">
+			{#if dev && error.stack}
+				<pre>{error.stack}</pre>
+			{/if}
+		</div>
 	</div>
-	<div class="stack">
-		{#if dev && error.stack}
-			<pre>{error.stack}</pre>
-		{/if}
-	</div>
-</div>
+</template>
 
 <style lang="scss">
 	.info {

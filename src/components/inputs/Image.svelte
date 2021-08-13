@@ -165,78 +165,80 @@
 	}
 </script>
 
-<header class="option-header">
-	<p class="option-title">{title}</p>
-</header>
-<div class="option-body">
-	<Select options={selectOptions} custom={false} on:update={setOption} />
-	{#if selectedOption === 'url'}
-		<Input placeholder="Image URL" {error} bind:value on:keyup={web} />
-		{#if error}
-			<small class="error">{error}</small>
+<template>
+	<header class="option-header">
+		<p class="option-title">{title}</p>
+	</header>
+	<div class="option-body">
+		<Select options={selectOptions} custom={false} on:update={setOption} />
+		{#if selectedOption === 'url'}
+			<Input placeholder="Image URL" {error} bind:value on:keyup={web} />
+			{#if error}
+				<small class="error">{error}</small>
+			{/if}
+		{:else if selectedOption === 'file'}
+			<Button type="primary" on:click={() => fileUploadModal = true}>
+				Browse
+			</Button>
 		{/if}
-	{:else if selectedOption === 'file'}
-		<Button type="primary" on:click={() => fileUploadModal = true}>
-			Browse
-		</Button>
-	{/if}
-</div>
-
-<ModalRoot bind:visible={fileUploadModal} maxWidth={550}>
-	<ModalHeader title="How should we upload?" on:close={() => fileUploadModal = false} />
-	<ModalBody markdown={false}>
-		<RadioGroup>
-			<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">Imgur.com</RadioGroupItem>
-			<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">Inline encode (base64)</RadioGroupItem>
-		</RadioGroup>
-		<label
-			class="dropzone"
-			class:dragover
-			class:error
-			disabled={fileUploading}
-			on:dragover|preventDefault={() => dragover = true}
-			on:dragleave={() => dragover = false}
-			on:dragend={() => dragover = false}
-			on:drop|preventDefault={droppedFile}
-		>
-			{#if thumbnail && !error}
-				<div class="r16-9 dropzone-preview">
-					<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');"></div>
-					<div class="dropzone-filename">{thumbnailName}</div>
-				</div>
-			{:else}
-				<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
-			{/if}
-			<input bind:this={fileInput} type="file" hidden bind:files on:change={selectedFile}>
-		</label>
-		{#if !error && thumbnail}
-			<div class="uploadArea">
-				{#if !fileUploading}
-					<Button type="primary" size="extralarge" long on:click={localFile}>
-						<svelte:fragment slot="iconL">
-							{#if uploadType === 'b64'}
-								<Icon src={Check} />
-							{:else}
-								<Icon src={Upload} />
-							{/if}
-						</svelte:fragment>
-						{uploadType === 'b64' ? 'Apply' : 'Upload'}
-					</Button>
-				{:else}
-					<div class="progress">
-						<div class="progress-text">
-							<p class="progress-status">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
-							<p class="progress-percentage">{fileUploadProgress.toFixed(2)}%</p>
-						</div>
-						<div class="progress-bar">
-							<div class="progress-bar-inner" style="width: {fileUploadProgress.toFixed(2)}%"></div>
-						</div>
+	</div>
+	
+	<ModalRoot bind:visible={fileUploadModal} maxWidth={550}>
+		<ModalHeader title="How should we upload?" on:close={() => fileUploadModal = false} />
+		<ModalBody markdown={false}>
+			<RadioGroup>
+				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">Imgur.com</RadioGroupItem>
+				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">Inline encode (base64)</RadioGroupItem>
+			</RadioGroup>
+			<label
+				class="dropzone"
+				class:dragover
+				class:error
+				disabled={fileUploading}
+				on:dragover|preventDefault={() => dragover = true}
+				on:dragleave={() => dragover = false}
+				on:dragend={() => dragover = false}
+				on:drop|preventDefault={droppedFile}
+			>
+				{#if thumbnail && !error}
+					<div class="r16-9 dropzone-preview">
+						<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');"></div>
+						<div class="dropzone-filename">{thumbnailName}</div>
 					</div>
+				{:else}
+					<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
 				{/if}
-			</div>
-			{/if}
-	</ModalBody>
-</ModalRoot>
+				<input bind:this={fileInput} type="file" hidden bind:files on:change={selectedFile}>
+			</label>
+			{#if !error && thumbnail}
+				<div class="uploadArea">
+					{#if !fileUploading}
+						<Button type="primary" size="extralarge" long on:click={localFile}>
+							<svelte:fragment slot="iconL">
+								{#if uploadType === 'b64'}
+									<Icon src={Check} />
+								{:else}
+									<Icon src={Upload} />
+								{/if}
+							</svelte:fragment>
+							{uploadType === 'b64' ? 'Apply' : 'Upload'}
+						</Button>
+					{:else}
+						<div class="progress">
+							<div class="progress-text">
+								<p class="progress-status">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
+								<p class="progress-percentage">{fileUploadProgress.toFixed(2)}%</p>
+							</div>
+							<div class="progress-bar">
+								<div class="progress-bar-inner" style="width: {fileUploadProgress.toFixed(2)}%"></div>
+							</div>
+						</div>
+					{/if}
+				</div>
+				{/if}
+		</ModalBody>
+	</ModalRoot>
+</template>
 
 <style lang="scss">
 	.option {

@@ -2,8 +2,9 @@
 	import {createEventDispatcher} from 'svelte';
 	import {browser} from '$app/env';
 	import Icon, {Download, Save, Clock, Check, ChevronLeft, X} from 'svelte-hero-icons';
-	import {THEME, preview, isMounted} from '$lib/stores';
+	import {THEME, history, isMounted, loaded} from '$lib/stores';
 	import DLTheme from '$lib/download';
+	import dayjs from 'dayjs';
 
 	const dispatch = createEventDispatcher();
 
@@ -36,6 +37,14 @@
 		if (validate()) {
 			$THEME.meta.name = value;
 
+			$history = [{
+				...$THEME,
+				createdAt: dayjs(),
+				updatedAt: dayjs()
+			}, ...$history];
+
+			localStorage.setItem(`${$THEME.name.replace(/ /g, '')}_history`, JSON.stringify($history));
+			
 			DLTheme($THEME);
 		}
 	}
@@ -58,52 +67,52 @@
 	}
 </script>
 
-<div class="actions" disabled={!$isMounted}>
-	<Button type="secondary" on:click={showHistory}>
-		<svelte:fragment slot="iconL">
-			<Icon src={Clock} />
-		</svelte:fragment>
-		History
-	</Button>
-	<Button type="primary" on:click={() => saveModal = true}>
-		<svelte:fragment slot="iconL">
-			<Icon src={Save} />
-		</svelte:fragment>
-		Save
-	</Button>
-</div>
-
-<ModalRoot bind:visible={saveModal}>
-	<ModalHeader title="Save" on:close={() => saveModal = false} />
-	<ModalBody markdown={false}>
-		{#if $THEME.developer.paypal && showDonateWindow}
-		<div class="donate">
-			<h4 class="donate-title">
-				Like {$THEME.name}?
-				<button on:click={hideDonate}>
-					<Icon src={X} />
-				</button>
-			</h4>
-			<p class="donate-text">Consider donating to {$THEME.developer.name}.</p>
-		</div>
-		{/if}
-		<p class="save-title">Give your theme a name:</p>
-		<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />
-		{#if error}
-			<small class="save-error">{error}</small>
-		{/if}
-	</ModalBody>
-	<ModalFooter>
-		<Button type="primary" disabled={error} on:click={save}>
+<template>
+	<div class="actions" disabled={!$isMounted && !$loaded}>
+		<Button type="secondary" on:click={showHistory}>
 			<svelte:fragment slot="iconL">
-				<Icon src={Download} />
+				<Icon src={Clock} />
 			</svelte:fragment>
-			Download
+			History
 		</Button>
-	</ModalFooter>
-</ModalRoot>
-
-
+		<Button type="primary" on:click={() => saveModal = true}>
+			<svelte:fragment slot="iconL">
+				<Icon src={Save} />
+			</svelte:fragment>
+			Save
+		</Button>
+	</div>
+	
+	<ModalRoot bind:visible={saveModal}>
+		<ModalHeader title="Save" on:close={() => saveModal = false} />
+		<ModalBody markdown={false}>
+			{#if $THEME.developer.paypal && showDonateWindow}
+			<div class="donate">
+				<h4 class="donate-title">
+					Like {$THEME.name}?
+					<button on:click={hideDonate}>
+						<Icon src={X} />
+					</button>
+				</h4>
+				<p class="donate-text">Consider donating to {$THEME.developer.name}.</p>
+			</div>
+			{/if}
+			<p class="save-title">Give your theme a name:</p>
+			<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />
+			{#if error}
+				<small class="save-error">{error}</small>
+			{/if}
+		</ModalBody>
+		<ModalFooter>
+			<Button type="primary" disabled={error} on:click={save}>
+				<svelte:fragment slot="iconL">
+					<Icon src={Download} />
+				</svelte:fragment>
+				Download
+			</Button>
+		</ModalFooter>
+	</ModalRoot>
+</template>
 
 <style lang="scss">
 	.actions {

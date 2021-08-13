@@ -21,3 +21,18 @@
  export const classes = (...classes: any[]): string => {
 	return classes.filter(el => el).join(' ').trim();
 }
+
+/**
+ * Adds appropriate pre/suffixes to the variable outputs.
+ * @param input The object to filter through.
+ */
+export const varOutput = (input: Record<string, any>) => {
+	let output = ((input.value || input.start) || 0)+(input?.unit || '');
+	if (typeof output === 'string' && (output.includes('http') || output.includes('base64'))) {
+		output = `url('${output}')`;
+	}
+	return {
+		variable: input.variable,
+		output
+	}
+}

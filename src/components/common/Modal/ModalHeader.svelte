@@ -13,14 +13,16 @@
 	export let closeBtn: boolean = true;
 </script>
 
-<header class="modal-header">
-	<h3 class="modal-title">{title}</h3>
-	{#if closeBtn}
-		<button type="button" class="modal-close" on:click={() => dispatch('close')}>
-			<Icon src={X} size="18" />
-		</button>
-	{/if}
-</header>
+<template>
+	<header class="modal-header">
+		<h3 class="modal-title">{title}</h3>
+		{#if closeBtn}
+			<button type="button" class="modal-close" on:click={() => dispatch('close')}>
+				<Icon src={X} size="18" />
+			</button>
+		{/if}
+	</header>
+</template>
 
 <style lang="scss">
 	.modal-header {

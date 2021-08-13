@@ -39,41 +39,42 @@
 	}
 </script>
 
-{#if href}
-	<a
-		{href} 
-		target={newTab ? '_blank' : null}
-		class={classes('btn', type, size)}
-		class:long
-	>
-		{#if $$slots.iconL}
-			<div class="iconL">
-				<slot name="iconL" />
-			</div>
-		{/if}
-		{#if $$slots.default}
-			<span><slot /></span>
-		{/if}
-	</a>
-{:else}
-	<button
-		type="button"
-		class={classes('btn', type, size)}
-		class:long
-		{disabled}
-		on:click={eventHandler}
-	>
-		{#if $$slots.iconL}
-			<div class="iconL">
-				<slot name="iconL" />
-			</div>
-		{/if}
-		{#if $$slots.default}
-			<span><slot /></span>
-		{/if}
-	</button>
-{/if}
-
+<template>
+	{#if href}
+		<a
+			{href} 
+			target={newTab ? '_blank' : null}
+			class={classes('btn', type, size)}
+			class:long
+		>
+			{#if $$slots.iconL}
+				<div class="iconL">
+					<slot name="iconL" />
+				</div>
+			{/if}
+			{#if $$slots.default}
+				<span><slot /></span>
+			{/if}
+		</a>
+	{:else}
+		<button
+			type="button"
+			class={classes('btn', type, size)}
+			class:long
+			{disabled}
+			on:click={eventHandler}
+		>
+			{#if $$slots.iconL}
+				<div class="iconL">
+					<slot name="iconL" />
+				</div>
+			{/if}
+			{#if $$slots.default}
+				<span><slot /></span>
+			{/if}
+		</button>
+	{/if}
+</template>
 
 <style lang="scss">
 	.btn {

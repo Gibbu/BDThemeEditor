@@ -1,4 +1,5 @@
 import FileSaver from 'file-saver';
+import {varOutput} from './helpers';
 
 import type {IStoreTheme} from '$types/theme';
 
@@ -28,7 +29,7 @@ export default (themeObject: IStoreTheme): void => {
 }
 
 // Helpers
-const vars = (vars: Record<string, any>[], type: 'addon' | 'theme' | 'hidden') => {
+export const vars = (vars: Record<string, any>[], type: 'addon' | 'theme' | 'hidden') => {
 	let object: Record<string, any>[] = [];
 	if (type === 'addon') vars = vars.filter(obj => obj.use == true);
 
@@ -46,14 +47,4 @@ const vars = (vars: Record<string, any>[], type: 'addon' | 'theme' | 'hidden') =
 	}
 
 	return object.map(({variable, output}) => `  --${variable}: ${output};\n`).join('');
-}
-const varOutput = (input: Record<string, any>) => {
-	let output = ((input.value || input.start) || 0)+(input?.unit || '');
-	if (typeof output === 'string' && (output.includes('http') || output.includes('base64'))) {
-		output = `url('${output}')`;
-	}
-	return {
-		variable: input.variable,
-		output
-	}
 }

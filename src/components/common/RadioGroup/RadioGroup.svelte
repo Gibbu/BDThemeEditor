@@ -2,16 +2,18 @@
 	export let title: string = '';
 </script>
 
-<div class="radio-group">
-	{#if title}
-		<header class="radio-header">
-			<p class="title">{title}</p>
-		</header>
-	{/if}
-	<div class="radio-items">
-		<slot />
+<template>
+	<div class="radio-group">
+		{#if title}
+			<header class="radio-header">
+				<p class="title">{title}</p>
+			</header>
+		{/if}
+		<div class="radio-items">
+			<slot />
+		</div>
 	</div>
-</div>
+</template>
 
 <style lang="scss">
 	.radio-header {

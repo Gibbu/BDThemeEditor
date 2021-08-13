@@ -3,7 +3,7 @@
 	import type {Writable} from 'svelte/store';
 
 	let visible: Writable<boolean> = getContext('visible');
-	let menuBtn: Writable<HTMLElement|null> = getContext('menuBtn');
+	let menuBtn: Writable<HTMLElement> = getContext('menuBtn');
 
 	const toggle = () => {
 		$visible = !$visible;
@@ -16,9 +16,11 @@
 	})
 </script>
 
-<div class="menu-btn" bind:this={btnEl} on:click={toggle}>
-	<slot />
-</div>
+<template>
+	<div class="menu-btn" bind:this={btnEl} on:click={toggle}>
+		<slot />
+	</div>
+</template>
 
 <style lang="scss">
 	.menu-btn {

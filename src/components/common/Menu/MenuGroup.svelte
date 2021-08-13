@@ -1,6 +1,8 @@
-<div role="group" class="menu-group">
-	<slot />
-</div>
+<template>
+	<div role="group" class="menu-group">
+		<slot />
+	</div>
+</template>
 
 <style lang="scss">
 	.menu-group:not(:last-child) {

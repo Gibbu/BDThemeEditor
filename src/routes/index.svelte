@@ -1,15 +1,12 @@
 <script>
-	import {browser} from '$app/env';
-	import Icon, {ColorSwatch, Clock, DotsHorizontal} from 'svelte-hero-icons';
+	import {flash} from '$lib/stores';
+	import {onMount} from 'svelte';
 
 	import themes from '$data/themes';
 
-	const history = browser && JSON.parse(localStorage.history || '[]') || [];
-
-	import {Menu, MenuButton, MenuDropdown, MenuGroup, MenuItem} from '$components/common/Menu';
-	import {ModalRoot, ModalHeader, ModalBody} from '$components/common/Modal';
-
 	const getHref = (href: string) => `/theme/${href.replace(/ /g, '').toLowerCase()}`;
+
+	onMount(() => $flash = []);
 </script>
 
 <svelte:head>
@@ -19,51 +16,45 @@
 	<meta property="og:description" content="Customize themes by the community with a easy to use interface">
 </svelte:head>
 
-<div class="home">
-	<div class="scroller">
-		<div class="scroller-inner">
-			<header class="header">
+<template>
+	<div class="home">
+		<div class="scroller">
+			<div class="scroller-inner">
+				<header class="header">
+					<div class="wrapper">
+						<h1 class="header-title"><span>BetterDiscord</span> Theme Editor</h1>
+						<p class="header-text">Get your desired theme in a manor of minutes with no CSS knowledge required.</p>
+					</div>
+				</header>
 				<div class="wrapper">
-					<h1 class="header-title"><span>BetterDiscord</span> Theme Editor</h1>
-					<p class="header-text">Get your desired theme in a manor of minutes with no CSS knowledge required.</p>
-				</div>
-			</header>
-			<div class="wrapper">
-
-				{#if history.length > 0}
 					<section class="section">
-						<h3 class="section-title">Recently made themes</h3>
-					</section>
-				{/if}
-
-				<section class="section">
-					<h3 class="section-title">Available themes</h3>
-					<main class="themes">
-						{#each themes as theme}
-							<a href={getHref(theme.name)} class="theme">
-								<div class="theme-head r16-9">
-									<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail r16-9-item">
-								</div>
-								<div class="theme-body">
-									<img src="https://github.com/{theme.developer.github}.png" alt="Developer avatar" class="theme-developer">
-									<div class="theme-info">
-										<h4 class="theme-name">{theme.name}</h4>
-										<p class="theme-description">{theme.meta.description}</p>
+						<h3 class="section-title">Available themes</h3>
+						<main class="themes">
+							{#each themes as theme}
+								<a href={getHref(theme.name)} class="theme">
+									<div class="theme-head r16-9">
+										<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail r16-9-item">
 									</div>
-								</div>
-							</a>
-						{/each}
-					</main>
-				</section>
-
-				<footer class="footer">
-					<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
-				</footer>
+									<div class="theme-body">
+										<img src="https://github.com/{theme.developer.github}.png" alt="Developer avatar" class="theme-developer">
+										<div class="theme-info">
+											<h4 class="theme-name">{theme.name}</h4>
+											<p class="theme-description">{theme.meta.description}</p>
+										</div>
+									</div>
+								</a>
+							{/each}
+						</main>
+					</section>
+	
+					<footer class="footer">
+						<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
+					</footer>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
+</template>
 
 <style lang="scss">
 	.home {

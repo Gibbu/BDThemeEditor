@@ -7,6 +7,7 @@
 
 	--yellow: 27 96% 61%;
 	--red: 0 84% 60%;
+	--green: 142 71% 45%;
 
 	--c0: hsl(0 0% 6%);
 	--c1: hsl(0 0% 10%);
@@ -34,6 +35,13 @@
 
 	--nav-hover: var(--c3);
 	--nav-active: var(--c4);
+
+	--syntax-purple: hsl(279 58% 66%);
+	--syntax-teal: hsl(184 67% 44%);
+	--syntax-red: hsl(346 77% 63%);
+	--syntax-orange-1: hsl(9 78% 73%);
+	--syntax-orange-2: hsl(20 91% 78%);
+	--syntax-orange-3: hsl(25 91% 79%);
 }
 
 ::selection {

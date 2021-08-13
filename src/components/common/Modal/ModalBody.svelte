@@ -3,9 +3,11 @@
 	export let markdown: boolean = true;
 </script>
 
-<div class="modal-body" class:markdown>
-	<slot />
-</div>
+<template>
+	<div class="modal-body" class:markdown>
+		<slot />
+	</div>
+</template>
 
 <style lang="scss">
 	.modal-body {

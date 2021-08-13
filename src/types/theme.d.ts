@@ -1,3 +1,4 @@
+import type {Dayjs} from 'dayjs';
 import type {Inputs} from './inputs';
 import type {IDev} from './dev';
 import type {IAddon} from './addon';
@@ -53,4 +54,9 @@ export interface IStoreTheme {
   variables: ThemeVars[],
   addons: IAddon[],
   hiddenVars?: HiddenVars[]
+}
+
+export interface IHistoryTheme extends IStoreTheme {
+	createdAt?: Dayjs,
+	updatedAt?: Dayjs
 }
