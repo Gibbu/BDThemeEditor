@@ -1,6 +1,12 @@
 {
-	"name": "website",
+	"name": "bdthemeeditor",
 	"version": "3.0.0",
+	"description": "Website to edit themes for BetterDiscord with an easy to use interface. ",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Gibbu/BDThemeEditor.git"
+	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
