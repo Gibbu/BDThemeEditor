@@ -1,7 +1,7 @@
 <script>
 	import {createEventDispatcher} from 'svelte';
 	import {browser} from '$app/env';
-	import Icon, {Download, Save, Clock, Check, ChevronLeft, X} from 'svelte-hero-icons';
+	import Icon, {Download, Save, Clock, X} from 'svelte-hero-icons';
 	import {THEME, history, isMounted, loaded} from '$lib/stores';
 	import DLTheme from '$lib/download';
 	import dayjs from 'dayjs';

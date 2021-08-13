@@ -1,6 +1,6 @@
 <script>
 	import {THEME, preview} from '$lib/stores';
-	import {createEventDispatcher, onMount} from 'svelte';
+	import {createEventDispatcher} from 'svelte';
 
 	const dispatch = createEventDispatcher();
 

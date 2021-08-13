@@ -1,7 +1,7 @@
 {
 	"name": "bdthemeeditor",
 	"version": "3.0.0",
-	"description": "Website to edit themes for BetterDiscord with an easy to use interface. ",
+	"description": "Website to edit themes for BetterDiscord with an easy to use interface.",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Gibbu/BDThemeEditor.git"
@@ -16,8 +16,8 @@
 	},
 	"devDependencies": {
 		"@simonwep/pickr": "^1.8.1",
-		"@sveltejs/adapter-static": "^1.0.0-next.14",
-		"@sveltejs/kit": "^1.0.0-next.141",
+		"@sveltejs/adapter-static": "^1.0.0-next.16",
+		"@sveltejs/kit": "^1.0.0-next.147",
 		"@types/file-saver": "^2.0.3",
 		"@types/nprogress": "^0.2.0",
 		"autoprefixer": "^10.3.1",

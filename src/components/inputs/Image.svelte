@@ -1,6 +1,6 @@
 <script>
 	import axios from 'axios';
-	import Icon, {Document, Upload, Check} from 'svelte-hero-icons';
+	import Icon, {Upload, Check} from 'svelte-hero-icons';
 	import {createEventDispatcher} from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -22,7 +22,6 @@
 	let files: FileList;
 	let uploadType: 'b64'|'imgur' = 'imgur';
 	let fileInput: HTMLInputElement;
-	let fileInputName: string;
 	let fileUploadModal: boolean = false;
 	let fileUploading: boolean = false;
 	let fileUploadProgress: number = 0;
@@ -96,7 +95,6 @@
 	 */
 	const localFile = async(): Promise<void> => {
 		const file = files[0];
-		fileInputName = file.name;
 
 		if (uploadType === 'imgur') {
 			error = '';
@@ -162,6 +160,7 @@
 	const setOption = ({detail}): void => {
 		error = '';
 		selectedOption = detail;
+		transparent(detail);
 	}
 </script>
 

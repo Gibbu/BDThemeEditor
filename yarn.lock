@@ -23,25 +23,25 @@
     core-js "^3.12.1"
     nanopop "^2.1.0"
 
-"@sveltejs/adapter-static@^1.0.0-next.14":
-  version "1.0.0-next.14"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.14.tgz#ac2fb9fdde7a0d8d3a10ecdc0232a71b2592a59a"
-  integrity sha512-iIQduHB2lmS1nbkC0dDw6alk0+SMmTV9ScDSxjzU8guJ+//cPKHVpqvXRt0Egu8uuv5vOebAUEgD+pzX7LNYJQ==
+"@sveltejs/adapter-static@^1.0.0-next.16":
+  version "1.0.0-next.16"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.16.tgz#656c90666edd730ccc9bfb89e3f7ece56e7ac7c8"
+  integrity sha512-xGFcg+GHF0BL1fyWx2vCzlYj4S4R+Od9cF00soo1TVp/scGOi1G9grSYYW4x5H+iDn1sscoJ65OGBGWIcOgrXg==
 
-"@sveltejs/kit@^1.0.0-next.141":
-  version "1.0.0-next.141"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.141.tgz#8b27c7c4392794452945d0493ce56aaafef47704"
-  integrity sha512-6pU+3IRiRKPbpfd1YszlrXeradkiWTBu01dD+HqwFkZQO0iapwYZyRY93vnKw1bqeIjy87JW6QAwO3h9yU7jhQ==
+"@sveltejs/kit@^1.0.0-next.147":
+  version "1.0.0-next.147"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.147.tgz#1dad06fd7f4365405beebdcd12b410a52c3a03b0"
+  integrity sha512-rAABsKlC1K/B4VfqT2SaVO29t+OV8deseSJ9l+hV7j9zkswTwiJ7h37tZ5SfnvMgCHemcNjXg8Gzg+0U1MCfEA==
   dependencies:
-    "@sveltejs/vite-plugin-svelte" "^1.0.0-next.14"
+    "@sveltejs/vite-plugin-svelte" "^1.0.0-next.16"
     cheap-watch "^1.0.3"
     sade "^1.7.4"
     vite "^2.4.3"
 
-"@sveltejs/vite-plugin-svelte@^1.0.0-next.14":
-  version "1.0.0-next.15"
-  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.0.0-next.15.tgz#12e853677387aa0891b03bf69afcc678fbf8f8e2"
-  integrity sha512-8yGX7PxaqtvWw+GHiO2DV7lZ4M7DwIrFq+PgZGZ9X09PuoSeaWszm76GWQXJMKHoPPhdA9084662en9qbv4aRw==
+"@sveltejs/vite-plugin-svelte@^1.0.0-next.16":
+  version "1.0.0-next.17"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.0.0-next.17.tgz#25a088e71e1a6e0a6701e5fa70ccde353b7783c2"
+  integrity sha512-Xh/YYqBMDJnDheutnGHk/I5TO6w9gZ2GMgvG+qQm/gpIRkaTLts6Mw5xDe6cac/nH/aVPPVPibhq2pf26d44fA==
   dependencies:
     "@rollup/pluginutils" "^4.1.1"
     debug "^4.3.2"

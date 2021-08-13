@@ -26,7 +26,8 @@ const config = {
 		target: '#svelte',
 		vite: {
 			optimizeDeps: {
-				include: ['svelte-hero-icons']
+				include: ['svelte-hero-icons'],
+				entries: []
 			},
 			resolve: {
 				alias: {
