@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#36e7a9">
+		<link rel="icon" href="/images/favicon.png">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;500;600&display=swap" rel="stylesheet"> 
+
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/nprogress.css">
+
+		<title>Docs - Theme Editor</title>
+
+		
+
+		<link rel="modulepreload" href="/_app/start-884ff796.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-ce238eb2.js">
+		<link rel="modulepreload" href="/_app/chunks/singletons-22866e60.js">
+		<link rel="modulepreload" href="/_app/pages/docs/__layout.reset.svelte-ed3673ab.js">
+		<link rel="modulepreload" href="/_app/chunks/app-6a8cfe90.js">
+		<link rel="modulepreload" href="/_app/pages/docs/editor/betterdiscord-meta.svx-0ede956e.js">
+		<link rel="stylesheet" href="/_app/assets/start-c446e5f0.css">
+		<link rel="stylesheet" href="/_app/assets/pages/docs/__layout.reset.svelte-e0260db9.css">
+		<link rel="stylesheet" href="/_app/assets/app-7612fc24.css">
+
+		<script type="module">
+			import { start } from "/_app/start-884ff796.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/docs/__layout.reset.svelte-ed3673ab.js"),
+						import("/_app/pages/docs/editor/betterdiscord-meta.svx-0ede956e.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/docs/editor/betterdiscord-meta",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+
+	<div class="container scroller"><div class="scroller-inner"><div class="wrapper"><div class="docs svelte-1d961xu"><aside class="sidebar svelte-1d961xu"><h4 class="sidebar-title svelte-1d961xu">BetterDiscord</h4>
+					<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing" class="sidebar-link svelte-1d961xu">Installing BetterDiscord</a>
+								
+							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing-themes" class="sidebar-link svelte-1d961xu">Installing Themes</a>
+								
+							</li>
+					</ul><h4 class="sidebar-title svelte-1d961xu">Adding your theme</h4>
+					<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/config-file" class="sidebar-link svelte-1d961xu">Config File</a>
+								
+							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/betterdiscord-meta" class="sidebar-link svelte-1d961xu active">BetterDiscord META</a>
+								
+							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/variables-config" class="sidebar-link svelte-1d961xu">Variables Config</a>
+								
+							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/submitting-theme" class="sidebar-link svelte-1d961xu">Submitting Your Theme</a>
+								
+							</li>
+					</ul></aside>
+			<main class="markdown"><h1 id="betterdiscord-meta">BetterDiscord META</h1>
+<p>The available BetterDiscord META.</p>
+<table><thead><tr><th align="left">Properity</th>
+<th align="left">Type</th>
+<th align="left">Required</th>
+<th align="left">Description</th></tr></thead>
+<tbody><tr><td align="left"><code>name</code></td>
+<td align="left">string</td>
+<td align="left">true</td>
+<td align="left">Name of your Theme.</td></tr>
+<tr><td align="left"><code>author</code></td>
+<td align="left">string</td>
+<td align="left">true</td>
+<td align="left">The author of the Theme.</td></tr>
+<tr><td align="left"><code>version</code></td>
+<td align="left">string</td>
+<td align="left">true</td>
+<td align="left">Version of the Theme.</td></tr>
+<tr><td align="left"><code>description</code></td>
+<td align="left">string</td>
+<td align="left">true</td>
+<td align="left">Description of the Theme.</td></tr>
+<tr><td align="left"><code>source</code></td>
+<td align="left">string</td>
+<td align="left">true</td>
+<td align="left">Source link of the Theme. You can either link it directly to the <code>.theme.css</code> file or just the repo.</td></tr>
+<tr><td align="left"><code>invite</code></td>
+<td align="left">string</td>
+<td align="left">false</td>
+<td align="left">Invite code to your Discord server. Can only be a code.</td></tr>
+<tr><td align="left"><code>donate</code></td>
+<td align="left">string</td>
+<td align="left">false</td>
+<td align="left">URL to your paypal/ko-fi.</td></tr>
+<tr><td align="left"><code>patreon</code></td>
+<td align="left">string</td>
+<td align="left">false</td>
+<td align="left">Name of your Patreon page.</td></tr>
+<tr><td align="left"><code>website</code></td>
+<td align="left">string</td>
+<td align="left">false</td>
+<td align="left">URL to your website.</td></tr>
+<tr><td align="left"><code>authorId</code></td>
+<td align="left">string</td>
+<td align="left">false</td>
+<td align="left">Your unique ID (snowflake).</td></tr></tbody></table></main></div></div></div>
+	</div>
+
+
+
+	
+</div>
+		<div id="layers">
+			<div id="pickrs"></div>
+			<div id="portal"></div>
+			<div id="tooltips"></div>
+		</div>
+	</body>
+</html>
