@@ -1,7 +1,7 @@
 import frostedglass from './frostedglass';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
-import notanotheranimetheme from './notanotheranimetheme';
+// import notanotheranimetheme from './notanotheranimetheme';
 import reborn from './reborn';
 import tranquil from './tranquil';
 import discordrecolor from './discordrecolor';
@@ -10,7 +10,7 @@ const themes = [
 	frostedglass,
 	basicbackground,
 	clearvision,
-	notanotheranimetheme,
+	// notanotheranimetheme,
 	reborn,
 	tranquil,
 	discordrecolor,

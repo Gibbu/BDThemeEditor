@@ -1,4 +1,5 @@
 import { mdsvex } from "mdsvex";
+import slug from 'rehype-slug';
 import preprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
 import adapter from '@sveltejs/adapter-static';
@@ -19,7 +20,9 @@ const config = {
 				plugins: [autoprefixer()]
 			}
 		}), 
-		mdsvex()
+		mdsvex({
+			rehypePlugins: [slug]
+		})
 	],
 	kit: {
 		adapter: adapter(),

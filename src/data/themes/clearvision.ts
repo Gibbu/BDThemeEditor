@@ -6,7 +6,6 @@ const theme: ITheme = {
 	previewUrl: 'https://clearvision.github.io/ClearVision-v6/ClearVision_v6.theme.css',
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
 	developer: ClearVision,
-	tags: ['Background Image', 'Colours', 'Home Button', 'Custom Font', 'Addons'],
 	meta: {
 		name: 'ClearVision',
 		author: 'ClearVision Team',
@@ -386,7 +385,7 @@ const theme: ITheme = {
 		{
 			title: 'User profile',
 			icon: 'User',
-			modal: true,
+			userModal: true,
 			inputs: [
 				{
 					type: 'image',

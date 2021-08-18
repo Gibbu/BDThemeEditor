@@ -9,7 +9,7 @@ interface ThemeVars {
 	title: string,
 	icon: Icons,
 	inputs: Inputs[],
-	modal?: boolean
+	userModal?: boolean
 }
 
 interface HiddenVars {
@@ -40,7 +40,6 @@ export interface ITheme {
 	imports: string[],
 	fonts: string[],
 	variables: ThemeVars[],
-	tags: ('Background Image'|'Colours'|'Custom Font'|'Home Button'|'Addons')[],
 	hiddenVars?: HiddenVars[],
 	addons?: string[]
 }
@@ -50,9 +49,9 @@ export interface IStoreTheme {
   meta: Meta,
   developer: IDev,
   imports: string[],
-  fonts: string[],
   variables: ThemeVars[],
   addons: IAddon[],
+  fonts?: string[],
   hiddenVars?: HiddenVars[]
 }
 

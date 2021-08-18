@@ -31,6 +31,7 @@
 	import dayjs from 'dayjs';
 	import relativeTime from 'dayjs/plugin/relativeTime.js';
 	import advancedFormat from 'dayjs/plugin/advancedFormat.js';
+	import '$scss/app.scss';
 
 	dayjs.extend(relativeTime);
 	dayjs.extend(advancedFormat);
@@ -71,9 +72,15 @@
 	// Active setting
 	let activeSetting: number = 0;
 
-	const setSetting = (index: number): void => {
+	const setSetting = (index: number, modal?: boolean): void => {
 		activeSetting = index;
 		historyTab = false;
+
+		const userModal: HTMLElement = $preview.querySelector('#modal');
+		const userPopout: HTMLElement = $preview.querySelector('#userpopout')
+
+		userModal.style.display = (modal === true ? 'block' : 'none');
+		userPopout.style.display = (modal === true ? 'none' : 'block');
 	}
 
 	// History
@@ -175,8 +182,6 @@
 			historyTab = false;
 		}, 300);
 	}
-
-	import '$scss/app.scss';
 </script>
 
 <template>
@@ -197,7 +202,7 @@
 							class="nav-btn"
 							class:active={activeSetting === i}
 							use:tooltip={{content: group.title, placement: 'right', offset: [0, 15]}}
-							on:click={() => setSetting(i)}
+							on:click={() => setSetting(i, group.userModal)}
 						>
 							<Icon src={icons[group.icon]} />
 						</button>
@@ -207,7 +212,7 @@
 							class="nav-btn"
 							class:active={activeSetting === 100}
 							use:tooltip={{content: 'Addons', placement: 'right', offset: [0, 15]}}
-							on:click={() => setSetting(100)}
+							on:click={() => setSetting(100, false)}
 						>
 							<Icon src={Puzzle} />
 						</button>

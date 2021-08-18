@@ -90,11 +90,11 @@
 			<div class="donate">
 				<h4 class="donate-title">
 					Like {$THEME.name}?
-					<button on:click={hideDonate}>
+					<button class="donate-hide" on:click={hideDonate}>
 						<Icon src={X} />
 					</button>
 				</h4>
-				<p class="donate-text">Consider donating to {$THEME.developer.name}.</p>
+				<p class="donate-text">Consider <a href={$THEME.developer.paypal} target="_blank" rel="noreferrer" class="anchor">donating to {$THEME.developer.name}</a>.</p>
 			</div>
 			{/if}
 			<p class="save-title">Give your theme a name:</p>
@@ -146,6 +146,14 @@
 		padding: rem(16);
 		&-title {
 			color: var(--text-primary);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&-hide {
+			width: rem(28);
+			height: rem(28);
+			padding: rem(6);
 		}
 		&-text {
 			font-size: rem(14);

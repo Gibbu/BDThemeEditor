@@ -6,7 +6,6 @@ const theme: ITheme = {
 	previewUrl: 'https://puckzxz.github.io/NotAnotherAnimeTheme/NotAnotherAnimeTheme.theme.css',
 	thumbnail: 'https://raw.githubusercontent.com/puckzxz/NotAnotherAnimeTheme/master/image/header.jpg',
 	developer: Puckzxz,
-	tags: ['Background Image', 'Home Button', 'Colours', 'Addons'],
 	meta: {
 		name: 'NotAnotherAnimeTheme',
 		author: 'puckzxz#2080',

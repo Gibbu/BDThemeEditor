@@ -49,6 +49,7 @@
 	
 					<footer class="footer">
 						<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
+						<p>Want your theme on here? <a href="/docs/editor/config-file" class="anchor">Read the docs</a></p>
 					</footer>
 				</div>
 			</div>
@@ -135,5 +136,8 @@
 	.footer {
 		font-size: rem(14);
 		opacity: .5;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: rem(50);
 	}
 </style>

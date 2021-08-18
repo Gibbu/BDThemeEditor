@@ -27,6 +27,7 @@
 		"mdsvex": "^0.9.8",
 		"nprogress": "^0.2.0",
 		"postcss": "^8.3.6",
+		"rehype-slug": "^5.0.0",
 		"sass": "^1.37.0",
 		"svelte": "^3.42.1",
 		"svelte-check": "^2.2.4",

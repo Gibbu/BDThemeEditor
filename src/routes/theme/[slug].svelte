@@ -46,7 +46,7 @@
 		meta: setTheme.meta,
 		developer: setTheme.developer,
 		imports: setTheme.imports,
-		fonts: setTheme.fonts,
+		fonts: setTheme.fonts || [],
 		variables: setTheme.variables,
 		hiddenVars: setTheme.hiddenVars,
 		addons: setAddons

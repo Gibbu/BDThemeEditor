@@ -1,10 +1,10 @@
-export interface IColour extends Defaults {
+export interface IColour {
 	type: 'colour',
 	details: {
 		variable: string,
 		title: string,
 		value: string,
-		type: 'HEX'|'RGB',
+		type: 'HEX'|'RGB'|'HSL',
 		alpha?: boolean,
 		rule?: boolean,
 		addon?: boolean,
@@ -12,7 +12,7 @@ export interface IColour extends Defaults {
 	}
 }
 
-export interface IFont extends Defaults {
+export interface IFont {
 	type: 'font',
 	details: {
 		variable: string,
@@ -24,7 +24,7 @@ export interface IFont extends Defaults {
 	}
 }
 
-export interface IImage extends Defaults {
+export interface IImage {
 	type: 'image',
 	details: {
 		variable: string,
@@ -36,7 +36,7 @@ export interface IImage extends Defaults {
 	}
 }
 
-export interface INumber extends Defaults {
+export interface INumber {
 	type: 'number',
 	details: {
 		variable: string,
@@ -50,7 +50,7 @@ export interface INumber extends Defaults {
 	}
 }
 
-export interface ISelect extends Defaults {
+export interface ISelect {
 	type: 'select',
 	details: {
 		value: string,
@@ -66,7 +66,7 @@ export interface ISelect extends Defaults {
 	}
 }
 
-export interface ISlider extends Defaults {
+export interface ISlider {
 	type: 'slider',
 	details: {
 		value: number,
@@ -81,7 +81,7 @@ export interface ISlider extends Defaults {
 	}
 }
 
-export interface IText extends Defaults {
+export interface IText {
 	type: 'text',
 	details: {
 		variable: string,
