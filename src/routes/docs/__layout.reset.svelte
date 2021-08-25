@@ -21,7 +21,6 @@
 			title: 'Adding your theme',
 			links: [
 				{href: 'editor/config-file', value: 'Config File'},
-				{href: 'editor/betterdiscord-meta', value: 'BetterDiscord META'},
 				{
 					href: 'editor/variables-config',
 					value: 'Variables Config',
@@ -35,6 +34,7 @@
 						{href: '#example', value: 'Example variables config'}
 					]
 				},
+				{href: 'editor/betterdiscord-meta', value: 'BetterDiscord META'},
 				{href: 'editor/submitting-theme', value: 'Submitting Your Theme'}
 			]
 		}

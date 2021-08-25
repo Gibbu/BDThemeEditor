@@ -85,7 +85,7 @@ Available properties:
 
 | Properity | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `value` | string | false | Starting value of the colour picker. |
+| `value` | string | false | Starting value of the font input. |
 
 
 
@@ -156,7 +156,7 @@ Available properties:
 
 | Properity | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `value` | string | true | Starting value. Will select auto select `options` with the give value. |
+| `value` | string | true | Starting value. Will auto select `options` with the given value. |
 | `options` | array | true | Options available for the user to pick through. |
 | `customValue` | boolean | false | Allows the user to type value they wish. Default = `true` |
 
@@ -265,4 +265,4 @@ const theme = {
 }
 ```
 
-You can view a better example by looking at the [ClearVision Config](https://github.com/Gibbu/BDThemeEditor/blob/main/src/data/themes/clearvision.ts#L21-L709).
+You can view a better example by looking at the [ClearVision Config](https://github.com/Gibbu/BDThemeEditor/blob/main/src/data/themes/clearvision.ts#L20-L708).
