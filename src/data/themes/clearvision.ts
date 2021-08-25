@@ -596,7 +596,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					details: {
-						variable: 'channel-color',
+						variable: 'muted-color',
 						value: 'rgba(255,255,255,0.1)',
 						type: 'RGB',
 						rule: true,
