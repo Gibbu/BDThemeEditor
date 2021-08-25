@@ -17,7 +17,7 @@
 
 		
 
-		<link rel="modulepreload" href="/_app/start-688964b5.js">
+		<link rel="modulepreload" href="/_app/start-ddcee3c0.js">
 		<link rel="modulepreload" href="/_app/chunks/vendor-7c074aec.js">
 		<link rel="modulepreload" href="/_app/chunks/singletons-22866e60.js">
 		<link rel="modulepreload" href="/_app/pages/docs/__layout.reset.svelte-8d2d58c5.js">
@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="/_app/assets/app-57797a4a.css">
 
 		<script type="module">
-			import { start } from "/_app/start-688964b5.js";
+			import { start } from "/_app/start-ddcee3c0.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":""},
@@ -62,40 +62,40 @@
 
 
 	<div class="container scroller"><div class="scroller-inner"><div class="wrapper"><div class="docs svelte-1d961xu"><aside class="sidebar svelte-1d961xu"><h4 class="sidebar-title svelte-1d961xu">BetterDiscord</h4>
-					<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing" class="sidebar-link svelte-1d961xu">Installing BetterDiscord</a>
-								
-							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing-themes" class="sidebar-link svelte-1d961xu">Installing Themes</a>
-								
-							</li>
-					</ul><h4 class="sidebar-title svelte-1d961xu">Adding your theme</h4>
-					<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/config-file" class="sidebar-link svelte-1d961xu">Config File</a>
-								
-							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/variables-config" class="sidebar-link svelte-1d961xu active">Variables Config</a>
-								<ul class="sidebar-children svelte-1d961xu"><li class="sidebar-child"><a href="#colour" class="sidebar-link svelte-1d961xu">Colour</a>
-											</li><li class="sidebar-child"><a href="#font" class="sidebar-link svelte-1d961xu">Font</a>
-											</li><li class="sidebar-child"><a href="#image" class="sidebar-link svelte-1d961xu">Image</a>
-											</li><li class="sidebar-child"><a href="#number" class="sidebar-link svelte-1d961xu">Number</a>
-											</li><li class="sidebar-child"><a href="#select" class="sidebar-link svelte-1d961xu">Select</a>
-											</li><li class="sidebar-child"><a href="#slider" class="sidebar-link svelte-1d961xu">Slider</a>
-											</li><li class="sidebar-child"><a href="#example" class="sidebar-link svelte-1d961xu">Example variables config</a>
-											</li>
-									</ul>
-							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/betterdiscord-meta" class="sidebar-link svelte-1d961xu">BetterDiscord META</a>
-								
-							</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/submitting-theme" class="sidebar-link svelte-1d961xu">Submitting Your Theme</a>
-								
-							</li>
-					</ul></aside>
-			<main class="markdown"><h1 id="variables-config">Variables Config</h1>
+							<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing" class="sidebar-link svelte-1d961xu">Installing BetterDiscord</a>
+										
+									</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/bd/installing-themes" class="sidebar-link svelte-1d961xu">Installing Themes</a>
+										
+									</li>
+							</ul><h4 class="sidebar-title svelte-1d961xu">Adding your theme</h4>
+							<ul class="sidebar-items svelte-1d961xu"><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/config-file" class="sidebar-link svelte-1d961xu">Config File</a>
+										
+									</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/variables-config" class="sidebar-link svelte-1d961xu active">Variables Config</a>
+										<ul class="sidebar-children svelte-1d961xu"><li class="sidebar-child"><a href="#colour" class="sidebar-link svelte-1d961xu">Colour</a>
+													</li><li class="sidebar-child"><a href="#font" class="sidebar-link svelte-1d961xu">Font</a>
+													</li><li class="sidebar-child"><a href="#image" class="sidebar-link svelte-1d961xu">Image</a>
+													</li><li class="sidebar-child"><a href="#number" class="sidebar-link svelte-1d961xu">Number</a>
+													</li><li class="sidebar-child"><a href="#select" class="sidebar-link svelte-1d961xu">Select</a>
+													</li><li class="sidebar-child"><a href="#slider" class="sidebar-link svelte-1d961xu">Slider</a>
+													</li><li class="sidebar-child"><a href="#example" class="sidebar-link svelte-1d961xu">Example variables config</a>
+													</li>
+											</ul>
+									</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/betterdiscord-meta" class="sidebar-link svelte-1d961xu">BetterDiscord META</a>
+										
+									</li><li class="sidebar-item svelte-1d961xu"><a href="/docs/editor/submitting-theme" class="sidebar-link svelte-1d961xu">Submitting Your Theme</a>
+										
+									</li>
+							</ul></aside>
+					<main class="markdown"><h1 id="variables-config">Variables Config</h1>
 <p>These define how the left sidebar navigation is displayed and what inputs are to be inside the editing panel.</p>
 <pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
 	<span class="token comment">// ...</span>
 	variables<span class="token operator">:</span> <span class="token punctuation">[</span>
-<span class="token punctuation">&#123;</span>
-	title<span class="token operator">:</span> <span class="token string">'Background image'</span><span class="token punctuation">,</span>
-	icon<span class="token operator">:</span> <span class="token string">'Photograph'</span><span class="token punctuation">,</span>
-	inputs<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// Available inputs are below.</span>
-<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#123;</span>
+			title<span class="token operator">:</span> <span class="token string">'Background image'</span><span class="token punctuation">,</span>
+			icon<span class="token operator">:</span> <span class="token string">'Photograph'</span><span class="token punctuation">,</span>
+			inputs<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// Available inputs are below.</span>
+		<span class="token punctuation">&#125;</span>
 	<span class="token punctuation">]</span>
 	<span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
@@ -145,13 +145,13 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"colour"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"main-colour"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Main colour"</span><span class="token punctuation">,</span>
-<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"100,0,100"</span><span class="token punctuation">,</span>
-<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"RGB"</span><span class="token punctuation">,</span>
-<span class="token property">"alpha"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token property">"rule"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token property">"hint"</span><span class="token operator">:</span> <span class="token string">"Colour for mentions, selected channels, selected member, ect..."</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"main-colour"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Main colour"</span><span class="token punctuation">,</span>
+		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"100,0,100"</span><span class="token punctuation">,</span>
+		<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"RGB"</span><span class="token punctuation">,</span>
+		<span class="token property">"alpha"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+		<span class="token property">"rule"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+		<span class="token property">"hint"</span><span class="token operator">:</span> <span class="token string">"Colour for mentions, selected channels, selected member, ect..."</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -180,9 +180,9 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"font"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"font"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom font"</span><span class="token punctuation">,</span>
-<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"Inter"</span><span class="token punctuation">,</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"font"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom font"</span><span class="token punctuation">,</span>
+		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"Inter"</span><span class="token punctuation">,</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -199,9 +199,9 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"bg-image"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Background Image"</span><span class="token punctuation">,</span>
-<span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"https://i.imgur.com/Gr8JJAv.jpg"</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"bg-image"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Background Image"</span><span class="token punctuation">,</span>
+		<span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"https://i.imgur.com/Gr8JJAv.jpg"</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -222,11 +222,11 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"sidebar-width"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Sidebar width"</span><span class="token punctuation">,</span>
-<span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">270</span><span class="token punctuation">,</span>
-<span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"px"</span><span class="token punctuation">,</span>
-<span class="token property">"max"</span><span class="token operator">:</span> <span class="token number">350</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"sidebar-width"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Sidebar width"</span><span class="token punctuation">,</span>
+		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">270</span><span class="token punctuation">,</span>
+		<span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"px"</span><span class="token punctuation">,</span>
+		<span class="token property">"max"</span><span class="token operator">:</span> <span class="token number">350</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -255,14 +255,14 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"select"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"show-chat-buttons"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Show chat buttons"</span><span class="token punctuation">,</span>
-<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">,</span>
-<span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-	<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"True"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-	<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"False"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token property">"customValue"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"show-chat-buttons"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Show chat buttons"</span><span class="token punctuation">,</span>
+		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">,</span>
+		<span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+			<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"True"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+			<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"False"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">&#125;</span>
+		<span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token property">"customValue"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -287,12 +287,12 @@
 <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
 	<span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"slider"</span><span class="token punctuation">,</span>
 	<span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"background-image-blur"</span><span class="token punctuation">,</span>
-<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Background Blur"</span><span class="token punctuation">,</span>
-<span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
-<span class="token property">"step"</span><span class="token operator">:</span> .<span class="token number">25</span><span class="token punctuation">,</span>
-<span class="token property">"max"</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
-<span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"px"</span>
+		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"background-image-blur"</span><span class="token punctuation">,</span>
+		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Background Blur"</span><span class="token punctuation">,</span>
+		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+		<span class="token property">"step"</span><span class="token operator">:</span> .<span class="token number">25</span><span class="token punctuation">,</span>
+		<span class="token property">"max"</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+		<span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"px"</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -326,68 +326,68 @@
 <pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
 	<span class="token comment">// ...</span>
 	variables<span class="token operator">:</span> <span class="token punctuation">[</span>
-<span class="token punctuation">&#123;</span>
-	title<span class="token operator">:</span> <span class="token string">'Colours'</span><span class="token punctuation">,</span>
-	icon<span class="token operator">:</span> <span class="token string">'ColorSwatch'</span><span class="token punctuation">,</span>
-	inputs<span class="token operator">:</span> <span class="token punctuation">[</span>
 		<span class="token punctuation">&#123;</span>
-			type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
-			details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-				variable<span class="token operator">:</span> <span class="token string">'main-color'</span><span class="token punctuation">,</span>
-				value<span class="token operator">:</span> <span class="token string">'#8d2036'</span><span class="token punctuation">,</span>
-				type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
-				title<span class="token operator">:</span> <span class="token string">'Main colour'</span>
-			<span class="token punctuation">&#125;</span>
+			title<span class="token operator">:</span> <span class="token string">'Colours'</span><span class="token punctuation">,</span>
+			icon<span class="token operator">:</span> <span class="token string">'ColorSwatch'</span><span class="token punctuation">,</span>
+			inputs<span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">&#123;</span>
+					type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
+					details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+						variable<span class="token operator">:</span> <span class="token string">'main-color'</span><span class="token punctuation">,</span>
+						value<span class="token operator">:</span> <span class="token string">'#8d2036'</span><span class="token punctuation">,</span>
+						type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
+						title<span class="token operator">:</span> <span class="token string">'Main colour'</span>
+					<span class="token punctuation">&#125;</span>
+				<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+				<span class="token punctuation">&#123;</span>
+					type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
+					details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+						variable<span class="token operator">:</span> <span class="token string">'hover-color'</span><span class="token punctuation">,</span>
+						value<span class="token operator">:</span> <span class="token string">'#6f182a'</span><span class="token punctuation">,</span>
+						type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
+						title<span class="token operator">:</span> <span class="token string">'Hover colour'</span><span class="token punctuation">,</span>
+						hint<span class="token operator">:</span> <span class="token string">'Usually darker than Main colour'</span>
+					<span class="token punctuation">&#125;</span>
+				<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+				<span class="token punctuation">&#123;</span>
+					type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
+					details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+						variable<span class="token operator">:</span> <span class="token string">'home-color'</span><span class="token punctuation">,</span>
+						value<span class="token operator">:</span> <span class="token string">'#eee'</span><span class="token punctuation">,</span>
+						type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
+						title<span class="token operator">:</span> <span class="token string">'Home button colour'</span>
+					<span class="token punctuation">&#125;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">]</span>
 		<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 		<span class="token punctuation">&#123;</span>
-			type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
-			details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-				variable<span class="token operator">:</span> <span class="token string">'hover-color'</span><span class="token punctuation">,</span>
-				value<span class="token operator">:</span> <span class="token string">'#6f182a'</span><span class="token punctuation">,</span>
-				type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
-				title<span class="token operator">:</span> <span class="token string">'Hover colour'</span><span class="token punctuation">,</span>
-				hint<span class="token operator">:</span> <span class="token string">'Usually darker than Main colour'</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-		<span class="token punctuation">&#123;</span>
-			type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
-			details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-				variable<span class="token operator">:</span> <span class="token string">'home-color'</span><span class="token punctuation">,</span>
-				value<span class="token operator">:</span> <span class="token string">'#eee'</span><span class="token punctuation">,</span>
-				type<span class="token operator">:</span> <span class="token string">'HEX'</span><span class="token punctuation">,</span>
-				title<span class="token operator">:</span> <span class="token string">'Home button colour'</span>
-			<span class="token punctuation">&#125;</span>
+			title<span class="token operator">:</span> <span class="token string">'Others'</span><span class="token punctuation">,</span>
+			icon<span class="token operator">:</span> <span class="token string">'Cog'</span><span class="token punctuation">,</span>
+			inputs<span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">&#123;</span>
+					type<span class="token operator">:</span> <span class="token string">'slider'</span><span class="token punctuation">,</span>
+					details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+						variable<span class="token operator">:</span> <span class="token string">'roundness'</span><span class="token punctuation">,</span>
+						value<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+						unit<span class="token operator">:</span> <span class="token string">'px'</span><span class="token punctuation">,</span>
+						max<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+						step<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+						title<span class="token operator">:</span> <span class="token string">'Roundness'</span>
+					<span class="token punctuation">&#125;</span>
+				<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+				<span class="token punctuation">&#123;</span>
+					type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
+					details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+						variable<span class="token operator">:</span> <span class="token string">'shadow'</span><span class="token punctuation">,</span>
+						value<span class="token operator">:</span> <span class="token string">'rgba(0,0,0,.4)'</span><span class="token punctuation">,</span>
+						alpha<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+						rule<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+						type<span class="token operator">:</span> <span class="token string">'RGB'</span><span class="token punctuation">,</span>
+						title<span class="token operator">:</span> <span class="token string">'Shadow colour'</span>
+					<span class="token punctuation">&#125;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">]</span>
 		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#123;</span>
-	title<span class="token operator">:</span> <span class="token string">'Others'</span><span class="token punctuation">,</span>
-	icon<span class="token operator">:</span> <span class="token string">'Cog'</span><span class="token punctuation">,</span>
-	inputs<span class="token operator">:</span> <span class="token punctuation">[</span>
-		<span class="token punctuation">&#123;</span>
-			type<span class="token operator">:</span> <span class="token string">'slider'</span><span class="token punctuation">,</span>
-			details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-				variable<span class="token operator">:</span> <span class="token string">'roundness'</span><span class="token punctuation">,</span>
-				value<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
-				unit<span class="token operator">:</span> <span class="token string">'px'</span><span class="token punctuation">,</span>
-				max<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
-				step<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-				title<span class="token operator">:</span> <span class="token string">'Roundness'</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-		<span class="token punctuation">&#123;</span>
-			type<span class="token operator">:</span> <span class="token string">'colour'</span><span class="token punctuation">,</span>
-			details<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-				variable<span class="token operator">:</span> <span class="token string">'shadow'</span><span class="token punctuation">,</span>
-				value<span class="token operator">:</span> <span class="token string">'rgba(0,0,0,.4)'</span><span class="token punctuation">,</span>
-				alpha<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-				rule<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-				type<span class="token operator">:</span> <span class="token string">'RGB'</span><span class="token punctuation">,</span>
-				title<span class="token operator">:</span> <span class="token string">'Shadow colour'</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span>
 	<span class="token punctuation">]</span>
 	<span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
@@ -396,8 +396,8 @@
 
 
 
-	
-</div>
+			
+		</div>
 		<div id="layers">
 			<div id="pickrs"></div>
 			<div id="portal"></div>
