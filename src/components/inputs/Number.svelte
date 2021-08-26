@@ -5,7 +5,7 @@
 
 	// Components
 	import {Input} from '$components/common/Input';
-	
+
 	// Required input vars
 	export let variable: string;
 	export let value: string;
@@ -56,6 +56,10 @@
 			color: hsl(var(--red));
 			font-size: rem(12);
 			margin-top: rem(4);
+		}
+		&-value {
+			color: var(--text-tertiary);
+			margin-left: rem(4);
 		}
 	}
 </style>

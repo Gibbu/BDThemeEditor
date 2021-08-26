@@ -1,5 +1,6 @@
 <script>
 	import {THEME, preview} from '$lib/stores';
+	import {createEl} from '$lib/helpers';
 
 	import type {IAddon} from '$types/addon';
 
@@ -46,11 +47,10 @@
 
 		addon.previewUrl.forEach(url => {
 			if (!$preview.querySelector(`.${addon.selector}`)) {
-				let style: HTMLStyleElement = document.createElement('style');
-				style.setAttribute('class', addon.selector);
-				style.textContent = `@import url('${url}');`;
-
-				$preview.querySelector('head').appendChild(style);
+				createEl<HTMLStyleElement>('style', {
+					className: addon.selector,
+					textContent: `@import url('${url}');`
+				}, $preview.querySelector('head'));
 			}
 		})
 	}

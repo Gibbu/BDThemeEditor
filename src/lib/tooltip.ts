@@ -2,7 +2,9 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale-subtle.css';
 
-export default function (node: Element, props) {
+import type {Props} from 'tippy.js';
+
+export default function (node: Element, props: Partial<Props>) {
   tippy(node, {
     allowHTML: true,
     placement: 'top',

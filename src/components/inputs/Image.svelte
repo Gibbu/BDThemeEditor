@@ -52,11 +52,12 @@
 
 	// User drops a file
 	const droppedFile = (e: DragEvent): void => {
-		prepareFile(e.dataTransfer.files);
+		files = e.dataTransfer.files;
+		prepareFile(e.dataTransfer.files[0]);
 	}
 	// User selects a file
 	const selectedFile = (e: any): void => {
-		prepareFile(e.target.files);
+		prepareFile(e.target.files[0]);
 	}
 
 	/**
@@ -67,24 +68,22 @@
 	 * Then places the current image inside the dragzone and displays a "upload"  
 	 * button if a web host is chosen.
 	 */
-	 const prepareFile = (files: FileList): void => {
+	 const prepareFile = (file: File): void => {
 		error = '';
 		const allowed = ['jpg', 'jpeg', 'gif', 'png', 'apng'];
 
-		if (files.length > 1) {
-			error = 'You cannot uplod multiple files. Try again.'
-		} else if (!allowed.includes(files[0].type.split('/')[1])) {
+		if (!allowed.includes(file.type.split('/')[1])) {
 			error = 'That file type is not supported. Try again.'
 		} else {
 			const reader = new FileReader();
-			reader.readAsDataURL(files[0]);
+			reader.readAsDataURL(file);
 			reader.addEventListener('load', () => {
 				let img = new Image;
 				img.src = reader.result.toString();
 				
 				img.addEventListener('load', () => {
 					thumbnail = reader.result.toString();
-					thumbnailName = files[0].name;
+					thumbnailName = file.name;
 				})
 			})
 		}

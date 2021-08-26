@@ -3,7 +3,7 @@
 	import {browser} from '$app/env';
 	import {navigating} from '$app/stores';
 	import {goto} from '$app/navigation';
-	import {varOutput} from '$lib/helpers';
+	import {varOutput, createEl} from '$lib/helpers';
 	import tooltip from '$lib/tooltip';
 	import DLTheme from '$lib/download';
 	import Icon, {
@@ -119,11 +119,11 @@
 
 		// Add fonts to previewer
 		$THEME.fonts.forEach(url => {
-			const style: HTMLStyleElement = document.createElement('style');
-			style.setAttribute('id', `font-${index}`);
-			style.setAttribute('class', 'customfont');
-			style.innerText = `@import url('${url}')`;
-			$preview.querySelector('head').appendChild(style);
+			createEl<HTMLStyleElement>('style', {
+				id: `font-${index}`,
+				className: 'customfont',
+				innerText: `@import url('${url}')`
+			}, $preview.querySelector('head'))
 		});
 
 		// Add addons to previewer
@@ -132,11 +132,10 @@
 				// Imports
 				if (!$preview.querySelector(`.${addon.selector}`)) {
 					addon.imports.forEach(url => {
-						let style: HTMLStyleElement = document.createElement('style');
-						style.setAttribute('class', addon.selector);
-						style.textContent = `@import url('${url}');`;
-		
-						$preview.querySelector('head').appendChild(style);
+						createEl<HTMLStyleElement>('style', {
+							className: addon.selector,
+							textContent: `@import url('${url}');`
+						}, $preview.querySelector('head'))
 					})
 				}
 				// Vars
@@ -150,7 +149,6 @@
 			type: 'success',
 			message: 'Loaded save'
 		}]
-
 	}
 
 	// Update history item
@@ -427,7 +425,7 @@
 			}
 		}
 		&-back {
-			height: rem(70);
+			height: rem(64);
 			&[disabled] {
 				opacity: .5;
 				pointer-events: none;

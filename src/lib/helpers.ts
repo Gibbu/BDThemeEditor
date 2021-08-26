@@ -14,6 +14,19 @@
 }
 
 /**
+ * Wrapper for creating HTML elements and appending them.
+ * @param tag The HTML tag to be rendered.
+ * @param attributes The attributes to be applied.
+ * @param target The element for `tag` to be added to.
+ * @returns A HTML tag with the give `attributes`.
+ */
+export const createEl = <T>(tag: string, attributes: Partial<T>, target: string | HTMLElement): void => {
+	const el = Object.assign(document.createElement(tag), attributes);
+	const targetEl: HTMLElement = typeof target === 'string' ? document.querySelector(target) : target;
+	targetEl.appendChild(el);
+}
+
+/**
  * Returns only truthy classes given.
  * @param classes Classes to be applied to the element.
  * @returns A string of classes.
@@ -35,4 +48,22 @@ export const varOutput = (input: Record<string, any>) => {
 		variable: input.variable,
 		output
 	}
+}
+
+/**
+ * Filters through a string with the given `first` and `second` characters.
+ * @param string The string to be filtered.
+ * @param first The first character to be selected.
+ * @param second The second characeter to be selected.
+ */
+export const between = (string: string, first: string, second: string): string => {
+	return string.substring(string.lastIndexOf(first) + 1, string.lastIndexOf(second));
+}
+
+/**
+ * Gets the url from a string and removes ''.
+ * @returns A URL form a string.
+ */
+export const getUrl = (url: string): string => {
+	return between(url, '(', ')').replace(/'/g, '');
 }
