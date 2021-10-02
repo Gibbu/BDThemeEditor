@@ -39,14 +39,17 @@ export const createEl = <T>(tag: string, attributes: Partial<T>, target: string 
  * Adds appropriate pre/suffixes to the variable outputs.
  * @param input The object to filter through.
  */
-export const varOutput = (input: Record<string, any>) => {
+export const varOutput = (input: Record<string, any>): {
+	variable: string,
+	value: string
+} => {
 	let output = ((input.value || input.start) || 0)+(input?.unit || '');
 	if (typeof output === 'string' && (output.includes('http') || output.includes('base64'))) {
 		output = `url('${output}')`;
 	}
 	return {
 		variable: input.variable,
-		output
+		value: output
 	}
 }
 

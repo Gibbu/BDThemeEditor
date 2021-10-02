@@ -9,7 +9,8 @@
 	$: states = {
 		hsl: $THEME.addons.some(addon => addon.selector === 'hsl' && addon.use),
 		columns: $THEME.addons.some(addon => addon.selector === 'columns' && addon.use),
-		rs: $THEME.addons.some(addon => addon.selector === 'rs' && addon.use)
+		rs: $THEME.addons.some(addon => addon.selector === 'rs' && addon.use),
+		discolored: $THEME.addons.some(addon => addon.selector === 'discolored' && addon.use)
 	}
 
 	/**
@@ -86,13 +87,15 @@
 					</a>
 				</div>
 			</div>
-			<div class="addon-body" class:active={states[addon.selector]}>
-				{#each addon.variables as data}
-					<div class="option">
-						<Component {data} />
-					</div>
-				{/each}
-			</div>
+			{#if addon.variables}
+				<div class="addon-body" class:active={states[addon.selector]}>
+					{#each addon.variables as data}
+						<div class="option">
+							<Component {data} />
+						</div>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	{/each}
 </template>
@@ -104,7 +107,6 @@
 		border-bottom: rem(1) solid var(--border);
 		&-header {
 			display: flex;
-			justify-content: space-between;
 		}
 		&-checkbox {
 			appearance: none;
@@ -127,6 +129,8 @@
 			margin-left: rem(16);
 			display: flex;
 			user-select: none;
+			justify-content: space-between;
+			width: 100%;
 		}
 		&-meta {
 			margin-right: rem(16);

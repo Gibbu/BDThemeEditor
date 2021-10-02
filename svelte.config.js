@@ -1,4 +1,4 @@
-import { mdsvex } from "mdsvex";
+import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import preprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
@@ -7,7 +7,7 @@ import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: [".svelte", ".svx"],
+	extensions: ['.svelte', '.svx'],
 	preprocess: [
 		preprocess({
 			defaults: {

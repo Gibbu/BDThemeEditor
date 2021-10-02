@@ -772,7 +772,7 @@ const theme: ITheme = {
 			value: 'var(--hover-color)'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl']
+	addons: ['rs', 'columns', 'hsl', 'discolored']
 }
 
 export default theme;

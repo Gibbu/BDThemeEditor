@@ -16,6 +16,7 @@
 	export let min = 0;
 	export let addon = false;
 	export let hint: string = '';
+	export let varGroup: string = ':root';
 
 	let error: string;
 
@@ -24,7 +25,7 @@
 			error = 'This input field can only contain numbers.';
 		} else {
 			error = '';
-			dispatch('update', {variable, value, addon, unit});
+			dispatch('update', {variable, value, addon, unit, varGroup});
 		}
 	}
 </script>
@@ -60,6 +61,11 @@
 		&-value {
 			color: var(--text-tertiary);
 			margin-left: rem(4);
+		}
+		&-hint {
+			display: block;
+			font-size: rem(14);
+			color: var(--text-tertiary);
 		}
 	}
 </style>

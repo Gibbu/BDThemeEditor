@@ -10,7 +10,7 @@ interface IAddon {
 	previewUrl: string[],
 	group: string,
 	use: boolean,
-	variables: Inputs[],
+	variables?: Inputs[],
 	hiddenVars?: {
 		variable: string,
 		value: string

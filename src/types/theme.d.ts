@@ -3,7 +3,7 @@ import type {Inputs} from './inputs';
 import type {IDev} from './dev';
 import type {IAddon} from './addon';
 
-export type Icons = ('Photograph'|'Sun'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat'|'DesktopComputer');
+export type Icons = ('Photograph'|'Sun'|'Moon'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat'|'DesktopComputer');
 
 interface ThemeVars {
 	title: string,
@@ -14,7 +14,8 @@ interface ThemeVars {
 
 interface HiddenVars {
 	variable: string,
-	value: string
+	value: string,
+	varGroup?: string
 }
 
 interface Meta {
@@ -31,6 +32,7 @@ interface Meta {
 }
 
 
+
 export interface ITheme {
 	name: string,
 	previewUrl: string,
@@ -41,7 +43,8 @@ export interface ITheme {
 	fonts: string[],
 	variables: ThemeVars[],
 	hiddenVars?: HiddenVars[],
-	addons?: string[]
+	varGroups?: string[],
+	addons?: ('hsl' | 'rs' | 'columns' | 'discolored')[]
 }
 
 export interface IStoreTheme {
@@ -53,6 +56,7 @@ export interface IStoreTheme {
   addons: IAddon[],
   fonts?: string[],
   hiddenVars?: HiddenVars[]
+	varGroups?: string[]
 }
 
 export interface IHistoryTheme extends IStoreTheme {

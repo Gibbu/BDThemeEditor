@@ -19,11 +19,12 @@
 	export let min: number = 0;
 	export let addon: boolean = false;
 	export let hint: string = '';
+	export let varGroup: string = ':root';
 
 	let switchType: boolean = false;
 
 	const update = (): void => {
-		dispatch('update', {variable, addon, value, unit});
+		dispatch('update', {variable, addon, value, unit, varGroup});
 	}
 
 	const changeInput = (): void => {

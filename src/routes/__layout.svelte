@@ -17,6 +17,7 @@
 		ChevronLeft,
 		Photograph,
 		Sun,
+		Moon,
 		ColorSwatch,
 		MenuAlt1,
 		Puzzle,
@@ -44,7 +45,7 @@
 	import {Flash} from '$components/common/Flash';
 
 	// Icons
-	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer}
+	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer, Moon}
 
 	$: if ($navigating) {
 		NProgress.start();
@@ -113,7 +114,7 @@
 		// Add vars to previewer
 		$THEME.variables.forEach(group => {
 			group.inputs.forEach(({details}) => {
-				$preview.style.setProperty(`--${details.variable}`, varOutput(details).output);
+				$preview.style.setProperty(`--${details.variable}`, varOutput(details).value);
 			})
 		})
 
@@ -140,7 +141,7 @@
 				}
 				// Vars
 				addon.variables.forEach(({details}) => {
-					$preview.style.setProperty(`--${details.variable}`, varOutput(details).output);
+					$preview.style.setProperty(`--${details.variable}`, varOutput(details).value);
 				})
 			}
 		})

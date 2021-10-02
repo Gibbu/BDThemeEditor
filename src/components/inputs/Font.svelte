@@ -12,6 +12,9 @@
 	export let index: number;
 	export let title: string;
 
+	// Optional vars
+	export let varGroup: string = ':root';
+
 	let local: boolean = false;
 
 	$: if (local) {
@@ -42,7 +45,7 @@
 			}
 		}
 
-		dispatch('update', {variable, value: output.join(',')});
+		dispatch('update', {variable, value: output.join(','), varGroup});
 	}
 </script>
 

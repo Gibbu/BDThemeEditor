@@ -18,6 +18,9 @@
 	export let value: string = '' || start;
 	export let title: string;
 
+	// Optional vars
+	export let varGroup: string = ':root';
+
 	// File vars
 	let files: FileList;
 	let uploadType: 'b64'|'imgur' = 'imgur';
@@ -145,7 +148,7 @@
 
 
 	const updatePreview = (value: any): void => {
-		dispatch('update', {variable, value})
+		dispatch('update', {variable, value, varGroup})
 	}
 
 	// Dropdown stuff

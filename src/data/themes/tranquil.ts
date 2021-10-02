@@ -82,7 +82,8 @@ const theme: ITheme = {
 				}
 			]
 		}
-	]
+	],
+	addons: ['discolored']
 }
 
 export default theme;

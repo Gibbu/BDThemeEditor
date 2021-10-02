@@ -385,7 +385,7 @@ const theme: ITheme = {
 			value: 'none'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl']
+	addons: ['rs', 'columns', 'hsl', 'discolored']
 }
 
 export default theme;

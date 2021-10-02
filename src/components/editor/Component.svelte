@@ -26,16 +26,20 @@
 	}
 
 	const update = ({detail}: {detail: Details}): void => {
-		let {variable, value, unit, addon} = detail;
+		let {variable, value, addon} = detail;
 
-		$preview.style.setProperty(`--${variable}`, varOutput(detail).output);
+		$preview.style.setProperty(`--${variable}`, varOutput(detail).value);
 
 		if (addon) {
-			$THEME.addons.forEach(group => group.variables.forEach(input => {
-				if (input.details.variable === variable) {
-					input.details.value = value;
+			$THEME.addons.forEach(group => {
+				if (group.variables) {
+					group.variables.forEach(input => {
+						if (input.details.variable === variable) {
+							input.details.value = value;
+						}
+					})
 				}
-			}))
+			})
 		} else {
 			$THEME.variables.forEach(group => group.inputs.forEach(input => {
 				if (input.details.variable === variable) {

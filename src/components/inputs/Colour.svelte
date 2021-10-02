@@ -17,6 +17,7 @@
 	export let rule: boolean = false;
 	export let alpha: boolean = false;
 	export let hint: string = null;
+	export let varGroup: string = ':root';
 
 	// PickrJS stuff
 	let pickrEl: HTMLElement;
@@ -92,7 +93,7 @@
 					output = `${(rule ? `hsl(`: '')}${rd(c[0])},${rd(c[1])}%,${rd(c[2])}%${alpha ? `,${c[3]}` : ''}${(rule ? ')': '')}`;
 				}
 
-				dispatch('update', {variable, addon, value: output});
+				dispatch('update', {variable, addon, value: output, varGroup});
 			})
 
 		}

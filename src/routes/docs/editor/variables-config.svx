@@ -21,14 +21,14 @@ Available properties:
 | :--- | :--- | :--- | :--- |
 | `title` | string | true | The text displayed in the tooltip on the left sidebar navigation. |
 | `icon` | string | true | The icon to be displayed in the left sidebar navigation. |
+| `varGroup` | string | false | The css selector for the input to be placed. Default is `:root`.  |
 | `userModal` | boolean | false | Displays the user modal/profile if the tab is active. |
-
 
 
 
 # Input Types
 
-These inputs also define your theme file variables.
+The inputs to allow the user to change. These inputs also define your theme file variables.
 
 ## Global properties
 These properties are available for all inputs.
@@ -37,7 +37,7 @@ These properties are available for all inputs.
 | :--- | :--- | :--- | :--- |
 | `variable` | string | true | Name of your variable. Note: you do not need to prefix the variable name with `--`. |
 | `value` | string |  | Starting value. `value` can be required or not, depends on the input. |
-| `title` | string | true | Text to be displayed above the input. |
+| `title` | string | true | Text to be displayed above/beside the input. |
 | `hint` | string | false | Displays small text under the title. |
 
 

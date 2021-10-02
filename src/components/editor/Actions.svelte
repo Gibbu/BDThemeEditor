@@ -91,7 +91,7 @@
 
 					const imports: string[] = result.split('\n').filter(el => el.includes('@import'));
 			
-					const addonUrls: string[] = ['ServerColumns', 'HorizontalServerList', 'RadialStatus'];
+					const addonUrls: string[] = ['ServerColumns', 'HorizontalServerList', 'RadialStatus', 'Discolored'];
 					const fontImports: string[] = imports.filter(el => el.includes('fonts'));
 
 					// Add fonts to the THEME store.
@@ -119,8 +119,6 @@
 					const url = getUrl(el);
 					const selector = (url.includes('Columns') ? 'columns' : (url.includes('Horizontal') ? 'hsl' : 'rs'));
 
-					console.log(selector);
-
 					createEl<HTMLStyleElement>('style', {
 						className: selector,
 						textContent: `@import url('${url}');`
@@ -133,36 +131,38 @@
 					})
 				})
 
-				// Root variables
-				between(result, '{', '}').split('\n').filter(el => el.includes('--')).map(line => line.replace('--', '').trim()).filter(el => el).forEach(el => {
-					const line = el.split(/:(.+)/);
-					let key = line[0];
-					let value = line[1].replace(/;/g, '').trim();
+				result.split('\n').forEach(line => {
+					if (line.includes('--')) {
+						
+						const property: string[] = line.split(/:(.+)/);
+						let variable: string = property[0].replace('--', '').trim();
+						let value: string = property[1].replace(/;/g, '').trim();
 
-					if (value.includes('/*')) {
-						value = value.split('/*')[0].trim();
+						if (value.includes('/*')) value = value.split('/*')[0].trim();
+
+						// Add css to previewer
+						$preview.style.setProperty(`--${variable}`, value);
+
+						// If value includes url, strip url
+						if (value.includes('url(')) value = getUrl(value);
+
+						$THEME.variables.forEach(el => el.inputs.forEach(input => {
+							if (input.details.variable === variable) {
+								input.details.value = getOutput(input.type, value);
+							}
+						}))
+						$THEME.addons.forEach(el => {
+							if (el.variables) {
+								el.variables.forEach(input => {
+									if (input.details.variable === variable) {
+										input.details.value = getOutput(input.type, value);
+									}
+								})
+							}
+						});
+
 					}
-
-					// Add css to previewer
-					$preview.style.setProperty(`--${key}`, value);
-
-					// If value includes url; strip url
-					if (value.includes('url(')) {
-						value = getUrl(value);
-					}
-
-					$THEME.variables.forEach(el => el.inputs.forEach(input => {
-						if (input.details.variable === key) {
-							input.details.value = getOutput(input.type, value);
-						}
-					}))
-					$THEME.addons.forEach(el => el.variables.forEach(input => {
-						if (input.details.variable === key) {
-							input.details.value = getOutput(input.type, value);
-						}
-					}));
-
-				});
+				})
 
 				importFileModal = false;
 				$flash = [...$flash, {
@@ -205,16 +205,16 @@
 	<ModalRoot bind:visible={saveModal}>
 		<ModalHeader title="Save" on:close={() => saveModal = false} />
 		<ModalBody markdown={false}>
-			{#if $THEME.developer.paypal && showDonateWindow}
-			<div class="donate">
-				<h4 class="donate-title">
-					Like {$THEME.name}?
-					<button class="donate-hide" on:click={hideDonate}>
-						<Icon src={X} />
-					</button>
-				</h4>
-				<p class="donate-text">Consider <a href={$THEME.developer.paypal} target="_blank" rel="noreferrer" class="anchor">donating to {$THEME.developer.name}</a>.</p>
-			</div>
+			{#if $THEME.developer.donate && showDonateWindow}
+				<div class="donate">
+					<h4 class="donate-title">
+						Like {$THEME.name}?
+						<button class="donate-hide" on:click={hideDonate}>
+							<Icon src={X} />
+						</button>
+					</h4>
+					<p class="donate-text">Consider <a href={$THEME.developer.donate} target="_blank" rel="noreferrer" class="anchor">donating to {$THEME.developer.name}</a>.</p>
+				</div>
 			{/if}
 			<p class="save-title">Give your theme a name:</p>
 			<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />

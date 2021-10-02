@@ -13,11 +13,12 @@
 
 	// Optional input vars
 	export let hint: string = '';
-	export let customValue = true;
-	export let addon = false;
+	export let customValue: boolean = true;
+	export let addon: boolean = false;
+	export let varGroup: string = ':root';
 
 	const update = ({detail: value}) => {
-		dispatch('update', {variable, value, addon});
+		dispatch('update', {variable, value, addon, varGroup});
 	}
 </script>
 

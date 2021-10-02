@@ -1,5 +1,6 @@
 export interface IColour {
 	type: 'colour',
+	varGroup?: string,
 	details: {
 		variable: string,
 		title: string,
@@ -14,6 +15,7 @@ export interface IColour {
 
 export interface IFont {
 	type: 'font',
+	varGroup?: string,
 	details: {
 		variable: string,
 		title: string,
@@ -26,6 +28,7 @@ export interface IFont {
 
 export interface IImage {
 	type: 'image',
+	varGroup?: string,
 	details: {
 		variable: string,
 		title: string,
@@ -38,6 +41,7 @@ export interface IImage {
 
 export interface INumber {
 	type: 'number',
+	varGroup?: string,
 	details: {
 		variable: string,
 		value: number,
@@ -52,6 +56,7 @@ export interface INumber {
 
 export interface ISelect {
 	type: 'select',
+	varGroup?: string,
 	details: {
 		value: string,
 		variable: string,
@@ -68,6 +73,7 @@ export interface ISelect {
 
 export interface ISlider {
 	type: 'slider',
+	varGroup?: string,
 	details: {
 		value: number,
 		max: number,
@@ -83,6 +89,7 @@ export interface ISlider {
 
 export interface IText {
 	type: 'text',
+	varGroup?: string,
 	details: {
 		variable: string,
 		title: string,
