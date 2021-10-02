@@ -125,7 +125,7 @@
 		}
 		&-hint {
 			display: block;
-			font-size: rem(14);
+			font-size: rem(13);
 			color: var(--text-tertiary);
 		}
 	}

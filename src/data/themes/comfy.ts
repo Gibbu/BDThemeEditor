@@ -20,7 +20,7 @@ const theme: ITheme = {
 		'https://nyri4.github.io/Comfy/betterdiscord/better-spotify.css'
 	],
 	fonts: [],
-	varGroups: [':root.theme-dark', ':root.theme-light'],
+	varGroups: ['.theme-dark', '.theme-light'],
 	variables: [
 		{
 			title: 'Colours',
@@ -203,7 +203,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-primary',
 						type: 'HEX',
@@ -214,7 +214,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-secondary',
 						type: 'HEX',
@@ -225,7 +225,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-secondary-alt',
 						type: 'HEX',
@@ -236,7 +236,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-tertiary',
 						type: 'HEX',
@@ -247,7 +247,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-mobile-primary',
 						type: 'HEX',
@@ -258,7 +258,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-mobile-secondary',
 						type: 'HEX',
@@ -269,7 +269,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'channeltextarea-background',
 						type: 'HEX',
@@ -280,7 +280,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-accent',
 						type: 'HEX',
@@ -291,7 +291,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-modifier-hover',
 						type: 'RGB',
@@ -304,7 +304,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-modifier-active',
 						type: 'RGB',
@@ -317,7 +317,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-modifier-selected',
 						type: 'RGB',
@@ -330,7 +330,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'deprecated-card-bg',
 						type: 'RGB',
@@ -343,7 +343,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'background-floating',
 						type: 'RGB',
@@ -356,7 +356,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'deprecated-quickswitcher-input-background',
 						type: 'HEX',
@@ -367,7 +367,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'scrollbar-auto-thumb',
 						type: 'HEX',
@@ -378,7 +378,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'scrollbar-auto-track',
 						type: 'HEX',
@@ -389,7 +389,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'scrollbar-thin-thumb',
 						type: 'HEX',
@@ -400,7 +400,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					varGroup: ':root.theme-dark',
+					varGroup: '.theme-dark',
 					details: {
 						variable: 'activity-card-background',
 						type: 'HEX',
@@ -453,6 +453,7 @@ const theme: ITheme = {
 							{label: 'True', value: 'block'},
 							{label: 'False', value: 'none'}
 						],
+						customValue: false,
 						value: 'none',
 						title: 'Display Discord logo',
 						hint: 'Display or not Discord watermark on the top left'
@@ -473,62 +474,62 @@ const theme: ITheme = {
 		{
 			variable: 'background-primary',
 			value: '#23283D',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-secondary',
 			value: '#1E2233',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-secondary-alt',
 			value: '#191F2E',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-tertiary',
 			value: '#101320',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-accent',
 			value: '#7289DA',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-modifier-hover',
 			value: '#262B41',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-modifier-active',
 			value: '#262B41',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'header-primary',
 			value: '#fff',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'header-secondary',
 			value: '#B1B5B9',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'text-normal',
 			value: '#8E9297',
-			varGroup: ':root.theme-light'
+			varGroup: '.theme-light'
 		},
 		{
 			variable: 'background-message-hover',
 			value: 'transparent',
-			varGroup: ':root.theme-dark'
+			varGroup: '.theme-dark'
 		},
 		{
 			variable: 'elevation-low',
 			value: 'none',
-			varGroup: ':root.theme-dark'
+			varGroup: '.theme-dark'
 		}
 	],
 	addons: ['discolored']

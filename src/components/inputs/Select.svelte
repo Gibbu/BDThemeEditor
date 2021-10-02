@@ -39,5 +39,10 @@
 		&-header {
 			margin-bottom: rem(8);
 		}
+		&-hint {
+			display: block;
+			font-size: rem(13);
+			color: var(--text-tertiary);
+		}
 	}
 </style>
