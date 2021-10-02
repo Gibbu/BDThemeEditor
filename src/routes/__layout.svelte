@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {THEME, isMounted, loaded, history, preview, flash} from '$lib/stores';
 	import {browser} from '$app/env';
 	import {navigating} from '$app/stores';
@@ -6,7 +6,7 @@
 	import {varOutput, createEl} from '$lib/helpers';
 	import tooltip from '$lib/tooltip';
 	import DLTheme from '$lib/download';
-	import Icon, {
+	import {
 		Check,
 		ExclamationCircle,
 		Refresh,
@@ -28,6 +28,7 @@
 		Cog,
 		Chat
 	} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import NProgress from 'nprogress';
 	import dayjs from 'dayjs';
 	import relativeTime from 'dayjs/plugin/relativeTime.js';

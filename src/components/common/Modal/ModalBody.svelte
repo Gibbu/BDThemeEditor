@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	/** Adds the markdown class. */
 	export let markdown: boolean = true;
 </script>

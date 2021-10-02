@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {page, navigating} from '$app/stores';
 	import NProgress from 'nprogress';
 	import '$scss/app.scss';

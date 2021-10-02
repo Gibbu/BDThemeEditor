@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
 	import {fallbacks} from '$data/themes';
 
 	import type {Load} from '@sveltejs/kit';
@@ -19,7 +19,7 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import {THEME, isMounted} from '$lib/stores';
 	import {onMount, onDestroy} from 'svelte';
 

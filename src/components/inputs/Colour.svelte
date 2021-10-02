@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {tick, createEventDispatcher, onMount, onDestroy} from 'svelte';
 	import '@simonwep/pickr/dist/themes/monolith.min.css';
 

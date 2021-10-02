@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {writable} from 'svelte/store';
 	import {setContext} from 'svelte';
 

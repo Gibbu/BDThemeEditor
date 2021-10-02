@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {fade, scale} from 'svelte/transition';
 	import portal from '$lib/portal';
 

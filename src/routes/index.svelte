@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {flash} from '$lib/stores';
 	import {onMount} from 'svelte';
 

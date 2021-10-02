@@ -10,9 +10,6 @@ const config = {
 	extensions: ['.svelte', '.svx'],
 	preprocess: [
 		preprocess({
-			defaults: {
-				script: 'typescript'
-			},
 			scss: {
 				prependData: `@use 'src/scss/functions.scss' as *;`
 			},

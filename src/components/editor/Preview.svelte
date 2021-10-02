@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {onDestroy} from 'svelte';
 	import {loaded, preview} from '$lib/stores';
 

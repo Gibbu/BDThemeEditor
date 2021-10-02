@@ -1,5 +1,6 @@
-<script>
-	import Icon, {SwitchHorizontal} from 'svelte-hero-icons';
+<script lang="ts">
+	import {SwitchHorizontal} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import {createEventDispatcher} from 'svelte';
 	import tooltip from '$lib/tooltip';
 

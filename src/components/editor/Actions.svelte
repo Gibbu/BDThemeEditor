@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import {createEventDispatcher} from 'svelte';
 	import {browser} from '$app/env';
-	import Icon, {Download, Upload, Save, Clock, X} from 'svelte-hero-icons';
+	import {Download, Upload, Save, Clock, X} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import {THEME, history, isMounted, loaded, flash, preview} from '$lib/stores';
 	import DLTheme from '$lib/download';
 	import {between, getUrl, createEl} from '$lib/helpers';

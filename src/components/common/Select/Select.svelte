@@ -1,5 +1,6 @@
-<script>
-	import Icon, {Selector, Check} from 'svelte-hero-icons';
+<script lang="ts">
+	import {Selector, Check} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import clickOutside from '$lib/clickOutside';
 	import {createEventDispatcher} from 'svelte';
 

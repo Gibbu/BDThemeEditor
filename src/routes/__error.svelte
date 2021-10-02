@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
 	import type {ErrorLoad} from '@sveltejs/kit';
 
 	export const load: ErrorLoad = ({status, error}) => {
@@ -8,9 +8,10 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import {dev} from '$app/env';
-	import Icon, {Home} from 'svelte-hero-icons';
+	import {Home} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 
 	import {Button} from '$components/common/Button';
 

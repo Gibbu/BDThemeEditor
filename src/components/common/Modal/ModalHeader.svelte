@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import {createEventDispatcher} from 'svelte';
-	import Icon, {X} from 'svelte-hero-icons';
+	import {X} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 
 	const dispatch = createEventDispatcher();
 

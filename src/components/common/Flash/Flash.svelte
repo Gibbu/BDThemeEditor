@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import {fly} from 'svelte/transition';
-	import Icon, {CheckCircle, ExclamationCircle, XCircle} from 'svelte-hero-icons';
+	import {CheckCircle, ExclamationCircle, XCircle} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 
 	export let type: 'success' | 'warning' | 'error';
 	export let message: string;

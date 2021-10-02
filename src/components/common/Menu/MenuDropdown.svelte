@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import clickOutside from '$lib/clickOutside';
 	import {getContext} from 'svelte';
 	import type {Writable} from 'svelte/store';

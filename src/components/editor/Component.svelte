@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {THEME, preview} from '$lib/stores';
 	import {varOutput} from '$lib/helpers';
 

@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import axios from 'axios';
-	import Icon, {Upload, Check} from 'svelte-hero-icons';
+	import {Upload, Check} from 'svelte-hero-icons';
+	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import {createEventDispatcher} from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -96,7 +97,7 @@
 	 * Either upload the file to the desired web host or base64 the image.
 	 */
 	const localFile = async(): Promise<void> => {
-		const file = files[0];
+		const file: File = files[0];
 
 		if (uploadType === 'imgur') {
 			error = '';
@@ -105,7 +106,7 @@
 			const formData = new FormData();
 			formData.append('image', file);
 
-			const {data} = await axios.post('https://api.imgur.com/3/image', formData, {
+			const req: any = await axios.post('https://api.imgur.com/3/image', formData, {
 				headers: {
 					Authorization: 'Client-ID 52c59e859f41ce2'
 				},
@@ -114,9 +115,9 @@
 				}
 			})
 
-			let {link} = data.data
+			let {link} = req.data.data;
 
-			value = link
+			value = link;
 
 			fileUploading = false;
 			fileUploadModal = false;
