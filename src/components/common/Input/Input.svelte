@@ -15,7 +15,7 @@
 	export let min: number = 0;
 
 	/** Maximum number when the `inputType` is set to `number` */
-	export let max: number = 100;
+	export let max: number | undefined = undefined;
 </script>
 
 <template>
