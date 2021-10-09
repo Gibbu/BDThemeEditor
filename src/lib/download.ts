@@ -32,10 +32,12 @@ export default (themeObject: IStoreTheme): void => {
 	});
 
 	// Add addon and hidden variables to the :root
-	themeObject.hiddenVars.forEach(hiddenVar => {
-		const group = hiddenVar.varGroup || ':root';
-		groups[group] = [...groups[group], hiddenVar];
-	})
+	if (themeObject.hiddenVars) {
+		themeObject.hiddenVars.forEach(hiddenVar => {
+			const group = hiddenVar.varGroup || ':root';
+			groups[group] = [...groups[group], hiddenVar];
+		})
+	}
 	themeObject.addons.forEach(addon => {
 		if (addon.variables) {
 			addon.variables.forEach(input => {
