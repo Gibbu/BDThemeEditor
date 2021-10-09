@@ -5,7 +5,7 @@ ${Object.entries(r.meta).map(([s,a])=>` * @${s} ${a}
 `,e+=r.fonts?r.fonts.map(s=>`@import url('${s}');
 `).join(""):"",e+=r.imports.map(s=>`@import url('${s}');
 `).join(""),r.addons.filter(s=>s.use).forEach(s=>s.imports.forEach(a=>e+=`@import url('${a}');
-`));let l={};r.varGroups.forEach(s=>{l[s]=[]}),Object.keys(l).forEach(s=>{r.variables.forEach(a=>{a.inputs.forEach(i=>{(i.varGroup===s||s===":root"&&!i.varGroup)&&(l[s]=[...l[s],i.details])})})}),r.hiddenVars.forEach(s=>{const a=s.varGroup||":root";l[a]=[...l[a],s]}),r.addons.forEach(s=>{s.variables&&s.variables.forEach(a=>{s.use&&(l[":root"]=[...l[":root"],a.details])})}),Object.entries(l).forEach(([s,a])=>{e+=`
+`));let l={};r.varGroups.forEach(s=>{l[s]=[]}),Object.keys(l).forEach(s=>{r.variables.forEach(a=>{a.inputs.forEach(i=>{(i.varGroup===s||s===":root"&&!i.varGroup)&&(l[s]=[...l[s],i.details])})})}),r.hiddenVars&&r.hiddenVars.forEach(s=>{const a=s.varGroup||":root";l[a]=[...l[a],s]}),r.addons.forEach(s=>{s.variables&&s.variables.forEach(a=>{s.use&&(l[":root"]=[...l[":root"],a.details])})}),Object.entries(l).forEach(([s,a])=>{e+=`
 ${s} {
 `,e+=a.map(i=>ht(i)).map(({variable:i,value:o})=>`  --${i}: ${o};
 `).join(""),e+=`}
