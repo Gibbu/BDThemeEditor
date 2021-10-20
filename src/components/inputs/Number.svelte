@@ -17,11 +17,12 @@
 	export let addon = false;
 	export let hint: string = '';
 	export let varGroup: string = ':root';
+	export let step: number | undefined = undefined;
 
 	let error: string;
 
 	const update = (): void => {
-		if (!/^\d+$/.test(value)) {
+		if (!/^\d*\.?\d*$/.test(value)) {
 			error = 'This input field can only contain numbers.';
 		} else {
 			error = '';
@@ -41,7 +42,7 @@
 		{/if}
 	</header>
 	<div class="option-body">
-		<Input inputType="number" {min} bind:value on:input={update} {error} />
+		<Input inputType="number" {min} {step} bind:value on:input={update} {error} />
 		{#if error}
 			<small class="option-error">{error}</small>
 		{/if}

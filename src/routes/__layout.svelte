@@ -26,7 +26,8 @@
 		User,
 		Server,
 		Cog,
-		Chat
+		Chat,
+		SwitchVertical
 	} from 'svelte-hero-icons';
 	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import NProgress from 'nprogress';
@@ -46,7 +47,7 @@
 	import {Flash} from '$components/common/Flash';
 
 	// Icons
-	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer, Moon}
+	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer, Moon, SwitchVertical}
 
 	$: if ($navigating) {
 		NProgress.start();
@@ -76,96 +77,12 @@
 
 	const setSetting = (index: number, modal?: boolean): void => {
 		activeSetting = index;
-		historyTab = false;
 
 		const userModal: HTMLElement = $preview.querySelector('#modal');
 		const userPopout: HTMLElement = $preview.querySelector('#userpopout')
 
 		userModal.style.display = (modal === true ? 'block' : 'none');
 		userPopout.style.display = (modal === true ? 'none' : 'block');
-	}
-
-	// History
-	$: if (browser && $isMounted && $loaded) {
-		$history = $isMounted && browser && JSON.parse(localStorage.getItem(`${$THEME.name.replace(/ /g, '')}_history`) || '[]') || [];
-	}
-	let historyTab: boolean = false;
-
-	const toggleHistory = (): void => {
-		historyTab = !historyTab;
-		activeSetting = historyTab ? null : 0;
-	}
-
-	// Delete history item
-	const deleteHistory = (index: number): void => {
-		$history = $history.filter((el, i) => i !== index);
-
-		localStorage.setItem(`${$THEME.name.replace(/ /g, '')}_history`, JSON.stringify($history));
-	}
-
-	// Download history item
-	const downloadHistory = (index: number): void => {
-		DLTheme($history[index]);
-	}
-
-	// Load history item
-	const loadHistory = (index: number): void => {
-		$THEME = $history[index];
-
-		// Add vars to previewer
-		$THEME.variables.forEach(group => {
-			group.inputs.forEach(({details}) => {
-				$preview.style.setProperty(`--${details.variable}`, varOutput(details).value);
-			})
-		})
-
-		// Add fonts to previewer
-		$THEME.fonts.forEach(url => {
-			createEl<HTMLStyleElement>('style', {
-				id: `font-${index}`,
-				className: 'customfont',
-				innerText: `@import url('${url}')`
-			}, $preview.querySelector('head'))
-		});
-
-		// Add addons to previewer
-		$THEME.addons.forEach(addon => {
-			if (addon.use) {
-				// Imports
-				if (!$preview.querySelector(`.${addon.selector}`)) {
-					addon.imports.forEach(url => {
-						createEl<HTMLStyleElement>('style', {
-							className: addon.selector,
-							textContent: `@import url('${url}');`
-						}, $preview.querySelector('head'))
-					})
-				}
-				// Vars
-				addon.variables.forEach(({details}) => {
-					$preview.style.setProperty(`--${details.variable}`, varOutput(details).value);
-				})
-			}
-		})
-
-		$flash = [...$flash, {
-			type: 'success',
-			message: 'Loaded save'
-		}]
-	}
-
-	// Update history item
-	const updateHistory = (index: number): void => {
-		$history[index] = {
-			...$THEME,
-			updatedAt: dayjs()
-		};
-
-		localStorage.setItem(`${$THEME.name.replace(/ /g, '')}_history`, JSON.stringify($history));
-
-		$flash = [...$flash, {
-			type: 'success',
-			message: 'Updated save'
-		}]
 	}
 
 	// Back modal
@@ -179,7 +96,6 @@
 		setTimeout(() => {
 			goto('/');
 			activeSetting = 0;
-			historyTab = false;
 		}, 300);
 	}
 </script>
@@ -227,7 +143,7 @@
 	</nav>
 
 	<aside class="sidebar">
-		<Actions on:showHistory={toggleHistory} />
+		<Actions />
 		<hr class="sidebar-divider">
 		{#if $isMounted && devWarning}
 			<div class="devWarning">
@@ -246,66 +162,7 @@
 			</div>
 		{/if}
 		<div class="sidebar-body scroller">
-			<div class="scroller-inner" class:active={historyTab}>
-				{#if $isMounted && $loaded}
-					{#if $history.length}
-						{#each $history as item, i}
-							<div class="history">
-								<div class="history-info">
-									<h4 class="history-name">{item.meta.name}</h4>
-									<div class="history-time">
-										<span>Created at:</span>
-										<time class="history-date" datetime={dayjs(item.createdAt).format('YYYY-MM-DDTHH:mm:ssZ[Z]')}>{dayjs(item.createdAt).format('Do MMM, YYYY')} - {dayjs(item.createdAt).fromNow()}</time>
-									</div>
-									{#if item.updatedAt !== item.createdAt}
-										<div class="history-time">
-											<span>Updated at:</span>
-											<time class="history-date" datetime={dayjs(item.updatedAt).format('YYYY-MM-DDTHH:mm:ssZ[Z]')}>{dayjs(item.updatedAt).format('Do MMM, YYYY')} - {dayjs(item.updatedAt).fromNow()}</time>
-										</div>
-									{/if}
-								</div>
-								<div class="history-actions">
-									<span use:tooltip={{content: 'Download', placement: 'top'}}>
-										<Button type="secondary" on:click={() => downloadHistory(i)}>
-											<svelte:fragment slot="iconL">
-												<Icon src={Download} />
-											</svelte:fragment>
-										</Button>
-									</span>
-									<Menu>
-										<MenuButton>
-											<div class="history-more">
-												<Icon src={DotsVertical} />
-											</div>
-										</MenuButton>
-										<MenuDropdown>
-											<MenuGroup>
-												<MenuItem on:click={() => loadHistory(i)}>
-													Load
-													<Icon src={Check} />
-												</MenuItem>
-												<MenuItem on:click={() => updateHistory(i)}>
-													Update
-													<Icon src={Refresh} />
-												</MenuItem>
-											</MenuGroup>
-											<MenuGroup>
-												<MenuItem danger on:click={() => deleteHistory(i)}>
-													Delete
-													<Icon src={Trash} />
-												</MenuItem>
-											</MenuGroup>
-										</MenuDropdown>
-									</Menu>
-								</div>
-							</div>
-						{/each}
-					{:else}
-						<p>No history found</p>
-					{/if}
-				{/if}
-			</div>
-			<div class="scroller-inner" class:active={!historyTab}>
+			<div class="scroller-inner">
 				{#if $isMounted && $loaded}
 					{#each $THEME.variables as group, i}
 						<div class="setting" class:active={activeSetting === i}>
@@ -452,10 +309,6 @@
 
 		.scroller-inner {
 			padding: rem(16);
-			display: none;
-			&.active {
-				display: block;
-			}
 		}
 	}
 
@@ -491,39 +344,6 @@
 		align-items: flex-end;
 		.markdown {
 			margin-bottom: rem(16);
-		}
-	}
-
-	.history {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		&-name {
-			color: var(--text-primary);
-		}
-		&-time {
-			font-size: rem(12);
-			font-weight: 500;
-			color: var(--text-tertiary);
-			margin-top: rem(4);
-		}
-
-		&-actions {
-			display: flex;
-			align-items: center;
-			gap: rem(8);
-		}
-		&-more {
-			width: rem(16);
-			height: rem(32);
-			cursor: pointer;
-		}
-
-		&:not(:last-child) {
-			margin-bottom: rem(16);
-			padding-bottom: rem(16);
-			border-bottom: rem(1) solid var(--border);
 		}
 	}
 

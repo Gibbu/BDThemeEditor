@@ -39,22 +39,8 @@
 	const save = (): void => {
 		if (validate()) {
 			$THEME.meta.name = value;
-
-			$history = [{
-				...$THEME,
-				createdAt: dayjs(),
-				updatedAt: dayjs()
-			}, ...$history];
-
-			localStorage.setItem(`${$THEME.name.replace(/ /g, '')}_history`, JSON.stringify($history));
-
 			DLTheme($THEME);
 		}
-	}
-
-	// History
-	const showHistory = (): void => {
-		dispatch('showHistory');
 	}
 
 	// Import
@@ -192,19 +178,22 @@
 
 <template>
 	<div class="actions" disabled={!$isMounted && !$loaded}>
-		<button class="actions-btn" use:tooltip={{content: 'Import', placement: 'bottom'}} on:click={() => importFileModal = true}>
-			<Icon src={Upload} />
+		<button class="actions-btn" on:click={() => importFileModal = true}>
+			<div class="icon">
+				<Icon src={Upload} />
+			</div>
+			<span>Import</span>
 		</button>
-		<button class="actions-btn" use:tooltip={{content: 'History', placement: 'bottom'}} on:click={showHistory}>
-			<Icon src={Clock} />
-		</button>
-		<button class="actions-btn primary" use:tooltip={{content: 'Save', placement: 'bottom'}} on:click={() => saveModal = true}>
-			<Icon src={Save} />
+		<button class="actions-btn primary" on:click={() => saveModal = true}>
+			<div class="icon">
+				<Icon src={Save} />
+			</div>
+			<span>Download</span>
 		</button>
 	</div>
 	
 	<ModalRoot bind:visible={saveModal}>
-		<ModalHeader title="Save" on:close={() => saveModal = false} />
+		<ModalHeader title="Donwload" on:close={() => saveModal = false} />
 		<ModalBody markdown={false}>
 			{#if $THEME.developer.donate && showDonateWindow}
 				<div class="donate">
@@ -260,9 +249,18 @@
 			max-height: rem(64);
 			padding: rem(20) 0;
 			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: rem(16);
 			transition: color .15s ease;
 			&:not(:last-child) {
 				border-right: rem(1) solid var(--border);
+			}
+
+			.icon {
+				width: rem(24);
+				height: rem(24);
 			}
 
 			&:hover {
@@ -271,6 +269,11 @@
 			&.primary {
 				background: hsl(var(--accent));
 				color: #000;
+				font-weight: 500;
+				text-shadow: 0 rem(2) rem(5) hsl(0 0% 0% / .4);
+				.icon {
+					filter: drop-shadow(0 rem(2) rem(5) hsl(0 0% 0% / .4));
+				}
 			}
 		}
 
