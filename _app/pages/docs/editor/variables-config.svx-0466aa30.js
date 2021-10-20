@@ -1,4 +1,4 @@
-import{S as Zv,i as $v,s as t2,e as a,t as o,k as p,c as n,a as s,g as r,d as e,n as i,b as c,f as u,H as t,U as Nu}from"../../../chunks/vendor-52532e96.js";function e2(qv){let et,wo,_l,Pe,Po,gl,ie,Mv=`<code class="language-ts"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+import{S as Zv,i as $v,s as t2,e as a,t as o,k as p,c as n,a as s,g as r,d as e,n as i,b as c,f as u,H as t,U as Nu}from"../../../chunks/vendor-4a021afd.js";function e2(qv){let et,wo,_l,Pe,Po,gl,ie,Mv=`<code class="language-ts"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
 	<span class="token comment">// ...</span>
 	variables<span class="token operator">:</span> <span class="token punctuation">[</span>
 		<span class="token punctuation">&#123;</span>
