@@ -3,7 +3,7 @@ import Gibbu from '$data/devs/gibbu';
 
 const theme: ITheme = {
 	name: 'Frosted Glass',
-	previewUrl: 'https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.theme.css',
+	previewUrl: 'https://discordstyles.github.io/FrostedGlass/FrostedGlass.theme.css',
 	thumbnail: 'https://i.imgur.com/Gr8JJAv.jpg',
 	developer: Gibbu,
 	meta: {
