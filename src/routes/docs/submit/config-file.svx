@@ -10,9 +10,9 @@ Which the editor will use the construct your theme.
 | `previewUrl` | string | true | The url to be injected into the previewer. This will typically your `.theme.css` file as it will show the default config. |
 | `thumbnail` | string | true | Thumbnail used on the homepage and embeds. |
 | `developer` | object | true | The developer object that is located in `src/data/devs`. |
-| `meta` | object | true | META for the BetterDiscord file. [See available meta](/docs/editor/betterdiscord-meta). |
+| `meta` | object | true | META for the BetterDiscord file. [See available meta](/docs/submit/betterdiscord-meta). |
 | `imports` | array | true | Imports to be included with the outputted file. This is where you'd place your GitHub pages hosted css files. |
-| `variables` | array | true | The required CSS variables. [View Variables Config](/docs/editor/variables-config). |
+| `variables` | array | true | The required CSS variables. [View Variables Config](/docs/submit/variables-config). |
 | `fonts` | array | false | URL of the fonts that is imported with your theme. |
 | `hiddenVars` | array | false | Variables that need to be included to the `.theme.css` file but shouldn't be edited by the user. |
 | `addons` | array | false | Addons to be available for the user to edit. Available addons: `hsl`, `columns`, `rs` |
