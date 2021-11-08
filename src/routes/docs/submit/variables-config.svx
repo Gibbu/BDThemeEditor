@@ -39,6 +39,7 @@ These properties are available for all inputs.
 | `value` | string |  | Starting value. `value` can be required or not, depends on the input. |
 | `title` | string | true | Text to be displayed above/beside the input. |
 | `hint` | string | false | Displays small text under the title. |
+| `comment` | string | false | Displays a CSS comment next to the variable in the end result of the theme file. |
 
 
 

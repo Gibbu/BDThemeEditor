@@ -11,18 +11,11 @@
 
 	const nav = [
 		{
-			title: 'BetterDiscord',
-			links: [
-				{href: 'bd/installing', value: 'Installing BetterDiscord'},
-				{href: 'bd/installing-themes', value: 'Installing Themes'}
-			]
-		},
-		{
 			title: 'Adding your theme',
 			links: [
-				{href: 'editor/config-file', value: 'Config File'},
+				{href: 'submit/config-file', value: 'Config File'},
 				{
-					href: 'editor/variables-config',
+					href: 'submit/variables-config',
 					value: 'Variables Config',
 					children: [
 						{href: '#colour', value: 'Colour'},
@@ -34,8 +27,8 @@
 						{href: '#example', value: 'Example variables config'}
 					]
 				},
-				{href: 'editor/betterdiscord-meta', value: 'BetterDiscord META'},
-				{href: 'editor/submitting-theme', value: 'Submitting Your Theme'}
+				{href: 'submit/betterdiscord-meta', value: 'BetterDiscord META'},
+				{href: 'submit/submitting-theme', value: 'Submitting Your Theme'}
 			]
 		}
 	]
@@ -57,6 +50,11 @@
 			<div class="wrapper">
 				<div class="docs">
 					<aside class="sidebar">
+						<ul class="sidebar-items">
+							<li class="sidebar-item">
+								<a href="/" class="sidebar-link">Home</a>
+							</li>
+						</ul>
 						{#each nav as {title, links}}
 							<h4 class="sidebar-title">{title}</h4>
 							<ul class="sidebar-items">

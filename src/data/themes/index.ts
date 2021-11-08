@@ -1,4 +1,5 @@
 import frostedglass from './frostedglass';
+import softx from './softx';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
 import reborn from './reborn';
@@ -8,6 +9,7 @@ import comfy from './comfy';
 
 const themes = [
 	frostedglass,
+	softx,
 	basicbackground,
 	clearvision,
 	reborn,

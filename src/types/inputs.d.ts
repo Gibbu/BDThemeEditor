@@ -9,7 +9,8 @@ export interface IColour {
 		alpha?: boolean,
 		rule?: boolean,
 		addon?: boolean,
-		hint?: string
+		hint?: string,
+		comment?: string
 	}
 }
 
@@ -22,7 +23,8 @@ export interface IFont {
 		index: number,
 		value?: string,
 		addon?: boolean,
-		hint?: string
+		hint?: string,
+		comment?: string
 	}
 }
 
@@ -35,7 +37,8 @@ export interface IImage {
 		start: string,
 		value?: string,
 		addon?: boolean,
-		hint?: string
+		hint?: string,
+		comment?: string
 	}
 }
 
@@ -50,7 +53,9 @@ export interface INumber {
 		addon?: boolean,
 		hint?: string,
 		min?: number,
-		max?: number
+		max?: number,
+		step?: number,
+		comment?: string
 	}
 }
 
@@ -67,7 +72,8 @@ export interface ISelect {
 		}[],
 		addon?: boolean,
 		hint?: string,
-		customValue?: boolean
+		customValue?: boolean,
+		comment?: string
 	}
 }
 
@@ -84,6 +90,7 @@ export interface ISlider {
 		hint?: string
 		min?: number,
 		unit?: string,
+		comment?: string
 	}
 }
 
@@ -95,7 +102,8 @@ export interface IText {
 		title: string,
 		value: string,
 		addon?: boolean,
-		hint?: string
+		hint?: string,
+		comment?: string
 	}
 }
 

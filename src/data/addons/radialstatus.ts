@@ -170,7 +170,7 @@ const addon: IAddon = {
 		{
 			variable: 'rs-invisible-color',
 			value: '#747f8d'
-		},
+		}
 	]
 }
 

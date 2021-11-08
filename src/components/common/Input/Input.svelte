@@ -16,6 +16,8 @@
 
 	/** Maximum number when the `inputType` is set to `number` */
 	export let max: number | undefined = undefined;
+	
+	export let step: number | undefined = undefined;
 </script>
 
 <template>
@@ -38,6 +40,7 @@
 			{placeholder}
 			{min}
 			{max}
+			{step}
 			bind:value
 			on:change
 			on:input

@@ -1,15 +1,10 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
 	import {browser} from '$app/env';
-	import {Download, Upload, Save, Clock, X} from 'svelte-hero-icons';
+	import {Download, Upload, Save, X} from 'svelte-hero-icons';
 	import Icon from 'svelte-hero-icons/Icon.svelte';
-	import {THEME, history, isMounted, loaded, flash, preview} from '$lib/stores';
+	import {THEME, isMounted, loaded, flash, preview} from '$lib/stores';
 	import DLTheme from '$lib/download';
-	import {between, getUrl, createEl} from '$lib/helpers';
-	import dayjs from 'dayjs';
-	import tooltip from '$lib/tooltip';
-
-	const dispatch = createEventDispatcher();
+	import {getUrl, createEl} from '$lib/helpers';
 
 	import {Input} from '$components/common/Input';
 	import {Button} from '$components/common/Button';

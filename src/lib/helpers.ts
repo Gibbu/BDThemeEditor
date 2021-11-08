@@ -41,7 +41,8 @@ export const createEl = <T>(tag: string, attributes: Partial<T>, target: string 
  */
 export const varOutput = (input: Record<string, any>): {
 	variable: string,
-	value: string
+	value: string,
+	comment: string
 } => {
 	let output = ((input.value || input.start) || 0)+(input?.unit || '');
 	if (typeof output === 'string' && (output.includes('http') || output.includes('base64'))) {
@@ -49,7 +50,8 @@ export const varOutput = (input: Record<string, any>): {
 	}
 	return {
 		variable: input.variable,
-		value: output
+		value: output,
+		comment: input.comment
 	}
 }
 

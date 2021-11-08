@@ -49,7 +49,7 @@
 	
 					<footer class="footer">
 						<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
-						<p>Want your theme on here? <a href="/docs/editor/config-file" class="anchor">Read the docs</a></p>
+						<p>Want your theme on here? <a href="/docs/submit/config-file" class="anchor">Read the docs</a></p>
 					</footer>
 				</div>
 			</div>

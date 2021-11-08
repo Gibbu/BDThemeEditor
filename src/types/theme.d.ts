@@ -3,7 +3,7 @@ import type {Inputs} from './inputs';
 import type {IDev} from './dev';
 import type {IAddon} from './addon';
 
-export type Icons = ('Photograph'|'Sun'|'Moon'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat'|'DesktopComputer');
+export type Icons = ('Photograph'|'Sun'|'Moon'|'ColorSwatch'|'MenuAlt1'|'Puzzle'|'Globe'|'Home'|'User'|'Server'|'Cog'|'Chat'|'DesktopComputer'|'SwitchVertical');
 
 interface ThemeVars {
 	title: string,
@@ -15,7 +15,8 @@ interface ThemeVars {
 interface HiddenVars {
 	variable: string,
 	value: string,
-	varGroup?: string
+	varGroup?: string,
+	comment?: string
 }
 
 interface Meta {

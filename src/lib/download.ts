@@ -48,7 +48,7 @@ export default (themeObject: IStoreTheme): void => {
 
 	Object.entries(groups).forEach(([group, vars]) => {
 		save += `\n${group} {\n`;
-		save += vars.map(input => varOutput(input)).map(({variable, value}) => `  --${variable}: ${value};\n`).join('');
+		save += vars.map(input => varOutput(input)).map(({variable, value, comment}) => `  --${variable}: ${value};${comment ? ` /* ${comment} */` : ''}\n`).join('');
 		save += '}\n';
 	});
 

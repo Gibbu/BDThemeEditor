@@ -31,19 +31,12 @@
 	} from 'svelte-hero-icons';
 	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import NProgress from 'nprogress';
-	import dayjs from 'dayjs';
-	import relativeTime from 'dayjs/plugin/relativeTime.js';
-	import advancedFormat from 'dayjs/plugin/advancedFormat.js';
 	import '$scss/app.scss';
-
-	dayjs.extend(relativeTime);
-	dayjs.extend(advancedFormat);
 
 	// Components
 	import {Button} from '$components/common/Button';
 	import {ModalRoot, ModalBody, ModalHeader, ModalFooter} from '$components/common/Modal';
 	import {Component, Actions, Addons} from '$components/editor';
-	import {Menu, MenuButton, MenuDropdown, MenuGroup, MenuItem} from '$components/common/Menu';
 	import {Flash} from '$components/common/Flash';
 
 	// Icons
@@ -275,7 +268,7 @@
 				transform: scale(1, .25);
 			}
 			&.active {
-				color: var(--text-primary);
+				color: hsl(var(--accent));
 				&::before {
 					width: rem(4);
 					background: hsl(var(--accent));

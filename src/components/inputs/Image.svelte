@@ -25,7 +25,6 @@
 	// File vars
 	let files: FileList;
 	let uploadType: 'b64'|'imgur' = 'imgur';
-	let fileInput: HTMLInputElement;
 	let fileUploadModal: boolean = false;
 	let fileUploading: boolean = false;
 	let fileUploadProgress: number = 0;
@@ -210,7 +209,7 @@
 				{:else}
 					<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
 				{/if}
-				<input bind:this={fileInput} type="file" hidden bind:files on:change={selectedFile}>
+				<input type="file" hidden bind:files on:change={selectedFile}>
 			</label>
 			{#if !error && thumbnail}
 				<div class="uploadArea">
