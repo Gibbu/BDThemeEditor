@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {browser} from '$app/env';
+	import {page} from '$app/stores';
 	import {Download, Upload, Save, X} from 'svelte-hero-icons';
 	import Icon from 'svelte-hero-icons/Icon.svelte';
 	import {THEME, isMounted, loaded, flash, preview} from '$lib/stores';
@@ -29,9 +30,8 @@
 	}
 
 	// Download
-	let saveModal: boolean = false;
-
-	const save = (): void => {
+	let downloadModal: boolean = false;
+	const download = (): void => {
 		if (validate()) {
 			$THEME.meta.name = value;
 			DLTheme($THEME);
@@ -179,7 +179,7 @@
 			</div>
 			<span>Import</span>
 		</button>
-		<button class="actions-btn primary" on:click={() => saveModal = true}>
+		<button class="actions-btn primary" on:click={() => downloadModal = true}>
 			<div class="icon">
 				<Icon src={Save} />
 			</div>
@@ -187,8 +187,8 @@
 		</button>
 	</div>
 	
-	<ModalRoot bind:visible={saveModal}>
-		<ModalHeader title="Donwload" on:close={() => saveModal = false} />
+	<ModalRoot bind:visible={downloadModal}>
+		<ModalHeader title="Donwload" on:close={() => downloadModal = false} />
 		<ModalBody markdown={false}>
 			{#if $THEME.developer.donate && showDonateWindow}
 				<div class="donate">
@@ -208,7 +208,7 @@
 			{/if}
 		</ModalBody>
 		<ModalFooter>
-			<Button type="primary" disabled={error} on:click={save}>
+			<Button type="primary" disabled={error} on:click={download}>
 				<svelte:fragment slot="iconL">
 					<Icon src={Download} />
 				</svelte:fragment>

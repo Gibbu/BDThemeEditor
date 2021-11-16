@@ -1,7 +1,7 @@
 import type {IDev} from './dev';
 import type {Inputs} from './inputs';
 
-interface IAddon {
+export interface IAddon {
 	name: string,
 	description: string,
 	imports: string[],

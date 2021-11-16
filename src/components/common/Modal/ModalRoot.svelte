@@ -26,7 +26,7 @@
 	{#if visible}
 		<div class="modal-container" use:portal={"#portal"}>
 			<div class="backdrop" transition:fade={{duration: 150}} on:click={close}></div>
-			<div class="modal" transition:scale={{duration: 200, start: .95}} style="max-width: {maxWidth}px;">
+			<div class="modal" transition:scale={{duration: 200, start: 1.02}} style="max-width: {maxWidth}px;">
 				<slot />
 			</div>
 		</div>

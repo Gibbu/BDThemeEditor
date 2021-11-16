@@ -1,8 +1,9 @@
 <script lang="ts">
 	import axios from 'axios';
-	import {Upload, Check} from 'svelte-hero-icons';
 	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Upload, Check, QuestionMarkCircle} from 'svelte-hero-icons';
 	import {createEventDispatcher} from 'svelte';
+	import tooltip from '$lib/tooltip';
 
 	const dispatch = createEventDispatcher();
 	
@@ -55,7 +56,6 @@
 
 	// User drops a file
 	const droppedFile = (e: DragEvent): void => {
-		files = e.dataTransfer.files;
 		prepareFile(e.dataTransfer.files[0]);
 	}
 	// User selects a file
@@ -188,8 +188,18 @@
 		<ModalHeader title="How should we upload?" on:close={() => fileUploadModal = false} />
 		<ModalBody markdown={false}>
 			<RadioGroup>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">Imgur.com</RadioGroupItem>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">Inline encode (base64)</RadioGroupItem>
+				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">
+					Imgur.com
+					<div class="explain" use:tooltip={{content: `Uploading to Imgur will decrease the amount of lag but means your image is public.`}}>
+						<Icon src={QuestionMarkCircle} />
+					</div>
+				</RadioGroupItem>
+				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">
+					Inline encode (base64)
+					<div class="explain" use:tooltip={{content: `Encoding with base64 will increase the amount of lag but means your image is private.`}}>
+						<Icon src={QuestionMarkCircle} />
+					</div>
+				</RadioGroupItem>
 			</RadioGroup>
 			<label
 				class="dropzone"
@@ -310,6 +320,11 @@
 			pointer-events: none;
 			user-select: none;
 		}
+	}
+	.explain {
+		width: rem(16);
+		height: rem(16);
+		margin-left: rem(8);
 	}
 	.uploadArea {
 		margin-top: rem(16);

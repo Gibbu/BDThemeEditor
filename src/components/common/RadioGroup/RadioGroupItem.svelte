@@ -94,6 +94,8 @@
 		&-content {
 			flex: 1;
 			user-select: none;
+			display: flex;
+			align-items: center;
 		}
 	}
 </style>

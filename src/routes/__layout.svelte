@@ -1,18 +1,12 @@
 <script lang="ts">
-	import {THEME, isMounted, loaded, history, preview, flash} from '$lib/stores';
+	import {THEME, isMounted, loaded, preview, flash} from '$lib/stores';
 	import {browser} from '$app/env';
 	import {navigating} from '$app/stores';
 	import {goto} from '$app/navigation';
-	import {varOutput, createEl} from '$lib/helpers';
 	import tooltip from '$lib/tooltip';
-	import DLTheme from '$lib/download';
 	import {
 		Check,
 		ExclamationCircle,
-		Refresh,
-		Trash,
-		DotsVertical,
-		Download,
 		DesktopComputer,
 		ChevronLeft,
 		Photograph,
@@ -287,8 +281,8 @@
 	}
 
 	.sidebar {
-		max-width: 400px;
-		min-width: 400px;
+		max-width: rem(400);
+		min-width: rem(400);
 		border-right: rem(1) solid var(--border);
 		display: flex;
 		flex-direction: column;

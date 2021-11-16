@@ -30,7 +30,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: rem(16);
+		padding: rem(24);
 	}
 	.modal-title {
 		color: var(--text-primary);
