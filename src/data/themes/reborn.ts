@@ -22,7 +22,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -67,7 +67,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -92,7 +92,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'slider',

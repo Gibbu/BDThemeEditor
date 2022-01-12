@@ -25,7 +25,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Colors',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -69,7 +69,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Text',
-			icon: 'MenuAlt1',
+			icon: 'Font',
 			inputs: [
 				{
 					type: 'colour',
@@ -137,7 +137,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Background colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -197,7 +197,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'select',

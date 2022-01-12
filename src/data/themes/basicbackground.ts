@@ -23,7 +23,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Background Image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -84,7 +84,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Popout image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -145,7 +145,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -249,7 +249,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Font',
-			icon: 'MenuAlt1',
+			icon: 'Font',
 			inputs: [
 				{
 					type: 'font',
@@ -318,7 +318,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'select',

@@ -3,8 +3,8 @@
 
 	import type {Load} from '@sveltejs/kit';
 
-	export const load: Load = ({page}) => {
-		if (!fallbacks.includes(page.params.slug)) {
+	export const load: Load = ({params}) => {
+		if (!fallbacks.includes(params.slug)) {
 			return {
 				status: 404,
 				error: 'That theme does not exist.'
@@ -13,7 +13,7 @@
 		return {
 			status: 200,
 			props: {
-				slug: page.params.slug
+				slug: params.slug
 			}
 		}
 	}

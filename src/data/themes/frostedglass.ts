@@ -25,7 +25,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Main background',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -86,7 +86,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Popout/Modal',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -255,7 +255,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -310,7 +310,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Backgrount tint',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'colour',
@@ -335,7 +335,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'MenuAlt1',
+			icon: 'Font',
 			inputs: [
 				{
 					type: 'font',
@@ -350,7 +350,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'App settings',
-			icon: 'DesktopComputer',
+			icon: 'App',
 			inputs: [
 				{
 					type: 'slider',

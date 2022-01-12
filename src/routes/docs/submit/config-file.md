@@ -47,7 +47,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',

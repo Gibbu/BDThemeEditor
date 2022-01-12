@@ -8,7 +8,7 @@ const theme = {
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [] // Available inputs are below.
 		}
 	]
@@ -201,7 +201,7 @@ const theme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -235,7 +235,7 @@ const theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'slider',

@@ -24,7 +24,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -94,7 +94,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Roundness',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'slider',
@@ -130,7 +130,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Status Colours',
-			icon: 'Globe',
+			icon: 'Status',
 			inputs: [
 				{
 					type: 'image',
@@ -413,7 +413,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'number',

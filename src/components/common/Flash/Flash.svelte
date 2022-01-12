@@ -1,7 +1,6 @@
 <script lang="ts">
 	import {fly} from 'svelte/transition';
-	import {CheckCircle, ExclamationCircle, XCircle} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {CheckCircle, Warning, ErrorCircle} from '$components/common/Icon';
 
 	export let type: 'success' | 'warning' | 'error';
 	export let message: string;
@@ -15,7 +14,7 @@
 	{#if visible}
 		<div class="flash {type}" in:fly={{y: 10, duration: 200}} out:fly={{y: -10, duration: 200}}>
 			<div class="flash-icon">
-				<Icon src={type === 'success' ? CheckCircle : (type === 'warning' ? ExclamationCircle : XCircle)} />
+				<svelte:component this={type === 'success' ? CheckCircle : (type === 'warning' ? Warning : ErrorCircle)} />
 			</div>
 			<p class="flash-message">{message}</p>
 		</div>

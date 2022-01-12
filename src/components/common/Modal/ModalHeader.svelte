@@ -1,7 +1,6 @@
 <script lang="ts">
 	import {createEventDispatcher} from 'svelte';
-	import {X} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Dismiss} from '$components/common/Icon';
 
 	const dispatch = createEventDispatcher();
 
@@ -19,7 +18,7 @@
 		<h3 class="modal-title">{title}</h3>
 		{#if closeBtn}
 			<button type="button" class="modal-close" on:click={() => dispatch('close')}>
-				<Icon src={X} size="18" />
+				<Dismiss />
 			</button>
 		{/if}
 	</header>

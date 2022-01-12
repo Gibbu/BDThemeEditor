@@ -24,7 +24,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -62,7 +62,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours/Glow',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -91,7 +91,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'MenuAlt1',
+			icon: 'Font',
 			inputs: [
 				{
 					type: 'font',
@@ -107,7 +107,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Sizing',
-			icon: 'SwitchVertical',
+			icon: 'Sizing',
 			inputs: [
 				{
 					type: 'number',
@@ -164,7 +164,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'RadialGlow',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'slider',

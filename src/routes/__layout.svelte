@@ -4,26 +4,7 @@
 	import {navigating} from '$app/stores';
 	import {goto} from '$app/navigation';
 	import tooltip from '$lib/tooltip';
-	import {
-		Check,
-		ExclamationCircle,
-		DesktopComputer,
-		ChevronLeft,
-		Photograph,
-		Sun,
-		Moon,
-		ColorSwatch,
-		MenuAlt1,
-		Puzzle,
-		Globe,
-		Home,
-		User,
-		Server,
-		Cog,
-		Chat,
-		SwitchVertical
-	} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {App, Bug, Border, Check, Collections, Colour, Chat, Font, Gear, Home, Image, Moon, Person, List, Sizing, Status, Sun, ChevronLeft} from '$components/common/Icon';
 	import NProgress from 'nprogress';
 	import '$scss/app.scss';
 
@@ -34,7 +15,7 @@
 	import {Flash} from '$components/common/Flash';
 
 	// Icons
-	const icons = {Photograph, Sun, ColorSwatch, MenuAlt1, Puzzle, Globe, Home, User, Server, Cog, Chat, DesktopComputer, Moon, SwitchVertical}
+	const icons = {App, Image, Sun, Colour, Font, Collections, Status, Home, Person, List, Gear, Chat, Moon, Sizing, Border}
 
 	$: if ($navigating) {
 		NProgress.start();
@@ -94,7 +75,7 @@
 			disabled={!$isMounted}
 			use:tooltip={{content: 'Back to theme selection', placement: 'right', offset: [0, 15]}} on:click={toggleBack}
 		>
-			<Icon src={ChevronLeft} />
+			<svelte:component this={ChevronLeft} />
 		</button>
 		<hr class="nav-divider">
 		<div class="scroller">
@@ -107,7 +88,7 @@
 							use:tooltip={{content: group.title, placement: 'right', offset: [0, 15]}}
 							on:click={() => setSetting(i, group.userModal)}
 						>
-							<Icon src={icons[group.icon]} />
+							<svelte:component this={icons[group.icon]} />
 						</button>
 					{/each}
 					{#if $THEME.addons && $THEME.addons.length > 0}
@@ -117,7 +98,7 @@
 							use:tooltip={{content: 'Addons', placement: 'right', offset: [0, 15]}}
 							on:click={() => setSetting(100, false)}
 						>
-							<Icon src={Puzzle} />
+							<Collections />
 						</button>
 					{/if}
 				{/if}
@@ -125,7 +106,7 @@
 		</div>
 		<hr class="nav-divider">
 		<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer" class="nav-btn" use:tooltip={{content: 'Found a bug?', placement: 'right', offset: [0, 15]}}>
-			<Icon src={ExclamationCircle} />
+			<Bug />
 		</a>
 	</nav>
 
@@ -142,7 +123,7 @@
 				</div>
 				<Button type="secondary" on:click={closeDevWarning}>
 					<svelte:fragment slot="iconL">
-						<Icon src={Check} />
+						<svelte:component this={Check} />
 					</svelte:fragment>
 					I Understand
 				</Button>
@@ -200,7 +181,7 @@
 			<ModalFooter>
 				<Button type="primary" on:click={closeWarning}>
 					<svelte:fragment slot="iconL">
-						<Icon src={Check} />
+						<svelte:component this={Check} />
 					</svelte:fragment>
 					I Understand
 				</Button>
@@ -217,7 +198,7 @@
 			<Button type="text" on:click={toggleBack}>Close</Button>
 			<Button type="primary" on:click={goBack}>
 				<svelte:fragment slot="iconL">
-					<Icon src={Check} />
+					<svelte:component this={Check} />
 				</svelte:fragment>
 				Go back
 			</Button>

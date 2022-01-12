@@ -7,7 +7,7 @@ import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.svx'],
+	extensions: ['.svelte', '.md'],
 	preprocess: [
 		preprocess({
 			scss: {
@@ -18,6 +18,7 @@ const config = {
 			}
 		}), 
 		mdsvex({
+			extensions: ['.md'],
 			rehypePlugins: [slug]
 		})
 	],
@@ -25,10 +26,6 @@ const config = {
 		adapter: adapter(),
 		target: '#svelte',
 		vite: {
-			optimizeDeps: {
-				include: ['svelte-hero-icons'],
-				entries: []
-			},
 			resolve: {
 				alias: {
 					'$components': path.resolve('./src/components'),

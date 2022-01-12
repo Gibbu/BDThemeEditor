@@ -34,7 +34,7 @@
 	]
 
 	$: active = (href: string): boolean => {
-		const path = $page.path.split('/').filter(el => el && el !== 'docs').join('/');
+		const path = $page.url.pathname.split('/').filter(el => el && el !== 'docs').join('/');
 		if (path === href) return true;
 		return false;
 	}

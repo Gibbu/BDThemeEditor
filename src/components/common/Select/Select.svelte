@@ -1,6 +1,5 @@
 <script lang="ts">
-	import {Selector, Check} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Selector, Check} from '$components/common/Icon';
 	import clickOutside from '$lib/clickOutside';
 	import {createEventDispatcher} from 'svelte';
 
@@ -52,7 +51,7 @@
 		<button bind:this={selectBtn} class="btn" on:click={toggle}>
 			<span class="btn-text">{selected.label}</span>
 			<div class="btn-icon">
-				<Icon src={Selector} />
+				<Selector />
 			</div>
 		</button>
 		{#if visible}
@@ -62,7 +61,7 @@
 						<span class="option-label">{option.label}</span>
 						{#if selected.value === option.value}
 							<div class="option-check">
-								<Icon src={Check} />
+								<Check />
 							</div>
 						{/if}
 					</button>
@@ -73,7 +72,7 @@
 						<span class="option-label">Custom value</span>
 						{#if selected.value === 'custom'}
 							<div class="option-check">
-								<Icon src={Check} />
+								<Check />
 							</div>
 						{/if}
 					</button>

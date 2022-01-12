@@ -10,8 +10,7 @@
 
 <script lang="ts">
 	import {dev} from '$app/env';
-	import {Home} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Home} from '$components/common/Icon';
 
 	import {Button} from '$components/common/Button';
 
@@ -30,7 +29,7 @@
 			<p>{error.message}</p>
 			<Button type="primary" href="/">
 				<svelte:fragment slot="iconL">
-					<Icon src={Home} />
+					<Home />
 				</svelte:fragment>
 				Return Home
 			</Button>

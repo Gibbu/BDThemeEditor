@@ -20,7 +20,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'ColorSwatch',
+			icon: 'Colour',
 			inputs: [
 				{
 					type: 'colour',
@@ -72,7 +72,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'App background',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -239,7 +239,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'User popout',
-			icon: 'Photograph',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -384,7 +384,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'User profile',
-			icon: 'User',
+			icon: 'Person',
 			userModal: true,
 			inputs: [
 				{
@@ -571,7 +571,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Channel colours',
-			icon: 'Server',
+			icon: 'List',
 			inputs: [
 				{
 					type: 'colour',
@@ -608,7 +608,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Status colours',
-			icon: 'Globe',
+			icon: 'Status',
 			inputs: [
 				{
 					type: 'colour',
@@ -659,7 +659,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom fonts',
-			icon: 'MenuAlt1',
+			icon: 'Font',
 			inputs: [
 				{
 					type: 'font',
@@ -683,7 +683,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog',
+			icon: 'Gear',
 			inputs: [
 				{
 					type: 'number',

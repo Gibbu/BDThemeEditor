@@ -1,6 +1,5 @@
 <script lang="ts">
-	import {SwitchHorizontal} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Swap} from '$components/common/Icon';
 	import {createEventDispatcher} from 'svelte';
 	import tooltip from '$lib/tooltip';
 
@@ -41,7 +40,7 @@
 				<small class="option-unit">({value+unit})</small>
 			</p>
 			<button on:click={changeInput} class="switch-input" use:tooltip={{content: 'Switch input', delay: [350, 0]}}>
-				<Icon src={SwitchHorizontal} />
+				<Swap />
 			</button>
 		</div>
 		{#if hint}

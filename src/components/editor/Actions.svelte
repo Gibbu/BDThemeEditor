@@ -1,8 +1,6 @@
 <script lang="ts">
 	import {browser} from '$app/env';
-	import {page} from '$app/stores';
-	import {Download, Upload, Save, X} from 'svelte-hero-icons';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
+	import {Upload, Download, Dismiss} from '$components/common/Icon';
 	import {THEME, isMounted, loaded, flash, preview} from '$lib/stores';
 	import DLTheme from '$lib/download';
 	import {getUrl, createEl} from '$lib/helpers';
@@ -175,13 +173,13 @@
 	<div class="actions" disabled={!$isMounted && !$loaded}>
 		<button class="actions-btn" on:click={() => importFileModal = true}>
 			<div class="icon">
-				<Icon src={Upload} />
+				<Upload />
 			</div>
 			<span>Import</span>
 		</button>
 		<button class="actions-btn primary" on:click={() => downloadModal = true}>
 			<div class="icon">
-				<Icon src={Save} />
+				<Download />
 			</div>
 			<span>Download</span>
 		</button>
@@ -195,7 +193,7 @@
 					<h4 class="donate-title">
 						Like {$THEME.name}?
 						<button class="donate-hide" on:click={hideDonate}>
-							<Icon src={X} />
+							<Dismiss />
 						</button>
 					</h4>
 					<p class="donate-text">Consider <a href={$THEME.developer.donate} target="_blank" rel="noreferrer" class="anchor">donating to {$THEME.developer.name}</a>.</p>
@@ -210,7 +208,7 @@
 		<ModalFooter>
 			<Button type="primary" disabled={error} on:click={download}>
 				<svelte:fragment slot="iconL">
-					<Icon src={Download} />
+					<Download />
 				</svelte:fragment>
 				Download
 			</Button>

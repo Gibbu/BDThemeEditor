@@ -1,7 +1,6 @@
 <script lang="ts">
 	import axios from 'axios';
-	import Icon from 'svelte-hero-icons/Icon.svelte';
-	import {Upload, Check, QuestionMarkCircle} from 'svelte-hero-icons';
+	import {Upload, Check, Question} from '$components/common/Icon';
 	import {createEventDispatcher} from 'svelte';
 	import tooltip from '$lib/tooltip';
 
@@ -191,13 +190,13 @@
 				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">
 					Imgur.com
 					<div class="explain" use:tooltip={{content: `Uploading to Imgur will decrease the amount of lag but means your image is public.`}}>
-						<Icon src={QuestionMarkCircle} />
+						<Question />
 					</div>
 				</RadioGroupItem>
 				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">
 					Inline encode (base64)
 					<div class="explain" use:tooltip={{content: `Encoding with base64 will increase the amount of lag but means your image is private.`}}>
-						<Icon src={QuestionMarkCircle} />
+						<Question />
 					</div>
 				</RadioGroupItem>
 			</RadioGroup>
@@ -227,9 +226,9 @@
 						<Button type="primary" size="extralarge" long on:click={localFile}>
 							<svelte:fragment slot="iconL">
 								{#if uploadType === 'b64'}
-									<Icon src={Check} />
+									<Check />
 								{:else}
-									<Icon src={Upload} />
+									<Upload />
 								{/if}
 							</svelte:fragment>
 							{uploadType === 'b64' ? 'Apply' : 'Upload'}
