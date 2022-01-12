@@ -14,45 +14,35 @@
 		<link rel="stylesheet" href="/css/nprogress.css">
 
 		<title>Docs - Theme Editor</title>
-
-		
-
-		<link rel="modulepreload" href="/_app/start-415e9c18.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-cbe15da5.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-22866e60.js">
-		<link rel="modulepreload" href="/_app/pages/docs/__layout.reset.svelte-1a52813c.js">
-		<link rel="modulepreload" href="/_app/chunks/app-c8aa22ea.js">
-		<link rel="modulepreload" href="/_app/pages/docs/submit/betterdiscord-meta.svx-c2e74cac.js">
-		<link rel="stylesheet" href="/_app/assets/start-c446e5f0.css">
-		<link rel="stylesheet" href="/_app/assets/pages/docs/__layout.reset.svelte-a6b7ba73.css">
-		<link rel="stylesheet" href="/_app/assets/app-13f1a15a.css">
-
-		<script type="module">
-			import { start } from "/_app/start-415e9c18.js";
-			start({
-				target: document.querySelector("#svelte"),
-				paths: {"base":"","assets":""},
-				session: {},
-				host: location.host,
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/docs/__layout.reset.svelte-1a52813c.js"),
-						import("/_app/pages/docs/submit/betterdiscord-meta.svx-c2e74cac.js")
-					],
-					page: {
-						host: location.host, // TODO this is redundant
-						path: "\u002Fdocs\u002Fsubmit\u002Fbetterdiscord-meta",
-						query: new URLSearchParams(""),
+	<link rel="stylesheet" href="/_app/assets/pages/docs/__layout.reset.svelte-a6b7ba73.css">
+	<link rel="stylesheet" href="/_app/assets/app-13f1a15a.css">
+	<link rel="modulepreload" href="/_app/start-5e60304e.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-d01d984d.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-6eb4874e.js">
+	<link rel="modulepreload" href="/_app/pages/docs/__layout.reset.svelte-e718ff8b.js">
+	<link rel="modulepreload" href="/_app/chunks/app-07da7577.js">
+	<link rel="modulepreload" href="/_app/pages/docs/submit/betterdiscord-meta.md-9195ad89.js">
+			<script type="module">
+				import { start } from "/_app/start-5e60304e.js";
+				start({
+					target: document.querySelector("#svelte"),
+					paths: {"base":"","assets":""},
+					session: {},
+					route: true,
+					spa: false,
+					trailing_slash: "never",
+					hydrate: {
+						status: 200,
+						error: null,
+						nodes: [
+							import("/_app/pages/docs/__layout.reset.svelte-e718ff8b.js"),
+						import("/_app/pages/docs/submit/betterdiscord-meta.md-9195ad89.js")
+						],
+						url: new URL("http://prerender/docs/submit/betterdiscord-meta"),
 						params: {}
 					}
-				}
-			});
-		</script>
+				});
+			</script>
 	</head>
 	<body>
 		<div id="svelte">
@@ -121,10 +111,7 @@
 <td align="left">Your unique ID (snowflake).</td></tr></tbody></table></main></div></div></div>
 	</div>
 
-
-
-			
-		</div>
+</div>
 		<div id="layers">
 			<div id="pickrs"></div>
 			<div id="portal"></div>
