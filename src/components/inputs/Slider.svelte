@@ -51,7 +51,7 @@
 		{#if !switchType}
 			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update}>
 		{:else}
-			<Input inputType="number" {min} {max} bind:value on:input={update} />
+			<Input inputType="number" {min} {max} {step} bind:value on:input={update} />
 		{/if}
 	</div>
 </template>

@@ -111,7 +111,7 @@
 		width: 100%;
 
 		&-icon {
-			width: rem(18);
+			width: rem(16);
 		}
 
 		&:hover {

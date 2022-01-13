@@ -55,7 +55,7 @@
 		border-radius: rem(4);
 		font-size: rem(14);
 		border: rem(1) solid var(--border);
-		padding: 0 rem(16);
+		padding: 0 rem(12);
 		background: transparent;
 		width: 100%;
 		transition: .15s ease border-color,

@@ -14,10 +14,10 @@
 </script>
 
 <template>
-	<header class="modal-header">
-		<h3 class="modal-title">{title}</h3>
+	<header class="header">
+		<h3 class="title">{title}</h3>
 		{#if closeBtn}
-			<button type="button" class="modal-close" on:click={() => dispatch('close')}>
+			<button type="button" class="close" on:click={() => dispatch('close')}>
 				<Dismiss />
 			</button>
 		{/if}
@@ -25,14 +25,23 @@
 </template>
 
 <style lang="scss">
-	.modal-header {
+	.header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding: rem(24);
 	}
-	.modal-title {
+	.title {
 		color: var(--text-primary);
 		font-weight: 500;
+	}
+	.close {
+		width: rem(32);
+		height: rem(32);
+		border-radius: rem(4);
+		padding: rem(6);
+		&:hover {
+			background: var(--c4);
+		}
 	}
 </style>

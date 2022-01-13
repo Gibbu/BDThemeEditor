@@ -119,7 +119,7 @@
 		&.primary {
 			background: hsl(var(--accent));
 			color: #000;
-			text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
+			text-shadow: 0 rem(2) rem(5) hsl(0 0% 0% / .4);
 			&:hover {
 				background: hsl(var(--accent-dark));
 			}
@@ -127,7 +127,8 @@
 				background: hsl(var(--accent));
 			}
 			&:focus {
-				box-shadow: 0 0 0 4px hsl(var(--accent) / .3);
+				outline: rem(2) solid hsl(var(--accent) / .6);
+				outline-offset: rem(3);
 			}
 		}
 
