@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-5e60304e.js",
+    "file": "start-8a75db3e.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -22,7 +22,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-1e07768c.js",
+    "file": "pages/__layout.svelte-1bc26908.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -31,33 +31,33 @@
       "_stores-7295463a.js",
       "_app-07da7577.js",
       "_singletons-6eb4874e.js",
-      "_Button-9d159682.js"
+      "_Button-e15d9b79.js"
     ],
     "dynamicImports": [
       "_pickr.min-94aab407.js"
     ],
     "css": [
       "assets/pages/__layout.svelte-f335f8cd.css",
-      "assets/Addons.svelte_svelte_type_style_lang-280917a8.css",
-      "assets/Button.svelte_svelte_type_style_lang-237e0405.css"
+      "assets/Addons.svelte_svelte_type_style_lang-1fda0f3b.css",
+      "assets/Button.svelte_svelte_type_style_lang-cdaf52d5.css"
     ]
   },
   "src/routes/__error.svelte": {
-    "file": "pages/__error.svelte-67923881.js",
+    "file": "pages/__error.svelte-72573761.js",
     "src": "src/routes/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-d01d984d.js",
-      "_Button-9d159682.js"
+      "_Button-e15d9b79.js"
     ],
     "css": [
       "assets/pages/__error.svelte-cec144a9.css",
-      "assets/Button.svelte_svelte_type_style_lang-237e0405.css"
+      "assets/Button.svelte_svelte_type_style_lang-cdaf52d5.css"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-88e8df62.js",
+    "file": "pages/index.svelte-d47217d8.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -71,7 +71,7 @@
     ]
   },
   "src/routes/theme/[slug].svelte": {
-    "file": "pages/theme/_slug_.svelte-d5af79a1.js",
+    "file": "pages/theme/_slug_.svelte-3e34a3ed.js",
     "src": "src/routes/theme/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -81,12 +81,12 @@
       "_stores-7295463a.js"
     ],
     "css": [
-      "assets/Addons.svelte_svelte_type_style_lang-280917a8.css",
-      "assets/Button.svelte_svelte_type_style_lang-237e0405.css"
+      "assets/Addons.svelte_svelte_type_style_lang-1fda0f3b.css",
+      "assets/Button.svelte_svelte_type_style_lang-cdaf52d5.css"
     ]
   },
   "src/routes/docs/__layout.reset.svelte": {
-    "file": "pages/docs/__layout.reset.svelte-e718ff8b.js",
+    "file": "pages/docs/__layout.reset.svelte-9eacf277.js",
     "src": "src/routes/docs/__layout.reset.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -99,7 +99,7 @@
     ]
   },
   "src/routes/docs/index.md": {
-    "file": "pages/docs/index.md-96a76584.js",
+    "file": "pages/docs/index.md-4114d1d7.js",
     "src": "src/routes/docs/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -108,7 +108,7 @@
     ]
   },
   "src/routes/docs/submit/index.md": {
-    "file": "pages/docs/submit/index.md-f1fa02fb.js",
+    "file": "pages/docs/submit/index.md-6b8a69f4.js",
     "src": "src/routes/docs/submit/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -117,7 +117,7 @@
     ]
   },
   "src/routes/docs/submit/betterdiscord-meta.md": {
-    "file": "pages/docs/submit/betterdiscord-meta.md-9195ad89.js",
+    "file": "pages/docs/submit/betterdiscord-meta.md-54fb4a6c.js",
     "src": "src/routes/docs/submit/betterdiscord-meta.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -126,7 +126,7 @@
     ]
   },
   "src/routes/docs/submit/submitting-theme.md": {
-    "file": "pages/docs/submit/submitting-theme.md-70864357.js",
+    "file": "pages/docs/submit/submitting-theme.md-95dd2f2f.js",
     "src": "src/routes/docs/submit/submitting-theme.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -135,7 +135,7 @@
     ]
   },
   "src/routes/docs/submit/variables-config.md": {
-    "file": "pages/docs/submit/variables-config.md-a6ebf952.js",
+    "file": "pages/docs/submit/variables-config.md-7eeb2029.js",
     "src": "src/routes/docs/submit/variables-config.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -144,7 +144,7 @@
     ]
   },
   "src/routes/docs/submit/config-file.md": {
-    "file": "pages/docs/submit/config-file.md-810bc268.js",
+    "file": "pages/docs/submit/config-file.md-faa17db6.js",
     "src": "src/routes/docs/submit/config-file.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -173,13 +173,13 @@
       "assets/app-13f1a15a.css"
     ]
   },
-  "_Button-9d159682.js": {
-    "file": "chunks/Button-9d159682.js",
+  "_Button-e15d9b79.js": {
+    "file": "chunks/Button-e15d9b79.js",
     "imports": [
       "_vendor-d01d984d.js"
     ],
     "css": [
-      "assets/Button.svelte_svelte_type_style_lang-237e0405.css"
+      "assets/Button.svelte_svelte_type_style_lang-cdaf52d5.css"
     ]
   },
   "_index-7bc4f331.js": {
