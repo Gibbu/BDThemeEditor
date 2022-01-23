@@ -18,6 +18,7 @@ const theme: ITheme = {
 	imports: [
 		'https://discordstyles.github.io/SoftX/SoftX.css',
 		'https://discordstyles.github.io/SoftX/RadialGlow.css',
+		'https://discordstyles.github.io/SoftX/VerticalUserArea.css',
 		'https://discordstyles.github.io/Addons/windows-titlebar.css'
 	],
 	fonts: [],
