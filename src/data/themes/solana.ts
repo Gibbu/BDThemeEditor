@@ -147,16 +147,6 @@ const theme: ITheme = {
                 {
                     type: 'slider',
 					details: {
-						variable: 'background-overlay-lightness',
-						value: 'initial',
-						max: 100,
-                        unit: '%',
-						title: 'Overlay brightness'
-					}
-                },
-                {
-                    type: 'slider',
-					details: {
 						variable: 'background-overlay-opacity',
 						value: 80,
 						max: 100,
@@ -245,7 +235,7 @@ const theme: ITheme = {
 					type: 'slider',
 					details: {
 						variable: 'background-floating-blur',
-						value: 0,
+						value: 20,
 						max: 50,
 						unit: 'px',
 						step: 1,
@@ -275,7 +265,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'home-icon',
-						start: 'https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg',
+						start: 'initial',
 						value: '',
 						title: 'Home button image'
 					}
@@ -299,6 +289,7 @@ const theme: ITheme = {
 					type: 'font',
 					details: {
 						variable: 'custom-font-display',
+						start: '""',
 						index: 0,
 						value: '',
 						title: 'Display font'
@@ -308,6 +299,7 @@ const theme: ITheme = {
 					type: 'font',
 					details: {
 						variable: 'custom-font-regular',
+						start: '""',
 						index: 0,
 						value: '',
 						title: 'Regular font',
@@ -318,6 +310,7 @@ const theme: ITheme = {
 					type: 'font',
 					details: {
 						variable: 'custom-font-primary',
+						start: '""',
 						index: 0,
 						value: '',
 						title: 'Primary font',
@@ -327,6 +320,7 @@ const theme: ITheme = {
 					type: 'font',
 					details: {
 						variable: 'custom-font-code',
+						start: '""',
 						index: 0,
 						value: '',
 						title: 'Code font',
