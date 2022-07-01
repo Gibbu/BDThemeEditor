@@ -6,6 +6,7 @@ import reborn from './reborn';
 import tranquil from './tranquil';
 import discordrecolor from './discordrecolor';
 import comfy from './comfy';
+import solana from './solana';
 
 const themes = [
 	frostedglass,
@@ -16,6 +17,7 @@ const themes = [
 	tranquil,
 	discordrecolor,
 	comfy,
+	solana
 ]
 
 export const fallbacks = themes.map(el => el.name.replace(/ /g, '').toLowerCase());
