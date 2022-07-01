@@ -6,7 +6,6 @@
 	import tooltip from '$lib/tooltip';
 	import {App, Bug, Border, Check, Collections, Colour, Chat, Font, Gear, Home, Image, Moon, Person, List, Sizing, Status, Sun, ChevronLeft} from '$components/common/Icon';
 	import NProgress from 'nprogress';
-	import '$scss/app.scss';
 
 	// Components
 	import {Button} from '$components/common/Button';
@@ -46,8 +45,8 @@
 	const setSetting = (index: number, modal?: boolean): void => {
 		activeSetting = index;
 
-		const userModal: HTMLElement = $preview.querySelector('#modal');
-		const userPopout: HTMLElement = $preview.querySelector('#userpopout')
+		const userModal: HTMLElement = $preview.querySelector('#modal')!;
+		const userPopout: HTMLElement = $preview.querySelector('#userpopout')!;
 
 		userModal.style.display = (modal === true ? 'block' : 'none');
 		userPopout.style.display = (modal === true ? 'none' : 'block');

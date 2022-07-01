@@ -4,7 +4,7 @@ import Nyria from '$data/devs/nyria';
 const theme: ITheme = {
 	name: 'Comfy',
 	previewUrl: 'https://nyri4.github.io/Comfy/betterdiscord/comfy.theme.css',
-	thumbnail: 'https://camo.githubusercontent.com/ba391418f8c651948047bf11a02abfd78976e6298ae750549f2c1cf55e0e3a21/68747470733a2f2f6e797269342e6769746875622e696f2f436f6d66792f6173736574732f707265766965772e706e67',
+	thumbnail: 'https://camo.githubusercontent.com/953142901f1ab7b67dab1ebaafac787a68948f018bf4f9d46b98d2bc861fc0a6/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f446973636f72642f6173736574732f707265766965772e706e67',
 	developer: Nyria,
 	meta: {
 		name: 'Comfy',
