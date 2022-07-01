@@ -37,9 +37,9 @@
 
 	const [themes, addons]: [ITheme[], IAddon[]] = JSON.parse(JSON.stringify([themesData, addonsData]))
 
-	const setTheme = themes.find(theme => theme.name.toLowerCase().replace(/ /g, '') == slug);
-	const setAddons = (setTheme.addons ? addons.filter(addon => setTheme.addons.includes(addon.selector as any)) : []);
-	const setVarGroups = setTheme.varGroups?.length > 0 ? setTheme.varGroups : [];
+	const setTheme = themes.find(theme => theme.name.toLowerCase().replace(/ /g, '') == slug)!;
+	const setAddons = (setTheme.addons ? addons.filter(addon => setTheme.addons!.includes(addon.selector as any)) : []);
+	const setVarGroups = (setTheme.varGroups!?.length > 0 ? setTheme.varGroups : [])!;
 
 	// Construct theme object
 	$THEME = {
