@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@simonwep/pickr': ^1.8.2
@@ -36,8 +36,8 @@ devDependencies:
   rehype-slug: 5.0.1
   sass: 1.49.8
   svelte: 3.46.4
-  svelte-check: 2.4.5_2c87ad1a899976a3f87feaf895b867ac
-  svelte-preprocess: 4.10.3_d58e994088a42c44384919a6e9211007
+  svelte-check: 2.4.5_fsd22gujtf3kh6d75l4jlodhvq
+  svelte-preprocess: 4.10.3_2whjsqeiuqweiocjdgtosiiqa4
   tippy.js: 6.3.7
   tslib: 2.3.1
   typescript: 4.5.5
@@ -958,7 +958,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check/2.4.5_2c87ad1a899976a3f87feaf895b867ac:
+  /svelte-check/2.4.5_fsd22gujtf3kh6d75l4jlodhvq:
     resolution: {integrity: sha512-nRft8BbG2wcxyCdHDZ7X43xLcvDzua3xLwq6wzHGcAF3ka3Jyhv2rvgq0+SF9NwHLMefp9C2XkM6etzsxK/cMQ==}
     hasBin: true
     peerDependencies:
@@ -972,7 +972,7 @@ packages:
       sade: 1.8.1
       source-map: 0.7.3
       svelte: 3.46.4
-      svelte-preprocess: 4.10.3_d58e994088a42c44384919a6e9211007
+      svelte-preprocess: 4.10.3_2whjsqeiuqweiocjdgtosiiqa4
       typescript: 4.5.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -995,7 +995,7 @@ packages:
       svelte: 3.46.4
     dev: true
 
-  /svelte-preprocess/4.10.3_d58e994088a42c44384919a6e9211007:
+  /svelte-preprocess/4.10.3_2whjsqeiuqweiocjdgtosiiqa4:
     resolution: {integrity: sha512-ttw17lJfb/dx2ZJT9sesaXT5l7mPQ9Apx1H496Kli3Hkk7orIRGpOw6rCPkRNzr6ueVPqb4vzodS5x7sBFhKHw==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
