@@ -21,7 +21,9 @@ const theme: ITheme = {
 		'https://discordstyles.github.io/SoftX/VerticalUserArea.css',
 		'https://discordstyles.github.io/Addons/windows-titlebar.css'
 	],
-	fonts: [],
+	fonts: [
+		'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'
+	],
 	variables: [
 		{
 			title: 'Background image',
