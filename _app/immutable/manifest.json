@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-38e11d92.js",
+    "file": "start-71e5d269.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -142,14 +142,14 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-ce568470.js",
+    "file": "pages/index.svelte-81335805.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-17c64161.js",
       "_stores-d149c50e.js",
-      "_index-526f6539.js",
+      "_index-e567508b.js",
       "_index-d0541ddd.js"
     ],
     "css": [
@@ -157,13 +157,13 @@
     ]
   },
   "src/routes/theme/[slug].svelte": {
-    "file": "pages/theme/_slug_.svelte-1c258e55.js",
+    "file": "pages/theme/_slug_.svelte-ac2754de.js",
     "src": "src/routes/theme/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-17c64161.js",
-      "_index-526f6539.js",
+      "_index-e567508b.js",
       "_stores-d149c50e.js",
       "_Addons.svelte_svelte_type_style_lang-0222a52e.js",
       "_index-d0541ddd.js",
@@ -219,8 +219,8 @@
   "__commonjsHelpers-7d66b65f.js": {
     "file": "chunks/_commonjsHelpers-7d66b65f.js"
   },
-  "_index-526f6539.js": {
-    "file": "chunks/index-526f6539.js"
+  "_index-e567508b.js": {
+    "file": "chunks/index-e567508b.js"
   },
   "_pickr.min-829f1548.js": {
     "file": "chunks/pickr.min-829f1548.js",
