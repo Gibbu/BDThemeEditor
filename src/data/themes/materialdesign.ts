@@ -772,6 +772,7 @@ const theme: ITheme = {
             varGroup: ":root",
         },
     ],
+    addons: ["discolored", "hsl"],
 };
 
 export default theme;
