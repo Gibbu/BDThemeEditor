@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#36e7a9">
-		<link rel="icon" href="/images/favicon.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#36e7a9" />
+		<link rel="icon" href="/images/favicon.png" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;500;600&display=swap" rel="stylesheet"> 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
 
-		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/nprogress.css">
+		<link rel="stylesheet" href="/css/normalize.css" />
+		<link rel="stylesheet" href="/css/nprogress.css" />
 
 		<meta http-equiv="content-security-policy" content=""><title>Docs - Theme Editor</title>
 	<link rel="stylesheet" href="/_app/immutable/assets/app-825c0281.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/pages/docs/__layout@root.svelte-e4f6d35a.css">
-	<link rel="modulepreload" href="/_app/immutable/start-9769261a.js">
+	<link rel="modulepreload" href="/_app/immutable/start-18e708e4.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-17c64161.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-d0541ddd.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-d6e4a54a.js">
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout-root.svelte-a6feb371.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout@root.svelte-678dc1d6.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout@root.svelte-0525d2be.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/nprogress-054594fd.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/_commonjsHelpers-7d66b65f.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/submit/variables-config.md-9bd1be58.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/submit/variables-config.md-887cbfe3.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -65,7 +68,7 @@
 		<span class="token punctuation">&#125;</span>
 	<span class="token punctuation">]</span>
 	<span class="token comment">// ...</span>
-<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
 <table><thead><tr><th align="left">Properity</th>
 <th align="left">Type</th>
@@ -158,6 +161,7 @@
 		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"font"</span><span class="token punctuation">,</span>
 		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom font"</span><span class="token punctuation">,</span>
 		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"Inter"</span><span class="token punctuation">,</span>
+		<span class="token property">"index"</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token comment">// The next Font input will be 1, next 2, and so on...</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
 <p>Available properties:</p>
@@ -165,7 +169,11 @@
 <th align="left">Type</th>
 <th align="left">Required</th>
 <th align="left">Description</th></tr></thead>
-<tbody><tr><td align="left"><code>value</code></td>
+<tbody><tr><td align="left"><code>index</code></td>
+<td align="left">number</td>
+<td align="left">true</td>
+<td align="left">The index of the font to modify. Each font option’s index should be increased by 1.</td></tr>
+<tr><td align="left"><code>value</code></td>
 <td align="left">string</td>
 <td align="left">false</td>
 <td align="left">Starting value of the font input.</td></tr></tbody></table>
@@ -234,8 +242,8 @@
 		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Show chat buttons"</span><span class="token punctuation">,</span>
 		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">,</span>
 		<span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-			<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"True"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-			<span class="token punctuation">&#123;</span><span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"False"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#123;</span> <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"True"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"block"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+			<span class="token punctuation">&#123;</span> <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"False"</span><span class="token punctuation">,</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"none"</span> <span class="token punctuation">&#125;</span>
 		<span class="token punctuation">]</span><span class="token punctuation">,</span>
 		<span class="token property">"customValue"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 	<span class="token punctuation">&#125;</span>
@@ -265,7 +273,7 @@
 		<span class="token property">"variable"</span><span class="token operator">:</span> <span class="token string">"background-image-blur"</span><span class="token punctuation">,</span>
 		<span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Background Blur"</span><span class="token punctuation">,</span>
 		<span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
-		<span class="token property">"step"</span><span class="token operator">:</span> .<span class="token number">25</span><span class="token punctuation">,</span>
+		<span class="token property">"step"</span><span class="token operator">:</span> <span class="token number">0.25</span><span class="token punctuation">,</span>
 		<span class="token property">"max"</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
 		<span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"px"</span>
 	<span class="token punctuation">&#125;</span>
@@ -365,15 +373,15 @@
 		<span class="token punctuation">&#125;</span>
 	<span class="token punctuation">]</span>
 	<span class="token comment">// ...</span>
-<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
 <p>You can view a better example by looking at the <a href="https://github.com/Gibbu/BDThemeEditor/blob/main/src/data/themes/clearvision.ts#L20-L708" rel="nofollow">ClearVision Config</a>.</p></main></div></div></div>
 	</div>
 
 
-		<script type="module" data-sveltekit-hydrate="1zul3c">
-		import { start } from "/_app/immutable/start-9769261a.js";
+		<script type="module" data-sveltekit-hydrate="vqrbk4">
+		import { start } from "/_app/immutable/start-18e708e4.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1zul3c"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="vqrbk4"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
