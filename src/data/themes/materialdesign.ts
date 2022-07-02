@@ -23,7 +23,10 @@ const theme: ITheme = {
         "https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css",
         "https://thecommieaxolotl.github.io/BetterDiscord-Stuff/MaterialDesign/Clients/betterdiscord.css",
     ],
-    fonts: [],
+    fonts: [
+        "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap",
+        "https://fonts.googleapis.com/css2?family=Source Code Pro:wght@550&display=swap",
+    ],
     varGroups: [":root", ".theme-dark", ".theme-light"],
     variables: [
         {
@@ -379,58 +382,58 @@ const theme: ITheme = {
         },
         {
             variable: "00dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(7% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.07% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
 
         {
             variable: "01dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(11% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.11% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "02dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(13% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.13% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "03dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(14% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.14% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "04dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(15% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.15% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "06dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(17% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.17% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "08dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(18% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.18% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "12dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(19% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.19% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "16dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(20% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.2% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "24dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(22% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.22% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
             variable: "26dp",
-            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(27% * var(--skin-background-l, 0)), var(--skin-background-a, 1))",
+            value: "hsla(var(--skin-background-h, 0), calc(var(--saturation-factor, 1) * var(--skin-background-s, 0%)), calc(0.27% * var(--skin-background-l, 0)), calc(1% * var(--skin-background-a, 100)))",
             varGroup: ".theme-dark",
         },
         {
