@@ -1,24 +1,24 @@
 <script lang="ts">
-	import {Selector, Check} from '$components/common/Icon';
+	import { Selector, Check } from '$components/common/Icon';
 	import clickOutside from '$lib/clickOutside';
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
-	import {Input} from '$components/common/Input';
+	import { Input } from '$components/common/Input';
 
 	// Types
 	interface Option {
-		label: string,
-		value: string
+		label: string;
+		value: string;
 	}
 
-	export let options: Option[]
+	export let options: Option[];
 	export let value: string = '';
 	export let custom: boolean = false;
 
 	// Values
-	$: selected = options.find(el => el.value === value) || options[0];
+	$: selected = options.find((el) => el.value === value) || options[0];
 	let customValue: string;
 
 	// Dropdown
@@ -27,10 +27,10 @@
 
 	const toggle = (): void => {
 		visible = !visible;
-	}
+	};
 	const hide = (): void => {
 		visible = false;
-	}
+	};
 
 	// Set values
 	const setOption = (option: Option): void => {
@@ -39,11 +39,11 @@
 		}
 		selected = option;
 		hide();
-	}
+	};
 
 	const update = (value: string): void => {
 		dispatch('update', value);
-	}
+	};
 </script>
 
 <template>
@@ -67,8 +67,12 @@
 					</button>
 				{/each}
 				{#if custom}
-					<hr class="dropdown-divider">
-					<button class="option" class:active={selected.value === 'custom'} on:click={() => setOption({label: 'Custom value', value: 'custom'})}>
+					<hr class="dropdown-divider" />
+					<button
+						class="option"
+						class:active={selected.value === 'custom'}
+						on:click={() => setOption({ label: 'Custom value', value: 'custom' })}
+					>
 						<span class="option-label">Custom value</span>
 						{#if selected.value === 'custom'}
 							<div class="option-check">
@@ -100,7 +104,7 @@
 		justify-content: space-between;
 		font-weight: 500;
 		border-radius: rem(4);
-		transition: .15s ease background, .15s ease box-shadow, .15s ease color;
+		transition: 0.15s ease background, 0.15s ease box-shadow, 0.15s ease color;
 		user-select: none;
 		line-height: normal;
 		font-size: rem(14);
@@ -166,7 +170,7 @@
 		&.active {
 			background: hsl(var(--accent));
 			color: #000;
-			text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
+			text-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {tick, createEventDispatcher, onMount, onDestroy} from 'svelte';
+	import { tick, createEventDispatcher, onMount, onDestroy } from 'svelte';
 	import '@simonwep/pickr/dist/themes/monolith.min.css';
 
 	import type Pickr from '@simonwep/pickr';
@@ -16,7 +16,7 @@
 	export let addon: boolean = false;
 	export let rule: boolean = false;
 	export let alpha: boolean = false;
-	export let hint: string = null;
+	export let hint: string | null = null;
 	export let varGroup: string = ':root';
 
 	// PickrJS stuff
@@ -29,25 +29,24 @@
 	// Re-mount pickr when value is updated.
 	$: render(value);
 
-	onMount(async(): Promise<void> => {
+	onMount(async (): Promise<void> => {
 		PickrModule = await import('@simonwep/pickr');
-		
+
 		isMounted = true;
 
 		render(value);
-	})
+	});
 	onDestroy(() => {
 		if (isMounted) pickr.destroyAndRemove();
-	})
+	});
 
-	const render = async(value: string): Promise<void> => {
-		
+	const render = async (value: string): Promise<void> => {
 		await tick();
-		
+
 		let starter: string = value;
 		if (value.includes('%')) starter = `hsl(${value})`;
 		else if (!value.includes('#') && !value.includes('rgb') && value !== 'transparent') starter = `rgb(${value})`;
-		
+
 		if (isMounted) {
 			// Create Pickr
 			pickr = PickrModule.create({
@@ -82,22 +81,25 @@
 					}
 				}
 			}).on('change', (colour: Pickr.HSVaColor): void => {
-				let output: string;
+				let output: string = '';
 				if (type == 'HEX') {
 					output = colour.toHEXA().toString();
 				} else if (type == 'RGB') {
 					const c = colour.toRGBA();
-					output = `${(rule ? `rgb(`: '')}${rd(c[0])},${rd(c[1])},${rd(c[2])}${alpha ? `,${c[3]}` : ''}${(rule ? ')': '')}`;
+					output = `${rule ? `rgb(` : ''}${rd(c[0])},${rd(c[1])},${rd(c[2])}${alpha ? `,${c[3]}` : ''}${
+						rule ? ')' : ''
+					}`;
 				} else if (type === 'HSL') {
 					const c = colour.toHSLA();
-					output = `${(rule ? `hsl(`: '')}${rd(c[0])},${rd(c[1])}%,${rd(c[2])}%${alpha ? `,${c[3]}` : ''}${(rule ? ')': '')}`;
+					output = `${rule ? `hsl(` : ''}${rd(c[0])},${rd(c[1])}%,${rd(c[2])}%${alpha ? `,${c[3]}` : ''}${
+						rule ? ')' : ''
+					}`;
 				}
 
-				dispatch('update', {variable, addon, value: output, varGroup});
-			})
-
+				dispatch('update', { variable, addon, value: output, varGroup });
+			});
 		}
-	}
+	};
 
 	const rd = (value: number): number => Math.round(value);
 </script>
@@ -105,7 +107,7 @@
 <template>
 	{#key value}
 		<div class="colour">
-			<div bind:this={pickrEl}></div>
+			<div bind:this={pickrEl} />
 			<div class="colour-info">
 				<p class="colour-title">{title}</p>
 				{#if hint}

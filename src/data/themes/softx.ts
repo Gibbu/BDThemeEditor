@@ -1,10 +1,11 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Gibbu from '$data/devs/gibbu';
 
 const theme: ITheme = {
 	name: 'SoftX',
 	previewUrl: 'https://discordstyles.github.io/SoftX/SoftX.theme.css',
-	thumbnail: 'https://camo.githubusercontent.com/6806907a0313ec99a80fe2ead0d275570332a3d8b36287f9b97b6529543877ab/68747470733a2f2f692e696d6775722e636f6d2f4535376746334c2e706e67',
+	thumbnail:
+		'https://camo.githubusercontent.com/6806907a0313ec99a80fe2ead0d275570332a3d8b36287f9b97b6529543877ab/68747470733a2f2f692e696d6775722e636f6d2f4535376746334c2e706e67',
 	developer: Gibbu,
 	meta: {
 		name: 'SoftX',
@@ -21,9 +22,7 @@ const theme: ITheme = {
 		'https://discordstyles.github.io/SoftX/VerticalUserArea.css',
 		'https://discordstyles.github.io/Addons/windows-titlebar.css'
 	],
-	fonts: [
-		'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'
-	],
+	fonts: ['https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'],
 	variables: [
 		{
 			title: 'Background image',
@@ -54,9 +53,9 @@ const theme: ITheme = {
 					type: 'slider',
 					details: {
 						variable: 'opacity',
-						max: .85,
-						step: .01,
-						value: .85,
+						max: 0.85,
+						step: 0.01,
+						value: 0.85,
 						title: 'App opacity',
 						comment: 'Opacity of overall app. | Default: .85'
 					}
@@ -84,10 +83,11 @@ const theme: ITheme = {
 						variable: 'glow-intensity',
 						value: 1,
 						min: 0,
-						step: .1,
+						step: 0.1,
 						title: 'Glow intensity',
 						hint: 'Decimals are allowed.',
-						comment: 'Intensity of the glow used around the app. | Set to 0 to disable the glow. | Decimals allowed | Default: 1'
+						comment:
+							'Intensity of the glow used around the app. | Set to 0 to disable the glow. | Decimals allowed | Default: 1'
 					}
 				}
 			]
@@ -162,7 +162,7 @@ const theme: ITheme = {
 						title: 'Chat avatar size',
 						comment: 'Size of the chat avatars. | Default: 32px'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -215,7 +215,7 @@ const theme: ITheme = {
 						value: 2,
 						unit: 'px',
 						max: 5,
-						step: .5,
+						step: 0.5,
 						title: 'Small width',
 						hint: 'Thickness of status border for members list/dms | MUST end in px',
 						comment: 'Ring width | Default: 1.5px'
@@ -228,7 +228,7 @@ const theme: ITheme = {
 						value: 2,
 						unit: 'px',
 						max: 5,
-						step: .5,
+						step: 0.5,
 						title: 'Medium width',
 						hint: 'Thickness of status border for User popout | MUST end in px'
 					}
@@ -240,7 +240,7 @@ const theme: ITheme = {
 						value: 2,
 						unit: 'px',
 						max: 5,
-						step: .5,
+						step: 0.5,
 						title: 'Large width',
 						hint: 'Thickness of status border for User profile | MUST end in px'
 					}
@@ -252,7 +252,7 @@ const theme: ITheme = {
 						value: 50,
 						unit: '%',
 						max: 50,
-						step: .5,
+						step: 0.5,
 						title: 'Avatar shape',
 						hint: '0% = Square | 50% = Circle',
 						comment: '50% for round - 0% for square'
@@ -324,8 +324,8 @@ const theme: ITheme = {
 						variable: 'rs-phone-visible',
 						customValue: false,
 						options: [
-							{label: 'Visible', value: 'block'},
-							{label: 'Hidden', value: 'none'}
+							{ label: 'Visible', value: 'block' },
+							{ label: 'Hidden', value: 'none' }
 						],
 						value: 'block',
 						title: 'Phone indicator visibility',
@@ -342,6 +342,6 @@ const theme: ITheme = {
 			comment: 'Colour for invisible status - Note: this will only show for your own invisibility'
 		}
 	]
-}
+};
 
 export default theme;

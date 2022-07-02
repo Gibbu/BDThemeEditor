@@ -1,17 +1,17 @@
 <script lang="ts">
-	import {THEME, preview} from '$lib/stores';
-	import {createEl} from '$lib/helpers';
+	import { THEME, preview } from '$lib/stores';
+	import { createEl } from '$lib/helpers';
 
-	import type {IAddon} from '$types/addon';
+	import type { IAddon } from '$types/addon';
 
 	import Component from './Component.svelte';
 
 	$: states = {
-		hsl: $THEME.addons.some(addon => addon.selector === 'hsl' && addon.use),
-		columns: $THEME.addons.some(addon => addon.selector === 'columns' && addon.use),
-		rs: $THEME.addons.some(addon => addon.selector === 'rs' && addon.use),
-		discolored: $THEME.addons.some(addon => addon.selector === 'discolored' && addon.use)
-	}
+		hsl: $THEME.addons.some((addon) => addon.selector === 'hsl' && addon.use),
+		columns: $THEME.addons.some((addon) => addon.selector === 'columns' && addon.use),
+		rs: $THEME.addons.some((addon) => addon.selector === 'rs' && addon.use),
+		discolored: $THEME.addons.some((addon) => addon.selector === 'discolored' && addon.use)
+	};
 
 	/**
 	 * Toggles checkboxes, if other checkboxes use the same `group`, uncheck them.
@@ -19,71 +19,90 @@
 	const toggle = (e: any): void => {
 		const checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(`[name="${e.target.name}"]`);
 
-		checkboxes.forEach(checkbox => {
-			const addon = $THEME.addons.find(obj => obj.selector === checkbox.value);
+		checkboxes.forEach((checkbox) => {
+			const addon = $THEME.addons.find((obj) => obj.selector === checkbox.value);
 
 			if (e.target.value !== checkbox.value) {
 				checkbox.checked = false;
+				// @ts-ignore
 				states[checkbox.value] = false;
 			}
 			if (e.target.value === checkbox.value && checkbox.checked == true && checkbox.checked) {
 				applyAddon(addon);
+				// @ts-ignore
 				states[checkbox.value] = true;
 			} else {
 				removeAddon(addon);
+				// @ts-ignore
 				states[checkbox.value] = false;
 			}
-		})
-	}
+		});
+	};
 
 	/**
 	 * Adds addon to previewer and enables the addon in the `THEME` store.
 	 */
 	const applyAddon = (addon: IAddon): void => {
-		$THEME.addons.forEach(obj => {
+		$THEME.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {
 				obj.use = true;
 			}
-		})
+		});
 
-		addon.previewUrl.forEach(url => {
+		addon.previewUrl.forEach((url) => {
 			if (!$preview.querySelector(`.${addon.selector}`)) {
-				createEl<HTMLStyleElement>('style', {
-					className: addon.selector,
-					textContent: `@import url('${url}');`
-				}, $preview.querySelector('head'));
+				createEl<HTMLStyleElement>(
+					'style',
+					{
+						className: addon.selector,
+						textContent: `@import url('${url}');`
+					},
+					$preview.querySelector('head')!
+				);
 			}
-		})
-	}
+		});
+	};
 
 	/**
 	 * Removes addon to previewer and disables the addon in the `THEME` store.
 	 */
 	const removeAddon = (addon: IAddon): void => {
 		if ($preview.querySelector(`.${addon.selector}`)) {
-			$preview.querySelectorAll(`.${addon.selector}`).forEach(el => el.remove());
+			$preview.querySelectorAll(`.${addon.selector}`).forEach((el) => el.remove());
 		}
 
-		$THEME.addons.forEach(obj => {
+		$THEME.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {
 				obj.use = false;
 			}
-		})
-	}
+		});
+	};
 </script>
 
 <template>
 	{#each $THEME.addons as addon}
 		<div class="addon">
 			<div class="addon-header">
-				<input type="checkbox" class="addon-checkbox" name={addon.group} value={addon.selector} checked={states[addon.selector]} on:change={toggle}>
+				<input
+					type="checkbox"
+					class="addon-checkbox"
+					name={addon.group}
+					value={addon.selector}
+					checked={states[addon.selector]}
+					on:change={toggle}
+				/>
 				<div class="addon-info">
 					<div class="addon-meta">
 						<h4 class="addon-name">{addon.name}</h4>
 						<p class="addon-description">{addon.description}</p>
 					</div>
-					<a href="https://github.com/{addon.developer.github}" target="_blank" rel="noreferrer" class="addon-developer">
-						<img src="https://github.com/{addon.developer.github}.png" alt="Developer avatar" class="addon-avatar">
+					<a
+						href="https://github.com/{addon.developer.github}"
+						target="_blank"
+						rel="noreferrer"
+						class="addon-developer"
+					>
+						<img src="https://github.com/{addon.developer.github}.png" alt="Developer avatar" class="addon-avatar" />
 					</a>
 				</div>
 			</div>

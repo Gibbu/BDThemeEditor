@@ -1,4 +1,4 @@
-import type {IAddon} from '$types/addon';
+import type { IAddon } from '$types/addon';
 import Gibbu from '$data/devs/gibbu';
 
 const addon: IAddon = {
@@ -57,7 +57,7 @@ const addon: IAddon = {
 				value: 2,
 				unit: 'px',
 				max: 5,
-				step: .5,
+				step: 0.5,
 				title: 'Small width',
 				hint: 'Thickness of the status border for members list/dms',
 				addon: true
@@ -70,7 +70,7 @@ const addon: IAddon = {
 				value: 2,
 				unit: 'px',
 				max: 5,
-				step: .5,
+				step: 0.5,
 				title: 'Medium width',
 				hint: 'Thickness of the status border for User popout',
 				addon: true
@@ -83,7 +83,7 @@ const addon: IAddon = {
 				value: 2,
 				unit: 'px',
 				max: 5,
-				step: .5,
+				step: 0.5,
 				title: 'Large width',
 				hint: 'Thickness of the status border for User profile',
 				addon: true
@@ -96,7 +96,7 @@ const addon: IAddon = {
 				value: 50,
 				unit: '%',
 				max: 50,
-				step: .5,
+				step: 0.5,
 				title: 'Avatar shape',
 				hint: '0% = Square | 50% = Circle',
 				addon: true
@@ -158,8 +158,8 @@ const addon: IAddon = {
 				variable: 'rs-phone-visible',
 				customValue: false,
 				options: [
-					{label: 'Visible', value: 'block'},
-					{label: 'Hidden', value: 'none'}
+					{ label: 'Visible', value: 'block' },
+					{ label: 'Hidden', value: 'none' }
 				],
 				value: 'block',
 				title: 'Phone indicator visibility'
@@ -172,6 +172,6 @@ const addon: IAddon = {
 			value: '#747f8d'
 		}
 	]
-}
+};
 
 export default addon;

@@ -1,28 +1,26 @@
 // Code from: https://github.com/romkor/svelte-portal/blob/master/src/Portal.svelte
 
-import {tick} from 'svelte';
+import { tick } from 'svelte';
 
-export default function portal(el: HTMLElement, target: HTMLElement|string = "body") {
-	let targetEl: Element;
-	async function update(newTarget) {
+export default function portal(el: HTMLElement, target: HTMLElement | string = 'body') {
+	let targetEl: HTMLElement;
+	async function update(newTarget: HTMLElement | string) {
 		target = newTarget;
-		if (typeof target === "string") {
-			targetEl = document.querySelector(target);
+		if (typeof target === 'string') {
+			targetEl = document.querySelector(target)!;
 			if (targetEl === null) {
 				await tick();
-				targetEl = document.querySelector(target);
+				targetEl = document.querySelector(target)!;
 			}
 			if (targetEl === null) {
-				throw new Error(
-					`No element found matching css selector: "${target}"`
-				);
+				throw new Error(`No element found matching css selector: "${target}"`);
 			}
 		} else if (target instanceof HTMLElement) {
 			targetEl = target;
 		} else {
 			throw new TypeError(
 				`Unknown portal target type: ${
-					target === null ? "null" : typeof target
+					target === null ? 'null' : typeof target
 				}. Allowed types: string (CSS selector) or HTMLElement.`
 			);
 		}
@@ -37,6 +35,6 @@ export default function portal(el: HTMLElement, target: HTMLElement|string = "bo
 	update(target);
 	return {
 		update,
-		destroy,
+		destroy
 	};
 }

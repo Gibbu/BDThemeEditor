@@ -1,4 +1,4 @@
-import type {IAddon} from '$types/addon';
+import type { IAddon } from '$types/addon';
 import Nyria from '$data/devs/nyria';
 
 const addon: IAddon = {
@@ -10,6 +10,6 @@ const addon: IAddon = {
 	group: 'svgs',
 	selector: 'discolored',
 	use: false
-}
+};
 
 export default addon;

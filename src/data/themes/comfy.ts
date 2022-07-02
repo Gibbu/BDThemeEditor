@@ -1,10 +1,11 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Nyria from '$data/devs/nyria';
 
 const theme: ITheme = {
 	name: 'Comfy',
 	previewUrl: 'https://nyri4.github.io/Comfy/betterdiscord/comfy.theme.css',
-	thumbnail: 'https://camo.githubusercontent.com/953142901f1ab7b67dab1ebaafac787a68948f018bf4f9d46b98d2bc861fc0a6/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f446973636f72642f6173736574732f707265766965772e706e67',
+	thumbnail:
+		'https://camo.githubusercontent.com/953142901f1ab7b67dab1ebaafac787a68948f018bf4f9d46b98d2bc861fc0a6/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f446973636f72642f6173736574732f707265766965772e706e67',
 	developer: Nyria,
 	meta: {
 		name: 'Comfy',
@@ -89,7 +90,7 @@ const theme: ITheme = {
 						title: 'Chat box buttons',
 						hint: 'Gift/GIF/Emoji buttons'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -242,7 +243,7 @@ const theme: ITheme = {
 						type: 'HEX',
 						value: '#101320',
 						title: 'Background tertiary',
-						hint: 'Server list, menu, status picker, user popout, search bar ...',
+						hint: 'Server list, menu, status picker, user popout, search bar ...'
 					}
 				},
 				{
@@ -253,7 +254,7 @@ const theme: ITheme = {
 						type: 'HEX',
 						value: '#23283D',
 						title: 'Background mobile primary',
-						hint: 'Connection page modal',
+						hint: 'Connection page modal'
 					}
 				},
 				{
@@ -395,7 +396,7 @@ const theme: ITheme = {
 						type: 'HEX',
 						value: '#141925',
 						title: 'Scrollbar thin thumb',
-						hint: 'Small scrollbar in memberlist & settings (https://i.imgur.com/00mfpQ2.png)',
+						hint: 'Small scrollbar in memberlist & settings (https://i.imgur.com/00mfpQ2.png)'
 					}
 				},
 				{
@@ -408,7 +409,7 @@ const theme: ITheme = {
 						title: 'Activity card background',
 						hint: 'Server settings > Discovery (https://i.imgur.com/TEN3OJ2.png)'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -450,8 +451,8 @@ const theme: ITheme = {
 					details: {
 						variable: 'discord-logo',
 						options: [
-							{label: 'True', value: 'block'},
-							{label: 'False', value: 'none'}
+							{ label: 'True', value: 'block' },
+							{ label: 'False', value: 'none' }
 						],
 						customValue: false,
 						value: 'none',
@@ -465,7 +466,7 @@ const theme: ITheme = {
 	hiddenVars: [
 		{
 			variable: 'colored-emoji',
-			value: 'grayscale(0%)',
+			value: 'grayscale(0%)'
 		},
 		{
 			variable: 'disable-animations',
@@ -533,6 +534,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['discolored']
-}
+};
 
 export default theme;

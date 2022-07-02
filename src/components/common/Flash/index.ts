@@ -1,1 +1,1 @@
-export {default as Flash} from './Flash.svelte';
+export { default as Flash } from './Flash.svelte';

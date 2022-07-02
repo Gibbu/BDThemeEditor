@@ -1,10 +1,10 @@
 <script lang="ts">
-	import {THEME, preview} from '$lib/stores';
-	import {createEventDispatcher} from 'svelte';
+	import { THEME, preview } from '$lib/stores';
+	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
-	import {Input} from '$components/common/Input';
+	import { Input } from '$components/common/Input';
 
 	// Required vars
 	export let variable: string;
@@ -18,35 +18,40 @@
 	let local: boolean = false;
 
 	$: if (local) {
-		if ($preview.querySelector(`#font-${index}`)) {
-			$preview.querySelector(`#font-${index}`).remove()
-		}
-		$THEME.fonts.splice(index, 1);
+		$preview?.querySelector(`#font-${index}`)?.remove();
+		$THEME?.fonts?.splice(index, 1);
 	}
 
 	const update = (): void => {
+		const output = value.split(',').map((font) => font.trim());
 
-		const output = value.split(',').map(font => font.trim());
-		
 		if (!local && !value.includes('Whitney')) {
-			const fontUrl: string = `https://fonts.googleapis.com/css2?family=${output[0].replace(/ /g, '+')}:wght@100;300;400;500;700&display=swap`;
+			const fontUrl: string = `https://fonts.googleapis.com/css2?family=${output[0].replace(
+				/ /g,
+				'+'
+			)}:wght@100;300;400;500;700&display=swap`;
 			const fontImport: string = `@import url('${fontUrl}');`;
 
-			$THEME.fonts[index] = fontUrl;
+			if ($THEME?.fonts) {
+				$THEME.fonts[index] = fontUrl;
+			}
 
-			if (!$preview.querySelector(`#font-${index}`)) {
+			if (!$preview?.querySelector(`#font-${index}`)) {
 				const style: HTMLStyleElement = document.createElement('style');
 				style.setAttribute('id', `font-${index}`);
 				style.setAttribute('class', 'customfont');
 				style.innerText = fontImport;
-				$preview.querySelector('head').appendChild(style);
+				$preview?.querySelector('head')?.appendChild(style);
 			} else {
-				$preview.querySelector(`#font-${index}`).innerHTML = fontImport;
+				const test = $preview.querySelector(`#font-${index}`);
+				if (test) {
+					test.innerHTML = fontImport;
+				}
 			}
 		}
 
-		dispatch('update', {variable, value: output.join(','), varGroup});
-	}
+		dispatch('update', { variable, value: output.join(','), varGroup });
+	};
 </script>
 
 <template>
@@ -57,12 +62,14 @@
 		<Input placeholder="Font name" bind:value on:change={update} />
 		<small class="option-hint">Click away or press Enter to update preview.</small>
 		<label class="option-local">
-			<input type="checkbox" bind:checked={local} class="option-checkbox">
+			<input type="checkbox" bind:checked={local} class="option-checkbox" />
 			Use font installed on my computer
 		</label>
 		{#if !local}
 			<div class="option-google">
-				View available fonts on <a href="https://fonts.google.com" target="_blank" rel="noreferrer" class="anchor">Google Fonts</a>
+				View available fonts on <a href="https://fonts.google.com" target="_blank" rel="noreferrer" class="anchor"
+					>Google Fonts</a
+				>
 			</div>
 		{/if}
 	</div>

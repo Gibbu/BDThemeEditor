@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -11,7 +11,7 @@
 
 	const handleEvent = (e: any) => {
 		if (!disabled) dispatch(e.type);
-	}
+	};
 </script>
 
 <template>
@@ -25,8 +25,8 @@
 			{value}
 			{checked}
 			hidden
-		>
-		<div class="radio-box"></div>
+		/>
+		<div class="radio-box" />
 		<div class="radio-content">
 			<slot />
 		</div>
@@ -59,13 +59,13 @@
 				border-color: var(--border-hover);
 			}
 			&.selected {
-				background: hsl(var(--accent) / .1);
+				background: hsl(var(--accent) / 0.1);
 				color: hsl(var(--accent));
 				border-color: hsl(var(--accent));
 				z-index: 1;
 				.radio-box {
 					background: hsl(var(--accent));
-					border-color:hsl(var(--accent));
+					border-color: hsl(var(--accent));
 					&:before {
 						background: #fff;
 					}
@@ -80,7 +80,7 @@
 			border-radius: 50%;
 			position: relative;
 			&:before {
-				content: "";
+				content: '';
 				position: absolute;
 				top: 50%;
 				left: 50%;

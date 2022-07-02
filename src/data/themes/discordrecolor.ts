@@ -1,4 +1,4 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import DevilBro from '$data/devs/devilbro';
 
 const theme: ITheme = {
@@ -16,11 +16,9 @@ const theme: ITheme = {
 		donate: 'https://www.paypal.me/MircoWittrien',
 		patreon: 'https://www.patreon.com/MircoWittrien',
 		website: 'https://mwittrien.github.io/',
-		source: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/DiscordRecolor/',
+		source: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/DiscordRecolor/'
 	},
-	imports: [
-		'https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'
-	],
+	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'],
 	fonts: [],
 	variables: [
 		{
@@ -205,8 +203,8 @@ const theme: ITheme = {
 						variable: 'settingsicons',
 						value: '1',
 						options: [
-							{label: 'True', value: '1'},
-							{label: 'False', value: '0'}
+							{ label: 'True', value: '1' },
+							{ label: 'False', value: '0' }
 						],
 						title: 'Show settings icons',
 						customValue: false
@@ -215,6 +213,6 @@ const theme: ITheme = {
 			]
 		}
 	]
-}
+};
 
 export default theme;

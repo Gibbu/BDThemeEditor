@@ -1,6 +1,6 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
-	import {classes} from '$lib/helpers';
+	import { createEventDispatcher } from 'svelte';
+	import { classes } from '$lib/helpers';
 
 	const dispatch = createEventDispatcher();
 
@@ -8,45 +8,40 @@
 	export let type: 'primary' | 'secondary' | 'text' | 'danger';
 
 	/**
-	 * Size of the button.  
+	 * Size of the button.
 	 * Default = 'medium'
 	 */
-	export let size: 'medium'|'large'|'extralarge' = 'medium';
+	export let size: 'medium' | 'large' | 'extralarge' = 'medium';
 
 	/**
-	 * Makes the button fill the available horizontal space.  
+	 * Makes the button fill the available horizontal space.
 	 * Default = `false`
 	 */
 	export let long: boolean = false;
 
 	/**
-	 * Disable the button. Turning it opaque and disabling the click event.  
+	 * Disable the button. Turning it opaque and disabling the click event.
 	 * Click event will not fire even if styling is removed.
 	 */
 	export let disabled: any = null;
 
 	/**
-	 * Location to navigate to.  
+	 * Location to navigate to.
 	 * An anchor tag will be used instead of a button.
 	 */
-	export let href: string = null;
+	export let href: string | null = null;
 
 	/** Open the location in a new tab. */
-  export let newTab: boolean = false;
+	export let newTab: boolean = false;
 
 	const eventHandler = (e: MouseEvent) => {
 		if (!disabled) dispatch(e.type);
-	}
+	};
 </script>
 
 <template>
 	{#if href}
-		<a
-			{href} 
-			target={newTab ? '_blank' : null}
-			class={classes('btn', type, size)}
-			class:long
-		>
+		<a {href} target={newTab ? '_blank' : null} class={classes('btn', type, size)} class:long>
 			{#if $$slots.iconL}
 				<div class="iconL">
 					<slot name="iconL" />
@@ -57,13 +52,7 @@
 			{/if}
 		</a>
 	{:else}
-		<button
-			type="button"
-			class={classes('btn', type, size)}
-			class:long
-			{disabled}
-			on:click={eventHandler}
-		>
+		<button type="button" class={classes('btn', type, size)} class:long {disabled} on:click={eventHandler}>
 			{#if $$slots.iconL}
 				<div class="iconL">
 					<slot name="iconL" />
@@ -83,7 +72,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: .15s ease background, .15s ease box-shadow, .15s ease color;
+		transition: 0.15s ease background, 0.15s ease box-shadow, 0.15s ease color;
 		user-select: none;
 		line-height: normal;
 
@@ -99,7 +88,7 @@
 		&.long {
 			width: 100%;
 		}
-		
+
 		&.medium {
 			font-size: rem(14);
 			height: rem(38);
@@ -119,7 +108,7 @@
 		&.primary {
 			background: hsl(var(--accent));
 			color: #000;
-			text-shadow: 0 rem(2) rem(5) hsl(0 0% 0% / .4);
+			text-shadow: 0 rem(2) rem(5) hsl(0 0% 0% / 0.4);
 			&:hover {
 				background: hsl(var(--accent-dark));
 			}
@@ -127,7 +116,7 @@
 				background: hsl(var(--accent));
 			}
 			&:focus {
-				outline: rem(2) solid hsl(var(--accent) / .6);
+				outline: rem(2) solid hsl(var(--accent) / 0.6);
 				outline-offset: rem(3);
 			}
 		}
@@ -156,8 +145,8 @@
 
 		&[disabled] {
 			pointer-events: none;
-			opacity: .7;
-			filter: grayscale(.4);
+			opacity: 0.7;
+			filter: grayscale(0.4);
 		}
 	}
 
@@ -166,5 +155,4 @@
 		width: rem(20);
 		height: rem(20);
 	}
-
 </style>

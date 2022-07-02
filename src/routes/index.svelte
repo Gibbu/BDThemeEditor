@@ -1,19 +1,19 @@
 <script lang="ts">
-	import {flash} from '$lib/stores';
-	import {onMount} from 'svelte';
+	import { flash } from '$lib/stores';
+	import { onMount } from 'svelte';
 
 	import themes from '$data/themes';
 
 	const getHref = (href: string) => `/theme/${href.replace(/ /g, '').toLowerCase()}`;
 
-	onMount(() => $flash = []);
+	onMount(() => ($flash = []));
 </script>
 
 <svelte:head>
 	<title>Home - Theme Editor</title>
-	<meta property="og:title" content="Home - Theme Editor">
-	<meta name="description" content="Customize themes by the community with a easy to use interface">
-	<meta property="og:description" content="Customize themes by the community with a easy to use interface">
+	<meta property="og:title" content="Home - Theme Editor" />
+	<meta name="description" content="Customize themes by the community with a easy to use interface" />
+	<meta property="og:description" content="Customize themes by the community with a easy to use interface" />
 </svelte:head>
 
 <template>
@@ -33,10 +33,14 @@
 							{#each themes as theme}
 								<a href={getHref(theme.name)} class="theme">
 									<div class="theme-head r16-9">
-										<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail r16-9-item">
+										<img src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail r16-9-item" />
 									</div>
 									<div class="theme-body">
-										<img src="https://github.com/{theme.developer.github}.png" alt="Developer avatar" class="theme-developer">
+										<img
+											src="https://github.com/{theme.developer.github}.png"
+											alt="Developer avatar"
+											class="theme-developer"
+										/>
 										<div class="theme-info">
 											<h4 class="theme-name">{theme.name}</h4>
 											<p class="theme-description">{theme.meta.description}</p>
@@ -46,7 +50,7 @@
 							{/each}
 						</main>
 					</section>
-	
+
 					<footer class="footer">
 						<p>Website made by <a href="https://gibbu.me" target="_blank" rel="noreferrer" class="anchor">Gibbu</a></p>
 						<p>Want your theme on here? <a href="/docs/submit/config-file" class="anchor">Read the docs</a></p>
@@ -95,8 +99,7 @@
 		border-radius: rem(4);
 		overflow: hidden;
 		position: relative;
-		transition: .15s ease border-color,
-								.15s ease box-shadow;
+		transition: 0.15s ease border-color, 0.15s ease box-shadow;
 
 		&-thumbnail {
 			width: 100%;
@@ -127,15 +130,16 @@
 			margin-top: rem(2);
 		}
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			border-color: hsl(var(--accent));
-			box-shadow: 0 0 0 rem(4) hsl(var(--accent) / .2);
+			box-shadow: 0 0 0 rem(4) hsl(var(--accent) / 0.2);
 		}
 	}
 
 	.footer {
 		font-size: rem(14);
-		opacity: .5;
+		opacity: 0.5;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: rem(50);

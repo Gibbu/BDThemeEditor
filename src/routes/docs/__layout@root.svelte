@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {page, navigating} from '$app/stores';
+	import { page, navigating } from '$app/stores';
 	import NProgress from 'nprogress';
 	import '$scss/app.scss';
 
@@ -13,31 +13,34 @@
 		{
 			title: 'Adding your theme',
 			links: [
-				{href: 'submit/config-file', value: 'Config File'},
+				{ href: 'submit/config-file', value: 'Config File' },
 				{
 					href: 'submit/variables-config',
 					value: 'Variables Config',
 					children: [
-						{href: '#colour', value: 'Colour'},
-						{href: '#font', value: 'Font'},
-						{href: '#image', value: 'Image'},
-						{href: '#number', value: 'Number'},
-						{href: '#select', value: 'Select'},
-						{href: '#slider', value: 'Slider'},
-						{href: '#example', value: 'Example variables config'}
+						{ href: '#colour', value: 'Colour' },
+						{ href: '#font', value: 'Font' },
+						{ href: '#image', value: 'Image' },
+						{ href: '#number', value: 'Number' },
+						{ href: '#select', value: 'Select' },
+						{ href: '#slider', value: 'Slider' },
+						{ href: '#example', value: 'Example variables config' }
 					]
 				},
-				{href: 'submit/betterdiscord-meta', value: 'BetterDiscord META'},
-				{href: 'submit/submitting-theme', value: 'Submitting Your Theme'}
+				{ href: 'submit/betterdiscord-meta', value: 'BetterDiscord META' },
+				{ href: 'submit/submitting-theme', value: 'Submitting Your Theme' }
 			]
 		}
-	]
+	];
 
 	$: active = (href: string): boolean => {
-		const path = $page.url.pathname.split('/').filter(el => el && el !== 'docs').join('/');
+		const path = $page.url.pathname
+			.split('/')
+			.filter((el) => el && el !== 'docs')
+			.join('/');
 		if (path === href) return true;
 		return false;
-	}
+	};
 </script>
 
 <svelte:head>
@@ -55,15 +58,15 @@
 								<a href="/" class="sidebar-link">Home</a>
 							</li>
 						</ul>
-						{#each nav as {title, links}}
+						{#each nav as { title, links }}
 							<h4 class="sidebar-title">{title}</h4>
 							<ul class="sidebar-items">
-								{#each links as {href, value, children}}
+								{#each links as { href, value, children }}
 									<li class="sidebar-item">
 										<a href="/docs/{href}" class="sidebar-link" class:active={active(href)}>{value}</a>
 										{#if children && active(href)}
 											<ul class="sidebar-children">
-												{#each children as {href, value}}
+												{#each children as { href, value }}
 													<li class="sidebar-child">
 														<a {href} class="sidebar-link">{value}</a>
 													</li>
@@ -126,7 +129,7 @@
 			}
 			&.active {
 				color: hsl(var(--accent));
-				background: hsl(var(--accent) / .1);
+				background: hsl(var(--accent) / 0.1);
 			}
 		}
 
@@ -135,7 +138,7 @@
 			list-style: none;
 			position: relative;
 			&::before {
-				content: "";
+				content: '';
 				position: absolute;
 				top: rem(4);
 				left: rem(8);

@@ -1,4 +1,4 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Gibbu from '$data/devs/gibbu';
 
 const theme: ITheme = {
@@ -44,7 +44,7 @@ const theme: ITheme = {
 						max: 30,
 						step: 1,
 						unit: 'px',
-						title: 'Blur',
+						title: 'Blur'
 					}
 				},
 				{
@@ -53,12 +53,12 @@ const theme: ITheme = {
 						variable: 'background-image-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -69,15 +69,15 @@ const theme: ITheme = {
 						variable: 'background-image-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -105,7 +105,7 @@ const theme: ITheme = {
 						max: 30,
 						step: 1,
 						unit: 'px',
-						title: 'Blur',
+						title: 'Blur'
 					}
 				},
 				{
@@ -114,12 +114,12 @@ const theme: ITheme = {
 						variable: 'popout-modal-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -130,15 +130,15 @@ const theme: ITheme = {
 						variable: 'popout-modal-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -164,12 +164,12 @@ const theme: ITheme = {
 						variable: 'home-button-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Image size'
 					}
@@ -180,15 +180,15 @@ const theme: ITheme = {
 						variable: 'home-button-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Image position'
 					}
@@ -250,7 +250,7 @@ const theme: ITheme = {
 						step: 0.02,
 						title: 'Popout/Modal brightness'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -386,6 +386,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['rs', 'columns', 'hsl', 'discolored']
-}
+};
 
 export default theme;
