@@ -1,18 +1,18 @@
 <script lang="ts" context="module">
-	import type {ErrorLoad} from '@sveltejs/kit';
+	import type { Load } from '@sveltejs/kit';
 
-	export const load: ErrorLoad = ({status, error}) => {
+	export const load: Load = ({ status, error }) => {
 		return {
-			props: {error, status}
-		}
-	}
+			props: { error, status }
+		};
+	};
 </script>
 
 <script lang="ts">
-	import {dev} from '$app/env';
-	import {Home} from '$components/common/Icon';
+	import { dev } from '$app/env';
+	import { Home } from '$components/common/Icon';
 
-	import {Button} from '$components/common/Button';
+	import { Button } from '$components/common/Button';
 
 	export let error: any;
 	export let status: string;

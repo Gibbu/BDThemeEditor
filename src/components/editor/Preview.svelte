@@ -1,27 +1,27 @@
 <script lang="ts">
-	import {onDestroy} from 'svelte';
-	import {loaded, preview} from '$lib/stores';
+	import { onDestroy } from 'svelte';
+	import { loaded, preview } from '$lib/stores';
 
 	export let url: string;
 
 	let iframe: HTMLIFrameElement;
 
 	const onLoad = () => {
-		let getIframe = iframe.contentDocument.body.parentElement;
+		let getIframe = iframe.contentDocument!.body.parentElement!;
 
 		$preview = getIframe;
-		getIframe.querySelector('#import').textContent = `@import url("${url}")`;
+		getIframe.querySelector('#import')!.textContent = `@import url("${url}")`;
 
 		$loaded = true;
-	}
-	onDestroy(() => $loaded = false);
+	};
+	onDestroy(() => ($loaded = false));
 </script>
 
 <template>
 	<div class="preview">
 		{#if !$loaded}
 			<div class="loader">
-				<div class="spinner"></div>
+				<div class="spinner" />
 			</div>
 		{/if}
 		<iframe

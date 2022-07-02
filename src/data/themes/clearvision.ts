@@ -1,4 +1,4 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import ClearVision from '$data/devs/clearvision';
 
 const theme: ITheme = {
@@ -100,15 +100,15 @@ const theme: ITheme = {
 						variable: 'background-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -119,12 +119,12 @@ const theme: ITheme = {
 						variable: 'background-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -136,8 +136,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'no-repeat',
 						options: [
-							{label: 'True', value: 'repeat'},
-							{label: 'False', value: 'no-repeat'}
+							{ label: 'True', value: 'repeat' },
+							{ label: 'False', value: 'no-repeat' }
 						],
 						title: 'Repeat'
 					}
@@ -149,8 +149,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'fixed',
 						options: [
-							{label: 'True', value: 'fixed'},
-							{label: 'False', value: 'scroll'}
+							{ label: 'True', value: 'fixed' },
+							{ label: 'False', value: 'scroll' }
 						],
 						title: 'Fixed attachment'
 					}
@@ -234,7 +234,7 @@ const theme: ITheme = {
 						rule: true,
 						title: 'Overlay colour'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -256,15 +256,15 @@ const theme: ITheme = {
 						variable: 'user-popout-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -275,12 +275,12 @@ const theme: ITheme = {
 						variable: 'user-popout-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -292,8 +292,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'no-repeat',
 						options: [
-							{label: 'True', value: 'repeat'},
-							{label: 'False', value: 'no-repeat'}
+							{ label: 'True', value: 'repeat' },
+							{ label: 'False', value: 'no-repeat' }
 						],
 						title: 'Repeat'
 					}
@@ -305,8 +305,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'fixed',
 						options: [
-							{label: 'True', value: 'fixed'},
-							{label: 'False', value: 'scroll'}
+							{ label: 'True', value: 'fixed' },
+							{ label: 'False', value: 'scroll' }
 						],
 						title: 'Fixed attachment'
 					}
@@ -402,15 +402,15 @@ const theme: ITheme = {
 						variable: 'user-modal-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -421,12 +421,12 @@ const theme: ITheme = {
 						variable: 'user-modal-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -438,8 +438,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'no-repeat',
 						options: [
-							{label: 'True', value: 'repeat'},
-							{label: 'False', value: 'no-repeat'}
+							{ label: 'True', value: 'repeat' },
+							{ label: 'False', value: 'no-repeat' }
 						],
 						title: 'Repeat'
 					}
@@ -451,8 +451,8 @@ const theme: ITheme = {
 						customValue: false,
 						value: 'fixed',
 						options: [
-							{label: 'True', value: 'fixed'},
-							{label: 'False', value: 'scroll'}
+							{ label: 'True', value: 'fixed' },
+							{ label: 'False', value: 'scroll' }
 						],
 						title: 'Fixed attachment'
 					}
@@ -547,13 +547,13 @@ const theme: ITheme = {
 						variable: 'home-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Bottom right', value: 'bottom right'},
-							{label: 'Bottom centre', value: 'bottom center'},
-							{label: 'Bottom left', value: 'bottom left'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Bottom right', value: 'bottom right' },
+							{ label: 'Bottom centre', value: 'bottom center' },
+							{ label: 'Bottom left', value: 'bottom left' }
 						],
 						title: 'Position'
 					}
@@ -773,6 +773,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['rs', 'columns', 'hsl', 'discolored']
-}
+};
 
 export default theme;

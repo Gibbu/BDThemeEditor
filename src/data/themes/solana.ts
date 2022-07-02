@@ -1,4 +1,4 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Disease from '$data/devs/disease';
 
 const theme: ITheme = {
@@ -17,73 +17,73 @@ const theme: ITheme = {
 		authorId: '678469587444170762'
 	},
 	imports: [
-        'https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css',
-        'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',
-        'https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css',
-        'https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css',
-        'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css',
-        'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
-        'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css',
-        'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
+		'https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css',
+		'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',
+		'https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css',
+		'https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css',
+		'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css',
+		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
+		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css',
+		'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
 	],
 	fonts: [
-        'https://fonts.cdnfonts.com/css/sf-pro-display',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'
-    ],
+		'https://fonts.cdnfonts.com/css/sf-pro-display',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'
+	],
 	variables: [
-        {
-            title: 'Colors',
-            icon: 'Colour',
-            inputs: [
-                {
-                    type: 'slider',
+		{
+			title: 'Colors',
+			icon: 'Colour',
+			inputs: [
+				{
+					type: 'slider',
 					details: {
 						variable: 'accent-hue',
 						value: 213,
 						max: 359,
 						title: 'Accent color'
 					}
-                },
-                {
-                    type: 'slider',
+				},
+				{
+					type: 'slider',
 					details: {
 						variable: 'accent-saturation',
 						value: 100,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Accent saturation'
 					}
-                },
-                {
-                    type: 'slider',
+				},
+				{
+					type: 'slider',
 					details: {
 						variable: 'accent-brightness',
 						value: 50,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Accent brightness'
 					}
-                },
-                {
-                    type: 'slider',
+				},
+				{
+					type: 'slider',
 					details: {
 						variable: 'background-accent-hue',
 						value: 213,
 						max: 359,
 						title: 'Background accent hue'
 					}
-                },
+				},
 				{
-                    type: 'slider',
+					type: 'slider',
 					details: {
 						variable: 'text-link-hue',
 						value: 212,
 						max: 359,
 						title: 'Text link hue'
 					}
-                }
-            ]
-        },
+				}
+			]
+		},
 		{
 			title: 'Background image',
 			icon: 'Image',
@@ -109,21 +109,21 @@ const theme: ITheme = {
 						comment: 'Blur intensity of --background-image'
 					}
 				},
-                {
+				{
 					type: 'select',
 					details: {
 						variable: 'background-image-position',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -134,43 +134,43 @@ const theme: ITheme = {
 						variable: 'background-image-size',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
 				},
-                {
-                    type: 'slider',
+				{
+					type: 'slider',
 					details: {
 						variable: 'background-overlay-opacity',
 						value: 80,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Overlay opacity'
 					}
-                },
-                {
-                    type: 'slider',
+				},
+				{
+					type: 'slider',
 					details: {
 						variable: 'background-hue-shift-strength',
 						value: 100,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Background hue-shift strength'
 					}
-                }
+				}
 			]
 		},
 		{
 			title: 'Window',
 			icon: 'App',
 			inputs: [
-                {
+				{
 					type: 'slider',
 					details: {
 						variable: 'window-margin',
@@ -181,27 +181,27 @@ const theme: ITheme = {
 						hint: 'Spacing around the window'
 					}
 				},
-                {
-                    type: 'slider',
+				{
+					type: 'slider',
 					details: {
 						variable: 'window-accent-tint-strength',
 						value: 5,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Window tint strength'
 					}
-                },
-                {
-                    type: 'slider',
+				},
+				{
+					type: 'slider',
 					details: {
 						variable: 'window-opacity',
 						value: 100,
 						max: 100,
-                        unit: '%',
+						unit: '%',
 						title: 'Window opacity'
 					}
-                },
-                {
+				},
+				{
 					type: 'slider',
 					details: {
 						variable: 'window-blur',
@@ -227,7 +227,7 @@ const theme: ITheme = {
 				}
 			]
 		},
-        {
+		{
 			title: 'Floating background',
 			icon: 'Colour',
 			inputs: [
@@ -243,21 +243,21 @@ const theme: ITheme = {
 						hint: 'Blur behind the floating background'
 					}
 				},
-                {
+				{
 					type: 'select',
 					details: {
 						variable: 'enable-floating-transparency',
 						value: '1',
 						options: [
-							{label: 'True', value: '1'},
-							{label: 'False', value: '0'}
+							{ label: 'True', value: '1' },
+							{ label: 'False', value: '0' }
 						],
 						title: 'Enable floating transparency'
 					}
-				},
+				}
 			]
 		},
-        {
+		{
 			title: 'Home icon',
 			icon: 'Home',
 			inputs: [
@@ -270,7 +270,7 @@ const theme: ITheme = {
 						title: 'Home button image'
 					}
 				},
-                {
+				{
 					type: 'image',
 					details: {
 						variable: 'favorites-icon',
@@ -279,8 +279,8 @@ const theme: ITheme = {
 						title: 'Favorites button image'
 					}
 				}
-            ]
-        },
+			]
+		},
 		{
 			title: 'Custom font',
 			icon: 'Font',
@@ -295,35 +295,35 @@ const theme: ITheme = {
 						title: 'Display font'
 					}
 				},
-                {
+				{
 					type: 'font',
 					details: {
 						variable: 'custom-font-regular',
 						start: '""',
-						index: 0,
+						index: 1,
 						value: '',
 						title: 'Regular font',
-                        hint: 'Like the primary font, but used in specific areas.'
+						hint: 'Like the primary font, but used in specific areas.'
 					}
 				},
-                {
+				{
 					type: 'font',
 					details: {
 						variable: 'custom-font-primary',
 						start: '""',
-						index: 0,
+						index: 2,
 						value: '',
-						title: 'Primary font',
+						title: 'Primary font'
 					}
 				},
-                {
+				{
 					type: 'font',
 					details: {
 						variable: 'custom-font-code',
 						start: '""',
-						index: 0,
+						index: 3,
 						value: '',
-						title: 'Code font',
+						title: 'Code font'
 					}
 				}
 			]
@@ -332,22 +332,22 @@ const theme: ITheme = {
 			title: 'Compatibility',
 			icon: 'Gear',
 			inputs: [
-                {
-                    type: 'select',
+				{
+					type: 'select',
 					details: {
 						variable: 'enable-blur',
 						value: '1',
 						options: [
-							{label: 'True', value: '1'},
-							{label: 'False', value: '0'}
+							{ label: 'True', value: '1' },
+							{ label: 'False', value: '0' }
 						],
 						title: 'Enable blur',
-                        hint: 'Forces blur variables to 0'
+						hint: 'Forces blur variables to 0'
 					}
-                }
+				}
 			]
 		}
 	]
-}
+};
 
 export default theme;

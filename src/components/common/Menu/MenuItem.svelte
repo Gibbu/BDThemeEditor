@@ -1,9 +1,9 @@
 <script lang="ts">
-	import {getContext, createEventDispatcher} from 'svelte';
+	import { getContext, createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
-	import type {Writable} from 'svelte/store';
+	import type { Writable } from 'svelte/store';
 
 	let visible: Writable<boolean> = getContext('visible');
 
@@ -17,7 +17,7 @@
 	export let newTab: boolean = false;
 
 	/**
-	 * Disable the button. Turning it opaque and disabling the click event.  
+	 * Disable the button. Turning it opaque and disabling the click event.
 	 * Click event will not fire even if styling is removed.
 	 */
 	export let disabled: any = undefined;
@@ -28,7 +28,7 @@
 	const close = () => {
 		if (!disabled) dispatch('click');
 		if (hideOnClick) $visible = false;
-	}
+	};
 </script>
 
 {#if href}
@@ -44,50 +44,45 @@
 		<slot />
 	</a>
 {:else}
-	<button
-		type="button"
-		class="menu-item"
-		class:danger
-		role="menuitem"
-		tabindex="0"
-		on:click={close}
-	>
+	<button type="button" class="menu-item" class:danger role="menuitem" tabindex="0" on:click={close}>
 		<slot />
 	</button>
 {/if}
 
 <style lang="scss">
-.menu-item {
-	padding: rem(8) rem(10);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	font-weight: 500;
-	font-size: rem(14);
-	border-radius: rem(4);
-	&:not(:last-child) {
-		margin-bottom: rem(4);
-	}
-	&:hover, &:focus {
-		background: hsl(var(--accent));
-		color: #000;
-		text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
-	}
-	&.danger {
-		color: hsl(var(--red));
-		&:hover, &:focus {
-			background: hsl(var(--red));
+	.menu-item {
+		padding: rem(8) rem(10);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		font-weight: 500;
+		font-size: rem(14);
+		border-radius: rem(4);
+		&:not(:last-child) {
+			margin-bottom: rem(4);
+		}
+		&:hover,
+		&:focus {
+			background: hsl(var(--accent));
 			color: #000;
-			text-shadow: 0 2px 5px hsl(0 0% 0% / .4);
+			text-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
+		}
+		&.danger {
+			color: hsl(var(--red));
+			&:hover,
+			&:focus {
+				background: hsl(var(--red));
+				color: #000;
+				text-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
+			}
+		}
+		&:focus {
+			box-shadow: inset 0 0 0 100vmax hsl(0 0% 0% / 0.2);
 		}
 	}
-	&:focus {
-		box-shadow: inset 0 0 0 100vmax hsl(0 0% 0% / .2);
-	}
-}
 
-:global(.menu-item > svg) {
-	width: rem(16);
-}
+	:global(.menu-item > svg) {
+		width: rem(16);
+	}
 </style>

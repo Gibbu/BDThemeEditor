@@ -1,4 +1,4 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import DevilBro from '$data/devs/devilbro';
 
 const theme: ITheme = {
@@ -11,12 +11,13 @@ const theme: ITheme = {
 		author: 'DevilBro',
 		version: '1.0.5',
 		description: 'Allows you to use a background image without greatly altering the basic look of Discord.',
-		source: 'https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Themes/BasicBackground/BasicBackground.theme.css',
+		source:
+			'https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Themes/BasicBackground/BasicBackground.theme.css',
 		invite: 'Jx3TjNS',
 		donate: 'https://www.paypal.me/MircoWittrien',
 		patreon: 'https://www.patreon.com/MircoWittrien',
 		website: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/BasicBackground',
-		authorId: '278543574059057154',
+		authorId: '278543574059057154'
 	},
 	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css'],
 	fonts: [],
@@ -40,12 +41,12 @@ const theme: ITheme = {
 						variable: 'backgroundsize',
 						value: 'cover',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -56,15 +57,15 @@ const theme: ITheme = {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -101,12 +102,12 @@ const theme: ITheme = {
 						variable: 'popoutsize',
 						value: 'var(--backgroundsize)',
 						options: [
-							{label: 'Cover', value: 'cover'},
-							{label: 'Contain', value: 'contain'},
-							{label: 'Auto', value: 'auto'},
-							{label: '100%', value: '100%'},
-							{label: '150%', value: '150%'},
-							{label: '200%', value: '200%'}
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
 						],
 						title: 'Size'
 					}
@@ -117,15 +118,15 @@ const theme: ITheme = {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
-							{label: 'Top left', value: 'top left'},
-							{label: 'Top centre', value: 'top center'},
-							{label: 'Top right', value: 'top right'},
-							{label: 'Centre left', value: 'center left'},
-							{label: 'Centre', value: 'center'},
-							{label: 'Centre right', value: 'center right'},
-							{label: 'Bottom left', value: 'Bottom left'},
-							{label: 'Bottom centre', value: 'Bottom center'},
-							{label: 'Bottom right', value: 'bottom right'}
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
 						],
 						title: 'Position'
 					}
@@ -244,7 +245,7 @@ const theme: ITheme = {
 						step: 0.02,
 						title: 'Members list brightness'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -313,7 +314,7 @@ const theme: ITheme = {
 						type: 'RGB',
 						title: 'Text darkest'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -327,8 +328,8 @@ const theme: ITheme = {
 						title: 'Show setting icons',
 						value: '1',
 						options: [
-							{label: 'True', value: '1'},
-							{label: 'False', value: '0'}
+							{ label: 'True', value: '1' },
+							{ label: 'False', value: '0' }
 						],
 						customValue: false
 					}
@@ -351,6 +352,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['rs', 'columns', 'hsl']
-}
+};
 
 export default theme;

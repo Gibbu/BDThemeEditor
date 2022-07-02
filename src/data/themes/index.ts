@@ -8,18 +8,8 @@ import discordrecolor from './discordrecolor';
 import comfy from './comfy';
 import solana from './solana';
 
-const themes = [
-	frostedglass,
-	softx,
-	basicbackground,
-	clearvision,
-	reborn,
-	tranquil,
-	discordrecolor,
-	comfy,
-	solana
-]
+const themes = [frostedglass, softx, basicbackground, clearvision, reborn, tranquil, discordrecolor, comfy, solana];
 
-export const fallbacks = themes.map(el => el.name.replace(/ /g, '').toLowerCase());
+export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
 
 export default themes;

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
-	import {Dismiss} from '$components/common/Icon';
+	import { createEventDispatcher } from 'svelte';
+	import { Dismiss } from '$components/common/Icon';
 
 	const dispatch = createEventDispatcher();
 
 	export let title: string;
 
 	/**
-	 * Will display the close button to the far right of the header.  
+	 * Will display the close button to the far right of the header.
 	 * Default = `true`.
 	 */
 	export let closeBtn: boolean = true;

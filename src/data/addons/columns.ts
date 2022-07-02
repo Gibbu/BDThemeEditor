@@ -1,4 +1,4 @@
-import type {IAddon} from '$types/addon';
+import type { IAddon } from '$types/addon';
 import DevilBro from '$data/devs/devilbro';
 
 const addon: IAddon = {
@@ -39,13 +39,13 @@ const addon: IAddon = {
 				value: '0',
 				customValue: false,
 				options: [
-					{label: 'True', value: '0'},
-					{label: 'False', value: '1'}
+					{ label: 'True', value: '0' },
+					{ label: 'False', value: '1' }
 				],
 				title: 'Align DMs'
 			}
 		}
 	]
-}
+};
 
 export default addon;

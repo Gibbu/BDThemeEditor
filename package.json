@@ -26,6 +26,8 @@
 		"mdsvex": "^0.9.8",
 		"nprogress": "^0.2.0",
 		"postcss": "^8.4.14",
+		"prettier": "^2.7.1",
+		"prettier-plugin-svelte": "^2.7.0",
 		"rehype-slug": "^5.0.1",
 		"sass": "^1.53.0",
 		"svelte": "^3.48.0",

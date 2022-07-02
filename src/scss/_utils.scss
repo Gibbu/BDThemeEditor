@@ -12,7 +12,7 @@
 // 16:9 resolution scaling
 .r16-9 {
 	position: relative;
-  padding-bottom: 56.2%;
+	padding-bottom: 56.2%;
 	width: 100%;
 	&-item {
 		position: absolute;
@@ -70,13 +70,18 @@
 		font-size: rem(18);
 	}
 
-	h1, h2, h3, h4 {
+	h1,
+	h2,
+	h3,
+	h4 {
 		margin: rem(35) 0 rem(15);
 		padding-bottom: rem(5);
 		border-bottom: rem(1) solid var(--border);
 	}
 
-	h1, h2, h3 {
+	h1,
+	h2,
+	h3 {
 		color: var(--text-primary);
 		a {
 			color: inherit;
@@ -159,7 +164,8 @@
 				font-weight: 500;
 			}
 		}
-		th, td {
+		th,
+		td {
 			border: rem(1) solid var(--border);
 			padding: rem(10);
 		}
@@ -190,8 +196,8 @@
 		padding: rem(2) rem(5);
 		border-radius: rem(4);
 	}
-	pre[class*="language-"],
-	code[class*="language-"] {
+	pre[class*='language-'],
+	code[class*='language-'] {
 		color: var(--text-secondary);
 		font-size: rem(13);
 		text-shadow: none;
@@ -204,13 +210,13 @@
 		tab-size: 4;
 		hyphens: none;
 	}
-	pre[class*="language-"] {
+	pre[class*='language-'] {
 		padding: 1em;
-		margin: .5em 0;
+		margin: 0.5em 0;
 		overflow: auto;
 	}
 	.namespace {
-		opacity: .7;
+		opacity: 0.7;
 	}
 	.token.comment,
 	.token.prolog,
@@ -281,7 +287,8 @@
 	}
 
 	// Language specific
-	pre[class*="javascript"], code[class*="javascript"] {
+	pre[class*='javascript'],
+	code[class*='javascript'] {
 		color: var(--syntax-red);
 	}
 }

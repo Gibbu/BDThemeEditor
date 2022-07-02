@@ -16,7 +16,7 @@ const config = {
 			postcss: {
 				plugins: [autoprefixer()]
 			}
-		}), 
+		}),
 		mdsvex({
 			extensions: ['.md'],
 			rehypePlugins: [slug]
@@ -30,10 +30,10 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					'$components': path.resolve('./src/components'),
-					'$types': path.resolve('./src/types'),
-					'$data': path.resolve('./src/data'),
-					'$scss': path.resolve('./src/scss')
+					$components: path.resolve('./src/components'),
+					$types: path.resolve('./src/types'),
+					$data: path.resolve('./src/data'),
+					$scss: path.resolve('./src/scss')
 				}
 			}
 		}

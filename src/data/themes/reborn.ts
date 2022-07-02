@@ -1,10 +1,11 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Monster from '$data/devs/monster';
 
 const theme: ITheme = {
 	name: 'Reborn',
 	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Reborn.theme.css',
-	thumbnail: 'https://camo.githubusercontent.com/737a92652884703c623bf8093f8bdf5121741375/68747470733a2f2f692e696d6775722e636f6d2f303943635242462e6a7067',
+	thumbnail:
+		'https://camo.githubusercontent.com/737a92652884703c623bf8093f8bdf5121741375/68747470733a2f2f692e696d6775722e636f6d2f303943635242462e6a7067',
 	developer: Monster,
 	meta: {
 		name: 'Reborn',
@@ -15,9 +16,7 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/theme-files/Reborn.theme.css'
 	},
-	imports: [
-		'https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css'
-	],
+	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css'],
 	fonts: [],
 	variables: [
 		{
@@ -59,10 +58,10 @@ const theme: ITheme = {
 						variable: 'background-darkness',
 						value: 0.75,
 						max: 1,
-						step: .01,
+						step: 0.01,
 						title: 'Background image darkness'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -87,7 +86,7 @@ const theme: ITheme = {
 						title: 'Hover colour',
 						hint: 'Usually darker than Main colour'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -120,6 +119,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['discolored']
-}
+};
 
 export default theme;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import clickOutside from '$lib/clickOutside';
-	import {getContext} from 'svelte';
-	import type {Writable} from 'svelte/store';
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
 
 	let visible: Writable<boolean> = getContext('visible');
 	let menuBtn: Writable<HTMLElement> = getContext('menuBtn');
@@ -14,7 +14,7 @@
 			role="menu"
 			aria-expanded={$visible}
 			use:clickOutside={$menuBtn}
-			on:clickedOutside={() => $visible = false}
+			on:clickedOutside={() => ($visible = false)}
 		>
 			<slot />
 		</div>
@@ -34,12 +34,12 @@
 		opacity: 0;
 		visibility: hidden;
 		overflow: hidden;
-		transform: scale(.95);
+		transform: scale(0.95);
 		transform-origin: top right;
-		transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
+		transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
 		z-index: 3;
-		box-shadow: 0 3px 7px hsl(0 0% 0% / .1), 0 5px 28px hsl(0 0% 0% / .25);
-		&[aria-expanded="true"] {
+		box-shadow: 0 3px 7px hsl(0 0% 0% / 0.1), 0 5px 28px hsl(0 0% 0% / 0.25);
+		&[aria-expanded='true'] {
 			opacity: 1;
 			visibility: visible;
 			transform: scale(1);

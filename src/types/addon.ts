@@ -1,18 +1,18 @@
-import type {IDev} from './dev';
-import type {Inputs} from './inputs';
+import type { IDev } from './dev';
+import type { Inputs } from './inputs';
 
 export interface IAddon {
-	name: string,
-	description: string,
-	imports: string[],
-	developer: IDev,
-	selector: string,
-	previewUrl: string[],
-	group: string,
-	use: boolean,
-	variables?: Inputs[],
+	name: string;
+	description: string;
+	imports: string[];
+	developer: IDev;
+	selector: string;
+	previewUrl: string[];
+	group: string;
+	use: boolean;
+	variables?: Inputs[];
 	hiddenVars?: {
-		variable: string,
-		value: string
-	}[]
+		variable: string;
+		value: string;
+	}[];
 }

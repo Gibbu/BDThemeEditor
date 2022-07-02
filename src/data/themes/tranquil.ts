@@ -1,10 +1,11 @@
-import type {ITheme} from '$types/theme';
+import type { ITheme } from '$types/theme';
 import Monster from '$data/devs/monster';
 
 const theme: ITheme = {
 	name: 'Tranquil',
 	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Tranquil.theme.css',
-	thumbnail: 'https://camo.githubusercontent.com/99be7dd5541e0d05b5161054bc5a526bee786055029c693a13f7e71fa3200109/68747470733a2f2f692e696d6775722e636f6d2f344576764463382e706e67',
+	thumbnail:
+		'https://camo.githubusercontent.com/99be7dd5541e0d05b5161054bc5a526bee786055029c693a13f7e71fa3200109/68747470733a2f2f692e696d6775722e636f6d2f344576764463382e706e67',
 	developer: Monster,
 	meta: {
 		name: 'Tranquil',
@@ -15,9 +16,7 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/blob/master/theme-files/Tranquil.theme.css'
 	},
-	imports: [
-		'https://monstrousdev.github.io/themes/phoenix-bundle/tranquil.css'
-	],
+	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/tranquil.css'],
 	fonts: [],
 	variables: [
 		{
@@ -84,6 +83,6 @@ const theme: ITheme = {
 		}
 	],
 	addons: ['discolored']
-}
+};
 
 export default theme;

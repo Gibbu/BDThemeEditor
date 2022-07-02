@@ -1,4 +1,4 @@
-import type {IAddon} from '$types/addon';
+import type { IAddon } from '$types/addon';
 import Gibbu from '$data/devs/gibbu';
 
 const addon: IAddon = {
@@ -32,6 +32,6 @@ const addon: IAddon = {
 			}
 		}
 	]
-}
+};
 
 export default addon;
