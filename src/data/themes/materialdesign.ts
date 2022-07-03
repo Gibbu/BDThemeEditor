@@ -564,79 +564,79 @@ const theme: ITheme = {
 		{
 			variable: 'brand-experiment',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.75% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.75% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-100',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.98% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.98% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-130',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.96.1% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.961% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-160',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.94.2% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.942% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-200',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.92.3% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.923% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-230',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.90.3% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.903% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-260',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.88.4% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.884% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-300',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.86.5% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.865% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-330',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.84.6% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.846% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-360',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.82.7% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.827% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-400',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.80.8% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.80% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-430',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.78.8% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.78% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
 			variable: 'brand-experiment-460',
 			value:
-				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(00.76.9% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
+				'hsla(var(--skin-accent-h, 264), calc(var(--saturation-factor, 1) * var(--skin-accent-s, 84%)), calc(0.769% * var(--skin-accent-l, 100)), calc(1% * var(--skin-accent-a, 100)))',
 			varGroup: ':root'
 		},
 		{
