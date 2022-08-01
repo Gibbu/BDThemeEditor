@@ -1,4 +1,4 @@
-import{S as jk,i as Gk,s as Yk,e as a,t as o,k as p,c as n,a as s,h as r,d as e,m as i,b as c,g as u,H as t,E as gf}from"../../../chunks/index-17c64161.js";function Nk(yk){let st,Xo,Al,qe,Uo,Sl,fe,bk=`<code class="language-ts"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+import{S as jk,i as Gk,s as Yk,l as a,r as o,a as p,m as n,n as s,u as r,h as e,c as i,p as c,b as u,H as t,E as gf}from"../../../chunks/index-81e80c1f.js";function Nk(yk){let st,Xo,Al,qe,Uo,Sl,fe,bk=`<code class="language-ts"><span class="token keyword">const</span> theme <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
 	<span class="token comment">// ...</span>
 	variables<span class="token operator">:</span> <span class="token punctuation">[</span>
 		<span class="token punctuation">&#123;</span>
