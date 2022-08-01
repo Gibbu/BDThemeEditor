@@ -3,7 +3,7 @@ import Gibbu from '$data/devs/gibbu';
 
 const theme: ITheme = {
 	name: 'SoftX',
-	previewUrl: ['https://discordstyles.github.io/SoftX/SoftX.theme.css'],
+	previewUrls: ['https://discordstyles.github.io/SoftX/SoftX.theme.css'],
 	thumbnail:
 		'https://camo.githubusercontent.com/6806907a0313ec99a80fe2ead0d275570332a3d8b36287f9b97b6529543877ab/68747470733a2f2f692e696d6775722e636f6d2f4535376746334c2e706e67',
 	developer: Gibbu,
