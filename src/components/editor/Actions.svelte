@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/env';
 	import { Upload, Download, Dismiss } from '$components/common/Icon';
-	import { THEME, isMounted, loaded, flash, preview } from '$lib/stores';
+	import { THEME, isMounted, loaded, flash } from '$lib/stores';
 	import DLTheme from '$lib/download';
-	import { getUrl, createEl } from '$lib/helpers';
+	import { previewAction } from '$lib/preview';
+	import { getUrl, varOutput } from '$lib/helpers';
 
 	import { Input } from '$components/common/Input';
 	import { Button } from '$components/common/Button';
@@ -86,17 +87,11 @@
 						let index: number = 0;
 
 						fontImports.forEach((url) => {
-							if (!$preview.querySelector(`#font-${index}`)) {
-								createEl<HTMLStyleElement>(
-									'style',
-									{
-										id: `font-${index}`,
-										className: 'customfont',
-										innerText: url
-									},
-									$preview.querySelector('head')!
-								);
-							}
+							previewAction({
+								action: 'addFont',
+								index,
+								text: url
+							});
 							index++;
 						});
 					}
@@ -111,14 +106,11 @@
 							const url = getUrl(el);
 							const selector = url.includes('Columns') ? 'columns' : url.includes('Horizontal') ? 'hsl' : 'rs';
 
-							createEl<HTMLStyleElement>(
-								'style',
-								{
-									className: selector,
-									textContent: `@import url('${url}');`
-								},
-								$preview.querySelector('head')!
-							);
+							previewAction({
+								action: 'addAddon',
+								class: selector,
+								text: url
+							});
 
 							$THEME.addons.forEach((addon) => {
 								if (addon.selector === selector) {
@@ -136,7 +128,11 @@
 							if (value.includes('/*')) value = value.split('/*')[0].trim();
 
 							// Add css to previewer
-							$preview.style.setProperty(`--${variable}`, value);
+							previewAction({
+								action: 'setProperty',
+								variable,
+								value
+							});
 
 							// If value includes url, strip url
 							if (value.includes('url(')) value = getUrl(value);

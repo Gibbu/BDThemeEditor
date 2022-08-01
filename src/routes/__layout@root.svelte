@@ -31,6 +31,7 @@
 	import { ModalRoot, ModalBody, ModalHeader, ModalFooter } from '$components/common/Modal';
 	import { Component, Actions, Addons } from '$components/editor';
 	import { Flash } from '$components/common/Flash';
+	import { previewAction } from '$lib/preview';
 
 	// Icons
 	const icons = {
@@ -80,13 +81,9 @@
 	const setSetting = (index: number, modal?: boolean): void => {
 		activeSetting = index;
 
-		const userModal: HTMLElement = $preview.querySelector('#modal')!;
-		const userPopout: HTMLElement = $preview.querySelector('#userpopout')!;
-
-		if (userModal && userPopout) {
-			userModal.style.display = modal === true ? 'block' : 'none';
-			userPopout.style.display = modal === true ? 'none' : 'block';
-		}
+		previewAction({
+			action: 'toggleModal'
+		});
 	};
 
 	// Back modal
