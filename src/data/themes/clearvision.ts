@@ -3,19 +3,19 @@ import ClearVision from '$data/devs/clearvision';
 
 const theme: ITheme = {
 	name: 'Clear Vision',
-	previewUrl: 'https://clearvision.github.io/ClearVision-v6/ClearVision_v6.theme.css',
+	previewUrl: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/ClearVision_v6.theme.css',
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
 	developer: ClearVision,
 	meta: {
 		name: 'ClearVision',
 		author: 'ClearVision Team',
-		version: '6.1.1',
+		version: '6.3.0',
 		description: 'Highly customizable and beautiful theme for BetterDiscord.',
 		source: 'https://github.com/ClearVision/ClearVision-v6',
-		website: 'https://clearvision.gitlab.io',
-		invite: 'dHaSxn3'
+		website: 'https://clearvision.github.io',
+		invite: '7pNUC9C'
 	},
-	imports: ['https://clearvision.gitlab.io/v6/main.css'],
+	imports: ['https://clearvision.github.io/ClearVision-v6/main.css'],
 	fonts: [],
 	variables: [
 		{
@@ -78,7 +78,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'background-image',
-						start: 'https://clearvision.gitlab.io/images/sapphire.jpg',
+						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'App background image'
 					}
@@ -245,7 +245,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'user-popout-image',
-						start: 'https://clearvision.gitlab.io/images/sapphire.jpg',
+						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'User popout image'
 					}
@@ -391,7 +391,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'user-modal-image',
-						start: 'https://clearvision.gitlab.io/images/sapphire.jpg',
+						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'User profile image'
 					}
@@ -536,7 +536,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'home-icon',
-						start: 'https://clearvision.gitlab.io/icons/discord.svg',
+						start: 'https://clearvision.github.io/icons/discord.svg',
 						value: '',
 						title: 'Home button image'
 					}
