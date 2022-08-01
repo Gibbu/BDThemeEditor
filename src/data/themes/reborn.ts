@@ -3,7 +3,7 @@ import Monster from '$data/devs/monster';
 
 const theme: ITheme = {
 	name: 'Reborn',
-	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Reborn.theme.css',
+	previewUrls: ['https://monstrousdev.github.io/themes/theme-files/Reborn.theme.css'],
 	thumbnail:
 		'https://camo.githubusercontent.com/737a92652884703c623bf8093f8bdf5121741375/68747470733a2f2f692e696d6775722e636f6d2f303943635242462e6a7067',
 	developer: Monster,

@@ -8,19 +8,19 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
+		"dev": "vite dev --port=3000",
+		"build": "vite build",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
 		"@simonwep/pickr": "^1.8.2",
-		"@sveltejs/adapter-static": "^1.0.0-next.34",
-		"@sveltejs/kit": "^1.0.0-next.357",
+		"@sveltejs/adapter-static": "^1.0.0-next.38",
+		"@sveltejs/kit": "^1.0.0-next.401",
 		"@types/file-saver": "^2.0.5",
 		"@types/nprogress": "^0.2.0",
-		"autoprefixer": "^10.4.7",
+		"autoprefixer": "^10.4.8",
 		"axios": "^0.22.0",
 		"file-saver": "^2.0.5",
 		"mdsvex": "^0.9.8",
@@ -29,13 +29,14 @@
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
 		"rehype-slug": "^5.0.1",
-		"sass": "^1.53.0",
-		"svelte": "^3.48.0",
+		"sass": "^1.54.0",
+		"svelte": "^3.49.0",
 		"svelte-check": "^2.8.0",
 		"svelte-preprocess": "^4.10.7",
 		"tippy.js": "^6.3.7",
 		"tslib": "^2.4.0",
-		"typescript": "^4.7.4"
+		"typescript": "^4.7.4",
+		"vite": "^3.0.4"
 	},
 	"type": "module"
 }

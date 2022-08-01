@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { THEME, preview } from '$lib/stores';
+	import { THEME } from '$lib/stores';
 	import { createEl } from '$lib/helpers';
+	import { previewAction } from '$lib/preview';
 
 	import type { IAddon } from '$types/addon';
 
@@ -20,7 +21,7 @@
 		const checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(`[name="${e.target.name}"]`);
 
 		checkboxes.forEach((checkbox) => {
-			const addon = $THEME.addons.find((obj) => obj.selector === checkbox.value);
+			const addon = $THEME.addons.find((obj) => obj.selector === checkbox.value)!;
 
 			if (e.target.value !== checkbox.value) {
 				checkbox.checked = false;
@@ -50,16 +51,11 @@
 		});
 
 		addon.previewUrl.forEach((url) => {
-			if (!$preview.querySelector(`.${addon.selector}`)) {
-				createEl<HTMLStyleElement>(
-					'style',
-					{
-						className: addon.selector,
-						textContent: `@import url('${url}');`
-					},
-					$preview.querySelector('head')!
-				);
-			}
+			previewAction({
+				action: 'addAddon',
+				class: addon.selector,
+				text: url
+			});
 		});
 	};
 
@@ -67,9 +63,10 @@
 	 * Removes addon to previewer and disables the addon in the `THEME` store.
 	 */
 	const removeAddon = (addon: IAddon): void => {
-		if ($preview.querySelector(`.${addon.selector}`)) {
-			$preview.querySelectorAll(`.${addon.selector}`).forEach((el) => el.remove());
-		}
+		previewAction({
+			action: 'removeAddon',
+			class: addon.selector
+		});
 
 		$THEME.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {

@@ -3,7 +3,7 @@ import Monster from '$data/devs/monster';
 
 const theme: ITheme = {
 	name: 'Tranquil',
-	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Tranquil.theme.css',
+	previewUrls: ['https://monstrousdev.github.io/themes/theme-files/Tranquil.theme.css'],
 	thumbnail:
 		'https://camo.githubusercontent.com/99be7dd5541e0d05b5161054bc5a526bee786055029c693a13f7e71fa3200109/68747470733a2f2f692e696d6775722e636f6d2f344576764463382e706e67',
 	developer: Monster,

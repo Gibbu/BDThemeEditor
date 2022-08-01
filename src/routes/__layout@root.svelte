@@ -83,8 +83,10 @@
 		const userModal: HTMLElement = $preview.querySelector('#modal')!;
 		const userPopout: HTMLElement = $preview.querySelector('#userpopout')!;
 
-		userModal.style.display = modal === true ? 'block' : 'none';
-		userPopout.style.display = modal === true ? 'none' : 'block';
+		if (userModal && userPopout) {
+			userModal.style.display = modal === true ? 'block' : 'none';
+			userPopout.style.display = modal === true ? 'none' : 'block';
+		}
 	};
 
 	// Back modal
@@ -121,7 +123,7 @@
 							class="nav-btn"
 							class:active={activeSetting === i}
 							use:tooltip={{ content: group.title, placement: 'right', offset: [0, 15] }}
-							on:click={() => setSetting(i, group.userModal)}
+							on:click={() => setSetting(i, group?.userModal)}
 						>
 							<svelte:component this={icons[group.icon]} />
 						</button>

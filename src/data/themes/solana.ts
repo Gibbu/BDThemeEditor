@@ -3,7 +3,7 @@ import Disease from '$data/devs/disease';
 
 const theme: ITheme = {
 	name: 'Solana',
-	previewUrl: 'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.theme.css',
+	previewUrls: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.theme.css'],
 	thumbnail: 'https://i.imgur.com/tnJ6KE7.jpg',
 	developer: Disease,
 	meta: {
@@ -298,7 +298,7 @@ const theme: ITheme = {
 						value: 0,
 						max: 100,
 						step: 1,
-						title: 'App padding left',
+						title: 'App padding left'
 					}
 				},
 				{
@@ -471,7 +471,7 @@ const theme: ITheme = {
 						title: 'Peek unread folder',
 						hint: 'Partially show when collapsed.'
 					}
-				},
+				}
 			]
 		},
 		{

@@ -3,7 +3,7 @@ import DevilBro from '$data/devs/devilbro';
 
 const theme: ITheme = {
 	name: 'BasicBackground',
-	previewUrl: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css',
+	previewUrls: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css'],
 	thumbnail: 'https://i.imgur.com/XORsntg.jpg',
 	developer: DevilBro,
 	meta: {

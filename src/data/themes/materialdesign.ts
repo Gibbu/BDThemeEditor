@@ -3,7 +3,7 @@ import TheCommieAxolotl from '$data/devs/thecommieaxolotl';
 
 const theme: ITheme = {
 	name: 'MaterialDesign',
-	previewUrl: 'https://thecommieaxolotl.github.io/BetterDiscord-Stuff/MaterialDesign/MaterialDesign.theme.css',
+	previewUrls: ['https://thecommieaxolotl.github.io/BetterDiscord-Stuff/MaterialDesign/MaterialDesign.theme.css'],
 	thumbnail: 'https://raw.githubusercontent.com/TheCommieAxolotl/BetterDiscord-Stuff/main/MaterialDesign/assets/md.png',
 	developer: TheCommieAxolotl,
 	meta: {

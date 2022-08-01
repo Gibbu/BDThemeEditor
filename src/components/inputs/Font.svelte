@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { THEME, preview } from '$lib/stores';
+	import { THEME } from '$lib/stores';
 	import { createEventDispatcher } from 'svelte';
+	import { previewAction } from '$lib/preview';
 
 	const dispatch = createEventDispatcher();
 
@@ -18,7 +19,10 @@
 	let local: boolean = false;
 
 	$: if (local) {
-		$preview?.querySelector(`#font-${index}`)?.remove();
+		previewAction({
+			action: 'removeFont',
+			index
+		});
 		$THEME?.fonts?.splice(index, 1);
 	}
 
@@ -33,20 +37,17 @@
 			const fontImport: string = `@import url('${fontUrl}');`;
 
 			if ($THEME?.fonts) {
+				previewAction({
+					action: 'addFont',
+					index,
+					text: fontImport
+				});
 				$THEME.fonts[index] = fontUrl;
-			}
-
-			if (!$preview?.querySelector(`#font-${index}`)) {
-				const style: HTMLStyleElement = document.createElement('style');
-				style.setAttribute('id', `font-${index}`);
-				style.setAttribute('class', 'customfont');
-				style.innerText = fontImport;
-				$preview?.querySelector('head')?.appendChild(style);
 			} else {
-				const test = $preview.querySelector(`#font-${index}`);
-				if (test) {
-					test.innerHTML = fontImport;
-				}
+				previewAction({
+					action: 'removeFont',
+					index
+				});
 			}
 		}
 

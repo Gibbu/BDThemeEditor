@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { THEME, preview } from '$lib/stores';
+	import { THEME } from '$lib/stores';
 	import { varOutput } from '$lib/helpers';
+	import { previewAction } from '$lib/preview';
 
 	import { Colour, Font, Image, Slider, Select, Number } from '../inputs';
 
@@ -18,7 +19,7 @@
 		slider: Slider,
 		select: Select,
 		number: Number
-	};
+	} as const;
 
 	export let data: {
 		type: string;
@@ -28,24 +29,23 @@
 	const update = ({ detail }: { detail: Details }): void => {
 		let { variable, value, addon } = detail;
 
-		$preview.style.setProperty(`--${variable}`, varOutput(detail).value);
+		previewAction({
+			action: 'setProperty',
+			value: varOutput(detail).value,
+			variable
+		});
 
 		if (addon) {
 			$THEME.addons.forEach((group) => {
-				if (group.variables) {
+				if (group.variables)
 					group.variables.forEach((input) => {
-						if (input.details.variable === variable) {
-							input.details.value = value;
-						}
+						if (input.details.variable === variable) input.details.value = value;
 					});
-				}
 			});
 		} else {
 			$THEME.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
-					if (input.details.variable === variable) {
-						input.details.value = value;
-					}
+					if (input.details.variable === variable) input.details.value = value;
 				})
 			);
 		}

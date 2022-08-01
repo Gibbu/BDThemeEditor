@@ -48,7 +48,7 @@ interface Meta {
 
 export interface ITheme {
 	name: string;
-	previewUrl: string;
+	previewUrls: string[];
 	thumbnail: string;
 	developer: IDev;
 	meta: Meta;

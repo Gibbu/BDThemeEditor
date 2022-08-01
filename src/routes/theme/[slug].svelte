@@ -67,5 +67,5 @@
 </svelte:head>
 
 <template>
-	<Preview url={setTheme.previewUrl} />
+	<Preview urls={setTheme.previewUrls} />
 </template>

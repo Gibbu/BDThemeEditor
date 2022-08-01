@@ -3,7 +3,7 @@ import DevilBro from '$data/devs/devilbro';
 
 const theme: ITheme = {
 	name: 'DiscordRecolor',
-	previewUrl: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.theme.css',
+	previewUrls: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.theme.css'],
 	thumbnail: 'https://i.imgur.com/dF6Ic4U.png',
 	developer: DevilBro,
 	meta: {

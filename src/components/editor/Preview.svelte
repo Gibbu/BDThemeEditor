@@ -2,18 +2,15 @@
 	import { onDestroy } from 'svelte';
 	import { loaded, preview } from '$lib/stores';
 
-	export let url: string;
+	export let urls: string[] = [];
 
 	let iframe: HTMLIFrameElement;
 
-	const onLoad = () => {
-		let getIframe = iframe.contentDocument!.body.parentElement!;
-
-		$preview = getIframe;
-		getIframe.querySelector('#import')!.textContent = `@import url("${url}")`;
-
+	$: if (iframe) {
 		$loaded = true;
-	};
+		$preview = iframe;
+	}
+
 	onDestroy(() => ($loaded = false));
 </script>
 
@@ -26,9 +23,8 @@
 		{/if}
 		<iframe
 			bind:this={iframe}
-			on:load={onLoad}
-			src="/preview/index.html?id={new Date().getTime()}"
-			title="preview"
+			src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}"
+			title=""
 			frameborder="0"
 		/>
 	</div>

@@ -3,7 +3,7 @@ import ClearVision from '$data/devs/clearvision';
 
 const theme: ITheme = {
 	name: 'Clear Vision',
-	previewUrl: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/ClearVision_v6.theme.css',
+	previewUrls: ['https://cdn.jsdelivr.net/gh/ClearVision/ClearVision-v6/ClearVision_v6.theme.css'],
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
 	developer: ClearVision,
 	meta: {
