@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-bea2769a.js",
+    "file": "_app/immutable/start-4a2cf35b.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -144,14 +144,14 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-03b63432.js",
+    "file": "_app/immutable/pages/index.svelte-32d21621.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-81e80c1f.js",
       "_stores-5eff64b7.js",
-      "_index-a5f1d4e4.js",
+      "_index-44f1e775.js",
       "_index-33f35091.js"
     ],
     "css": [
@@ -159,13 +159,13 @@
     ]
   },
   "src/routes/theme/[slug].svelte": {
-    "file": "_app/immutable/pages/theme/_slug_.svelte-abf37b3f.js",
+    "file": "_app/immutable/pages/theme/_slug_.svelte-42150100.js",
     "src": "src/routes/theme/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-81e80c1f.js",
-      "_index-a5f1d4e4.js",
+      "_index-44f1e775.js",
       "_stores-5eff64b7.js",
       "_Addons.svelte_svelte_type_style_lang-d9dd705f.js",
       "_preload-helper-c28b9807.js",
@@ -225,8 +225,8 @@
   "__commonjsHelpers-e864563f.js": {
     "file": "_app/immutable/chunks/_commonjsHelpers-e864563f.js"
   },
-  "_index-a5f1d4e4.js": {
-    "file": "_app/immutable/chunks/index-a5f1d4e4.js"
+  "_index-44f1e775.js": {
+    "file": "_app/immutable/chunks/index-44f1e775.js"
   },
   "_pickr.min-25ae6267.js": {
     "file": "_app/immutable/chunks/pickr.min-25ae6267.js",
@@ -243,13 +243,17 @@
     "file": "_app/immutable/assets/Button-f9416858.css",
     "src": "Button.css"
   },
+  "Addons.css": {
+    "file": "_app/immutable/assets/Addons-069d3452.css",
+    "src": "Addons.css"
+  },
   "app.css": {
     "file": "_app/immutable/assets/app-02ed8186.css",
     "src": "app.css"
   },
-  "Addons.css": {
-    "file": "_app/immutable/assets/Addons-069d3452.css",
-    "src": "Addons.css"
+  "src/routes/__error.css": {
+    "file": "_app/immutable/assets/__error-9c8dea00.css",
+    "src": "src/routes/__error.css"
   },
   "src/routes/docs/__layout@root.css": {
     "file": "_app/immutable/assets/__layout@root-8c30a39e.css",
@@ -258,9 +262,5 @@
   "src/routes/index.css": {
     "file": "_app/immutable/assets/index-c6c85095.css",
     "src": "src/routes/index.css"
-  },
-  "src/routes/__error.css": {
-    "file": "_app/immutable/assets/__error-9c8dea00.css",
-    "src": "src/routes/__error.css"
   }
 }
