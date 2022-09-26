@@ -82,7 +82,8 @@
 		activeSetting = index;
 
 		previewAction({
-			action: 'toggleModal'
+			action: 'toggleModal',
+			visible: modal ? true : false
 		});
 	};
 

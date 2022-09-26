@@ -32,6 +32,7 @@ interface RemoveAddon {
 }
 interface ToggleModal {
 	action: 'toggleModal';
+	visible: boolean;
 }
 
 /**

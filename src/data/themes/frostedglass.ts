@@ -87,6 +87,7 @@ const theme: ITheme = {
 		{
 			title: 'Popout/Modal',
 			icon: 'Image',
+			userModal: true,
 			inputs: [
 				{
 					type: 'image',
