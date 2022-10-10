@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@simonwep/pickr": "^1.8.2",
-		"@sveltejs/adapter-static": "^1.0.0-next.38",
+		"@sveltejs/adapter-static": "1.0.0-next.38",
 		"@sveltejs/kit": "1.0.0-next.401",
 		"@types/file-saver": "^2.0.5",
 		"@types/nprogress": "^0.2.0",
