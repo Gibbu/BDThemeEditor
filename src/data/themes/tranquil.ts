@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import Monster from '$data/devs/monster';
+import Monster from '../devs/monster';
+import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Tranquil',
@@ -16,6 +17,7 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/blob/master/theme-files/Tranquil.theme.css'
 	},
+	features: ['solid', 'light', 'addons'],
 	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/tranquil.css'],
 	fonts: [],
 	variables: [
@@ -82,7 +84,7 @@ const theme: ITheme = {
 			]
 		}
 	],
-	addons: ['discolored']
+	addons: [discolored]
 };
 
 export default theme;

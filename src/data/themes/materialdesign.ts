@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import TheCommieAxolotl from '$data/devs/thecommieaxolotl';
+import TheCommieAxolotl from '../devs/thecommieaxolotl';
+import { hsl, discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'MaterialDesign',
@@ -17,6 +18,7 @@ const theme: ITheme = {
 		invite: 'g2KnUw7u7N',
 		donate: 'https://github.com/sponsors/TheCommieAxolotl/'
 	},
+	features: ['light', 'transparent', 'solid', 'font'],
 	imports: [
 		'https://discord-custom-covers.github.io/usrbg/dist/usrbg.css',
 		'https://thecommieaxolotl.github.io/BetterDiscord-Stuff/Imports/UserBadges.css',
@@ -832,7 +834,7 @@ const theme: ITheme = {
 			varGroup: ':root'
 		}
 	],
-	addons: ['discolored', 'hsl']
+	addons: [hsl, discolored]
 };
 
 export default theme;

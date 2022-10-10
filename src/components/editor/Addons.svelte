@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { THEME } from '$lib/stores';
-	import { createEl } from '$lib/helpers';
+	import { store } from '$lib/stores';
 	import { previewAction } from '$lib/preview';
 
 	import type { IAddon } from '$types/addon';
@@ -8,10 +7,10 @@
 	import Component from './Component.svelte';
 
 	$: states = {
-		hsl: $THEME.addons.some((addon) => addon.selector === 'hsl' && addon.use),
-		columns: $THEME.addons.some((addon) => addon.selector === 'columns' && addon.use),
-		rs: $THEME.addons.some((addon) => addon.selector === 'rs' && addon.use),
-		discolored: $THEME.addons.some((addon) => addon.selector === 'discolored' && addon.use)
+		hsl: $store.addons.some((addon) => addon.selector === 'hsl' && addon.use),
+		columns: $store.addons.some((addon) => addon.selector === 'columns' && addon.use),
+		rs: $store.addons.some((addon) => addon.selector === 'rs' && addon.use),
+		discolored: $store.addons.some((addon) => addon.selector === 'discolored' && addon.use)
 	};
 
 	/**
@@ -21,7 +20,7 @@
 		const checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(`[name="${e.target.name}"]`);
 
 		checkboxes.forEach((checkbox) => {
-			const addon = $THEME.addons.find((obj) => obj.selector === checkbox.value)!;
+			const addon = $store.addons.find((obj) => obj.selector === checkbox.value)!;
 
 			if (e.target.value !== checkbox.value) {
 				checkbox.checked = false;
@@ -44,7 +43,7 @@
 	 * Adds addon to previewer and enables the addon in the `THEME` store.
 	 */
 	const applyAddon = (addon: IAddon): void => {
-		$THEME.addons.forEach((obj) => {
+		$store.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {
 				obj.use = true;
 			}
@@ -68,7 +67,7 @@
 			class: addon.selector
 		});
 
-		$THEME.addons.forEach((obj) => {
+		$store.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {
 				obj.use = false;
 			}
@@ -77,7 +76,7 @@
 </script>
 
 <template>
-	{#each $THEME.addons as addon}
+	{#each $store.addons as addon}
 		<div class="addon">
 			<div class="addon-header">
 				<input

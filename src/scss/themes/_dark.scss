@@ -1,0 +1,43 @@
+html[data-theme='dark'] {
+	// Primary backgrounds
+	--background-primary: hsl(0 0% 19%);
+	--background-primary-alt: hsl(0 0% 16%);
+
+	--background-secondary: hsl(0 0% 14.5%);
+	--background-secondary-alt: hsl(0 0% 13%);
+
+	--background-tertiary: hsl(0 0% 11%);
+	--background-tertiary-alt: hsl(0 0% 9.5%);
+
+	--background-quaternary: hsl(0 0% 3.5%);
+
+	// Foreground background
+	--foreground-primary: hsl(0 15% 25%);
+	--foreground-secondary: hsl(0 15% 21%);
+	--foreground-tertiary: hsl(0 15% 19%);
+
+	// Input background
+	--button-secondary: hsl(var(--hue) 25% 50% / 0.1);
+	--button-secondary-hover: hsl(var(--hue) 30% 50% / 0.15);
+
+	// Other backgrounds
+	--background-main: var(--background-tertiary-alt);
+	--border: hsl(0 0% 16%);
+	--border-alt: hsl(0 0% 25%);
+
+	// Text Colours
+	--text-primary: hsl(0 0% 100%);
+	--text-secondary: hsl(0 0% 76%);
+	--text-tertiary: hsl(0 0% 55%);
+	--text-link: hsl(var(--hue) 54% 58%);
+
+	// Accent colours
+	--accent: var(--hue) 78% 55%;
+	--accent-alt: var(--hue) 78% 55%;
+	--accent-hover: var(--hue) 60% 50%;
+	--accent-text: 0 0% 0%;
+
+	// Other vars
+	--modal-backdrop: hsl(0 0% 0% / 0.85);
+	--shadow: 0 5px 15px hsl(0 0% 0% / 0.35);
+}

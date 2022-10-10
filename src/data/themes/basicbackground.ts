@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import DevilBro from '$data/devs/devilbro';
+import DevilBro from '../devs/devilbro';
+import { columns, radialstatus, hsl } from '../addons';
 
 const theme: ITheme = {
 	name: 'BasicBackground',
@@ -19,6 +20,7 @@ const theme: ITheme = {
 		website: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/BasicBackground',
 		authorId: '278543574059057154'
 	},
+	features: ['background', 'addons', 'font', 'transparent'],
 	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css'],
 	fonts: [],
 	variables: [
@@ -351,7 +353,7 @@ const theme: ITheme = {
 			value: 'none'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl']
+	addons: [hsl, columns, radialstatus]
 };
 
 export default theme;

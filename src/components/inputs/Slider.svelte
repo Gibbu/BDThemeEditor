@@ -1,12 +1,13 @@
 <script lang="ts">
-	import {Swap} from '$components/common/Icon';
-	import {createEventDispatcher} from 'svelte';
-	import tooltip from '$lib/tooltip';
+	import { createEventDispatcher } from 'svelte';
+	import { tooltip } from 'svooltip';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ArrowsRightLeft } from '@steeze-ui/heroicons';
 
 	const dispatch = createEventDispatcher();
 
-	import {Input} from '$components/common/Input';
-	
+	import { Input } from '$components/common';
+
 	// Required input vars
 	export let variable: string;
 	export let value: number;
@@ -24,12 +25,12 @@
 	let switchType: boolean = false;
 
 	const update = (): void => {
-		dispatch('update', {variable, addon, value, unit, varGroup});
-	}
+		dispatch('update', { variable, addon, value, unit, varGroup });
+	};
 
 	const changeInput = (): void => {
 		switchType = !switchType;
-	}
+	};
 </script>
 
 <template>
@@ -37,10 +38,10 @@
 		<div class="option-info">
 			<p class="option-title">
 				{title}
-				<small class="option-unit">({value+unit})</small>
+				<small class="option-unit">({value + unit})</small>
 			</p>
-			<button on:click={changeInput} class="switch-input" use:tooltip={{content: 'Switch input', delay: [350, 0]}}>
-				<Swap />
+			<button on:click={changeInput} class="switch-input" use:tooltip={{ content: 'Switch input', delay: [350, 0] }}>
+				<Icon src={ArrowsRightLeft} />
 			</button>
 		</div>
 		{#if hint}
@@ -49,7 +50,7 @@
 	</header>
 	<div class="option-body">
 		{#if !switchType}
-			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update}>
+			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update} />
 		{:else}
 			<Input inputType="number" {min} {max} {step} bind:value on:input={update} />
 		{/if}
@@ -112,11 +113,11 @@
 		}
 		&::-webkit-slider-thumb {
 			box-shadow: 0 0 0 #000031;
-			border: 0 solid #00001E;
+			border: 0 solid #00001e;
 			height: rem(16);
 			width: rem(16);
 			border-radius: rem(50);
-			background: #36E7A9;
+			background: #36e7a9;
 			cursor: pointer;
 			appearance: none;
 			margin-top: rem(-3);
@@ -132,11 +133,11 @@
 		}
 		&::-moz-range-thumb {
 			box-shadow: 0 0 0 #000031;
-			border: 0 solid #00001E;
+			border: 0 solid #00001e;
 			height: rem(16);
 			width: rem(16);
 			border-radius: rem(50);
-			background: #36E7A9;
+			background: #36e7a9;
 			cursor: pointer;
 		}
 		&::-ms-track {
@@ -162,11 +163,11 @@
 		&::-ms-thumb {
 			margin-top: rem(1);
 			box-shadow: 0 0 0 #000031;
-			border: 0 solid #00001E;
+			border: 0 solid #00001e;
 			height: rem(16);
 			width: rem(16);
 			border-radius: rem(50);
-			background: #36E7A9;
+			background: #36e7a9;
 			cursor: pointer;
 		}
 	}

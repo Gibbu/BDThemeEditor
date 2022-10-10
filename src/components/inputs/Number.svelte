@@ -1,10 +1,9 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-
 	// Components
-	import {Input} from '$components/common/Input';
+	import { Input } from '$components/common';
 
 	// Required input vars
 	export let variable: string;
@@ -26,16 +25,16 @@
 			error = 'This input field can only contain numbers.';
 		} else {
 			error = '';
-			dispatch('update', {variable, value, addon, unit, varGroup});
+			dispatch('update', { variable, value, addon, unit, varGroup });
 		}
-	}
+	};
 </script>
 
 <template>
 	<header class="option-header">
 		<p class="option-title">
 			{title}
-			<small class="option-value">({value+unit})</small>
+			<small class="option-value">({value + unit})</small>
 		</p>
 		{#if hint}
 			<div class="option-hint">{hint}</div>

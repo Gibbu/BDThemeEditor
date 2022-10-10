@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import ClearVision from '$data/devs/clearvision';
+import ClearVision from '../devs/clearvision';
+import { hsl, columns, radialstatus, discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Clear Vision',
@@ -15,6 +16,7 @@ const theme: ITheme = {
 		website: 'https://clearvision.github.io',
 		invite: '7pNUC9C'
 	},
+	features: ['background', 'transparent', 'addons', 'font', 'home'],
 	imports: ['https://clearvision.github.io/ClearVision-v6/main.css'],
 	fonts: [],
 	variables: [
@@ -772,7 +774,7 @@ const theme: ITheme = {
 			value: 'var(--hover-color)'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl', 'discolored']
+	addons: [radialstatus, hsl, columns, discolored]
 };
 
 export default theme;

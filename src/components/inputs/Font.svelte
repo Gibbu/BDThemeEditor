@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { THEME } from '$lib/stores';
+	import { store } from '$lib/stores';
 	import { createEventDispatcher } from 'svelte';
 	import { previewAction } from '$lib/preview';
 
 	const dispatch = createEventDispatcher();
 
-	import { Input } from '$components/common/Input';
+	import { Input } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -23,7 +23,7 @@
 			action: 'removeFont',
 			index
 		});
-		$THEME?.fonts?.splice(index, 1);
+		$store?.fonts?.splice(index, 1);
 	}
 
 	const update = (): void => {
@@ -36,13 +36,13 @@
 			)}:wght@100;300;400;500;700&display=swap`;
 			const fontImport: string = `@import url('${fontUrl}');`;
 
-			if ($THEME?.fonts) {
+			if ($store?.fonts) {
 				previewAction({
 					action: 'addFont',
 					index,
 					text: fontImport
 				});
-				$THEME.fonts[index] = fontUrl;
+				$store.fonts[index] = fontUrl;
 			} else {
 				previewAction({
 					action: 'removeFont',

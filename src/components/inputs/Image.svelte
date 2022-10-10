@@ -1,17 +1,14 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { Upload, Check, Question } from '$components/common/Icon';
 	import { createEventDispatcher } from 'svelte';
-	import tooltip from '$lib/tooltip';
+	import { tooltip } from 'svooltip';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ArrowUpTray, Check, QuestionMarkCircle } from '@steeze-ui/heroicons';
 
 	const dispatch = createEventDispatcher();
 
 	// Components
-	import { ModalRoot, ModalBody, ModalHeader } from '$components/common/Modal';
-	import { Button } from '$components/common/Button';
-	import { RadioGroup, RadioGroupItem } from '$components/common/RadioGroup';
-	import { Select } from '$components/common/Select';
-	import { Input } from '$components/common/Input';
+	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -30,7 +27,7 @@
 	let fileUploadProgress: number = 0;
 
 	// Other vars
-	let error: string | null = null;
+	let error: string | undefined = undefined;
 	let dragover: boolean = false;
 
 	let thumbnail: string;
@@ -181,86 +178,69 @@
 				<small class="error">{error}</small>
 			{/if}
 		{:else if selectedOption === 'file'}
-			<Button type="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
+			<Button variant="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
 		{/if}
 	</div>
+</template>
 
-	<ModalRoot bind:visible={fileUploadModal} maxWidth={550}>
-		<ModalHeader title="How should we upload?" on:close={() => (fileUploadModal = false)} />
-		<ModalBody markdown={false}>
-			<RadioGroup>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">
-					Imgur.com
-					<div
-						class="explain"
-						use:tooltip={{
-							content: `Uploading to Imgur will decrease the amount of lag but means your image is public.`
-						}}
-					>
-						<Question />
-					</div>
-				</RadioGroupItem>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">
-					Inline encode (base64)
-					<div
-						class="explain"
-						use:tooltip={{
-							content: `Encoding with base64 will increase the amount of lag but means your image is private.`
-						}}
-					>
-						<Question />
-					</div>
-				</RadioGroupItem>
-			</RadioGroup>
-			<label
-				class="dropzone"
-				class:dragover
-				class:error
-				disabled={fileUploading}
-				on:dragover|preventDefault={() => (dragover = true)}
-				on:dragleave={() => (dragover = false)}
-				on:dragend={() => (dragover = false)}
-				on:drop|preventDefault={droppedFile}
-			>
-				{#if thumbnail && !error}
-					<div class="r16-9 dropzone-preview">
-						<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');" />
-						<div class="dropzone-filename">{thumbnailName}</div>
-					</div>
-				{:else}
-					<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
-				{/if}
-				<input type="file" hidden bind:files on:change={selectedFile} />
-			</label>
-			{#if !error && thumbnail}
-				<div class="uploadArea">
-					{#if !fileUploading}
-						<Button type="primary" size="extralarge" long on:click={localFile}>
-							<svelte:fragment slot="iconL">
-								{#if uploadType === 'b64'}
-									<Check />
-								{:else}
-									<Upload />
-								{/if}
-							</svelte:fragment>
-							{uploadType === 'b64' ? 'Apply' : 'Upload'}
-						</Button>
+<Modal bind:visible={fileUploadModal} title="How should we upload?">
+	<RadioGroup value={uploadType} on:change={({ detail }) => (uploadType = detail)}>
+		<RadioGroupItem
+			value="imgur"
+			label="Imgur.com"
+			description="Uploading to Imgur will reduce the amount of lag on your client. But will leave you image open for anyone to see."
+		/>
+		<RadioGroupItem
+			value="b64"
+			label="Inline encode (base64)"
+			description="Inline encoding will increase the amount of lag on your client. But means your image is private."
+		/>
+	</RadioGroup>
+	<label
+		class="dropzone"
+		class:dragover
+		class:error
+		disabled={fileUploading}
+		on:dragover|preventDefault={() => (dragover = true)}
+		on:dragleave={() => (dragover = false)}
+		on:dragend={() => (dragover = false)}
+		on:drop|preventDefault={droppedFile}
+	>
+		{#if thumbnail && !error}
+			<div class="r16-9 dropzone-preview">
+				<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');" />
+				<div class="dropzone-filename">{thumbnailName}</div>
+			</div>
+		{:else}
+			<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
+		{/if}
+		<input type="file" hidden bind:files on:change={selectedFile} />
+	</label>
+	{#if !error && thumbnail}
+		<div class="uploadArea">
+			{#if !fileUploading}
+				<Button variant="primary" size="large" on:click={localFile}>
+					{#if uploadType === 'b64'}
+						<Icon src={Check} />
 					{:else}
-						<div class="progress">
-							<div class="progress-text">
-								<p class="progress-status">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
-								<p class="progress-percentage">{fileUploadProgress.toFixed(2)}%</p>
-							</div>
-							<div class="progress-bar">
-								<div class="progress-bar-inner" style="width: {fileUploadProgress.toFixed(2)}%" />
-							</div>
-						</div>
+						<Icon src={ArrowUpTray} />
 					{/if}
+					{uploadType === 'b64' ? 'Apply' : 'Upload'}
+				</Button>
+			{:else}
+				<div class="progress">
+					<div class="progress-text">
+						<p class="progress-status">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
+						<p class="progress-percentage">{fileUploadProgress.toFixed(2)}%</p>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-bar-inner" style="width: {fileUploadProgress.toFixed(2)}%" />
+					</div>
 				</div>
 			{/if}
-		</ModalBody>
-	</ModalRoot>
-</template>
+		</div>
+	{/if}
+</Modal>
 
 <style lang="scss">
 	.option {

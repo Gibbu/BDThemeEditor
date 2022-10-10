@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Selector, Check } from '$components/common/Icon';
-	import clickOutside from '$lib/clickOutside';
+	import { outside } from '$lib/actions';
 	import { createEventDispatcher } from 'svelte';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ChevronUpDown, Check } from '@steeze-ui/heroicons';
 
 	const dispatch = createEventDispatcher();
 
-	import { Input } from '$components/common/Input';
+	import { Input } from '$components/common';
 
 	// Types
 	interface Option {
@@ -51,17 +52,23 @@
 		<button bind:this={selectBtn} class="btn" on:click={toggle}>
 			<span class="btn-text">{selected.label}</span>
 			<div class="btn-icon">
-				<Selector />
+				<Icon src={ChevronUpDown} />
 			</div>
 		</button>
 		{#if visible}
-			<div class="dropdown" use:clickOutside={selectBtn} on:clickedOutside={hide}>
+			<div
+				class="dropdown"
+				use:outside={{
+					exclude: selectBtn,
+					callback: hide
+				}}
+			>
 				{#each options as option}
 					<button class="option" class:active={selected.value === option.value} on:click={() => setOption(option)}>
 						<span class="option-label">{option.label}</span>
 						{#if selected.value === option.value}
 							<div class="option-check">
-								<Check />
+								<Icon src={Check} />
 							</div>
 						{/if}
 					</button>
@@ -76,7 +83,7 @@
 						<span class="option-label">Custom value</span>
 						{#if selected.value === 'custom'}
 							<div class="option-check">
-								<Check />
+								<Icon src={Check} />
 							</div>
 						{/if}
 					</button>

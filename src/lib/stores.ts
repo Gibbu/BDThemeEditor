@@ -7,7 +7,7 @@ export const loaded = writable<boolean>(false);
 export const isMounted = writable<boolean>(false);
 
 export const preview = writable<HTMLIFrameElement>();
-export const THEME = writable<IStoreTheme>();
+export const store = writable<IStoreTheme>();
 
 export const flash = writable<IFlash[]>([]);
 

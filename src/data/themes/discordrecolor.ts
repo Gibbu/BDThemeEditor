@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import DevilBro from '$data/devs/devilbro';
+import DevilBro from '../devs/devilbro';
+import { hsl, columns, radialstatus } from '../addons';
 
 const theme: ITheme = {
 	name: 'DiscordRecolor',
@@ -18,6 +19,7 @@ const theme: ITheme = {
 		website: 'https://mwittrien.github.io/',
 		source: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/DiscordRecolor/'
 	},
+	features: ['solid', 'addons'],
 	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'],
 	fonts: [],
 	variables: [
@@ -212,7 +214,8 @@ const theme: ITheme = {
 				}
 			]
 		}
-	]
+	],
+	addons: [hsl, radialstatus, columns]
 };
 
 export default theme;

@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import Monster from '$data/devs/monster';
+import Monster from '../devs/monster';
+import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Reborn',
@@ -16,6 +17,7 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/theme-files/Reborn.theme.css'
 	},
+	features: ['background', 'addons', 'transparent'],
 	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css'],
 	fonts: [],
 	variables: [
@@ -118,7 +120,7 @@ const theme: ITheme = {
 			]
 		}
 	],
-	addons: ['discolored']
+	addons: [discolored]
 };
 
 export default theme;

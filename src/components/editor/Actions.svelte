@@ -1,17 +1,16 @@
 <script lang="ts">
-	import { browser } from '$app/env';
-	import { Upload, Download, Dismiss } from '$components/common/Icon';
-	import { THEME, isMounted, loaded, flash } from '$lib/stores';
+	import { browser } from '$app/environment';
+	import { store, isMounted, loaded, flash } from '$lib/stores';
 	import DLTheme from '$lib/download';
 	import { previewAction } from '$lib/preview';
 	import { getUrl, varOutput } from '$lib/helpers';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ArrowUpTray, ArrowDownTray, XMark } from '@steeze-ui/heroicons';
 
-	import { Input } from '$components/common/Input';
-	import { Button } from '$components/common/Button';
-	import { ModalRoot, ModalBody, ModalHeader, ModalFooter } from '$components/common/Modal';
+	import { Input, Button, Modal } from '$components/common';
 
 	let value: string = '';
-	let error: string | null = null;
+	let error: string | undefined = undefined;
 
 	// Validate
 	const validate = (): boolean => {
@@ -23,7 +22,7 @@
 			error = 'Your theme name cannot contain any special characters';
 			return false;
 		} else {
-			error = null;
+			error = undefined;
 			return true;
 		}
 	};
@@ -32,8 +31,8 @@
 	let downloadModal: boolean = false;
 	const download = (): void => {
 		if (validate()) {
-			$THEME.meta.name = value;
-			DLTheme($THEME);
+			$store.meta.name = value;
+			DLTheme($store);
 		}
 	};
 
@@ -75,14 +74,14 @@
 					.find((el) => el.includes('@source'))!
 					.replace(' * ', '')
 					.split(' ')[1];
-				if ($THEME.meta.source === source) {
+				if ($store.meta.source === source) {
 					const imports: string[] = result.split('\n').filter((el) => el.includes('@import'));
 
 					const addonUrls: string[] = ['ServerColumns', 'HorizontalServerList', 'RadialStatus', 'Discolored'];
 					const fontImports: string[] = imports.filter((el) => el.includes('fonts'));
 
 					// Add fonts to the THEME store.
-					$THEME.fonts = fontImports.map((url) => getUrl(url));
+					$store.fonts = fontImports.map((url) => getUrl(url));
 					if (fontImports.length > 0) {
 						let index: number = 0;
 
@@ -97,7 +96,7 @@
 					}
 
 					// Theme imports
-					$THEME.imports = imports.filter((el) => !el.includes('fonts')).map((url) => getUrl(url));
+					$store.imports = imports.filter((el) => !el.includes('fonts')).map((url) => getUrl(url));
 
 					// Addons
 					imports
@@ -112,7 +111,7 @@
 								text: url
 							});
 
-							$THEME.addons.forEach((addon) => {
+							$store.addons?.forEach((addon) => {
 								if (addon.selector === selector) {
 									addon.use = true;
 								}
@@ -137,14 +136,14 @@
 							// If value includes url, strip url
 							if (value.includes('url(')) value = getUrl(value);
 
-							$THEME.variables.forEach((el) =>
+							$store.variables.forEach((el) =>
 								el.inputs.forEach((input) => {
 									if (input.details.variable === variable) {
 										input.details.value = getOutput(input.type, value);
 									}
 								})
 							);
-							$THEME.addons.forEach((el) => {
+							$store.addons?.forEach((el) => {
 								if (el.variables) {
 									el.variables.forEach((input) => {
 										if (input.details.variable === variable) {
@@ -165,7 +164,7 @@
 						}
 					];
 				} else {
-					importError = `That theme file is not compatible. Only themes with the base of ${$THEME.name} can be imported.`;
+					importError = `That theme file is not compatible. Only themes with the base of ${$store.name} can be imported.`;
 				}
 			});
 		}
@@ -176,10 +175,10 @@
 
 	const hideDonate = (): void => {
 		showDonateWindow = false;
-		localStorage.setItem(`donate_${$THEME.name.replace(/ /g, '')}`, 'true');
+		localStorage.setItem(`donate_${$store.name.replace(/ /g, '')}`, 'true');
 	};
 
-	$: if (browser && $isMounted && localStorage.getItem(`donate_${$THEME.name.replace(/ /g, '')}`)) {
+	$: if (browser && $isMounted && localStorage.getItem(`donate_${$store.name.replace(/ /g, '')}`)) {
 		showDonateWindow = false;
 	}
 </script>
@@ -188,70 +187,63 @@
 	<div class="actions" disabled={!$isMounted && !$loaded}>
 		<button class="actions-btn" on:click={() => (importFileModal = true)}>
 			<div class="icon">
-				<Upload />
+				<Icon src={ArrowUpTray} />
 			</div>
 			<span>Import</span>
 		</button>
 		<button class="actions-btn primary" on:click={() => (downloadModal = true)}>
 			<div class="icon">
-				<Download />
+				<Icon src={ArrowDownTray} />
 			</div>
 			<span>Download</span>
 		</button>
 	</div>
-
-	<ModalRoot bind:visible={downloadModal}>
-		<ModalHeader title="Donwload" on:close={() => (downloadModal = false)} />
-		<ModalBody markdown={false}>
-			{#if $THEME.developer.donate && showDonateWindow}
-				<div class="donate">
-					<h4 class="donate-title">
-						Like {$THEME.name}?
-						<button class="donate-hide" on:click={hideDonate}>
-							<Dismiss />
-						</button>
-					</h4>
-					<p class="donate-text">
-						Consider <a href={$THEME.developer.donate} target="_blank" rel="noreferrer" class="anchor"
-							>donating to {$THEME.developer.name}</a
-						>.
-					</p>
-				</div>
-			{/if}
-			<p class="save-title">Give your theme a name:</p>
-			<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />
-			{#if error}
-				<small class="save-error">{error}</small>
-			{/if}
-		</ModalBody>
-		<ModalFooter>
-			<Button type="primary" disabled={error} on:click={download}>
-				<svelte:fragment slot="iconL">
-					<Download />
-				</svelte:fragment>
-				Download
-			</Button>
-		</ModalFooter>
-	</ModalRoot>
-
-	<ModalRoot bind:visible={importFileModal}>
-		<ModalHeader title="Select a theme to upload" on:close={() => (importFileModal = false)} />
-		<ModalBody>
-			<label
-				class="dropzone"
-				class:dragover={importDragover}
-				class:error={importError}
-				on:dragover|preventDefault={() => (importDragover = true)}
-				on:dragleave={() => (importDragover = false)}
-				on:dragend={() => (importDragover = false)}
-				on:drop|preventDefault={droppedFile}
-			>
-				<span class="dropzone-promt">{importError || 'Drop theme.css file here or click to upload'}</span>
-				<input type="file" hidden bind:files={importFiles} on:change={selectedFile} />
-			</label>
-		</ModalBody>
-	</ModalRoot>
 </template>
+
+<Modal bind:visible={downloadModal} title="Download">
+	{#if $store.developer.donate && showDonateWindow}
+		<div class="donate">
+			<h4 class="donate-title">
+				Like {$store.name}?
+				<button class="donate-hide" on:click={hideDonate}>
+					<Icon src={XMark} />
+				</button>
+			</h4>
+			<p class="donate-text">
+				Consider <a href={$store.developer.donate} target="_blank" rel="noreferrer" class="anchor"
+					>donating to {$store.developer.name}</a
+				>.
+			</p>
+		</div>
+	{/if}
+	<p class="save-title">Give your theme a name:</p>
+	<Input placeholder="Theme name" {error} bind:value on:keyup={validate} />
+	{#if error}
+		<small class="save-error">{error}</small>
+	{/if}
+
+	<svelte:fragment slot="footer">
+		<Button variant="primary" disabled={!!error} on:click={download}>
+			<Icon src={ArrowDownTray} />
+			Download
+		</Button>
+	</svelte:fragment>
+</Modal>
+
+<Modal bind:visible={importFileModal} title="Select a theme to upload">
+	<label
+		class="dropzone"
+		class:dragover={importDragover}
+		class:error={importError}
+		on:dragover|preventDefault={() => (importDragover = true)}
+		on:dragleave={() => (importDragover = false)}
+		on:dragend={() => (importDragover = false)}
+		on:drop|preventDefault={droppedFile}
+	>
+		<span class="dropzone-promt">{importError || 'Drop theme.css file here or click to upload'}</span>
+		<input type="file" hidden bind:files={importFiles} on:change={selectedFile} />
+	</label>
+</Modal>
 
 <style lang="scss">
 	.actions {

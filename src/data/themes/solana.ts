@@ -1,5 +1,5 @@
 import type { ITheme } from '$types/theme';
-import Disease from '$data/devs/disease';
+import Disease from '../devs/disease';
 
 const theme: ITheme = {
 	name: 'Solana',
@@ -16,6 +16,7 @@ const theme: ITheme = {
 		website: 'https://maendisease.github.io/',
 		authorId: '678469587444170762'
 	},
+	features: ['background', 'font', 'transparent', 'solid'],
 	imports: [
 		'https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',

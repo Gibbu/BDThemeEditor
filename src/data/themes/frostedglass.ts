@@ -1,5 +1,6 @@
 import type { ITheme } from '$types/theme';
-import Gibbu from '$data/devs/gibbu';
+import Gibbu from '../devs/gibbu';
+import { radialstatus, hsl, columns, discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Frosted Glass',
@@ -17,6 +18,7 @@ const theme: ITheme = {
 		website: 'https://gibbu.me',
 		authorId: '174868361040232448'
 	},
+	features: ['background', 'font', 'transparent', 'home', 'addons'],
 	imports: [
 		'https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css',
 		'https://discordstyles.github.io/Addons/windows-titlebar.css'
@@ -386,7 +388,7 @@ const theme: ITheme = {
 			value: 'none'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl', 'discolored']
+	addons: [hsl, columns, radialstatus, discolored]
 };
 
 export default theme;

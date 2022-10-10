@@ -36,14 +36,14 @@
 		});
 
 		if (addon) {
-			$THEME.addons.forEach((group) => {
+			$store.addons.forEach((group) => {
 				if (group.variables)
 					group.variables.forEach((input) => {
 						if (input.details.variable === variable) input.details.value = value;
 					});
 			});
 		} else {
-			$THEME.variables.forEach((group) =>
+			$store.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
 					if (input.details.variable === variable) input.details.value = value;
 				})

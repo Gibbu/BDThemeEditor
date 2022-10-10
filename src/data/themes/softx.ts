@@ -1,5 +1,5 @@
 import type { ITheme } from '$types/theme';
-import Gibbu from '$data/devs/gibbu';
+import Gibbu from '../devs/gibbu';
 
 const theme: ITheme = {
 	name: 'SoftX',
@@ -16,6 +16,7 @@ const theme: ITheme = {
 		authorId: '174868361040232448',
 		source: 'https://github.com/DiscordStyles/SoftX'
 	},
+	features: ['background', 'font', 'transparent'],
 	imports: [
 		'https://discordstyles.github.io/SoftX/SoftX.css',
 		'https://discordstyles.github.io/SoftX/RadialGlow.css',

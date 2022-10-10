@@ -2,26 +2,11 @@ import type { Inputs } from './inputs';
 import type { IDev } from './dev';
 import type { IAddon } from './addon';
 
-export type Icons =
-	| 'App'
-	| 'Border'
-	| 'Chat'
-	| 'Collections'
-	| 'Colour'
-	| 'Font'
-	| 'Gear'
-	| 'Home'
-	| 'Image'
-	| 'List'
-	| 'Moon'
-	| 'Person'
-	| 'Status'
-	| 'Sizing'
-	| 'Sun';
+export type Feature = 'background' | 'font' | 'transparent' | 'solid' | 'light' | 'addons' | 'home';
 
 interface ThemeVars {
 	title: string;
-	icon: Icons;
+	icon: string;
 	inputs: Inputs[];
 	userModal?: boolean;
 }
@@ -57,7 +42,8 @@ export interface ITheme {
 	variables: ThemeVars[];
 	hiddenVars?: HiddenVars[];
 	varGroups?: string[];
-	addons?: ('hsl' | 'rs' | 'columns' | 'discolored')[];
+	addons?: IAddon[];
+	features?: Feature[];
 }
 
 export interface IStoreTheme {

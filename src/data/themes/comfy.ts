@@ -1,9 +1,10 @@
 import type { ITheme } from '$types/theme';
-import Nyria from '$data/devs/nyria';
+import Nyria from '../devs/nyria';
+import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Comfy',
-	previewUrls: ['https://nyri4.github.io/Comfy/betterdiscord/comfy.theme.css'],
+	previewUrls: ['https://comfy-themes.github.io/Discord/betterdiscord/comfy.theme.css'],
 	thumbnail:
 		'https://camo.githubusercontent.com/953142901f1ab7b67dab1ebaafac787a68948f018bf4f9d46b98d2bc861fc0a6/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f446973636f72642f6173736574732f707265766965772e706e67',
 	developer: Nyria,
@@ -15,6 +16,7 @@ const theme: ITheme = {
 		invite: 'rtBQX5D3bD',
 		source: 'https://github.com/NYRI4/Comfy'
 	},
+	features: ['solid', 'addons'],
 	imports: [
 		'https://nyri4.github.io/Comfy/betterdiscord/main.css',
 		'https://nyri4.github.io/Comfy/betterdiscord/no-scrollbar.css',
@@ -533,7 +535,7 @@ const theme: ITheme = {
 			varGroup: '.theme-dark'
 		}
 	],
-	addons: ['discolored']
+	addons: [discolored]
 };
 
 export default theme;
