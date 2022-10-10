@@ -13,10 +13,10 @@
 
 	const { id } = uid('modal');
 
-	$: if (browser) {
-		visible
-			? document.documentElement.classList.add('modal-active')
-			: document.documentElement.classList.remove('modal-active');
+	$: if (browser && visible) {
+		document.documentElement.classList.add('modal-active');
+	} else if (browser && !visible) {
+		document.documentElement.classList.remove('modal-active');
 	}
 
 	const close = () => {
@@ -44,7 +44,7 @@
 				transition:scale={{ duration: 150, start: 0.9 }}
 			>
 				<header class="header">
-					<h1 id={id('title')} class="title">{title}</h1>
+					<h2 id={id('title')} class="title">{title}</h2>
 					{#if description}
 						<p id={id('description')}>{description}</p>
 					{/if}
@@ -63,4 +63,51 @@
 </template>
 
 <style lang="scss">
+	.container {
+		position: fixed;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.backdrop {
+		background: var(--modal-backdrop);
+		position: absolute;
+		inset: 0;
+	}
+	.modal {
+		background: var(--background-main);
+		border-radius: var(--radius-lg);
+		position: relative;
+		z-index: 1;
+		&.small {
+			width: 450px;
+		}
+		&.medium {
+			width: 600px;
+		}
+		&.large {
+			width: 750px;
+		}
+	}
+	.header {
+		padding: 16px;
+	}
+	.title {
+		font-family: var(--font-display);
+		color: var(--text-primary);
+	}
+	.description {
+		font-size: 14px;
+		margin-top: 4px;
+	}
+	.body {
+		padding: 0 16px 16px;
+	}
+	.footer {
+		padding: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
 </style>
