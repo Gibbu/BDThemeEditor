@@ -10,6 +10,7 @@
 	export let description: string | undefined = undefined;
 	export let size: 'small' | 'medium' | 'large' = 'medium';
 	export let markdown: boolean = false;
+	export let closeable: boolean = true;
 
 	const { id } = uid('modal');
 
@@ -20,7 +21,7 @@
 	}
 
 	const close = () => {
-		visible = false;
+		if (closeable) visible = false;
 	};
 
 	const handleKeys = ({ key }: KeyboardEvent) => {
@@ -76,7 +77,7 @@
 		inset: 0;
 	}
 	.modal {
-		background: var(--background-main);
+		background: var(--background-secondary-alt);
 		border-radius: var(--radius-lg);
 		position: relative;
 		z-index: 1;
@@ -91,7 +92,7 @@
 		}
 	}
 	.header {
-		padding: 16px;
+		padding: 20px;
 	}
 	.title {
 		font-family: var(--font-display);
@@ -102,12 +103,13 @@
 		margin-top: 4px;
 	}
 	.body {
-		padding: 0 16px 16px;
+		padding: 0 20px 20px;
 	}
 	.footer {
-		padding: 16px;
+		padding: 20px;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		background: var(--background-tertiary);
 	}
 </style>

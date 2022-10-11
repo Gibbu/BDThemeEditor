@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { THEME } from '$lib/stores';
+	import { store } from '$lib/stores';
 	import { varOutput } from '$lib/helpers';
 	import { previewAction } from '$lib/preview';
 

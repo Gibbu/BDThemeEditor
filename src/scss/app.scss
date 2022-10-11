@@ -1,5 +1,3 @@
-@use './themes/dark';
-
 @use 'utils';
 
 :root {
@@ -22,7 +20,7 @@
 	--radius-lg: 8px;
 
 	// Editor
-	--editor-nav-height: 46px;
+	--editor-nav-height: 56px;
 	--editor-sidebar-width: 450px;
 
 	// Codeblocks
@@ -32,6 +30,49 @@
 	--syntax-orange-1: hsl(9 78% 73%);
 	--syntax-orange-2: hsl(20 91% 78%);
 	--syntax-orange-3: hsl(25 91% 79%);
+
+	// Primary backgrounds
+	--background-primary: hsl(0 0% 19%);
+	--background-primary-alt: hsl(0 0% 16%);
+
+	--background-secondary: hsl(0 0% 14.5%);
+	--background-secondary-alt: hsl(0 0% 13%);
+
+	--background-tertiary: hsl(0 0% 11%);
+	--background-tertiary-alt: hsl(0 0% 9.5%);
+
+	--background-quaternary: hsl(0 0% 3.5%);
+
+	// Foreground background
+	--foreground-primary: hsl(0 15% 25%);
+	--foreground-secondary: hsl(0 15% 21%);
+	--foreground-tertiary: hsl(0 15% 19%);
+
+	// Input background
+	--button-secondary: hsl(var(--hue) 25% 50% / 0.1);
+	--button-secondary-hover: hsl(var(--hue) 30% 50% / 0.15);
+	--button-ghost-hover: hsl(0 0% 100% / 0.025);
+
+	// Other backgrounds
+	--background-main: var(--background-tertiary-alt);
+	--border: hsl(0 0% 16%);
+	--border-alt: hsl(0 0% 25%);
+
+	// Text Colours
+	--text-primary: hsl(0 0% 100%);
+	--text-secondary: hsl(0 0% 76%);
+	--text-tertiary: hsl(0 0% 55%);
+	--text-link: hsl(var(--hue) 54% 58%);
+
+	// Accent colours
+	--accent: var(--hue) 78% 55%;
+	--accent-alt: var(--hue) 78% 55%;
+	--accent-hover: var(--hue) 60% 50%;
+	--accent-text: 0 0% 0%;
+
+	// Other vars
+	--modal-backdrop: hsl(0 0% 0% / 0.6);
+	--shadow: 0 5px 15px hsl(0 0% 0% / 0.35);
 }
 
 ::selection {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { THEME, isMounted, loaded, preview, flash } from '$lib/stores';
+	import { store, isMounted, loaded, preview, flash } from '$lib/stores';
 	import { browser } from '$app/environment';
 	import { navigating } from '$app/stores';
 	import { goto } from '$app/navigation';

@@ -17,6 +17,11 @@ interface HiddenVars {
 	varGroup?: string;
 	comment?: string;
 }
+interface OptionalImport {
+	name: string;
+	description: string;
+	imports: string[];
+}
 
 interface Meta {
 	name: string;
@@ -40,6 +45,7 @@ export interface ITheme {
 	imports: string[];
 	fonts: string[];
 	variables: ThemeVars[];
+	optionalImports?: OptionalImport[];
 	hiddenVars?: HiddenVars[];
 	varGroups?: string[];
 	addons?: IAddon[];
@@ -53,6 +59,7 @@ export interface IStoreTheme {
 	imports: string[];
 	variables: ThemeVars[];
 	addons: IAddon[];
+	optionalImports?: OptionalImport[];
 	fonts?: string[];
 	hiddenVars?: HiddenVars[];
 	varGroups?: string[];

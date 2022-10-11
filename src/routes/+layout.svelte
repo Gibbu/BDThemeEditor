@@ -21,10 +21,9 @@
 </template>
 
 {#if !isChrome && browserWarning}
-	<Modal bind:visible={browserWarning} title="Unsupported Browser" markdown>
+	<Modal bind:visible={browserWarning} title="Unsupported Browser" closeable={false} markdown>
+		<p>This browser is not recommended when using this editor.</p>
 		<p>
-			This browser is not recommended when using this editor.
-			<br />
 			We recommend using a Chromium browser such as
 			<a href="https://www.google.com/chrome/" target="_blank" class="anchor">Google Chrome</a>,
 			<a href="https://brave.com/" target="_blank" class="anchor">Brave</a>

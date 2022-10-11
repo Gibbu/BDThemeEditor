@@ -14,13 +14,6 @@
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@500;600;800&display=swap"
 			rel="stylesheet"
 		/>
-		<script>
-			// check for theme preference before page loads
-			if (!('theme' in localStorage)) {
-				localStorage.theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-			}
-			document.documentElement.setAttribute('data-theme', localStorage.theme);
-		</script>
 		%sveltekit.head%
 	</head>
 	<body>

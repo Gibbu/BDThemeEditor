@@ -56,7 +56,7 @@
 <svelte:window on:keydown={handleKeys} />
 
 <template>
-	<h2 class="title">Available themes <span class="count">{themes.length}</span></h2>
+	<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
 
 	<main class="container">
 		<aside class="sidebar">
