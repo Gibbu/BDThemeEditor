@@ -10,6 +10,8 @@
 	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 	let browserWarning: boolean = browser && !localStorage.browser_warning;
 
+	$: visible = !isChrome && browserWarning;
+
 	const closeWarning = () => {
 		browserWarning = false;
 		localStorage.browser_warning = true;
@@ -20,27 +22,25 @@
 	<slot />
 </template>
 
-{#if !isChrome && browserWarning}
-	<Modal bind:visible={browserWarning} title="Unsupported Browser" closeable={false} markdown>
-		<p>This browser is not recommended when using this editor.</p>
-		<p>
-			We recommend using a Chromium browser such as
-			<a href="https://www.google.com/chrome/" target="_blank" class="anchor">Google Chrome</a>,
-			<a href="https://brave.com/" target="_blank" class="anchor">Brave</a>
-			or the new
-			<a
-				href="https://support.microsoft.com/en-us/microsoft-edge/download-the-new-microsoft-edge-based-on-chromium-0f4a3dd7-55df-60f5-739f-00010dba52cf"
-				target="_blank"
-				class="anchor">Edge</a
-			>.
-		</p>
-		<p>If you wish to continue, remember elements inside the preview may not be displayed correctly.</p>
+<Modal bind:visible title="Unsupported Browser" closeable={false} markdown>
+	<p>This browser is not recommended when using this editor.</p>
+	<p>
+		We recommend using a Chromium browser such as
+		<a href="https://www.google.com/chrome/" target="_blank" class="anchor">Google Chrome</a>,
+		<a href="https://brave.com/" target="_blank" class="anchor">Brave</a>
+		or the new
+		<a
+			href="https://support.microsoft.com/en-us/microsoft-edge/download-the-new-microsoft-edge-based-on-chromium-0f4a3dd7-55df-60f5-739f-00010dba52cf"
+			target="_blank"
+			class="anchor">Edge</a
+		>.
+	</p>
+	<p>If you wish to continue, remember elements inside the preview may not be displayed correctly.</p>
 
-		<svelte:fragment slot="footer">
-			<Button variant="primary" on:click={closeWarning}>
-				<Icon src={Check} />
-				I Understand
-			</Button>
-		</svelte:fragment>
-	</Modal>
-{/if}
+	<svelte:fragment slot="footer">
+		<Button variant="primary" on:click={closeWarning}>
+			<Icon src={Check} />
+			I Understand
+		</Button>
+	</svelte:fragment>
+</Modal>

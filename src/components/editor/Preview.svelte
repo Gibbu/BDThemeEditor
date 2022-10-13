@@ -21,13 +21,7 @@
 				<small class="retry">If this takes longer than 1 minute, refresh your page.</small>
 			</div>
 		{/if}
-		<iframe
-			src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}"
-			title=""
-			frameborder="0"
-			class:hidden={!$loaded}
-			on:load={load}
-		/>
+		<iframe src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}" title="" frameborder="0" on:load={load} />
 	</div>
 </template>
 
@@ -39,16 +33,12 @@
 		iframe {
 			width: 100%;
 			height: 100%;
-			&.hidden {
-				opacity: 0;
-				pointer-events: none;
-			}
 		}
 	}
 	.loader {
 		background: var(--background-secondary);
 		position: absolute;
-		inset: 16px;
+		inset: 0;
 		text-align: center;
 		display: flex;
 		align-items: center;

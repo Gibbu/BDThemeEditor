@@ -22,12 +22,14 @@
 	// types
 	import type { ITheme } from '$types/theme';
 	import type { PageData } from './$types';
+	type TabType = 'vars' | 'imports' | 'addons' | 'upload' | 'download';
 
 	export let data: PageData;
 
 	// Data
 	import { themes } from '$data/themes';
 	import { error } from '@sveltejs/kit';
+	import type { IconSource } from '@steeze-ui/svelte-icon/types';
 
 	const clone: ITheme[] = JSON.parse(JSON.stringify(themes));
 	const theme = clone.find((theme) => getSlug(theme.name) === data.slug);
@@ -53,14 +55,19 @@
 	onMount(() => ($isMounted = true));
 	onDestroy(() => ($isMounted = false));
 
-	const tabs = [
-		{ icon: CodeBracket, label: 'Variables', enabled: true },
-		{ icon: CubeTransparent, label: 'Optional Imports', enabled: !!theme.optionalImports?.length },
-		{ icon: PuzzlePiece, label: 'Addons', enabled: !!theme.addons?.length },
-		{ icon: ArrowUpTray, label: 'Import', enabled: true },
-		{ icon: ArrowDownTray, label: 'Download', enabled: true }
+	const tabs: {
+		icon: IconSource;
+		label: string;
+		value: TabType;
+		enabled: boolean;
+	}[] = [
+		{ icon: CodeBracket, label: 'Variables', value: 'vars', enabled: true },
+		{ icon: CubeTransparent, label: 'Optional Imports', value: 'imports', enabled: !!theme.optionalImports?.length },
+		{ icon: PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length },
+		{ icon: ArrowUpTray, label: 'Upload', value: 'upload', enabled: true },
+		{ icon: ArrowDownTray, label: 'Download', value: 'download', enabled: true }
 	];
-	let activeTab: number = 0;
+	let activeTab: TabType = 'vars';
 	let fullscreen: boolean = false;
 	let backModal: boolean = false;
 
@@ -104,9 +111,14 @@
 				</button>
 				<div class="nav-divider" />
 				<div class="tabs">
-					{#each tabs as { icon, label, enabled }, i}
+					{#each tabs as { icon, label, enabled, value }}
 						{#if enabled}
-							<button type="button" class="nav-btn" class:active={activeTab === i} on:click={() => (activeTab = i)}>
+							<button
+								type="button"
+								class="nav-btn"
+								class:active={activeTab === value}
+								on:click={() => (activeTab = value)}
+							>
 								<Icon src={icon} />
 								{label}
 							</button>
@@ -121,15 +133,33 @@
 		</nav>
 		<main class="container">
 			<aside class="sidebar">
-				<div class="scroller">
-					{#each tabs as { enabled, label }, i}
-						{#if enabled}
-							<div class="tab" class:active={activeTab === i}>
-								{label}
-							</div>
-						{/if}
-					{/each}
-				</div>
+				<section class="scroller tab" class:active={activeTab === 'vars'}>
+					<div class="scroller-inner">
+						{#each $store.variables as group}
+							<p>{group.title}</p>
+						{/each}
+					</div>
+				</section>
+
+				{#if tabs[1].enabled}
+					<section class="scroller tab" class:active={activeTab === 'imports'}>
+						<p>Optional Imports</p>
+					</section>
+				{/if}
+
+				{#if tabs[2].enabled}
+					<section class="scroller tab" class:active={activeTab === 'addons'}>
+						<p>Addons</p>
+					</section>
+				{/if}
+
+				<section class="scroller tab" class:active={activeTab === 'upload'}>
+					<p>Upload</p>
+				</section>
+
+				<section class="scroller tab" class:active={activeTab === 'download'}>
+					<p>Download</p>
+				</section>
 			</aside>
 			<div class="preview">
 				<Preview urls={theme.previewUrls} />
