@@ -1,12 +1,23 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { store, isMounted } from '$lib/stores';
 	import { onMount, onDestroy } from 'svelte';
 	import { getSlug } from '$lib/utils';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import { ArrowDownTray, ArrowUpTray, CodeBracket, CubeTransparent, PuzzlePiece } from '@steeze-ui/heroicons';
+	import {
+		ArrowDownTray,
+		ArrowUpTray,
+		CodeBracket,
+		CubeTransparent,
+		PuzzlePiece,
+		ArrowsPointingOut,
+		ArrowUturnLeft,
+		ArrowLeft
+	} from '@steeze-ui/heroicons';
+	import { tooltip } from 'svooltip';
 
 	import { Preview } from '$components/editor';
-	import { MetaData } from '$components/common';
+	import { MetaData, Modal, Button } from '$components/common';
 
 	// types
 	import type { ITheme } from '$types/theme';
@@ -50,6 +61,15 @@
 		{ icon: ArrowDownTray, label: 'Download', enabled: true }
 	];
 	let activeTab: number = 0;
+	let fullscreen: boolean = false;
+	let backModal: boolean = false;
+
+	const back = () => {
+		backModal = false;
+		setTimeout(async () => {
+			await goto('/themes');
+		}, 250);
+	};
 </script>
 
 <MetaData
@@ -58,29 +78,56 @@
 	image={theme.thumbnail}
 />
 
+<Modal bind:visible={backModal} title="Back to theme selection?" size="small">
+	<p>Any changes will <u>NOT</u> be saved.</p>
+
+	<svelte:fragment slot="footer">
+		<Button variant="secondary" on:click={() => (backModal = false)}>Close</Button>
+		<Button variant="primary" on:click={back}>
+			<Icon src={ArrowUturnLeft} />
+			Go back
+		</Button>
+	</svelte:fragment>
+</Modal>
+
 <template>
-	<div class="editor">
+	<div class="editor" class:fullscreen>
 		<nav class="nav">
-			<div class="tabs">
-				{#each tabs as { icon, label }, i}
-					<button type="button" class="tab-btn" class:active={activeTab === i} on:click={() => (activeTab = i)}>
-						<Icon src={icon} />
-						{label}
-					</button>
-				{/each}
+			<div class="nav-left">
+				<button
+					type="button"
+					class="nav-btn"
+					use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
+					on:click={() => (backModal = true)}
+				>
+					<Icon src={ArrowLeft} size="18px" />
+				</button>
+				<div class="nav-divider" />
+				<div class="tabs">
+					{#each tabs as { icon, label, enabled }, i}
+						{#if enabled}
+							<button type="button" class="nav-btn" class:active={activeTab === i} on:click={() => (activeTab = i)}>
+								<Icon src={icon} />
+								{label}
+							</button>
+						{/if}
+					{/each}
+				</div>
 			</div>
+			<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
+				<Icon src={ArrowsPointingOut} />
+				{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
+			</button>
 		</nav>
 		<main class="container">
 			<aside class="sidebar">
 				<div class="scroller">
 					{#each tabs as { enabled, label }, i}
-						<div class="tab scroller-inner" class:active={activeTab === i}>
-							{#if !enabled}
-								<p class="tab-disabled">This theme doesn't appear to support <span>{label}</span> at this time.</p>
-							{:else}
+						{#if enabled}
+							<div class="tab" class:active={activeTab === i}>
 								{label}
-							{/if}
-						</div>
+							</div>
+						{/if}
 					{/each}
 				</div>
 			</aside>
@@ -95,6 +142,14 @@
 	.editor {
 		height: 100vh;
 		overflow: hidden;
+		&.fullscreen {
+			.sidebar {
+				display: none;
+			}
+			.preview {
+				padding: 0;
+			}
+		}
 	}
 
 	.nav {
@@ -105,6 +160,42 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 8px;
+		&-btn {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 12px;
+			border-radius: var(--radius);
+			position: relative;
+			:global(svg) {
+				width: 20px;
+			}
+			&:hover {
+				background: var(--button-ghost-hover);
+			}
+			&.active {
+				color: var(--text-primary);
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: -10px;
+					width: 100%;
+					height: 1px;
+					background: hsl(var(--accent));
+				}
+			}
+		}
+		&-left {
+			display: flex;
+			align-items: center;
+		}
+		&-divider {
+			height: calc(var(--editor-nav-height) / 2);
+			margin: 0 8px;
+			width: 1px;
+			background: var(--border);
+		}
 	}
 	.tabs {
 		display: flex;
@@ -112,48 +203,8 @@
 		height: 100%;
 		gap: 8px;
 	}
-	.tab-btn {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 8px 12px;
-		border-radius: var(--radius);
-		position: relative;
-		:global(svg) {
-			width: 20px;
-		}
-		&:hover {
-			background: var(--button-ghost-hover);
-		}
-		&.active {
-			color: var(--text-primary);
-			&::before {
-				content: '';
-				position: absolute;
-				left: 0;
-				bottom: -10px;
-				width: 100%;
-				height: 1px;
-				background: hsl(var(--accent));
-			}
-		}
-	}
 	.tab {
 		display: none;
-		&-disabled {
-			text-align: center;
-			max-width: 75%;
-			margin: 0 auto;
-			padding: 32px 0;
-			opacity: 0.5;
-			user-select: none;
-			pointer-events: none;
-			line-height: 1.5;
-			span {
-				color: var(--text-primary);
-				text-decoration: underline;
-			}
-		}
 		&.active {
 			display: block;
 		}
@@ -172,5 +223,6 @@
 	}
 	.preview {
 		width: 100%;
+		padding: 16px;
 	}
 </style>
