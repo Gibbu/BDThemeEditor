@@ -1,19 +1,11 @@
 <script lang="ts">
+	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
 	import { store, isMounted } from '$lib/stores';
 	import { onMount, onDestroy } from 'svelte';
 	import { getSlug } from '$lib/utils';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import {
-		ArrowDownTray,
-		ArrowUpTray,
-		CodeBracket,
-		CubeTransparent,
-		PuzzlePiece,
-		ArrowsPointingOut,
-		ArrowUturnLeft,
-		ArrowLeft
-	} from '@steeze-ui/heroicons';
+	import * as Icons from '@steeze-ui/heroicons';
 	import { tooltip } from 'svooltip';
 
 	import { Preview } from '$components/editor';
@@ -22,14 +14,13 @@
 	// types
 	import type { ITheme } from '$types/theme';
 	import type { PageData } from './$types';
+	import type { IconSource } from '@steeze-ui/svelte-icon/types';
 	type TabType = 'vars' | 'imports' | 'addons' | 'upload' | 'download';
 
 	export let data: PageData;
 
 	// Data
 	import { themes } from '$data/themes';
-	import { error } from '@sveltejs/kit';
-	import type { IconSource } from '@steeze-ui/svelte-icon/types';
 
 	const clone: ITheme[] = JSON.parse(JSON.stringify(themes));
 	const theme = clone.find((theme) => getSlug(theme.name) === data.slug);
@@ -61,15 +52,28 @@
 		value: TabType;
 		enabled: boolean;
 	}[] = [
-		{ icon: CodeBracket, label: 'Variables', value: 'vars', enabled: true },
-		{ icon: CubeTransparent, label: 'Optional Imports', value: 'imports', enabled: !!theme.optionalImports?.length },
-		{ icon: PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length },
-		{ icon: ArrowUpTray, label: 'Upload', value: 'upload', enabled: true },
-		{ icon: ArrowDownTray, label: 'Download', value: 'download', enabled: true }
+		{ icon: Icons.CodeBracket, label: 'Variables', value: 'vars', enabled: true },
+		{
+			icon: Icons.CubeTransparent,
+			label: 'Optional Imports',
+			value: 'imports',
+			enabled: !!theme.optionalImports?.length
+		},
+		{ icon: Icons.PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length },
+		{ icon: Icons.ArrowUpTray, label: 'Upload', value: 'upload', enabled: true },
+		{ icon: Icons.ArrowDownTray, label: 'Download', value: 'download', enabled: true }
 	];
 	let activeTab: TabType = 'vars';
+	let activeVar: number = 0;
 	let fullscreen: boolean = false;
 	let backModal: boolean = false;
+
+	const getIcon = (icon: string): IconSource => {
+		const _icon = Icons[icon as keyof typeof Icons];
+		if (!_icon) throw new Error('`' + icon + '`' + ' is not an available icon from Heroicons.');
+
+		return _icon;
+	};
 
 	const back = () => {
 		backModal = false;
@@ -91,7 +95,7 @@
 	<svelte:fragment slot="footer">
 		<Button variant="secondary" on:click={() => (backModal = false)}>Close</Button>
 		<Button variant="primary" on:click={back}>
-			<Icon src={ArrowUturnLeft} />
+			<Icon src={Icons.ArrowUturnLeft} />
 			Go back
 		</Button>
 	</svelte:fragment>
@@ -107,7 +111,7 @@
 					use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
 					on:click={() => (backModal = true)}
 				>
-					<Icon src={ArrowLeft} size="18px" />
+					<Icon src={Icons.ArrowLeft} size="18px" />
 				</button>
 				<div class="nav-divider" />
 				<div class="tabs">
@@ -127,18 +131,26 @@
 				</div>
 			</div>
 			<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
-				<Icon src={ArrowsPointingOut} />
+				<Icon src={Icons.ArrowsPointingOut} />
 				{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
 			</button>
 		</nav>
 		<main class="container">
 			<aside class="sidebar">
 				<section class="scroller tab" class:active={activeTab === 'vars'}>
-					<div class="scroller-inner">
-						{#each $store.variables as group}
-							<p>{group.title}</p>
+					<div class="vars scroller-inner">
+						{#each $store.variables as { icon, title }, i}
+							<button
+								type="button"
+								class="vars-btn"
+								use:tooltip={{ content: title, placement: 'right' }}
+								on:click={() => (activeVar = i)}
+							>
+								<Icon src={getIcon(icon)} size="24px" />
+							</button>
 						{/each}
 					</div>
+					<div class="scroller-inner" />
 				</section>
 
 				{#if tabs[1].enabled}
@@ -254,5 +266,12 @@
 	.preview {
 		width: 100%;
 		padding: 16px;
+	}
+
+	.vars {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: var(--editor-vars-width);
 	}
 </style>

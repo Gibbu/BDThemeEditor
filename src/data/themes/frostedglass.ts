@@ -27,7 +27,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Main background',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -88,7 +88,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Popout/Modal',
-			icon: 'Image',
+			icon: 'Photo',
 			userModal: true,
 			inputs: [
 				{
@@ -258,7 +258,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -313,7 +313,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Backgrount tint',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'colour',
@@ -338,7 +338,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
@@ -353,7 +353,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'App settings',
-			icon: 'App',
+			icon: 'CpuChip',
 			inputs: [
 				{
 					type: 'slider',
