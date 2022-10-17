@@ -26,12 +26,13 @@
 	<p>This browser is not recommended when using this editor.</p>
 	<p>
 		We recommend using a Chromium browser such as
-		<a href="https://www.google.com/chrome/" target="_blank" class="anchor">Google Chrome</a>,
-		<a href="https://brave.com/" target="_blank" class="anchor">Brave</a>
+		<a href="https://www.google.com/chrome/" target="_blank" rel="noreferrer" class="anchor">Google Chrome</a>,
+		<a href="https://brave.com/" target="_blank" rel="noreferrer" class="anchor">Brave</a>
 		or the new
 		<a
 			href="https://support.microsoft.com/en-us/microsoft-edge/download-the-new-microsoft-edge-based-on-chromium-0f4a3dd7-55df-60f5-739f-00010dba52cf"
 			target="_blank"
+			rel="noreferrer"
 			class="anchor">Edge</a
 		>.
 	</p>

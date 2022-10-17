@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { store } from '$lib/stores';
-	import { previewAction } from '$lib/preview';
+	import { preview } from '$lib/preview';
 
 	import type { IAddon } from '$types/addon';
 
@@ -50,7 +50,7 @@
 		});
 
 		addon.previewUrl.forEach((url) => {
-			previewAction({
+			preview({
 				action: 'addAddon',
 				class: addon.selector,
 				text: url
@@ -62,7 +62,7 @@
 	 * Removes addon to previewer and disables the addon in the `THEME` store.
 	 */
 	const removeAddon = (addon: IAddon): void => {
-		previewAction({
+		preview({
 			action: 'removeAddon',
 			class: addon.selector
 		});
@@ -117,23 +117,23 @@
 
 <style lang="scss">
 	.addon {
-		margin: rem(-16);
-		padding: rem(16);
-		border-bottom: rem(1) solid var(--border);
+		margin: -16px;
+		padding: 16px;
+		border-bottom: 1px solid var(--border);
 		&-header {
 			display: flex;
 		}
 		&-checkbox {
 			appearance: none;
-			max-width: rem(24);
-			min-width: rem(24);
-			max-height: rem(24);
-			min-height: rem(24);
-			border-radius: rem(4);
-			background-color: var(--c4);
+			max-width: 24px;
+			min-width: 24px;
+			max-height: 24px;
+			min-height: 24px;
+			border-radius: 4px;
+			background-color: var(--background-primary-alt);
 			cursor: pointer;
 			&:hover {
-				background-color: var(--c7);
+				background-color: var(--background-primary);
 			}
 			&:checked {
 				background-color: hsl(var(--accent));
@@ -141,30 +141,30 @@
 			}
 		}
 		&-info {
-			margin-left: rem(16);
+			margin-left: 16px;
 			display: flex;
 			user-select: none;
 			justify-content: space-between;
 			width: 100%;
 		}
 		&-meta {
-			margin-right: rem(16);
+			margin-right: 16px;
 		}
 		&-description {
-			font-size: rem(14);
+			font-size: 14px;
 			color: var(--text-tertiary);
-			margin-top: rem(4);
+			margin-top: 4px;
 		}
 		&-developer {
 			display: block;
-			min-width: rem(32);
-			max-width: rem(32);
-			min-height: rem(32);
-			max-height: rem(32);
+			min-width: 32px;
+			max-width: 32px;
+			min-height: 32px;
+			max-height: 32px;
 			overflow: hidden;
 			border-radius: 50%;
 			&:hover {
-				box-shadow: 0 0 0 rem(2) hsl(var(--accent));
+				box-shadow: 0 0 0 2px hsl(var(--accent));
 			}
 		}
 		&-avatar {
@@ -174,19 +174,19 @@
 
 		&-body {
 			display: none;
-			margin-top: rem(16);
+			margin-top: 16px;
 			&.active {
 				display: block;
 			}
 		}
 
 		&:not(:last-child) {
-			padding-bottom: rem(16);
-			margin-bottom: rem(16);
+			padding-bottom: 16px;
+			margin-bottom: 16px;
 		}
 	}
 
 	.option:not(:last-child) {
-		margin-bottom: rem(16);
+		margin-bottom: 16px;
 	}
 </style>

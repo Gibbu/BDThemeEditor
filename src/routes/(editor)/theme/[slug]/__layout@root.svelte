@@ -281,7 +281,7 @@
 	}
 
 	.devWarning {
-		background: var(--c0);
+		background: var(--background-tertiary);
 		padding: rem(16);
 		border-bottom: rem(1) solid var(--border);
 		display: flex;

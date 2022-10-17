@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
 	import { store, isMounted } from '$lib/stores';
@@ -7,8 +8,9 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import * as Icons from '@steeze-ui/heroicons';
 	import { tooltip } from 'svooltip';
+	import NProgress from 'nprogress';
 
-	import { Preview } from '$components/editor';
+	import { Preview, Component } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
 
 	// types
@@ -67,8 +69,10 @@
 	let activeVar: number = 0;
 	let fullscreen: boolean = false;
 	let backModal: boolean = false;
+	let devWarning: boolean = browser && localStorage.dev_warning;
+	let bugModal: boolean = false;
 
-	const getIcon = (icon: string): IconSource => {
+	const getIcon = (icon: string) => {
 		const _icon = Icons[icon as keyof typeof Icons];
 		if (!_icon) throw new Error('`' + icon + '`' + ' is not an available icon from Heroicons.');
 
@@ -76,10 +80,16 @@
 	};
 
 	const back = () => {
+		NProgress.start();
 		backModal = false;
 		setTimeout(async () => {
 			await goto('/themes');
 		}, 250);
+	};
+
+	const closeDevWarning = () => {
+		devWarning = false;
+		localStorage.dev_warning = 'true';
 	};
 </script>
 
@@ -101,19 +111,33 @@
 	</svelte:fragment>
 </Modal>
 
+<Modal bind:visible={bugModal} title="Found a bug with the editor?" size="small">
+	<div class="bugs">
+		<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer noopener" class="bug">
+			<Icon src={Icons.ChatBubbleBottomCenterText} size="32px" />
+			<p class="bug-title">Discord Server</p>
+		</a>
+		<a href="https://github.com/Gibbu/BDThemeEditor/issues" target="_blank" rel="noreferrer noopener" class="bug">
+			<Icon src={Icons.BugAnt} size="32px" />
+			<p class="bug-title">GitHub Issue</p>
+		</a>
+	</div>
+</Modal>
+
 <template>
 	<div class="editor" class:fullscreen>
 		<nav class="nav">
 			<div class="nav-left">
-				<button
-					type="button"
-					class="nav-btn"
-					use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
-					on:click={() => (backModal = true)}
-				>
-					<Icon src={Icons.ArrowLeft} size="18px" />
-				</button>
-				<div class="nav-divider" />
+				<div class="back">
+					<button
+						type="button"
+						class="nav-btn"
+						use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
+						on:click={() => (backModal = true)}
+					>
+						<Icon src={Icons.ArrowLeft} size="18px" />
+					</button>
+				</div>
 				<div class="tabs">
 					{#each tabs as { icon, label, enabled, value }}
 						{#if enabled}
@@ -130,48 +154,100 @@
 					{/each}
 				</div>
 			</div>
-			<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
-				<Icon src={Icons.ArrowsPointingOut} />
-				{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
-			</button>
+			<div class="nav-right">
+				<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
+					<Icon src={Icons.ArrowsPointingOut} />
+					{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
+				</button>
+				<button
+					class="nav-btn"
+					type="button"
+					use:tooltip={{ content: 'Report a bug with the editor' }}
+					on:click={() => (bugModal = !bugModal)}
+				>
+					<Icon src={Icons.BugAnt} size="18px" />
+				</button>
+			</div>
 		</nav>
 		<main class="container">
 			<aside class="sidebar">
-				<section class="scroller tab" class:active={activeTab === 'vars'}>
-					<div class="vars scroller-inner">
-						{#each $store.variables as { icon, title }, i}
-							<button
-								type="button"
-								class="vars-btn"
-								use:tooltip={{ content: title, placement: 'right' }}
-								on:click={() => (activeVar = i)}
-							>
-								<Icon src={getIcon(icon)} size="24px" />
-							</button>
-						{/each}
+				{#if $isMounted && !devWarning}
+					<div class="warning">
+						<div class="markdown">
+							<p>Before you start editing, just a little heads up:</p>
+							<p>
+								If you find any bugs with this editor, please do not annoy the theme developers. They have no
+								affiliation with the editor.
+							</p>
+							<p>
+								Join my <a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer noopener">Discord Server</a
+								>
+								and tell me about them there or open a
+								<a href="https://github.com/Gibbu/BDThemeEditor/issues" target="_blank" rel="noreferrer noopener"
+									>GitHub issue</a
+								>.
+							</p>
+							<p>
+								After closing this, you can still report a bug by pressing the button at the top right of your screen.
+							</p>
+						</div>
+						<Button variant="primary" on:click={closeDevWarning}>
+							<Icon src={Icons.Check} size="18px" />
+							I Understand
+						</Button>
 					</div>
-					<div class="scroller-inner" />
-				</section>
-
-				{#if tabs[1].enabled}
-					<section class="scroller tab" class:active={activeTab === 'imports'}>
-						<p>Optional Imports</p>
-					</section>
 				{/if}
 
-				{#if tabs[2].enabled}
-					<section class="scroller tab" class:active={activeTab === 'addons'}>
-						<p>Addons</p>
+				<div class="sidebar-inner">
+					<section class="tab" class:active={activeTab === 'vars'}>
+						<div class="scroller">
+							<div class="vars scroller-inner">
+								{#each $store.variables as { icon, title }, i}
+									<button
+										type="button"
+										class="vars-btn"
+										class:active={activeVar === i}
+										use:tooltip={{ content: title, placement: 'right', offset: 25 }}
+										on:click={() => (activeVar = i)}
+									>
+										<Icon src={getIcon(icon)} size="24px" />
+									</button>
+								{/each}
+							</div>
+						</div>
+						<div class="scroller" style="flex: 1;">
+							{#each $store.variables as group, i}
+								<div class="scroller-inner vars-options" class:active={activeVar === i}>
+									{#each group.inputs as setting}
+										<div class="option">
+											<Component data={setting} />
+										</div>
+									{/each}
+								</div>
+							{/each}
+						</div>
 					</section>
-				{/if}
 
-				<section class="scroller tab" class:active={activeTab === 'upload'}>
-					<p>Upload</p>
-				</section>
+					{#if tabs[1].enabled}
+						<section class="scroller tab" class:active={activeTab === 'imports'}>
+							<p>Optional Imports</p>
+						</section>
+					{/if}
 
-				<section class="scroller tab" class:active={activeTab === 'download'}>
-					<p>Download</p>
-				</section>
+					{#if tabs[2].enabled}
+						<section class="scroller tab" class:active={activeTab === 'addons'}>
+							<p>Addons</p>
+						</section>
+					{/if}
+
+					<section class="scroller tab" class:active={activeTab === 'upload'}>
+						<p>Upload</p>
+					</section>
+
+					<section class="scroller tab" class:active={activeTab === 'download'}>
+						<p>Download</p>
+					</section>
+				</div>
 			</aside>
 			<div class="preview">
 				<Preview urls={theme.previewUrls} />
@@ -201,7 +277,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 8px;
 		&-btn {
 			display: flex;
 			align-items: center;
@@ -231,12 +306,22 @@
 		&-left {
 			display: flex;
 			align-items: center;
+			height: 100%;
 		}
-		&-divider {
-			height: calc(var(--editor-nav-height) / 2);
-			margin: 0 8px;
-			width: 1px;
-			background: var(--border);
+		&-right {
+			padding-right: 8px;
+			gap: 8px;
+			display: flex;
+			align-items: center;
+		}
+	}
+	.back {
+		width: var(--editor-vars-width);
+		border-right: 1px solid var(--border);
+		height: 100%;
+		display: flex;
+		button {
+			margin: auto;
 		}
 	}
 	.tabs {
@@ -244,11 +329,13 @@
 		align-items: center;
 		height: 100%;
 		gap: 8px;
+		padding-left: 8px;
 	}
 	.tab {
 		display: none;
+		width: 100%;
 		&.active {
-			display: block;
+			display: flex;
 		}
 	}
 
@@ -261,8 +348,21 @@
 		max-width: var(--editor-sidebar-width);
 		background: var(--background-tertiary);
 		border-right: 1px solid var(--border);
-		display: flex;
+		&-inner {
+			display: flex;
+			height: 100%;
+		}
 	}
+	.warning {
+		padding: 16px;
+		background: var(--background-primary);
+		border-bottom: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 16px;
+	}
+
 	.preview {
 		width: 100%;
 		padding: 16px;
@@ -271,7 +371,70 @@
 	.vars {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		height: 100%;
-		width: var(--editor-vars-width);
+		min-width: var(--editor-vars-width);
+		max-width: var(--editor-vars-width);
+		border-right: 1px solid var(--border);
+		padding: 10px 0;
+		gap: 8px;
+		&-btn {
+			--size: calc(var(--editor-vars-width) - 18px);
+			width: var(--size);
+			height: var(--size);
+			border-radius: var(--radius);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: -8px;
+				height: 100%;
+				width: 1px;
+			}
+			&:hover {
+				background: var(--button-ghost-hover);
+				&::before {
+					background: var(--border-alt);
+				}
+			}
+			&.active {
+				color: var(--text-primary);
+				&::before {
+					background: hsl(var(--accent));
+				}
+			}
+		}
+		&-options {
+			display: none;
+			padding: 24px;
+			&.active {
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+		}
+	}
+
+	.bugs {
+		display: flex;
+		gap: 16px;
+	}
+	.bug {
+		flex: 1;
+		padding: 64px 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		text-align: center;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 16px;
+		&:hover {
+			background: var(--button-ghost-hover);
+		}
 	}
 </style>

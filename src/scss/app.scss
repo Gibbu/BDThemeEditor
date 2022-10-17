@@ -50,14 +50,14 @@
 	--foreground-tertiary: hsl(0 15% 19%);
 
 	// Input background
-	--button-secondary: hsl(var(--hue) 25% 50% / 0.1);
-	--button-secondary-hover: hsl(var(--hue) 30% 50% / 0.15);
+	--button-secondary: hsl(0 0% 50% / 0.1);
+	--button-secondary-hover: hsl(0 0% 50% / 0.15);
 	--button-ghost-hover: hsl(0 0% 100% / 0.025);
 
 	// Other backgrounds
 	--background-main: var(--background-tertiary-alt);
-	--border: hsl(0 0% 16%);
-	--border-alt: hsl(0 0% 25%);
+	--border: hsl(0 0% 100% / 0.05);
+	--border-alt: hsl(0 0% 100% / 0.15);
 
 	// Text Colours
 	--text-primary: hsl(0 0% 100%);

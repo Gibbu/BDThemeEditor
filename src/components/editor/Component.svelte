@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { store } from '$lib/stores';
 	import { varOutput } from '$lib/helpers';
-	import { previewAction } from '$lib/preview';
+	import { preview } from '$lib/preview';
 
 	import { Colour, Font, Image, Slider, Select, Number } from '../inputs';
 
@@ -19,17 +19,18 @@
 		slider: Slider,
 		select: Select,
 		number: Number
-	} as const;
+	};
 
-	export let data: {
-		type: string;
-		details: Record<string, any>;
+	export let data: any;
+
+	const getType = (type: string) => {
+		return inputs[type as keyof typeof inputs];
 	};
 
 	const update = ({ detail }: { detail: Details }): void => {
 		let { variable, value, addon } = detail;
 
-		previewAction({
+		preview({
 			action: 'setProperty',
 			value: varOutput(detail).value,
 			variable
@@ -53,5 +54,5 @@
 </script>
 
 <template>
-	<svelte:component this={inputs[data.type]} {...data.details} on:update={update} />
+	<svelte:component this={getType(data.type)} {...data.details} on:update={update} />
 </template>

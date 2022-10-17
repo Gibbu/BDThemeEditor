@@ -6,7 +6,7 @@ import type { IFlash } from '$types/flash';
 export const loaded = writable<boolean>(false);
 export const isMounted = writable<boolean>(false);
 
-export const preview = writable<HTMLIFrameElement>();
+export const previewer = writable<HTMLIFrameElement>();
 export const store = writable<IStoreTheme>();
 
 export const flash = writable<IFlash[]>([]);

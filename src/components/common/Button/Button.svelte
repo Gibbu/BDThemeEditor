@@ -1,20 +1,27 @@
 <script lang="ts">
+	import { classes } from '$lib/utils';
+
 	export let variant: 'primary' | 'secondary' | 'danger';
 	export let href: string | undefined = undefined;
 	export let external: boolean = false;
 	export let size: 'small' | 'medium' | 'large' = 'medium';
 	export let disabled: boolean = false;
+	export let self: HTMLElement | undefined = undefined;
+	export let long: boolean = false;
 </script>
 
 <template>
 	<svelte:element
 		this={href ? 'a' : 'button'}
+		bind:this={self}
 		href={href || undefined}
 		type={!href ? 'button' : undefined}
 		rel={external ? 'external' : undefined}
-		class="btn {variant} {size}"
+		class={classes('btn', variant, size)}
+		class:long
 		{disabled}
 		on:click
+		on:keypress
 	>
 		<div class="content">
 			<slot />
@@ -34,6 +41,7 @@
 		.content {
 			display: flex;
 			align-items: center;
+			flex: 1;
 			gap: var(--gap);
 			user-select: none;
 		}
@@ -53,6 +61,12 @@
 			font-size: 16px;
 			--gap: 12px;
 			--size: 20px;
+		}
+		&.long {
+			width: 100%;
+			.content {
+				justify-content: space-between;
+			}
 		}
 
 		&.primary {

@@ -41,7 +41,7 @@
 				<small class="option-unit">({value + unit})</small>
 			</p>
 			<button on:click={changeInput} class="switch-input" use:tooltip={{ content: 'Switch input', delay: [350, 0] }}>
-				<Icon src={ArrowsRightLeft} />
+				<Icon src={ArrowsRightLeft} size="18px" />
 			</button>
 		</div>
 		{#if hint}
@@ -59,9 +59,6 @@
 
 <style lang="scss">
 	.option {
-		&-header {
-			margin-bottom: rem(8);
-		}
 		&-info {
 			display: flex;
 			align-items: center;
@@ -73,26 +70,29 @@
 		}
 		&-unit {
 			color: var(--text-tertiary);
-			margin-left: rem(4);
+			margin-left: 4px;
 		}
 		&-hint {
 			display: block;
 			color: var(--text-tertiary);
-			font-size: rem(13);
+			font-size: 13px;
 		}
 	}
 	.switch-input {
-		width: rem(28);
-		height: rem(28);
-		padding: rem(6);
-		border-radius: rem(4);
+		width: 32px;
+		height: 32px;
+		padding: 6px;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		&:hover {
-			background: var(--c4);
+			background: var(--button-ghost-hover);
 		}
 	}
 
 	.slider {
-		height: rem(24);
+		height: 24px;
 		appearance: none;
 		width: 100%;
 		&:focus {
@@ -105,44 +105,44 @@
 		}
 		&::-webkit-slider-runnable-track {
 			width: 100%;
-			height: rem(10);
+			height: 10px;
 			cursor: pointer;
 			background: #292929;
-			border-radius: rem(50);
+			border-radius: 50px;
 			border: 0 solid #010101;
 		}
 		&::-webkit-slider-thumb {
 			box-shadow: 0 0 0 #000031;
 			border: 0 solid #00001e;
-			height: rem(16);
-			width: rem(16);
-			border-radius: rem(50);
+			height: 16px;
+			width: 16px;
+			border-radius: 50px;
 			background: #36e7a9;
 			cursor: pointer;
 			appearance: none;
-			margin-top: rem(-3);
+			margin-top: -3px;
 		}
 		&::-moz-range-track {
 			width: 100%;
-			height: rem(10);
+			height: 10px;
 			cursor: pointer;
 			box-shadow: 0 0 0 #000000;
 			background: #292929;
-			border-radius: rem(50);
+			border-radius: 50px;
 			border: 0 solid #010101;
 		}
 		&::-moz-range-thumb {
 			box-shadow: 0 0 0 #000031;
 			border: 0 solid #00001e;
-			height: rem(16);
-			width: rem(16);
-			border-radius: rem(50);
+			height: 16px;
+			width: 16px;
+			border-radius: 50px;
 			background: #36e7a9;
 			cursor: pointer;
 		}
 		&::-ms-track {
 			width: 100%;
-			height: rem(10);
+			height: 10px;
 			cursor: pointer;
 			background: transparent;
 			border-color: transparent;
@@ -161,12 +161,12 @@
 			box-shadow: 0 0 0 #000000;
 		}
 		&::-ms-thumb {
-			margin-top: rem(1);
+			margin-top: 1px;
 			box-shadow: 0 0 0 #000031;
 			border: 0 solid #00001e;
-			height: rem(16);
-			width: rem(16);
-			border-radius: rem(50);
+			height: 16px;
+			width: 16px;
+			border-radius: 50px;
 			background: #36e7a9;
 			cursor: pointer;
 		}

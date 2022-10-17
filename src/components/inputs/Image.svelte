@@ -245,31 +245,31 @@
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-body {
 			display: flex;
 			flex-direction: column;
-			gap: rem(8);
+			gap: 8px;
 		}
 	}
 
 	.dropzone {
 		$self: &;
 
-		padding: rem(32);
+		padding: 32px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		border: rem(2) dashed var(--border);
-		margin-top: rem(16);
+		border: 2px dashed var(--border);
+		margin-top: 16px;
 		cursor: pointer;
-		border-radius: rem(4);
+		border-radius: 4px;
 		transition: 0.15s ease border-color;
 
 		&-promt {
-			font-size: rem(14);
+			font-size: 14px;
 			transition: 0.15s ease color;
 			color: var(--text-tertiary);
 			user-select: none;
@@ -277,7 +277,7 @@
 		}
 		&-preview {
 			overflow: hidden;
-			border-radius: rem(4);
+			border-radius: 4px;
 		}
 		&-thumb {
 			background-size: cover;
@@ -288,8 +288,8 @@
 			bottom: 0;
 			left: 0;
 			width: 100%;
-			padding: rem(8);
-			font-size: rem(14);
+			padding: 8px;
+			font-size: 14px;
 			background: hsl(0 0% 0% / 0.8);
 			color: #fff;
 			text-shadow: 0 2px 4px hsl(0 0% 0%);
@@ -314,29 +314,29 @@
 		}
 	}
 	.explain {
-		width: rem(16);
-		height: rem(16);
-		margin-left: rem(8);
+		width: 16px;
+		height: 16px;
+		margin-left: 8px;
 	}
 	.uploadArea {
-		margin-top: rem(16);
+		margin-top: 16px;
 	}
 	.progress {
 		position: relative;
-		margin-top: rem(32);
+		margin-top: 32px;
 		&-text {
 			position: absolute;
-			top: calc(-100% - #{rem(8)});
+			top: calc(-100% - #{8px});
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			font-size: rem(12);
+			font-size: 12px;
 			color: var(--text-tertiary);
 		}
 		&-bar {
-			height: rem(10);
-			border-radius: rem(50);
-			background: var(--c5);
+			height: 10px;
+			border-radius: 50px;
+			background: var(--background-primary);
 			overflow: hidden;
 			&-inner {
 				height: 100%;

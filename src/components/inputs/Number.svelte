@@ -51,20 +51,20 @@
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-error {
 			color: hsl(var(--red));
-			font-size: rem(12);
-			margin-top: rem(4);
+			font-size: 12px;
+			margin-top: 4px;
 		}
 		&-value {
 			color: var(--text-tertiary);
-			margin-left: rem(4);
+			margin-left: 4px;
 		}
 		&-hint {
 			display: block;
-			font-size: rem(13);
+			font-size: 13px;
 			color: var(--text-tertiary);
 		}
 	}

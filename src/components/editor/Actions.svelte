@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { store, isMounted, loaded, flash } from '$lib/stores';
 	import DLTheme from '$lib/download';
-	import { previewAction } from '$lib/preview';
+	import { preview } from '$lib/preview';
 	import { getUrl, varOutput } from '$lib/helpers';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { ArrowUpTray, ArrowDownTray, XMark } from '@steeze-ui/heroicons';
@@ -86,7 +86,7 @@
 						let index: number = 0;
 
 						fontImports.forEach((url) => {
-							previewAction({
+							preview({
 								action: 'addFont',
 								index,
 								text: url
@@ -105,7 +105,7 @@
 							const url = getUrl(el);
 							const selector = url.includes('Columns') ? 'columns' : url.includes('Horizontal') ? 'hsl' : 'rs';
 
-							previewAction({
+							preview({
 								action: 'addAddon',
 								class: selector,
 								text: url
@@ -127,7 +127,7 @@
 							if (value.includes('/*')) value = value.split('/*')[0].trim();
 
 							// Add css to previewer
-							previewAction({
+							preview({
 								action: 'setProperty',
 								variable,
 								value

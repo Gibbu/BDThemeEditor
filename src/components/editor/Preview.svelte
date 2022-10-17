@@ -1,13 +1,16 @@
 <script lang="ts">
 	import NProgress from 'nprogress';
 	import { onDestroy } from 'svelte';
-	import { loaded } from '$lib/stores';
+	import { loaded, previewer } from '$lib/stores';
 
 	export let urls: string[] = [];
+
+	let iframe: HTMLIFrameElement;
 
 	const load = () => {
 		$loaded = true;
 		NProgress.done();
+		$previewer = iframe;
 	};
 	onDestroy(() => ($loaded = false));
 </script>
@@ -21,7 +24,13 @@
 				<small class="retry">If this takes longer than 1 minute, refresh your page.</small>
 			</div>
 		{/if}
-		<iframe src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}" title="" frameborder="0" on:load={load} />
+		<iframe
+			bind:this={iframe}
+			src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}"
+			title=""
+			frameborder="0"
+			on:load={load}
+		/>
 	</div>
 </template>
 

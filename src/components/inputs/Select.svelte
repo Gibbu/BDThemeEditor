@@ -37,11 +37,11 @@
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-hint {
 			display: block;
-			font-size: rem(13);
+			font-size: 13px;
 			color: var(--text-tertiary);
 		}
 	}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { store } from '$lib/stores';
 	import { createEventDispatcher } from 'svelte';
-	import { previewAction } from '$lib/preview';
+	import { preview } from '$lib/preview';
 
 	const dispatch = createEventDispatcher();
 
@@ -19,7 +19,7 @@
 	let local: boolean = false;
 
 	$: if (local) {
-		previewAction({
+		preview({
 			action: 'removeFont',
 			index
 		});
@@ -37,14 +37,14 @@
 			const fontImport: string = `@import url('${fontUrl}');`;
 
 			if ($store?.fonts) {
-				previewAction({
+				preview({
 					action: 'addFont',
 					index,
 					text: fontImport
 				});
 				$store.fonts[index] = fontUrl;
 			} else {
-				previewAction({
+				preview({
 					action: 'removeFont',
 					index
 				});
@@ -79,26 +79,26 @@
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-hint {
 			color: var(--text-tertiary);
-			font-size: rem(12);
+			font-size: 12px;
 		}
 		&-local {
 			display: flex;
 			align-items: center;
-			gap: rem(8);
-			margin-top: rem(12);
+			gap: 8px;
+			margin-top: 12px;
 			cursor: pointer;
 		}
 		&-checkbox {
 			appearance: none;
-			max-width: rem(24);
-			min-width: rem(24);
-			max-height: rem(24);
-			min-height: rem(24);
-			border-radius: rem(4);
+			max-width: 24px;
+			min-width: 24px;
+			max-height: 24px;
+			min-height: 24px;
+			border-radius: 4px;
 			background-color: var(--c4);
 			cursor: pointer;
 			&:hover {
@@ -110,11 +110,11 @@
 			}
 		}
 		&-google {
-			border: rem(1) solid var(--border);
-			border-radius: rem(4);
-			margin-top: rem(16);
-			padding: rem(16);
-			font-size: rem(14);
+			border: 1px solid var(--border);
+			border-radius: 4px;
+			margin-top: 16px;
+			padding: 16px;
+			font-size: 14px;
 			background: var(--c0);
 		}
 	}

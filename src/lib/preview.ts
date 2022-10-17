@@ -1,4 +1,4 @@
-import { preview } from './stores';
+import { previewer } from './stores';
 
 interface Reset {
 	action: 'reset';
@@ -39,10 +39,10 @@ interface ToggleModal {
  * Send a `postMessage` to the previewer.
  * @param message The action and data to be used.
  */
-export const previewAction = (
+export const preview = (
 	message: Reset | SetProperty | RemoveProperty | AddFont | RemoveFont | AddAddon | RemoveAddon | ToggleModal
 ) => {
-	preview.subscribe((e) => {
+	previewer.subscribe((e) => {
 		e?.contentWindow?.postMessage(JSON.stringify(message), '*');
 	});
 };
