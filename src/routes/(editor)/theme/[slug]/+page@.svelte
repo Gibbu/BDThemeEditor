@@ -88,7 +88,7 @@
 	};
 
 	const closeDevWarning = () => {
-		devWarning = false;
+		devWarning = true;
 		localStorage.dev_warning = 'true';
 	};
 </script>

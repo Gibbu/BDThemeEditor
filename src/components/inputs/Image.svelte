@@ -1,14 +1,13 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { createEventDispatcher } from 'svelte';
-	import { tooltip } from 'svooltip';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import { ArrowUpTray, Check, QuestionMarkCircle } from '@steeze-ui/heroicons';
+	import { ArrowUpTray, Check } from '@steeze-ui/heroicons';
 
 	const dispatch = createEventDispatcher();
 
 	// Components
-	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input } from '$components/common';
+	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input, Dropzone } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -35,11 +34,9 @@
 
 	const allowed = ['jpg', 'jpeg', 'gif', 'png', 'apng'];
 
-	/**
-	 * Checks if the url is a direct link.
-	 * True = update variable with new value.
-	 * False = Show warning.
-	 */
+	// Checks if the url is a direct link.
+	// True = update variable with new value.
+	// False = Show warning.
 	const web = (): void => {
 		error = '';
 
@@ -61,14 +58,11 @@
 		prepareFile(e.target.files);
 	};
 
-	/**
-	 * Checks for:
-	 * - There is only 1 file.
-	 * - If the file is a image.
-	 *
-	 * Then places the current image inside the dragzone and displays a "upload"
-	 * button if a web host is chosen.
-	 */
+	// Checks for:
+	// - There is only 1 file.
+	// - If the file is a image.
+	// Then places the current image inside the dragzone and displays a "upload"
+	// button if a web host is chosen.
 	const prepareFile = (_files: FileList): void => {
 		error = '';
 
@@ -93,9 +87,7 @@
 		}
 	};
 
-	/**
-	 * Either upload the file to the desired web host or base64 the image.
-	 */
+	// Either upload the file to the desired web host or base64 the image.
 	const localFile = async (): Promise<void> => {
 		const file: File = files[0];
 
@@ -196,30 +188,12 @@
 			description="Inline encoding will increase the amount of lag on your client. But means your image is private."
 		/>
 	</RadioGroup>
-	<label
-		class="dropzone"
-		class:dragover
-		class:error
-		disabled={fileUploading}
-		on:dragover|preventDefault={() => (dragover = true)}
-		on:dragleave={() => (dragover = false)}
-		on:dragend={() => (dragover = false)}
-		on:drop|preventDefault={droppedFile}
-	>
-		{#if thumbnail && !error}
-			<div class="r16-9 dropzone-preview">
-				<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');" />
-				<div class="dropzone-filename">{thumbnailName}</div>
-			</div>
-		{:else}
-			<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
-		{/if}
-		<input type="file" hidden bind:files on:change={selectedFile} />
-	</label>
+	<hr class="divider" />
+	<Dropzone bind:files bind:thumbnail bind:thumbnailName />
 	{#if !error && thumbnail}
 		<div class="uploadArea">
 			{#if !fileUploading}
-				<Button variant="primary" size="large" on:click={localFile}>
+				<Button variant="primary" size="large" long on:click={localFile}>
 					{#if uploadType === 'b64'}
 						<Icon src={Check} />
 					{:else}
@@ -254,70 +228,6 @@
 		}
 	}
 
-	.dropzone {
-		$self: &;
-
-		padding: 32px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		border: 2px dashed var(--border);
-		margin-top: 16px;
-		cursor: pointer;
-		border-radius: 4px;
-		transition: 0.15s ease border-color;
-
-		&-promt {
-			font-size: 14px;
-			transition: 0.15s ease color;
-			color: var(--text-tertiary);
-			user-select: none;
-			pointer-events: none;
-		}
-		&-preview {
-			overflow: hidden;
-			border-radius: 4px;
-		}
-		&-thumb {
-			background-size: cover;
-			background-position: center;
-		}
-		&-filename {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: 8px;
-			font-size: 14px;
-			background: hsl(0 0% 0% / 0.8);
-			color: #fff;
-			text-shadow: 0 2px 4px hsl(0 0% 0%);
-		}
-
-		&:hover,
-		&.dragover {
-			border-color: var(--border-hover);
-			#{$self}-promt {
-				color: var(--text-secondary);
-			}
-		}
-		&.error {
-			border-color: hsl(var(--red));
-			#{$self}-promt {
-				color: hsl(var(--red));
-			}
-		}
-		&[disabled='true'] {
-			pointer-events: none;
-			user-select: none;
-		}
-	}
-	.explain {
-		width: 16px;
-		height: 16px;
-		margin-left: 8px;
-	}
 	.uploadArea {
 		margin-top: 16px;
 	}
@@ -349,5 +259,11 @@
 	.error {
 		color: hsl(var(--red));
 		display: block;
+	}
+	.divider {
+		margin: 16px 0;
+		border: none;
+		height: 1px;
+		background: var(--border-alt);
 	}
 </style>

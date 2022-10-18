@@ -34,7 +34,7 @@
 <template>
 	{#if visible}
 		<div class="container" use:portal use:trap>
-			<div class="backdrop" transition:fade={{ duration: 200 }} on:click={close} />
+			<div class="backdrop" transition:fade={{ duration: 200 }} on:click={close} on:keypress />
 			<div
 				id={id()}
 				class={classes('modal', size)}
@@ -104,6 +104,8 @@
 	}
 	.body {
 		padding: 0 20px 20px;
+		max-height: 90vh;
+		overflow: hidden auto;
 	}
 	.footer {
 		padding: 20px;

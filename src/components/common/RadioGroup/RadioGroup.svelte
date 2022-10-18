@@ -105,3 +105,11 @@
 		</div>
 	</div>
 </template>
+
+<style lang="scss">
+	.radioitems {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>

@@ -83,27 +83,27 @@
 				</span>
 			</div>
 		{:else}
-			<span class="message">
+			<span class="message" class:error>
 				{error ?? 'Drop image file here or click to select'}
 			</span>
 		{/if}
 
-		<input type="file" bind:files class="hidden" on:change={selectedFile} />
+		<input type="file" bind:files hidden on:change={selectedFile} />
 	</label>
 </template>
 
 <style lang="scss">
 	.dropzone {
-		padding: 16px;
+		padding: 32px 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		text-align: center;
 		border-radius: var(--radius);
-		border: 2px dashed var(--border);
+		border: 2px dashed var(--border-alt);
 		&.dragover {
-			border-color: var(--border-alt);
+			border-color: hsl(var(--accent));
 		}
 		&.error {
 			border-color: hsl(var(--red));
@@ -117,6 +117,7 @@
 	.thumbnail {
 		object-fit: cover;
 		aspect-ratio: 16 / 9;
+		max-height: 256px;
 	}
 	.name {
 		position: absolute;
@@ -134,5 +135,8 @@
 		font-size: 14px;
 		user-select: none;
 		pointer-events: none;
+		&:not(.error) {
+			opacity: 0.5;
+		}
 	}
 </style>

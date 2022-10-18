@@ -15,7 +15,7 @@ export default ({ action, items = [], index = -1, loop = false }: Options) => {
 			if (index !== 0) index--;
 			else if (index === 0) index = items.length - 1;
 		} else {
-			if (index >= 1) index--;
+			if (index !== 0) index--;
 		}
 	}
 	if (action === 'next') {
