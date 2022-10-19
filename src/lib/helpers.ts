@@ -37,3 +37,11 @@ export const between = (string: string, first: string, second: string): string =
 export const getUrl = (url: string): string => {
 	return between(url, '(', ')').replace(/'|"/g, '');
 };
+
+/**
+ * Removes any unit suffix.
+ * @param value The string to strip any unit suffix.
+ */
+export const stripVal = (value: string): string => {
+	return value.replace(/px|%|deg/g, '').trim();
+};

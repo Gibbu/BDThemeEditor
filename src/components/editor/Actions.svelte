@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { store, isMounted, loaded, flash } from '$lib/stores';
+	import { store, editorLoaded, previewLoaded, flash } from '$lib/stores';
 	import DLTheme from '$lib/download';
 	import { preview } from '$lib/preview';
-	import { getUrl, varOutput } from '$lib/helpers';
+	import { getUrl, varOutput, stripVal } from '$lib/helpers';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { ArrowUpTray, ArrowDownTray, XMark } from '@steeze-ui/heroicons';
 
@@ -51,9 +51,6 @@
 		importFile(e.target.files[0]);
 	};
 
-	const getOutput = (type: string, value: string): string => {
-		return type === 'select' ? value : value.replace(/px|%|deg/g, '');
-	};
 	const importFile = (file: File): void => {
 		if (file && !['text/css'].includes(file.type)) {
 			importError = 'That file type cannot be imported';
@@ -139,7 +136,7 @@
 							$store.variables.forEach((el) =>
 								el.inputs.forEach((input) => {
 									if (input.details.variable === variable) {
-										input.details.value = getOutput(input.type, value);
+										input.details.value = input.type === 'select' ? value : stripVal(value);
 									}
 								})
 							);
@@ -147,7 +144,7 @@
 								if (el.variables) {
 									el.variables.forEach((input) => {
 										if (input.details.variable === variable) {
-											input.details.value = getOutput(input.type, value);
+											input.details.value = input.type === 'select' ? value : stripVal(value);
 										}
 									});
 								}
@@ -178,13 +175,13 @@
 		localStorage.setItem(`donate_${$store.name.replace(/ /g, '')}`, 'true');
 	};
 
-	$: if (browser && $isMounted && localStorage.getItem(`donate_${$store.name.replace(/ /g, '')}`)) {
+	$: if (browser && $editorLoaded && localStorage.getItem(`donate_${$store.name.replace(/ /g, '')}`)) {
 		showDonateWindow = false;
 	}
 </script>
 
 <template>
-	<div class="actions" disabled={!$isMounted && !$loaded}>
+	<div class="actions" disabled={!$editorLoaded && !$previewLoaded}>
 		<button class="actions-btn" on:click={() => (importFileModal = true)}>
 			<div class="icon">
 				<Icon src={ArrowUpTray} />

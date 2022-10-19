@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
-	import { store, isMounted } from '$lib/stores';
+	import { store, editorLoaded, previewLoaded } from '$lib/stores';
 	import { onMount, onDestroy } from 'svelte';
 	import { getSlug } from '$lib/utils';
 	import { Icon } from '@steeze-ui/svelte-icon';
@@ -45,8 +45,8 @@
 		varGroups: [':root', ...varGroups]
 	};
 
-	onMount(() => ($isMounted = true));
-	onDestroy(() => ($isMounted = false));
+	onMount(() => ($editorLoaded = true));
+	onDestroy(() => ($editorLoaded = false));
 
 	const tabs: {
 		icon: IconSource;
@@ -171,8 +171,8 @@
 		</nav>
 		<main class="container">
 			<aside class="sidebar">
-				{#if $isMounted && !devWarning}
-					<div class="warning">
+				{#if $editorLoaded && !devWarning}
+					<div class="devWarning">
 						<div class="markdown">
 							<p>Before you start editing, just a little heads up:</p>
 							<p>
@@ -199,6 +199,11 @@
 				{/if}
 
 				<div class="sidebar-inner">
+					{#if !$editorLoaded || !$previewLoaded}
+						<p class="loading">
+							Waiting for {$editorLoaded ? 'previewer' : 'editor'} to load...
+						</p>
+					{/if}
 					<section class="tab" class:active={activeTab === 'vars'}>
 						<div class="scroller">
 							<div class="vars scroller-inner">
@@ -334,6 +339,7 @@
 	.tab {
 		display: none;
 		width: 100%;
+		position: relative;
 		&.active {
 			display: flex;
 		}
@@ -351,9 +357,27 @@
 		&-inner {
 			display: flex;
 			height: 100%;
+			position: relative;
 		}
 	}
-	.warning {
+	.loading {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1;
+		user-select: none;
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: var(--background-tertiary);
+			opacity: 0.75;
+			z-index: -1;
+		}
+	}
+	.devWarning {
 		padding: 16px;
 		background: var(--background-primary);
 		border-bottom: 1px solid var(--border);

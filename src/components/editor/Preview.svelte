@@ -1,23 +1,23 @@
 <script lang="ts">
 	import NProgress from 'nprogress';
 	import { onDestroy } from 'svelte';
-	import { loaded, previewer } from '$lib/stores';
+	import { previewLoaded, previewer } from '$lib/stores';
 
 	export let urls: string[] = [];
 
 	let iframe: HTMLIFrameElement;
 
 	const load = () => {
-		$loaded = true;
+		$previewLoaded = true;
 		NProgress.done();
 		$previewer = iframe;
 	};
-	onDestroy(() => ($loaded = false));
+	onDestroy(() => ($previewLoaded = false));
 </script>
 
 <template>
 	<div class="container">
-		{#if !$loaded}
+		{#if !$previewLoaded}
 			<div class="loader">
 				<div class="spinner" />
 				<p class="info">Previewer is loading...</p>
