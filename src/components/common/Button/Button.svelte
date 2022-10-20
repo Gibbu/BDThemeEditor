@@ -8,6 +8,7 @@
 	export let disabled: boolean = false;
 	export let self: HTMLElement | undefined = undefined;
 	export let long: boolean = false;
+	export let split: boolean = false;
 </script>
 
 <template>
@@ -19,6 +20,7 @@
 		rel={external ? 'external' : undefined}
 		class={classes('btn', variant, size)}
 		class:long
+		class:split
 		{disabled}
 		on:click
 		on:keypress
@@ -41,6 +43,7 @@
 		.content {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			flex: 1;
 			gap: var(--gap);
 			user-select: none;
@@ -64,9 +67,9 @@
 		}
 		&.long {
 			width: 100%;
-			.content {
-				justify-content: space-between;
-			}
+		}
+		&.split .content {
+			justify-content: space-between;
 		}
 
 		&.primary {

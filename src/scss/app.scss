@@ -74,12 +74,13 @@
 	// Other vars
 	--modal-backdrop: hsl(0 0% 0% / 0.6);
 	--shadow: 0 5px 15px hsl(0 0% 0% / 0.35);
+	--accent-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
 }
 
 ::selection {
 	background: hsl(var(--accent));
 	color: #000;
-	text-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
+	text-shadow: var(--accent-shadow);
 }
 
 html {

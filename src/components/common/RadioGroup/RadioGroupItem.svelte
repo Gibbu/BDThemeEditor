@@ -114,8 +114,15 @@
 	.info {
 		text-align: left;
 	}
+	.label {
+		font-family: var(--font-display);
+		font-weight: 600;
+	}
 	.description {
 		font-size: 14px;
 		opacity: 0.5;
+		font-weight: 500;
+		margin-top: 4px;
+		display: block;
 	}
 </style>

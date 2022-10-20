@@ -50,7 +50,7 @@
 
 <template>
 	<div class="select">
-		<Button variant="secondary" long bind:self={selectBtn} on:click={toggle}>
+		<Button variant="secondary" long split bind:self={selectBtn} on:click={toggle}>
 			<span class="btn-text">{selected.label}</span>
 			<div class="btn-icon">
 				<Icon src={ChevronUpDown} size="18px" />

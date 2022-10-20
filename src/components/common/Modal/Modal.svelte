@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { scale, fade } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
 
 	import { uid, classes } from '$lib/utils';
@@ -42,7 +42,7 @@
 				aria-modal="true"
 				aria-labelledby={id('title')}
 				aria-describedby={description ? id('description') : id('body')}
-				transition:scale={{ duration: 150, start: 0.9 }}
+				transition:fly={{ duration: 150, y: 10 }}
 			>
 				<header class="header">
 					<h2 id={id('title')} class="title">{title}</h2>
