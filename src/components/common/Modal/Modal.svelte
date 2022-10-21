@@ -70,6 +70,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		z-index: 99;
 	}
 	.backdrop {
 		background: var(--modal-backdrop);

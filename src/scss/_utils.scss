@@ -17,6 +17,9 @@
 		min-height: min-content;
 		overflow: hidden auto;
 		width: 100%;
+		&.padding {
+			padding: 24px;
+		}
 	}
 }
 

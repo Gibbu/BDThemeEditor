@@ -28,7 +28,7 @@
 	const update = (): void => {
 		error = '';
 
-		if (value === undefined || value === null || !/^\d*\.?\d*$/.test(value.toString())) {
+		if (value == null || !/^\d*\.?\d*$/.test(value.toString())) {
 			error = 'This field can only contain numbers and must not be empty.';
 			return;
 		}
@@ -60,10 +60,7 @@
 		{#if !switchType}
 			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update} />
 		{:else}
-			<Input inputType="number" {min} {max} {step} bind:value on:input={update} />
-			{#if error}
-				<Banner type="error">{error}</Banner>
-			{/if}
+			<Input inputType="number" {min} {max} {step} bind:value on:input={update} {error} />
 		{/if}
 	</div>
 </template>

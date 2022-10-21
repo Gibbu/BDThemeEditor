@@ -10,7 +10,7 @@
 	import { tooltip } from 'svooltip';
 	import NProgress from 'nprogress';
 
-	import { Preview, Component } from '$components/editor';
+	import { Preview, Component, Download } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
 
 	// types
@@ -61,17 +61,21 @@
 			value: 'imports',
 			enabled: !!theme.optionalImports?.length
 		},
-		{ icon: Icons.PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length },
-		{ icon: Icons.ArrowUpTray, label: 'Upload', value: 'upload', enabled: true },
-		{ icon: Icons.ArrowDownTray, label: 'Download', value: 'download', enabled: true }
+		{ icon: Icons.PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length }
 	];
 	let activeTab: TabType = 'vars';
 	let activeVar: number = 0;
 	let fullscreen: boolean = false;
-	let backModal: boolean = false;
 	let devWarning: boolean = browser && localStorage.dev_warning;
-	let bugModal: boolean = false;
+	const modals = {
+		back: false,
+		bug: false,
+		download: false
+	};
 
+	const toggleModal = (modal: keyof typeof modals) => {
+		modals[modal] = !modals[modal];
+	};
 	const getIcon = (icon: string) => {
 		const _icon = Icons[icon as keyof typeof Icons];
 		if (!_icon) throw new Error('`' + icon + '`' + ' is not an available icon from Heroicons.');
@@ -81,7 +85,7 @@
 
 	const back = () => {
 		NProgress.start();
-		backModal = false;
+		modals.back = false;
 		setTimeout(async () => {
 			await goto('/themes');
 		}, 250);
@@ -99,11 +103,11 @@
 	image={theme.thumbnail}
 />
 
-<Modal bind:visible={backModal} title="Back to theme selection?" size="small">
+<Modal bind:visible={modals.back} title="Back to theme selection?" size="small">
 	<p>Any changes will <u>NOT</u> be saved.</p>
 
 	<svelte:fragment slot="footer">
-		<Button variant="secondary" on:click={() => (backModal = false)}>Close</Button>
+		<Button variant="secondary" on:click={() => (modals.back = false)}>Close</Button>
 		<Button variant="primary" on:click={back}>
 			<Icon src={Icons.ArrowUturnLeft} />
 			Go back
@@ -111,7 +115,7 @@
 	</svelte:fragment>
 </Modal>
 
-<Modal bind:visible={bugModal} title="Found a bug with the editor?" size="small">
+<Modal bind:visible={modals.bug} title="Found a bug with the editor?" size="small">
 	<div class="bugs">
 		<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer noopener" class="bug">
 			<Icon src={Icons.ChatBubbleBottomCenterText} size="32px" />
@@ -124,6 +128,8 @@
 	</div>
 </Modal>
 
+<Download bind:visible={modals.download} />
+
 <template>
 	<div class="editor" class:fullscreen>
 		<nav class="nav">
@@ -133,7 +139,7 @@
 						type="button"
 						class="nav-btn"
 						use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
-						on:click={() => (backModal = true)}
+						on:click={() => (modals.back = true)}
 					>
 						<Icon src={Icons.ArrowLeft} size="18px" />
 					</button>
@@ -152,6 +158,10 @@
 							</button>
 						{/if}
 					{/each}
+					<button type="button" class="nav-btn" on:click={() => toggleModal('download')}>
+						<Icon src={Icons.ArrowDownTray} />
+						Download
+					</button>
 				</div>
 			</div>
 			<div class="nav-right">
@@ -162,8 +172,8 @@
 				<button
 					class="nav-btn"
 					type="button"
-					use:tooltip={{ content: 'Report a bug with the editor' }}
-					on:click={() => (bugModal = !bugModal)}
+					use:tooltip={{ content: 'Report a bug with the editor', offset: 20 }}
+					on:click={() => toggleModal('bug')}
 				>
 					<Icon src={Icons.BugAnt} size="18px" />
 				</button>
@@ -222,7 +232,7 @@
 						</div>
 						<div class="scroller" style="flex: 1;">
 							{#each $store.variables as group, i}
-								<div class="scroller-inner vars-options" class:active={activeVar === i}>
+								<div class="scroller-inner vars-options padding" class:active={activeVar === i}>
 									{#each group.inputs as setting}
 										<div class="option">
 											<Component data={setting} />
@@ -244,14 +254,6 @@
 							<p>Addons</p>
 						</section>
 					{/if}
-
-					<section class="scroller tab" class:active={activeTab === 'upload'}>
-						<p>Upload</p>
-					</section>
-
-					<section class="scroller tab" class:active={activeTab === 'download'}>
-						<p>Download</p>
-					</section>
 				</div>
 			</aside>
 			<div class="preview">
@@ -292,18 +294,23 @@
 			:global(svg) {
 				width: 20px;
 			}
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -10px;
+				width: 100%;
+				height: 1px;
+			}
 			&:hover {
 				background: var(--button-ghost-hover);
+				&::before {
+					background: var(--border-alt);
+				}
 			}
 			&.active {
 				color: var(--text-primary);
 				&::before {
-					content: '';
-					position: absolute;
-					left: 0;
-					bottom: -10px;
-					width: 100%;
-					height: 1px;
 					background: hsl(var(--accent));
 				}
 			}
@@ -434,7 +441,6 @@
 		}
 		&-options {
 			display: none;
-			padding: 24px;
 			&.active {
 				display: flex;
 				flex-direction: column;

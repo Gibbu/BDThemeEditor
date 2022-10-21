@@ -1,23 +1,41 @@
 <script lang="ts">
+	import { uid } from '$lib/utils';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import { InformationCircle, ExclamationCircle, XCircle } from '@steeze-ui/heroicons';
+	import { InformationCircle, ExclamationCircle, XCircle, XMark } from '@steeze-ui/heroicons';
+	import { createEventDispatcher } from 'svelte';
 
+	export let visible: boolean = true;
 	export let type: 'info' | 'warning' | 'error';
+	export let closable: boolean = false;
 
 	const icons = {
 		info: InformationCircle,
 		warning: ExclamationCircle,
 		error: XCircle
 	};
+	const { id } = uid('banner');
+	const dispatch = createEventDispatcher();
+
+	const close = () => {
+		visible = false;
+		dispatch('close');
+	};
 </script>
 
 <template>
-	<div class="banner {type}">
-		<div class="icon">
-			<Icon src={icons[type]} size="24px" />
+	{#if visible}
+		<div id={id()} class="banner {type}">
+			<div class="icon">
+				<Icon src={icons[type]} size="24px" />
+			</div>
+			<p class="message"><slot /></p>
+			{#if closable}
+				<button type="button" class="close" on:click={close}>
+					<Icon src={XMark} size="18px" />
+				</button>
+			{/if}
 		</div>
-		<p class="message"><slot /></p>
-	</div>
+	{/if}
 </template>
 
 <style lang="scss">
@@ -48,9 +66,22 @@
 	}
 	.message {
 		font-size: 14px;
+		color: var(--text-primary);
+		flex: 1;
 		:global(a) {
 			color: hsl(var(--banner-colour));
 			text-decoration: underline;
+		}
+	}
+	.close {
+		width: 32px;
+		height: 32px;
+		border-radius: var(--radius);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			background: var(--button-ghost-hover);
 		}
 	}
 </style>
