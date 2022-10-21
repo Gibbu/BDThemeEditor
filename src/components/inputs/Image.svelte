@@ -5,7 +5,7 @@
 	import { ArrowUpTray, Check } from '@steeze-ui/heroicons';
 
 	// Components
-	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input, Dropzone } from '$components/common';
+	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input, Dropzone, Banner } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -143,6 +143,11 @@
 			{/if}
 		{:else if selectedOption === 'file'}
 			<Button variant="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
+		{/if}
+		{#if selectedOption === 'transparent'}
+			<Banner type="info">
+				This requires the "Enable Transparency" option to be enabled in your BetterDiscord settings.
+			</Banner>
 		{/if}
 	</div>
 </template>

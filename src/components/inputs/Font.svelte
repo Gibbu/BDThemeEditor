@@ -5,7 +5,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	import { Input, Checkbox } from '$components/common';
+	import { Input, Checkbox, Banner } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -66,12 +66,9 @@
 			<Checkbox bind:checked={local} label="Use font installed on my computer" />
 		</div>
 		{#if !local}
-			<div class="option-google">
-				<p>
-					View available fonts on
-					<a href="https://fonts.google.com" target="_blank" rel="noreferrer" class="anchor">Google Fonts</a>
-				</p>
-			</div>
+			<Banner type="info">
+				View all available fonts on <a href="https://fonts.google.com" target="_blank" rel="noreferrer">Google Fonts</a>
+			</Banner>
 		{/if}
 	</div>
 </template>
@@ -85,20 +82,12 @@
 			color: var(--text-tertiary);
 			font-size: 12px;
 		}
-		&-google {
-			border: 1px solid var(--border);
-			border-radius: 4px;
-			margin-top: 16px;
-			padding: 16px;
-			font-size: 14px;
-			background: var(--c0);
-		}
 	}
 	.local {
 		display: flex;
 		align-items: center;
 		gap: 8px;
-		margin-top: 12px;
+		margin: 12px 0;
 		cursor: pointer;
 	}
 </style>

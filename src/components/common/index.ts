@@ -4,6 +4,8 @@ export { default as Checkbox } from './Checkbox/Checkbox.svelte';
 
 export { default as Dropzone } from './Dropzone/Dropzone.svelte';
 
+export { default as Banner } from './Banner/Banner.svelte';
+
 export { default as Input } from './Input/Input.svelte';
 
 export { default as MetaData } from './MetaData/MetaData.svelte';

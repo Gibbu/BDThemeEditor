@@ -6,7 +6,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	import { Input } from '$components/common';
+	import { Input, Banner } from '$components/common';
 
 	// Required input vars
 	export let variable: string;
@@ -23,8 +23,16 @@
 	export let varGroup: string = ':root';
 
 	let switchType: boolean = false;
+	let error: string;
 
 	const update = (): void => {
+		error = '';
+
+		if (value === undefined || value === null || !/^\d*\.?\d*$/.test(value.toString())) {
+			error = 'This field can only contain numbers and must not be empty.';
+			return;
+		}
+
 		dispatch('update', { variable, addon, value, unit, varGroup });
 	};
 
@@ -53,6 +61,9 @@
 			<input type="range" class="slider" {min} {max} {step} bind:value on:input={update} />
 		{:else}
 			<Input inputType="number" {min} {max} {step} bind:value on:input={update} />
+			{#if error}
+				<Banner type="error">{error}</Banner>
+			{/if}
 		{/if}
 	</div>
 </template>

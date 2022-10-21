@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Components
-	import { Input } from '$components/common';
+	import { Input, Banner } from '$components/common';
 
 	// Required input vars
 	export let variable: string;
@@ -23,10 +23,10 @@
 	const update = (): void => {
 		if (!/^\d*\.?\d*$/.test(value)) {
 			error = 'This input field can only contain numbers.';
-		} else {
-			error = '';
-			dispatch('update', { variable, value, addon, unit, varGroup });
+			return;
 		}
+		error = '';
+		dispatch('update', { variable, value, addon, unit, varGroup });
 	};
 </script>
 
@@ -43,7 +43,7 @@
 	<div class="option-body">
 		<Input inputType="number" {min} {step} bind:value on:input={update} {error} />
 		{#if error}
-			<small class="option-error">{error}</small>
+			<Banner type="error">{error}</Banner>
 		{/if}
 	</div>
 </template>
@@ -52,11 +52,6 @@
 	.option {
 		&-header {
 			margin-bottom: 8px;
-		}
-		&-error {
-			color: hsl(var(--red));
-			font-size: 12px;
-			margin-top: 4px;
 		}
 		&-value {
 			color: var(--text-tertiary);
