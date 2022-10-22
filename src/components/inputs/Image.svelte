@@ -96,7 +96,6 @@
 		fileUploading = false;
 		fileUploadModal = false;
 		fileUploadProgress = 0;
-		files = new FileList();
 	};
 
 	$: if (value === 'transparent' && value === start) {
@@ -173,7 +172,7 @@
 			/>
 		</RadioGroup>
 		<hr class="divider" />
-		<Dropzone bind:files bind:thumbnail bind:thumbnailName />
+		<Dropzone bind:files bind:thumbnail bind:thumbnailName allowed={['jpg', 'jpeg', 'gif', 'png', 'apng']} />
 		{#if !error && files?.[0]}
 			<Button variant="primary" size="large" long on:click={localFile}>
 				{#if uploadType === 'b64'}

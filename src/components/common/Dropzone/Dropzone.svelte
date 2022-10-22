@@ -1,14 +1,15 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let thumbnail: string | undefined = undefined;
 	export let thumbnailName: string | undefined = undefined;
-	// export let type: 'b64' | 'imgur';
 
 	export let files: FileList;
+	export let allowed: string[] = [];
 
+	const dispatch = createEventDispatcher();
 	let error: string | undefined = undefined;
 	let dragover: boolean = false;
-
-	const allowed = ['jpg', 'jpeg', 'gif', 'png', 'apng'];
 
 	const setFile = (e: DragEvent) => {
 		if (!e.dataTransfer) return;
@@ -55,6 +56,7 @@
 				error = 'There was an error while trying to read that file.';
 				return;
 			}
+			dispatch('change', file);
 
 			image.src = result.toString();
 			image.addEventListener('load', () => {
@@ -102,6 +104,9 @@
 		text-align: center;
 		border-radius: var(--radius);
 		border: 2px dashed var(--border-alt);
+		&:hover {
+			background: var(--button-ghost-hover);
+		}
 		&.dragover {
 			border-color: hsl(var(--accent));
 		}
@@ -137,6 +142,9 @@
 		pointer-events: none;
 		&:not(.error) {
 			opacity: 0.5;
+		}
+		&.error {
+			color: hsl(var(--red));
 		}
 	}
 </style>

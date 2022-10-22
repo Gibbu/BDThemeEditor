@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { store, editorLoaded, previewLoaded, flash } from '$lib/stores';
-	import DLTheme from '$lib/download';
 	import { preview } from '$lib/preview';
 	import { getUrl, varOutput, stripVal } from '$lib/helpers';
 	import { Icon } from '@steeze-ui/svelte-icon';
@@ -32,7 +31,6 @@
 	const download = (): void => {
 		if (validate()) {
 			$store.meta.name = value;
-			DLTheme($store);
 		}
 	};
 

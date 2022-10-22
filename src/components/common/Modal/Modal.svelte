@@ -68,9 +68,10 @@
 		position: fixed;
 		inset: 0;
 		display: flex;
-		align-items: center;
 		justify-content: center;
+		align-items: flex-start;
 		z-index: 99;
+		padding: 64px;
 	}
 	.backdrop {
 		background: var(--modal-backdrop);
@@ -82,6 +83,7 @@
 		border-radius: var(--radius-lg);
 		position: relative;
 		z-index: 1;
+		overflow: hidden;
 		&.small {
 			width: 450px;
 		}

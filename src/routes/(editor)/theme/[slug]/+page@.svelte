@@ -10,7 +10,7 @@
 	import { tooltip } from 'svooltip';
 	import NProgress from 'nprogress';
 
-	import { Preview, Component, Download } from '$components/editor';
+	import { Preview, Component, Download, Upload } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
 
 	// types
@@ -70,7 +70,8 @@
 	const modals = {
 		back: false,
 		bug: false,
-		download: false
+		download: false,
+		upload: false
 	};
 
 	const toggleModal = (modal: keyof typeof modals) => {
@@ -130,6 +131,8 @@
 
 <Download bind:visible={modals.download} />
 
+<Upload bind:visible={modals.upload} />
+
 <template>
 	<div class="editor" class:fullscreen>
 		<nav class="nav">
@@ -158,6 +161,10 @@
 							</button>
 						{/if}
 					{/each}
+					<button type="button" class="nav-btn" on:click={() => toggleModal('upload')}>
+						<Icon src={Icons.ArrowUpTray} />
+						Upload
+					</button>
 					<button type="button" class="nav-btn" on:click={() => toggleModal('download')}>
 						<Icon src={Icons.ArrowDownTray} />
 						Download

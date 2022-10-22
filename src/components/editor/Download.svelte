@@ -4,9 +4,9 @@
 	import { store } from '$lib/stores';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { ArrowDownTray } from '@steeze-ui/heroicons';
-
-	import { Input, Button, Modal, Banner } from '$components/common';
 	import { varOutput } from '$lib/helpers';
+
+	import { Input, Button, Modal, Banner } from '../common';
 
 	export let visible: boolean = false;
 
@@ -14,8 +14,6 @@
 	let error: string;
 	let showDonate: boolean = (browser && !localStorage.getItem(`donate_${$store.name.replace(/ /g, '')}`)) || false;
 	$: disabled = !!error || value?.length === 0;
-
-	$: console.log(showDonate);
 
 	const validate = () => {
 		error = '';
@@ -34,9 +32,13 @@
 		let save: string;
 
 		// Meta
-		save = `/**\n${Object.entries($store.meta)
+		let meta = `/**\n${Object.entries($store.meta)
 			.map(([key, value]) => ` * @${key} ${value}\n`)
-			.join('')}*/\n\n`;
+			.join('')}`;
+		meta += ` * @BDEditor ${$store.name}\n`;
+		meta += '*/\n\n';
+
+		save = meta;
 
 		// Fonts
 		save += $store.fonts ? $store.fonts.map((url) => `@import url('${url}');\n`).join('') : '';
@@ -103,7 +105,7 @@
 				</a>
 			</p>
 		</Banner>
-		<div class="divider" />
+		<div class="spacer" />
 	{/if}
 
 	<Input label="Give your theme a name" placeholder="Theme name..." bind:value on:input={validate} {error} />
@@ -115,9 +117,3 @@
 		</Button>
 	</svelte:fragment>
 </Modal>
-
-<style>
-	.divider {
-		height: 16px;
-	}
-</style>

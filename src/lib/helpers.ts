@@ -45,3 +45,23 @@ export const getUrl = (url: string): string => {
 export const stripVal = (value: string): string => {
 	return value.replace(/px|%|deg/g, '').trim();
 };
+
+/**
+ * Transforms BD Meta string into object.
+ * @param meta The meta to be parsed.
+ */
+export const parseMeta = (meta: string) => {
+	let _meta: Record<string, string> = {};
+
+	meta
+		.split('/**')[1]
+		.split('*/')[0]
+		.split('\n')
+		.filter(Boolean)
+		.map((el) => el.replace(' * @', '').split(/ (.*)/, 2))
+		.forEach(([key, value]) => {
+			_meta[key] = value;
+		});
+
+	return _meta;
+};
