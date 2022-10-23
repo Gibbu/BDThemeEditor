@@ -21,6 +21,7 @@ interface OptionalImport {
 	name: string;
 	description: string;
 	imports: string[];
+	enabled: boolean;
 }
 
 interface Meta {
@@ -59,7 +60,7 @@ export interface IStoreTheme {
 	imports: string[];
 	variables: ThemeVars[];
 	addons: IAddon[];
-	optionalImports?: OptionalImport[];
+	optionalImports: OptionalImport[];
 	fonts?: string[];
 	hiddenVars?: HiddenVars[];
 	varGroups?: string[];

@@ -17,17 +17,26 @@ const theme: ITheme = {
 		source: 'https://github.com/DiscordStyles/SoftX'
 	},
 	features: ['background', 'font', 'transparent'],
-	imports: [
-		'https://discordstyles.github.io/SoftX/SoftX.css',
-		'https://discordstyles.github.io/SoftX/RadialGlow.css',
-		'https://discordstyles.github.io/SoftX/VerticalUserArea.css',
-		'https://discordstyles.github.io/Addons/windows-titlebar.css'
+	imports: ['https://discordstyles.github.io/SoftX/SoftX.css', 'https://discordstyles.github.io/SoftX/RadialGlow.css'],
+	optionalImports: [
+		{
+			name: 'Vertical User Area',
+			description: 'Moves the user are to the server list',
+			imports: ['https://discordstyles.github.io/SoftX/VerticalUserArea.css'],
+			enabled: true
+		},
+		{
+			name: 'Window Titlebar',
+			description: 'Moves the Windows buttons to the header',
+			imports: ['https://discordstyles.github.io/Addons/windows-titlebar.css'],
+			enabled: true
+		}
 	],
 	fonts: ['https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'],
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -65,7 +74,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours/Glow',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -95,7 +104,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
@@ -111,7 +120,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Sizing',
-			icon: 'Sizing',
+			icon: 'ArrowsRightLeft',
 			inputs: [
 				{
 					type: 'number',
@@ -168,7 +177,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'RadialGlow',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'slider',

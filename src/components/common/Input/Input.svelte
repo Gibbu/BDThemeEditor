@@ -27,6 +27,7 @@
 	export let self: HTMLInputElement | undefined = undefined;
 
 	export let label: string | undefined = undefined;
+	export let suffix: string | undefined = undefined;
 
 	const { id } = uid('textbox');
 </script>
@@ -34,7 +35,12 @@
 <template>
 	<div id={id()} class="container">
 		{#if label}
-			<label for={id('input')} class="label">{label}</label>
+			<label for={id('input')} class="label">
+				{label}
+				{#if suffix}
+					<small class="suffix">({suffix})</small>
+				{/if}
+			</label>
 		{/if}
 		{#if type === 'text'}
 			<input
@@ -77,8 +83,14 @@
 		position: relative;
 	}
 	.label {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		margin-bottom: 8px;
+	}
+	.suffix {
+		color: var(--text-tertiary);
+		margin-left: 4px;
+		font-size: 12px;
 	}
 
 	.input {

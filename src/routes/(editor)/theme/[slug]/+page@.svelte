@@ -10,7 +10,7 @@
 	import { tooltip } from 'svooltip';
 	import NProgress from 'nprogress';
 
-	import { Preview, Component, Download, Upload } from '$components/editor';
+	import { Preview, Component, Download, Upload, Addons, OptionalImports } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
 
 	// types
@@ -252,13 +252,17 @@
 
 					{#if tabs[1].enabled}
 						<section class="scroller tab" class:active={activeTab === 'imports'}>
-							<p>Optional Imports</p>
+							<div class="scroller-inner">
+								<OptionalImports />
+							</div>
 						</section>
 					{/if}
 
 					{#if tabs[2].enabled}
 						<section class="scroller tab" class:active={activeTab === 'addons'}>
-							<p>Addons</p>
+							<div class="scroller-inner">
+								<Addons />
+							</div>
 						</section>
 					{/if}
 				</div>

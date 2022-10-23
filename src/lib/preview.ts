@@ -3,8 +3,8 @@ import { previewer } from './stores';
 interface Reset {
 	action: 'reset';
 }
-interface SetProperty {
-	action: 'setProperty';
+interface SetProp {
+	action: 'setProp';
 	variable: string;
 	value: string;
 }
@@ -40,7 +40,7 @@ interface ToggleModal {
  * @param message The action and data to be used.
  */
 export const preview = (
-	message: Reset | SetProperty | RemoveProperty | AddFont | RemoveFont | AddAddon | RemoveAddon | ToggleModal
+	message: Reset | SetProp | RemoveProperty | AddFont | RemoveFont | AddAddon | RemoveAddon | ToggleModal
 ) => {
 	previewer.subscribe((e) => {
 		e?.contentWindow?.postMessage(JSON.stringify(message), '*');

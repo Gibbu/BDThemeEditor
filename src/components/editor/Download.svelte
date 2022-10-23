@@ -5,6 +5,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { ArrowDownTray } from '@steeze-ui/heroicons';
 	import { varOutput } from '$lib/helpers';
+	import { getSlug } from '$lib/utils';
 
 	import { Input, Button, Modal, Banner } from '../common';
 
@@ -12,7 +13,7 @@
 
 	let value: string;
 	let error: string;
-	let showDonate: boolean = (browser && !localStorage.getItem(`donate_${$store.name.replace(/ /g, '')}`)) || false;
+	let showDonate: boolean = (browser && !localStorage.getItem(`donate_${getSlug($store.name)}`)) || false;
 	$: disabled = !!error || value?.length === 0;
 
 	const validate = () => {
@@ -21,7 +22,7 @@
 	};
 	const hideDonate = () => {
 		showDonate = false;
-		localStorage.setItem(`donate_${$store.name.replace(/ /g, '')}`, 'true');
+		localStorage.setItem(`donate_${getSlug($store.name)}`, 'true');
 	};
 
 	const download = () => {
@@ -90,7 +91,7 @@
 		save += '\n/* Any custom CSS below here */\n\n\n';
 
 		const file = new Blob([save], { type: 'text/plain;charset=utf-8' });
-		FileSaver.saveAs(file, `${value.replace(/ /g, '')}.theme.css`);
+		FileSaver.saveAs(file, `${getSlug(value)}.theme.css`);
 	};
 </script>
 

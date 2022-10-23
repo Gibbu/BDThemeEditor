@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { uid } from '$lib/utils';
-	import { createEventDispatcher } from 'svelte';
 
 	/**
 	 * The value of the checkbox.\
@@ -19,28 +18,22 @@
 	export let checked: boolean = false;
 
 	/**
+	 * The `name` attribute of the input.
+	 */
+	export let name: string | undefined = undefined;
+
+	/**
 	 * The label placed to the right of the checkbox,\
 	 * which will still trigger the chechbox.
 	 */
 	export let label: string | undefined = undefined;
 
 	const { id } = uid('checkbox');
-	const dispatch = createEventDispatcher();
 </script>
 
 <template>
 	<div id={id()} class="checkbox">
-		<input
-			id={id('input')}
-			type="checkbox"
-			class="input"
-			{value}
-			{group}
-			bind:checked
-			on:change={() => {
-				dispatch('change', value);
-			}}
-		/>
+		<input id={id('input')} type="checkbox" class="input" {name} {value} {group} bind:checked on:change />
 		{#if label}
 			<label for={id('input')} class="label">{label}</label>
 		{/if}
@@ -56,8 +49,10 @@
 	.input {
 		appearance: none;
 		border: 1px solid var(--border);
-		width: 24px;
-		height: 24px;
+		min-width: 24px;
+		max-width: 24px;
+		min-height: 24px;
+		max-height: 24px;
 		border-radius: var(--radius);
 		cursor: pointer;
 		position: relative;

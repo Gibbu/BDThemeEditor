@@ -36,9 +36,11 @@
 		}
 	});
 
-	const setFeature = ({ detail }: Record<string, any>) => {
-		if (selectedFeatures.includes(detail)) selectedFeatures = selectedFeatures.filter((el) => el !== detail);
-		else selectedFeatures = [...selectedFeatures, detail];
+	const setFeature = (e: Event) => {
+		const value = (e.target as HTMLInputElement).value as Feature;
+
+		if (selectedFeatures.includes(value)) selectedFeatures = selectedFeatures.filter((el) => el !== value);
+		else selectedFeatures = [...selectedFeatures, value];
 	};
 
 	const handleKeys = (e: KeyboardEvent) => {
@@ -77,7 +79,7 @@
 			</div>
 		</aside>
 		<section class="themes">
-			{#each filtered as theme (theme)}
+			{#each filtered as theme (theme.name)}
 				{@const href = `/theme/${getSlug(theme.name)}`}
 				<div class="theme">
 					<a {href} class="theme-head">
