@@ -30,7 +30,7 @@
 		let { variable, value, addon } = detail;
 
 		previewAction({
-			action: 'setProperty',
+			action: 'setProp',
 			value: varOutput(detail).value,
 			variable
 		});
