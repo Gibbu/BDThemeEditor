@@ -49,6 +49,17 @@
 		let addonImports = $store.addons.filter((obj) => obj.use);
 		addonImports.forEach((obj) => obj.imports.forEach((url) => (save += `@import url('${url}');\n`)));
 
+		// Optional imports
+		if ($store.optionalImports.length > 0) {
+			save += $store.optionalImports
+				.map(({ enabled, imports }) => {
+					if (enabled) {
+						return imports.map((el) => `@import url('${el}');\n`);
+					}
+				})
+				.join('');
+		}
+
 		// Variables
 		let groups: { [k: string]: any[] } = {};
 		$store.varGroups?.forEach((group) => {

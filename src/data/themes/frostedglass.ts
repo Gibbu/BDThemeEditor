@@ -4,7 +4,6 @@ import { radialstatus, hsl, columns, discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Frosted Glass',
-	previewUrls: ['https://discordstyles.github.io/FrostedGlass/FrostedGlass.theme.css'],
 	thumbnail: 'https://i.imgur.com/Gr8JJAv.jpg',
 	developer: Gibbu,
 	meta: {
@@ -18,10 +17,54 @@ const theme: ITheme = {
 		website: 'https://gibbu.me',
 		authorId: '174868361040232448'
 	},
+	preview: [
+		`@import url('https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css');`,
+		`:root {`,
+		`--background-image: url("https://i.imgur.com/kYW2H5C.jpg"); /* Main background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */`,
+		`--background-image-blur: 5px; /* Blur intensity of --background-image | Must end in px | DEFAULT: 5px */`,
+		`--background-image-size: cover; /* Size of the background image | DEFAUT: cover | OPTIONS: cover, contain */`,
+		`--background-image-position: center; /* Position of background image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */`,
+		`--popout-image: var(--background-image); /* Background image for popouts and modals | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */`,
+		`--popout-image-blur: 5px; /* Blur intensity of --popout-image | Must end in px | DEFAULT: 5px */`,
+		`--popout-image-size: cover; /* Size of the popout/modal image | DEFAUT: cover | OPTIONS: cover, contain */`,
+		`--popout-image-position: center; /* Position of popout/modal image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */`,
+		`--overlay-image: var(--background-image); /* Background image for popouts and modals | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */`,
+		`--overlay-image-blur: var(--background-image-blur); /* Blur intensity of --overlay-image | Must end in px | DEFAULT: 5px */`,
+		`--overlay-image-size: var(--background-image-size); /* Size of the popout/modal image | DEFAUT: cover | OPTIONS: cover, contain */`,
+		`--overlay-image-position: var(--background-image-position); /* Position of popout/modal image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */`,
+		`--home-button-image: url("https://discordstyles.github.io/FrostedGlass/discord.svg"); /* Home button image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */`,
+		`--home-button-size: 60%; /* Size of the home button image | DEFAUT: cover */`,
+		`--home-button-position: center; /* Position of home button image | DEAFULT: center */`,
+		`--serverlist-brightness: 0.8; /* Brightness for serverlist | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */`,
+		`--left-brightness: 0.8; /* Channels and DM list brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */`,
+		`--middle-brightness: 0.6; /* Chat brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.6 */`,
+		`--right-brightness: 0; /* Members and Now Playing brightness | 0 - 1 (decimals allowed) | DEFAULT: 0 */`,
+		`--overlay-brightness: 0.75; /* Brightness for popouts and modals | 0 - 1 (decimals allowed) | DEFAULT: 0.75 */`,
+		`--gradient-primary: 103, 58, 183; /* DEFAULT: 103,58,183 */`,
+		`--gradient-secondary: 63, 81, 181; /* DEFAULT: 63,81,181 */`,
+		`--gradient-direction: 320deg; /* DEFAULT: 320deg */`,
+		`--tint-colour: 255, 51, 159; /* Colour of tint | DEAFULT: 255,51,159 */`,
+		`--tint-brightness: 0; /* Brightness of --tint-colour | 0 - 1 (decimals allowed) | DEFAULT: 0 */`,
+		`--window-padding: 20px; /* Spacing around the Discord window | DEFAULT: 20px */`,
+		`--window-roundness: 10px; /* Roundness of Discord | DEFAULT: 10px */`,
+		`--scrollbar-colour: rgba(255, 255, 255, 0.05); /* DEFAULT: rgba(255,255,255,0.05) */`,
+		`--link-colour: #00b0f4; /* DEFAULT: #00b0f4 */`,
+		`--font: "Whitney";`,
+		`--update-notice-1: none;`,
+		`}`
+	],
 	features: ['background', 'font', 'transparent', 'home', 'addons'],
 	imports: [
 		'https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css',
 		'https://discordstyles.github.io/Addons/windows-titlebar.css'
+	],
+	optionalImports: [
+		{
+			name: 'Window Titlebar',
+			description: 'Moves the Windows buttons to the header',
+			imports: ['https://discordstyles.github.io/Addons/windows-titlebar.css'],
+			enabled: true
+		}
 	],
 	fonts: [],
 	variables: [

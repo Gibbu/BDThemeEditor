@@ -9,6 +9,7 @@
 	import * as Icons from '@steeze-ui/heroicons';
 	import { tooltip } from 'svooltip';
 	import NProgress from 'nprogress';
+	import { preview } from '$lib/preview';
 
 	import { Preview, Component, Download, Upload, Addons, OptionalImports } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
@@ -45,7 +46,24 @@
 		varGroups: [':root', ...varGroups]
 	};
 
-	onMount(() => ($editorLoaded = true));
+	onMount(() => {
+		$editorLoaded = true;
+		preview({
+			action: 'setPreview',
+			text: theme.preview.join('\n')
+		});
+		theme.optionalImports?.forEach((optionalImport) => {
+			if (optionalImport.enabled) {
+				optionalImport.imports.forEach((el) => {
+					preview({
+						action: 'addAddon',
+						class: getSlug(optionalImport.name),
+						text: el
+					});
+				});
+			}
+		});
+	});
 	onDestroy(() => ($editorLoaded = false));
 
 	const tabs: {
@@ -268,7 +286,7 @@
 				</div>
 			</aside>
 			<div class="preview">
-				<Preview urls={theme.previewUrls} />
+				<Preview />
 			</div>
 		</main>
 	</div>

@@ -39,7 +39,7 @@
 <template>
 	<section class="banner">
 		<h1 class="title">BetterDiscord Theme Editor</h1>
-		<p class="tagline">Get your desired theme in a manor of minutes with no CSS knowledge required.</p>
+		<p class="tagline">Get your desired theme in a manner of minutes with no CSS knowledge required.</p>
 		<div class="actions">
 			<Button variant="primary" href="/themes" size="large">
 				<Icon src={Swatch} />

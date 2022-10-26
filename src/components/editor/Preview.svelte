@@ -26,7 +26,7 @@
 		{/if}
 		<iframe
 			bind:this={iframe}
-			src="https://gibbu.github.io/ThemePreview?file={urls.join('|')}"
+			src="http://localhost:5500?file={urls.join('|')}"
 			title=""
 			frameborder="0"
 			on:load={load}
