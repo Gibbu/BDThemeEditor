@@ -29,7 +29,7 @@
 				`Once you're done editing your theme, download it and enjoy!`,
 				'Need help installing your new awesome theme?'
 			],
-			link: ['Read the docs', '/docs/installing-theme']
+			link: ['Read the BetterDiscord docs', 'https://docs.betterdiscord.app']
 		}
 	];
 </script>
@@ -61,7 +61,13 @@
 						<p class="step-description">{desc}</p>
 					{/each}
 					{#if link}
-						<a href={link[1]} class="step-link anchor">
+						{@const external = link[1].startsWith('http')}
+						<a
+							href={link[1]}
+							target={external ? '_blank' : undefined}
+							rel={external ? 'noreferrer noopener' : undefined}
+							class="step-link anchor"
+						>
 							{link[0]}
 							<Icon src={ArrowRight} />
 						</a>

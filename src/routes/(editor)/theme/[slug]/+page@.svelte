@@ -50,7 +50,7 @@
 		$editorLoaded = true;
 		preview({
 			action: 'setPreview',
-			text: theme.preview.join('\n')
+			text: theme.preview
 		});
 		theme.optionalImports?.forEach((optionalImport) => {
 			if (optionalImport.enabled) {

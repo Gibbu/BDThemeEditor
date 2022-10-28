@@ -81,7 +81,7 @@ export interface ITheme {
 	 *
 	 * Example: VerticalUserArea for SoftX
 	 */
-	preview: string[];
+	preview: string;
 	/** Required imports to make your theme work. */
 	imports: string[];
 	/** And font URLs that need to be included with the downloaded file. */
