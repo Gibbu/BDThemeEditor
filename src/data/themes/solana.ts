@@ -21,7 +21,6 @@ const theme: ITheme = {
 		'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css',
 		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
 		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css',
 		'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
@@ -416,62 +415,7 @@ const theme: ITheme = {
 						step: 0.01,
 						title: 'Dock radius'
 					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-show',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Auto-collapse icons',
-						hint: 'The icons will reappear on hover.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-unread',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-ping',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-selected',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-group-unread',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread folder',
-						hint: 'Partially show when collapsed.'
-					}
-				},
+				}
 			]
 		},
 		{
