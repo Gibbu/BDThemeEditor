@@ -4,7 +4,6 @@ import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Comfy',
-	previewUrls: ['https://comfy-themes.github.io/Discord/betterdiscord/comfy.theme.css'],
 	thumbnail:
 		'https://camo.githubusercontent.com/953142901f1ab7b67dab1ebaafac787a68948f018bf4f9d46b98d2bc861fc0a6/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f446973636f72642f6173736574732f707265766965772e706e67',
 	developer: Nyria,
@@ -16,18 +15,91 @@ const theme: ITheme = {
 		invite: 'rtBQX5D3bD',
 		source: 'https://github.com/NYRI4/Comfy'
 	},
+	preview: `
+		@import "https://comfy-themes.github.io/Discord/betterdiscord/main.css";
+		:root {
+			--disable-animations: 2s channel-unread infinite;
+			--user-buttons-spacing: 8px;
+			--user-buttons-color: #096dc0;
+			--avatar-radius: 5px;
+			--status-radius: 3px;
+			--server-radius: 8px;
+			--colored-emoji: grayscale(0%);
+			--mention-color: #f04747;
+			--unread-color: #7289da;
+			--mention-color-bar: #c66262;
+			--mention-color-background: #c662621f;
+			--mention-color-hover: #c6626226;
+			--chat-buttons: #7289da;
+			--spotify-color: #1edc62;
+			--online: #43b581;
+			--iddle: #faa61a;
+			--dnd: #f04747;
+			--offline: #747f8d;
+			--streaming: #593695;
+			--playing: #7289da;
+			--listening: #1db653;
+			--role-circle: 5px;
+			--discord-logo: none;
+		}
+		.theme-dark {
+			--background-primary: #23283d;
+			--background-secondary: #1e2233;
+			--background-secondary-alt: #191f2e;
+			--background-tertiary: #101320;
+			--background-mobile-primary: #23283d;
+			--background-mobile-secondary: #1e2233;
+			--channeltextarea-background: #191f2e;
+			--background-accent: #7289da;
+			--background-message-hover: transparent;
+			--background-modifier-hover: #00000010;
+			--background-modifier-active: #0000001a;
+			--background-modifier-selected: #0000001f;
+			--deprecated-card-bg: #12141f63;
+			--background-floating: #101320;
+			--deprecated-quickswitcher-input-background: #101320;
+			--elevation-low: none;
+			--scrollbar-auto-thumb: #121722;
+			--scrollbar-auto-track: #191f2e;
+			--scrollbar-thin-thumb: #141925;
+			--activity-card-background: #101320;
+			--input-background: #1e2233;
+		}
+		.theme-light {
+			--background-primary: #23283d;
+			--background-secondary: #1e2233;
+			--background-secondary-alt: #191f2e;
+			--background-tertiary: #101320;
+			--background-accent: #7289da;
+			--background-modifier-hover: #262b41;
+			--background-modifier-active: #262b41;
+			--header-primary: #fff;
+			--header-secondary: #b1b5b9;
+			--text-normal: #8e9297;
+		}
+	`,
 	features: ['solid', 'addons'],
-	imports: [
-		'https://nyri4.github.io/Comfy/betterdiscord/main.css',
-		'https://nyri4.github.io/Comfy/betterdiscord/no-scrollbar.css',
-		'https://nyri4.github.io/Comfy/betterdiscord/better-spotify.css'
+	imports: ['https://comfy-themes.github.io/Discord/betterdiscord/main.css'],
+	optionalImports: [
+		{
+			name: 'No scrollbars',
+			description: 'Removes scrollbars',
+			imports: ['https://comfy-themes.github.io/Discord/betterdiscord/no-scrollbar.css'],
+			enabled: true
+		},
+		{
+			name: 'Better SpotifyControls seek bar',
+			description: 'Transforms the seek bar to cover the whole background. Requires SpotifyControls by DevilBro',
+			imports: ['https://comfy-themes.github.io/Discord/betterdiscord/better-spotify.css'],
+			enabled: true
+		}
 	],
 	fonts: [],
 	varGroups: ['.theme-dark', '.theme-light'],
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -97,7 +169,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Roundness',
-			icon: 'Gear',
+			icon: 'AdjustmentsHorizontal',
 			inputs: [
 				{
 					type: 'slider',
@@ -133,7 +205,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Status Colours',
-			icon: 'Status',
+			icon: 'Rss',
 			inputs: [
 				{
 					type: 'image',
@@ -416,7 +488,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'number',

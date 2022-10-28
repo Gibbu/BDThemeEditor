@@ -82,7 +82,7 @@
 
 					// Add css to previewer
 					preview({
-						action: 'setProperty',
+						action: 'setProp',
 						variable,
 						value
 					});
@@ -116,7 +116,7 @@
 
 <Modal bind:visible title="Select a theme to upload" size="small">
 	<Banner type={error ? 'error' : 'info'}>
-		{error || 'Only themes that have been downloaded through this editor can be uploaded.'}
+		{error || `Only ${$store.name} themes that have been downloaded through this editor can be uploaded.`}
 	</Banner>
 	<div class="spacer" />
 	<Dropzone bind:files allowed={['css']} on:change={upload} />

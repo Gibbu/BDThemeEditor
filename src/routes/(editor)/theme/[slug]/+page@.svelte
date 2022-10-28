@@ -64,7 +64,15 @@
 			}
 		});
 	});
-	onDestroy(() => ($editorLoaded = false));
+	onDestroy(() => {
+		$editorLoaded = false;
+		theme.optionalImports?.forEach((optionalImport) => {
+			preview({
+				action: 'removeAddon',
+				class: getSlug(optionalImport.name)
+			});
+		});
+	});
 
 	const tabs: {
 		icon: IconSource;
@@ -92,12 +100,20 @@
 		upload: false
 	};
 
+	const setVar = (i: number, modal: boolean | undefined) => {
+		activeVar = i;
+
+		preview({
+			action: 'toggleModal',
+			visible: modal ? true : false
+		});
+	};
 	const toggleModal = (modal: keyof typeof modals) => {
 		modals[modal] = !modals[modal];
 	};
 	const getIcon = (icon: string) => {
 		const _icon = Icons[icon as keyof typeof Icons];
-		if (!_icon) throw new Error('`' + icon + '`' + ' is not an available icon from Heroicons.');
+		if (!_icon) throw new TypeError('`' + icon + '`' + ' is not an available icon from Heroicons.');
 
 		return _icon;
 	};
@@ -242,13 +258,13 @@
 					<section class="tab" class:active={activeTab === 'vars'}>
 						<div class="scroller">
 							<div class="vars scroller-inner">
-								{#each $store.variables as { icon, title }, i}
+								{#each $store.variables as { icon, title, userModal }, i}
 									<button
 										type="button"
 										class="vars-btn"
 										class:active={activeVar === i}
 										use:tooltip={{ content: title, placement: 'right', offset: 25 }}
-										on:click={() => (activeVar = i)}
+										on:click={() => setVar(i, userModal)}
 									>
 										<Icon src={getIcon(icon)} size="24px" />
 									</button>

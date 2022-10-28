@@ -37,13 +37,17 @@
 	// False = Show warning.
 	const web = (): void => {
 		error = '';
-
-		const extension = new URL(value).pathname.split('.')[1];
-		if (!allowed.includes(extension) && value.length > 0) {
-			error = 'URL must be a direct link (ending in: jpg, jpeg, png, ect...';
+		try {
+			const extension = new URL(value).pathname.split('.')[1];
+			if (!allowed.includes(extension) && value.length > 0) {
+				error = 'URL must be a direct link (ending in: jpg, jpeg, png, ect...)';
+				return;
+			} else if (value.length > 0) {
+				updatePreview(value);
+			}
+		} catch (error) {
+			error = 'Must be a valid URL.';
 			return;
-		} else if (value.length > 0) {
-			updatePreview(value);
 		}
 	};
 
@@ -136,10 +140,7 @@
 	<div class="option-body">
 		<Select options={selectOptions} custom={false} on:update={setOption} />
 		{#if selectedOption === 'url'}
-			<Input placeholder="Image URL" {error} bind:value on:keyup={web} />
-			{#if error}
-				<small class="error">{error}</small>
-			{/if}
+			<Input placeholder="Image URL" {error} bind:value on:input={web} />
 		{:else if selectedOption === 'file'}
 			<Button variant="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
 		{/if}
@@ -204,10 +205,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	.error {
-		color: hsl(var(--red));
-		display: block;
 	}
 	.divider {
 		margin: 16px 0;
