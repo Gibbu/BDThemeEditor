@@ -10,7 +10,7 @@
 	"scripts": {
 		"dev": "vite dev --port=3000",
 		"build": "vite build",
-		"preview": "svelte-kit preview",
+		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
@@ -26,12 +26,10 @@
 		"axios": "^0.22.0",
 		"file-saver": "^2.0.5",
 		"focus-trap": "^7.0.0",
-		"mdsvex": "^0.9.8",
 		"nprogress": "^0.2.0",
 		"postcss": "^8.4.18",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.8.0",
-		"rehype-slug": "^5.0.1",
 		"sass": "^1.55.0",
 		"svelte": "^3.52.0",
 		"svelte-check": "^2.9.2",
