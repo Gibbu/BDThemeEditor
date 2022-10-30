@@ -119,7 +119,7 @@
 		{error || `Only ${$store.name} themes that have been downloaded through this editor can be uploaded.`}
 	</Banner>
 	<div class="spacer" />
-	<Dropzone bind:files allowed={['css']} on:change={upload} />
+	<Dropzone bind:files message="Drop theme file here or click to select" allowed={['css']} on:change={upload} />
 </Modal>
 
 <style lang="scss">

@@ -164,7 +164,7 @@
 			<RadioGroupItem
 				value="imgur"
 				label="Imgur.com"
-				description="Uploading to Imgur will reduce the amount of lag on your client. But will leave you image open for anyone to see."
+				description="Uploading to Imgur will reduce the amount of lag on your client. But will leave you image open for anyone to see (if they guess the URL)."
 			/>
 			<RadioGroupItem
 				value="b64"
@@ -173,7 +173,13 @@
 			/>
 		</RadioGroup>
 		<hr class="divider" />
-		<Dropzone bind:files bind:thumbnail bind:thumbnailName allowed={['jpg', 'jpeg', 'gif', 'png', 'apng']} />
+		<Dropzone
+			bind:files
+			bind:thumbnail
+			bind:thumbnailName
+			allowed={['jpg', 'jpeg', 'gif', 'png', 'apng']}
+			message="Drop image file here or click to select"
+		/>
 		{#if !error && files?.[0]}
 			<Button variant="primary" size="large" long on:click={localFile}>
 				{#if uploadType === 'b64'}

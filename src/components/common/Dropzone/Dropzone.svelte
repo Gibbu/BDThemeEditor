@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
+	export let message: string;
 	export let thumbnail: string | undefined = undefined;
 	export let thumbnailName: string | undefined = undefined;
 
@@ -86,7 +87,7 @@
 			</div>
 		{:else}
 			<span class="message" class:error>
-				{error ?? 'Drop image file here or click to select'}
+				{error ?? message}
 			</span>
 		{/if}
 

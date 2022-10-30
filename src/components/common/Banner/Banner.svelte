@@ -28,7 +28,7 @@
 			<div class="icon">
 				<Icon src={icons[type]} size="24px" />
 			</div>
-			<p class="message"><slot /></p>
+			<div class="message"><slot /></div>
 			{#if closable}
 				<button type="button" class="close" on:click={close}>
 					<Icon src={XMark} size="18px" />
@@ -67,6 +67,7 @@
 	.message {
 		font-size: 14px;
 		color: var(--text-primary);
+		line-height: 1.5;
 		flex: 1;
 		:global(a) {
 			color: hsl(var(--banner-colour));

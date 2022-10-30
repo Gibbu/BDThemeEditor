@@ -357,6 +357,7 @@
 				color: var(--text-primary);
 				&::before {
 					background: hsl(var(--accent));
+					box-shadow: 0 0 8px hsl(var(--accent)), 0 0 5px hsl(var(--accent) / 0.2);
 				}
 			}
 		}
@@ -481,6 +482,7 @@
 				color: var(--text-primary);
 				&::before {
 					background: hsl(var(--accent));
+					box-shadow: 0 0 8px hsl(var(--accent)), 0 0 5px hsl(var(--accent) / 0.2);
 				}
 			}
 		}

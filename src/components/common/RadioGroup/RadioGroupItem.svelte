@@ -88,6 +88,7 @@
 			background: hsl(var(--accent));
 			color: #000;
 			border-color: hsl(var(--accent));
+			text-shadow: var(--accent-shadow);
 			.box {
 				border-color: #000;
 				&::before {
