@@ -77,12 +77,10 @@
 			}
 		});
 
-		console.log(data);
-
-		value = data.link;
+		value = data.data.link;
 
 		reset();
-		updatePreview(data.link);
+		updatePreview(data.data.link);
 	};
 	const base64 = (file: File) => {
 		const reader = new FileReader();
@@ -188,6 +186,7 @@
 			message="Drop image file here or click to select"
 		/>
 		{#if !error && files?.[0]}
+			<div class="spacer" />
 			<Button variant="primary" size="large" long on:click={localFile}>
 				{#if uploadType === 'b64'}
 					<Icon src={Check} />
