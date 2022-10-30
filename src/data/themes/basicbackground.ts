@@ -1,9 +1,9 @@
 import type { ITheme } from '$types/theme';
-import DevilBro from '$data/devs/devilbro';
+import DevilBro from '../devs/devilbro';
+import { columns, radialstatus, hsl } from '../addons';
 
 const theme: ITheme = {
 	name: 'BasicBackground',
-	previewUrls: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css'],
 	thumbnail: 'https://i.imgur.com/XORsntg.jpg',
 	developer: DevilBro,
 	meta: {
@@ -19,12 +19,47 @@ const theme: ITheme = {
 		website: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/BasicBackground',
 		authorId: '278543574059057154'
 	},
+	preview: `
+		@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
+		:root {
+			--transparencycolor: 0,0,0;
+			--transparencyalpha: 0.15;
+			--messagetransparency: 0.5;
+			--guildchanneltransparency: 0.15;
+			--chatinputtransparency: 0.0;
+			--memberlisttransparency: 0.0;
+			--accentcolor: 190,78,180;
+			--font: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+			--textshadow: transparent;
+			--settingsicons: 1;
+			--background:	url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg);
+			--backgroundposition:	center;
+			--backgroundsize:	cover;
+			--backgroundblur:	unset;
+			--popout:	var(--background);
+			--popoutposition:	var(--backgroundposition);
+			--popoutsize: var(--backgroundsize);
+			--popoutblur:var(--backgroundblur);
+			--backdrop:rgba(0,0,0,0.85);
+			--backdropposition:center;
+			--backdropsize:cover;
+			--backdropblur:unset;
+			--textbrightest:255,255,255;
+			--textbrighter:222,222,222;
+			--textbright:200,200,200;
+			--textdark:160,160,160;
+			--textdarker:125,125,125;
+			--textdarkest:90,90,90;
+			--version1_0_5:none;
+		}
+	`,
+	features: ['background', 'addons', 'font', 'transparent'],
 	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css'],
 	fonts: [],
 	variables: [
 		{
 			title: 'Background Image',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -85,7 +120,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Popout image',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -146,7 +181,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -250,7 +285,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Font',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
@@ -319,7 +354,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'select',
@@ -351,7 +386,7 @@ const theme: ITheme = {
 			value: 'none'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl']
+	addons: [hsl, columns, radialstatus]
 };
 
 export default theme;

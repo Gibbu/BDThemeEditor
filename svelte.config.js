@@ -9,9 +9,6 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [
 		preprocess({
-			scss: {
-				prependData: `@use 'src/scss/functions.scss' as *;`
-			},
 			postcss: {
 				plugins: [autoprefixer()]
 			}
@@ -22,10 +19,7 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter(),
-		prerender: {
-			default: true
-		}
+		adapter: adapter()
 	}
 };
 

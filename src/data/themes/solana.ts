@@ -1,9 +1,8 @@
 import type { ITheme } from '$types/theme';
-import Disease from '$data/devs/disease';
+import Disease from '../devs/disease';
 
 const theme: ITheme = {
 	name: 'Solana',
-	previewUrls: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.theme.css'],
 	thumbnail: 'https://i.imgur.com/tnJ6KE7.jpg',
 	developer: Disease,
 	meta: {
@@ -16,15 +15,35 @@ const theme: ITheme = {
 		website: 'https://maendisease.github.io/',
 		authorId: '678469587444170762'
 	},
+	preview: `
+		@import url(https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css);
+		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css);
+		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css);
+		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css);
+		@import url(https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css);
+	`,
+	features: ['background', 'font', 'transparent', 'solid'],
 	imports: [
+		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css',
 		'https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css',
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css',
-		'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
+		'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css'
+	],
+	optionalImports: [
+		{
+			name: 'MacOS titlebar',
+			description: 'Changes the Windows titlebar to mimic the MacOS Discord style.',
+			imports: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css'],
+			enabled: true
+		},
+		{
+			name: 'Apple EmojiReplace',
+			description: 'Replaces default emojis to Apples. Made by DevilBro',
+			imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'],
+			enabled: true
+		}
 	],
 	fonts: [
 		'https://fonts.cdnfonts.com/css/sf-pro-display',
@@ -33,7 +52,7 @@ const theme: ITheme = {
 	variables: [
 		{
 			title: 'Colors',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'slider',
@@ -97,7 +116,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Background image',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -190,7 +209,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Window',
-			icon: 'Sizing',
+			icon: 'Window',
 			inputs: [
 				{
 					type: 'image',
@@ -338,7 +357,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Chat',
-			icon: 'Chat',
+			icon: 'ChatBubbleBottomCenter',
 			inputs: [
 				{
 					type: 'select',
@@ -476,7 +495,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Sidebar',
-			icon: 'List',
+			icon: 'ListBullet',
 			inputs: [
 				{
 					type: 'slider',
@@ -517,7 +536,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Floating background',
-			icon: 'Border',
+			icon: 'Square2Stack',
 			inputs: [
 				{
 					type: 'slider',
@@ -569,7 +588,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
@@ -616,7 +635,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Compatibility',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'select',

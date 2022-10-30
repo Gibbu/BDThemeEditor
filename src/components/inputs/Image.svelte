@@ -1,17 +1,11 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { Upload, Check, Question } from '$components/common/Icon';
 	import { createEventDispatcher } from 'svelte';
-	import tooltip from '$lib/tooltip';
-
-	const dispatch = createEventDispatcher();
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ArrowUpTray, Check } from '@steeze-ui/heroicons';
 
 	// Components
-	import { ModalRoot, ModalBody, ModalHeader } from '$components/common/Modal';
-	import { Button } from '$components/common/Button';
-	import { RadioGroup, RadioGroupItem } from '$components/common/RadioGroup';
-	import { Select } from '$components/common/Select';
-	import { Input } from '$components/common/Input';
+	import { Modal, Button, RadioGroup, RadioGroupItem, Select, Input, Dropzone, Banner } from '$components/common';
 
 	// Required vars
 	export let variable: string;
@@ -30,112 +24,82 @@
 	let fileUploadProgress: number = 0;
 
 	// Other vars
-	let error: string | null = null;
-	let dragover: boolean = false;
+	let error: string | undefined = undefined;
 
 	let thumbnail: string;
 	let thumbnailName: string;
 
 	const allowed = ['jpg', 'jpeg', 'gif', 'png', 'apng'];
+	const dispatch = createEventDispatcher();
 
-	/**
-	 * Checks if the url is a direct link.
-	 * True = update variable with new value.
-	 * False = Show warning.
-	 */
+	// Checks if the url is a direct link.
+	// True = update variable with new value.
+	// False = Show warning.
 	const web = (): void => {
 		error = '';
-
-		const extension = new URL(value).pathname.split('.')[1];
-		if (!allowed.includes(extension) && value.length > 0) {
-			error = 'URL must be a direct link (ending in: jpg, jpeg, png, ect...';
+		try {
+			const extension = new URL(value).pathname.split('.')[1];
+			if (!allowed.includes(extension) && value.length > 0) {
+				error = 'URL must be a direct link (ending in: jpg, jpeg, png, ect...)';
+				return;
+			} else if (value.length > 0) {
+				updatePreview(value);
+			}
+		} catch (error) {
+			error = 'Must be a valid URL.';
 			return;
-		} else if (value.length > 0) {
-			updatePreview(value);
 		}
 	};
 
-	// User drops a file
-	const droppedFile = (e: DragEvent): void => {
-		prepareFile(e.dataTransfer!.files);
-	};
-	// User selects a file
-	const selectedFile = (e: any): void => {
-		prepareFile(e.target.files);
-	};
-
-	/**
-	 * Checks for:
-	 * - There is only 1 file.
-	 * - If the file is a image.
-	 *
-	 * Then places the current image inside the dragzone and displays a "upload"
-	 * button if a web host is chosen.
-	 */
-	const prepareFile = (_files: FileList): void => {
-		error = '';
-
-		const file = _files[0];
-
-		if (!allowed.includes(file.type.split('/')[1])) {
-			error = 'That file type is not supported. Try again.';
-		} else {
-			files = _files;
-
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.addEventListener('load', () => {
-				let img = new Image();
-				img.src = reader.result!.toString();
-
-				img.addEventListener('load', () => {
-					thumbnail = reader.result!.toString();
-					thumbnailName = file.name;
-				});
-			});
-		}
-	};
-
-	/**
-	 * Either upload the file to the desired web host or base64 the image.
-	 */
+	// Either upload the file to the desired web host or base64 the image.
 	const localFile = async (): Promise<void> => {
 		const file: File = files[0];
+		error = '';
 
 		if (uploadType === 'imgur') {
-			error = '';
 			fileUploading = true;
-
-			const formData = new FormData();
-			formData.append('image', file);
-
-			const req: any = await axios.post('https://api.imgur.com/3/image', formData, {
-				headers: {
-					Authorization: 'Client-ID 52c59e859f41ce2'
-				},
-				onUploadProgress(e) {
-					fileUploadProgress = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
-				}
-			});
-
-			let { link } = req.data.data;
-
-			value = link;
-
-			fileUploading = false;
-			fileUploadModal = false;
-			fileUploadProgress = 0;
-
-			updatePreview(link);
+			await imgur(file);
 		} else if (uploadType === 'b64') {
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.addEventListener('load', () => {
-				error = '';
-				updatePreview(reader.result);
-			});
-			fileUploadModal = false;
+			base64(file);
 		}
+	};
+
+	const imgur = async (file: File) => {
+		const formData = new FormData().append('image', file);
+
+		const { data }: any = await axios.post('https://api.imgur.com/3/image', formData, {
+			headers: {
+				Authorization: 'Client-ID 52c59e859f41ce2'
+			},
+			onUploadProgress: ({ lengthComputable, loaded, total }) => {
+				fileUploadProgress = lengthComputable ? (loaded / total) * 100 : 0;
+			}
+		});
+
+		value = data.link;
+
+		reset();
+		updatePreview(data.link);
+	};
+	const base64 = (file: File) => {
+		const reader = new FileReader();
+
+		reader.readAsDataURL(file);
+		reader.addEventListener('load', () => {
+			updatePreview(reader.result);
+		});
+		reader.addEventListener('error', (e) => {
+			error = 'Something went wrong while trying to read the image.';
+			console.error(e);
+		});
+
+		reset();
+	};
+
+	const reset = () => {
+		fileUploading = false;
+		fileUploadModal = false;
+		fileUploadProgress = 0;
 	};
 
 	$: if (value === 'transparent' && value === start) {
@@ -176,198 +140,82 @@
 	<div class="option-body">
 		<Select options={selectOptions} custom={false} on:update={setOption} />
 		{#if selectedOption === 'url'}
-			<Input placeholder="Image URL" {error} bind:value on:keyup={web} />
-			{#if error}
-				<small class="error">{error}</small>
-			{/if}
+			<Input placeholder="Image URL" {error} bind:value on:input={web} />
 		{:else if selectedOption === 'file'}
-			<Button type="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
+			<Button variant="primary" on:click={() => (fileUploadModal = true)}>Browse</Button>
+		{/if}
+		{#if selectedOption === 'transparent'}
+			<Banner type="info">
+				This requires the "Enable Transparency" option to be enabled in your BetterDiscord settings.
+			</Banner>
 		{/if}
 	</div>
-
-	<ModalRoot bind:visible={fileUploadModal} maxWidth={550}>
-		<ModalHeader title="How should we upload?" on:close={() => (fileUploadModal = false)} />
-		<ModalBody markdown={false}>
-			<RadioGroup>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'imgur'} value="imgur">
-					Imgur.com
-					<div
-						class="explain"
-						use:tooltip={{
-							content: `Uploading to Imgur will decrease the amount of lag but means your image is public.`
-						}}
-					>
-						<Question />
-					</div>
-				</RadioGroupItem>
-				<RadioGroupItem bind:group={uploadType} checked={uploadType === 'b64'} value="b64">
-					Inline encode (base64)
-					<div
-						class="explain"
-						use:tooltip={{
-							content: `Encoding with base64 will increase the amount of lag but means your image is private.`
-						}}
-					>
-						<Question />
-					</div>
-				</RadioGroupItem>
-			</RadioGroup>
-			<label
-				class="dropzone"
-				class:dragover
-				class:error
-				disabled={fileUploading}
-				on:dragover|preventDefault={() => (dragover = true)}
-				on:dragleave={() => (dragover = false)}
-				on:dragend={() => (dragover = false)}
-				on:drop|preventDefault={droppedFile}
-			>
-				{#if thumbnail && !error}
-					<div class="r16-9 dropzone-preview">
-						<div class="dropzone-thumb r16-9-item" style="background-image: url('{thumbnail}');" />
-						<div class="dropzone-filename">{thumbnailName}</div>
-					</div>
-				{:else}
-					<span class="dropzone-promt">{error || 'Drop image file here or click to upload'}</span>
-				{/if}
-				<input type="file" hidden bind:files on:change={selectedFile} />
-			</label>
-			{#if !error && thumbnail}
-				<div class="uploadArea">
-					{#if !fileUploading}
-						<Button type="primary" size="extralarge" long on:click={localFile}>
-							<svelte:fragment slot="iconL">
-								{#if uploadType === 'b64'}
-									<Check />
-								{:else}
-									<Upload />
-								{/if}
-							</svelte:fragment>
-							{uploadType === 'b64' ? 'Apply' : 'Upload'}
-						</Button>
-					{:else}
-						<div class="progress">
-							<div class="progress-text">
-								<p class="progress-status">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
-								<p class="progress-percentage">{fileUploadProgress.toFixed(2)}%</p>
-							</div>
-							<div class="progress-bar">
-								<div class="progress-bar-inner" style="width: {fileUploadProgress.toFixed(2)}%" />
-							</div>
-						</div>
-					{/if}
-				</div>
-			{/if}
-		</ModalBody>
-	</ModalRoot>
 </template>
+
+<Modal bind:visible={fileUploadModal} title="How should we upload?">
+	{#if fileUploading}
+		<div class="progress">
+			<div class="progress-bar" />
+			<p class="progress-text">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
+			<small class="progress-percentage">{fileUploadProgress.toFixed(2)}%</small>
+		</div>
+	{:else}
+		<RadioGroup value={uploadType} on:change={({ detail }) => (uploadType = detail)}>
+			<RadioGroupItem
+				value="imgur"
+				label="Imgur.com"
+				description="Uploading to Imgur will reduce the amount of lag on your client. But will leave you image open for anyone to see (if they guess the URL)."
+			/>
+			<RadioGroupItem
+				value="b64"
+				label="Inline encode (base64)"
+				description="Inline encoding will increase the amount of lag on your client. But means your image is private."
+			/>
+		</RadioGroup>
+		<hr class="divider" />
+		<Dropzone
+			bind:files
+			bind:thumbnail
+			bind:thumbnailName
+			allowed={['jpg', 'jpeg', 'gif', 'png', 'apng']}
+			message="Drop image file here or click to select"
+		/>
+		{#if !error && files?.[0]}
+			<Button variant="primary" size="large" long on:click={localFile}>
+				{#if uploadType === 'b64'}
+					<Icon src={Check} />
+				{:else}
+					<Icon src={ArrowUpTray} />
+				{/if}
+				{uploadType === 'b64' ? 'Apply' : 'Upload'}
+			</Button>
+		{/if}
+	{/if}
+</Modal>
 
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-body {
 			display: flex;
 			flex-direction: column;
-			gap: rem(8);
+			gap: 8px;
 		}
 	}
 
-	.dropzone {
-		$self: &;
-
-		padding: rem(32);
+	.progress {
+		position: relative;
+		padding: 64px 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		text-align: center;
-		border: rem(2) dashed var(--border);
-		margin-top: rem(16);
-		cursor: pointer;
-		border-radius: rem(4);
-		transition: 0.15s ease border-color;
-
-		&-promt {
-			font-size: rem(14);
-			transition: 0.15s ease color;
-			color: var(--text-tertiary);
-			user-select: none;
-			pointer-events: none;
-		}
-		&-preview {
-			overflow: hidden;
-			border-radius: rem(4);
-		}
-		&-thumb {
-			background-size: cover;
-			background-position: center;
-		}
-		&-filename {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: rem(8);
-			font-size: rem(14);
-			background: hsl(0 0% 0% / 0.8);
-			color: #fff;
-			text-shadow: 0 2px 4px hsl(0 0% 0%);
-		}
-
-		&:hover,
-		&.dragover {
-			border-color: var(--border-hover);
-			#{$self}-promt {
-				color: var(--text-secondary);
-			}
-		}
-		&.error {
-			border-color: hsl(var(--red));
-			#{$self}-promt {
-				color: hsl(var(--red));
-			}
-		}
-		&[disabled='true'] {
-			pointer-events: none;
-			user-select: none;
-		}
 	}
-	.explain {
-		width: rem(16);
-		height: rem(16);
-		margin-left: rem(8);
-	}
-	.uploadArea {
-		margin-top: rem(16);
-	}
-	.progress {
-		position: relative;
-		margin-top: rem(32);
-		&-text {
-			position: absolute;
-			top: calc(-100% - #{rem(8)});
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			font-size: rem(12);
-			color: var(--text-tertiary);
-		}
-		&-bar {
-			height: rem(10);
-			border-radius: rem(50);
-			background: var(--c5);
-			overflow: hidden;
-			&-inner {
-				height: 100%;
-				border-radius: inherit;
-				background: hsl(var(--accent));
-				transition: 0.15s ease width;
-			}
-		}
-	}
-	.error {
-		color: hsl(var(--red));
-		display: block;
+	.divider {
+		margin: 16px 0;
+		border: none;
+		height: 1px;
+		background: var(--border-alt);
 	}
 </style>

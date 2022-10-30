@@ -1,5 +1,5 @@
 import type { IAddon } from '$types/addon';
-import DevilBro from '$data/devs/devilbro';
+import DevilBro from '../devs/devilbro';
 
 const addon: IAddon = {
 	name: 'ServerColumns',

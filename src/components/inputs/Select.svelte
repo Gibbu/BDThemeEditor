@@ -1,13 +1,13 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
 	// Components
-	import {Select} from '$components/common/Select';
+	import { Select } from '$components/common';
 
 	// Required input vars
 	export let variable: string;
-	export let options: {label: string, value: string}[];
+	export let options: { label: string; value: string }[];
 	export let value: string;
 	export let title: string;
 
@@ -17,9 +17,9 @@
 	export let addon: boolean = false;
 	export let varGroup: string = ':root';
 
-	const update = ({detail: value}) => {
-		dispatch('update', {variable, value, addon, varGroup});
-	}
+	const update = ({ detail: value }: Record<string, any>) => {
+		dispatch('update', { variable, value, addon, varGroup });
+	};
 </script>
 
 <template>
@@ -37,11 +37,11 @@
 <style lang="scss">
 	.option {
 		&-header {
-			margin-bottom: rem(8);
+			margin-bottom: 8px;
 		}
 		&-hint {
 			display: block;
-			font-size: rem(13);
+			font-size: 13px;
 			color: var(--text-tertiary);
 		}
 	}
