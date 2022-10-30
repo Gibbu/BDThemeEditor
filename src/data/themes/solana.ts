@@ -209,7 +209,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Window',
-			icon: 'AdjustmentsHorizontal',
+			icon: 'Window',
 			inputs: [
 				{
 					type: 'image',
