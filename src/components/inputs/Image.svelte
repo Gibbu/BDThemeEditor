@@ -155,9 +155,13 @@
 <Modal bind:visible={fileUploadModal} title="How should we upload?">
 	{#if fileUploading}
 		<div class="progress">
-			<div class="progress-bar" />
-			<p class="progress-text">{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}</p>
-			<small class="progress-percentage">{fileUploadProgress.toFixed(2)}%</small>
+			<div class="progress-text">
+				<p class="progress-status" class:done={fileUploadProgress === 100}>
+					{fileUploadProgress != 100 ? 'Uploading...' : 'Upload complete'}
+				</p>
+				<small class="progress-percentage">{fileUploadProgress.toFixed(2)}%</small>
+			</div>
+			<div class="progress-bar" style="--bar-width: {fileUploadProgress.toFixed(2)}%;" />
 		</div>
 	{:else}
 		<RadioGroup value={uploadType} on:change={({ detail }) => (uploadType = detail)}>
@@ -211,6 +215,41 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
+		width: 75%;
+		margin: auto;
+		&-text {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			font-size: 14px;
+			margin-bottom: 8px;
+		}
+		&-status.done {
+			color: hsl(var(--green));
+		}
+		&-bar {
+			position: relative;
+			width: 100%;
+			height: 12px;
+			border-radius: 10px;
+			background: var(--background-primary);
+			overflow: hidden;
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: var(--bar-width);
+				border-radius: inherit;
+				background: hsl(var(--accent));
+				transition: 0.1s ease width;
+				max-width: 100%;
+			}
+		}
 	}
 	.divider {
 		margin: 16px 0;
