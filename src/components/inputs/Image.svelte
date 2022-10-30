@@ -77,6 +77,8 @@
 			}
 		});
 
+		console.log(data);
+
 		value = data.link;
 
 		reset();
