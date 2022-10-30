@@ -71,10 +71,13 @@
 			headers: {
 				Authorization: 'Client-ID 52c59e859f41ce2'
 			},
-			onUploadProgress: ({ lengthComputable, loaded, total }) => {
-				fileUploadProgress = lengthComputable ? (loaded / total) * 100 : 0;
+			onUploadProgress: (e) => {
+				fileUploadProgress = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
+				console.log(e);
 			}
 		});
+
+		console.log(data);
 
 		value = data.link;
 
