@@ -65,7 +65,8 @@
 	};
 
 	const imgur = async (file: File) => {
-		const formData = new FormData().append('image', file);
+		const formData = new FormData();
+		formData.append('image', file);
 
 		const { data }: any = await axios.post('https://api.imgur.com/3/image', formData, {
 			headers: {
@@ -73,11 +74,8 @@
 			},
 			onUploadProgress: (e) => {
 				fileUploadProgress = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
-				console.log(e);
 			}
 		});
-
-		console.log(data);
 
 		value = data.link;
 
