@@ -5,5 +5,5 @@
  * @param replace The character to replace the space with.
  */
 export default (str: string, replace: string = ''): string => {
-	return str.toLowerCase().replace(/ /g, replace);
+	return str.toLowerCase().replace(/[^a-zA-Z]| /g, replace);
 };

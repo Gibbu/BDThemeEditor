@@ -2,10 +2,15 @@
 	import NProgress from 'nprogress';
 	import { onDestroy } from 'svelte';
 	import { previewLoaded, previewer } from '$lib/stores';
+	import { PUBLIC_LOCAL_PREVIEWER } from '$env/static/public';
 
 	export let urls: string[] = [];
 
 	let iframe: HTMLIFrameElement;
+	const previewURL =
+		PUBLIC_LOCAL_PREVIEWER && PUBLIC_LOCAL_PREVIEWER === 'true'
+			? 'http://localhost:5500'
+			: 'https://gibbu.github.io/ThemePreview';
 
 	const load = () => {
 		$previewLoaded = true;
@@ -24,13 +29,7 @@
 				<small class="retry">If this takes longer than 1 minute, refresh your page.</small>
 			</div>
 		{/if}
-		<iframe
-			bind:this={iframe}
-			src="https://gibbu.github.io/ThemePreview/?file={urls.join('|')}"
-			title=""
-			frameborder="0"
-			on:load={load}
-		/>
+		<iframe bind:this={iframe} src="{previewURL}/?file={urls.join('|')}" title="" frameborder="0" on:load={load} />
 	</div>
 </template>
 

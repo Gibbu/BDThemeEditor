@@ -11,6 +11,8 @@ interface ThemeVars {
 	icon: string;
 	/** The bread and butter */
 	inputs: Inputs[];
+	/** Describe what this tab is indended for. */
+	description?: string;
 	/** Shows the profile modal when the tab is active */
 	userModal?: boolean;
 }

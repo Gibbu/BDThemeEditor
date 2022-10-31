@@ -38,13 +38,26 @@ interface ToggleModal {
 	action: 'toggleModal';
 	visible: boolean;
 }
+interface ToggleTheme {
+	action: 'toggleTheme';
+}
 
 /**
  * Send a `postMessage` to the previewer.
  * @param message The action and data to be used.
  */
 export const preview = (
-	message: SetPreview | Reset | SetProp | RemoveProperty | AddFont | RemoveFont | AddAddon | RemoveAddon | ToggleModal
+	message:
+		| SetPreview
+		| Reset
+		| SetProp
+		| RemoveProperty
+		| AddFont
+		| RemoveFont
+		| AddAddon
+		| RemoveAddon
+		| ToggleModal
+		| ToggleTheme
 ) => {
 	previewer.subscribe((e) => {
 		e?.contentWindow?.postMessage(JSON.stringify(message), '*');

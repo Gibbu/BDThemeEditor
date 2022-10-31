@@ -4,26 +4,21 @@
 	export let message: string;
 	export let thumbnail: string | undefined = undefined;
 	export let thumbnailName: string | undefined = undefined;
+	export let error: string | undefined = undefined;
 
 	export let files: FileList;
 	export let allowed: string[] = [];
 
 	const dispatch = createEventDispatcher();
-	let error: string | undefined = undefined;
 	let dragover: boolean = false;
-
-	const setFile = (e: DragEvent) => {
-		if (!e.dataTransfer) return;
-
-		files = e.dataTransfer.files;
-		droppedFile(e);
-	};
 
 	const droppedFile = ({ dataTransfer }: DragEvent) => {
 		if (!dataTransfer) {
 			error = 'There was an error while trying to read that file.';
 			return;
 		}
+		dragover = false;
+		files = dataTransfer.files;
 
 		prepareFile(dataTransfer.files[0]);
 	};
@@ -76,7 +71,7 @@
 		on:dragover|preventDefault={() => (dragover = true)}
 		on:dragleave={() => (dragover = false)}
 		on:dragend={() => (dragover = false)}
-		on:drop|preventDefault={setFile}
+		on:drop|preventDefault={droppedFile}
 	>
 		{#if thumbnail && !error}
 			<div class="content">
@@ -87,7 +82,7 @@
 			</div>
 		{:else}
 			<span class="message" class:error>
-				{error ?? message}
+				{error || message}
 			</span>
 		{/if}
 

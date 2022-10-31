@@ -10,6 +10,7 @@
 	import { tooltip } from 'svooltip';
 	import NProgress from 'nprogress';
 	import { preview } from '$lib/preview';
+	import { page } from '$app/stores';
 
 	import { Preview, Component, Download, Upload, Addons, OptionalImports } from '$components/editor';
 	import { MetaData, Modal, Button } from '$components/common';
@@ -32,6 +33,32 @@
 
 	const varGroups = theme.varGroups && theme.varGroups.length > 0 ? theme.varGroups : [];
 
+	const tabs: {
+		icon: IconSource;
+		label: string;
+		value: TabType;
+		enabled: boolean;
+	}[] = [
+		{ icon: Icons.CodeBracket, label: 'Variables', value: 'vars', enabled: true },
+		{
+			icon: Icons.CubeTransparent,
+			label: 'Optional Imports',
+			value: 'imports',
+			enabled: !!theme.optionalImports?.length
+		},
+		{ icon: Icons.PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length }
+	];
+	let activeTab: TabType = 'vars';
+	let activeVar: string = getSlug(theme.variables[0].title);
+	let fullscreen: boolean = false;
+	let devWarning: boolean = browser && localStorage.dev_warning;
+	const modals = {
+		back: false,
+		bug: false,
+		download: false,
+		upload: false
+	};
+
 	// Construct theme object
 	$store = {
 		name: theme.name,
@@ -48,6 +75,19 @@
 
 	onMount(() => {
 		$editorLoaded = true;
+
+		if ($page.url.searchParams.has('tab')) {
+			activeVar = getSlug($page.url.searchParams.get('tab')!);
+			theme.variables.find((el) => {
+				if (getSlug(el.title) === $page.url.searchParams.get('tab')! && el.userModal) {
+					preview({
+						action: 'toggleModal',
+						visible: true
+					});
+				}
+			});
+		}
+
 		preview({
 			action: 'setPreview',
 			text: theme.preview
@@ -74,34 +114,10 @@
 		});
 	});
 
-	const tabs: {
-		icon: IconSource;
-		label: string;
-		value: TabType;
-		enabled: boolean;
-	}[] = [
-		{ icon: Icons.CodeBracket, label: 'Variables', value: 'vars', enabled: true },
-		{
-			icon: Icons.CubeTransparent,
-			label: 'Optional Imports',
-			value: 'imports',
-			enabled: !!theme.optionalImports?.length
-		},
-		{ icon: Icons.PuzzlePiece, label: 'Addons', value: 'addons', enabled: !!theme.addons?.length }
-	];
-	let activeTab: TabType = 'vars';
-	let activeVar: number = 0;
-	let fullscreen: boolean = false;
-	let devWarning: boolean = browser && localStorage.dev_warning;
-	const modals = {
-		back: false,
-		bug: false,
-		download: false,
-		upload: false
-	};
-
-	const setVar = (i: number, modal: boolean | undefined) => {
-		activeVar = i;
+	const setVar = (title: string, modal: boolean | undefined) => {
+		activeVar = getSlug(title);
+		$page.url.searchParams.set('tab', getSlug(title));
+		window.history.pushState(null, '', $page.url.href);
 
 		preview({
 			action: 'toggleModal',
@@ -110,6 +126,11 @@
 	};
 	const toggleModal = (modal: keyof typeof modals) => {
 		modals[modal] = !modals[modal];
+	};
+	const toggleTheme = () => {
+		preview({
+			action: 'toggleTheme'
+		});
 	};
 	const getIcon = (icon: string) => {
 		const _icon = Icons[icon as keyof typeof Icons];
@@ -206,6 +227,10 @@
 				</div>
 			</div>
 			<div class="nav-right">
+				<button class="nav-btn" type="button" on:click={toggleTheme}>
+					<Icon src={Icons.Sun} />
+					Toggle Theme
+				</button>
 				<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
 					<Icon src={Icons.ArrowsPointingOut} />
 					{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
@@ -258,13 +283,13 @@
 					<section class="tab" class:active={activeTab === 'vars'}>
 						<div class="scroller">
 							<div class="vars scroller-inner">
-								{#each $store.variables as { icon, title, userModal }, i}
+								{#each $store.variables as { icon, title, userModal }}
 									<button
 										type="button"
 										class="vars-btn"
-										class:active={activeVar === i}
+										class:active={activeVar === getSlug(title)}
 										use:tooltip={{ content: title, placement: 'right', offset: 25 }}
-										on:click={() => setVar(i, userModal)}
+										on:click={() => setVar(title, userModal)}
 									>
 										<Icon src={getIcon(icon)} size="24px" />
 									</button>
@@ -273,7 +298,13 @@
 						</div>
 						<div class="scroller" style="flex: 1;">
 							{#each $store.variables as group, i}
-								<div class="scroller-inner vars-options padding" class:active={activeVar === i}>
+								<div class="scroller-inner vars-options padding" class:active={activeVar === getSlug(group.title)}>
+									<header class="vars-header">
+										<h4 class="vars-title">{group.title}</h4>
+										{#if group.description}
+											<p class="vars-description">{group.description}</p>
+										{/if}
+									</header>
 									{#each group.inputs as setting}
 										<div class="option">
 											<Component data={setting} />
@@ -346,6 +377,7 @@
 				bottom: -10px;
 				width: 100%;
 				height: 1px;
+				pointer-events: none;
 			}
 			&:hover {
 				background: var(--button-ghost-hover);
@@ -471,6 +503,7 @@
 				right: -8px;
 				height: 100%;
 				width: 1px;
+				pointer-events: none;
 			}
 			&:hover {
 				background: var(--button-ghost-hover);
@@ -493,6 +526,18 @@
 				flex-direction: column;
 				gap: 24px;
 			}
+		}
+		&-header {
+			padding-bottom: 24px;
+			border-bottom: 1px solid var(--border);
+		}
+		&-title {
+			font-family: var(--font-display);
+		}
+		&-description {
+			font-size: 14px;
+			color: var(--text-tertiary);
+			margin-top: 8px;
 		}
 	}
 

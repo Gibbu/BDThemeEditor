@@ -182,6 +182,7 @@
 			bind:files
 			bind:thumbnail
 			bind:thumbnailName
+			bind:error
 			allowed={['jpg', 'jpeg', 'gif', 'png', 'apng']}
 			message="Drop image file here or click to select"
 		/>

@@ -71,6 +71,7 @@ const theme: ITheme = {
 		{
 			title: 'Main background',
 			icon: 'Photo',
+			description: 'The main background covering most of the app.',
 			inputs: [
 				{
 					type: 'image',
@@ -89,7 +90,8 @@ const theme: ITheme = {
 						max: 30,
 						step: 1,
 						unit: 'px',
-						title: 'Blur'
+						title: 'Blur',
+						hint: 'The intensity of the blur inside of the app window.'
 					}
 				},
 				{
@@ -130,14 +132,14 @@ const theme: ITheme = {
 			]
 		},
 		{
-			title: 'Popout/Modal',
-			icon: 'Photo',
-			userModal: true,
+			title: 'User popout',
+			icon: 'Square2Stack',
+			description: 'The popout that appears when clicking on a user whether it being the members list or in chat.',
 			inputs: [
 				{
 					type: 'image',
 					details: {
-						variable: 'popout-modal-image',
+						variable: 'popout-image',
 						start: 'var(--background-image)',
 						value: '',
 						title: 'Popout modal image'
@@ -146,7 +148,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					details: {
-						variable: 'popout-modal-blur',
+						variable: 'popout-image-blur',
 						value: 5,
 						max: 30,
 						step: 1,
@@ -157,7 +159,7 @@ const theme: ITheme = {
 				{
 					type: 'select',
 					details: {
-						variable: 'popout-modal-size',
+						variable: 'popout-image-size',
 						value: 'cover',
 						options: [
 							{ label: 'Cover', value: 'cover' },
@@ -173,7 +175,70 @@ const theme: ITheme = {
 				{
 					type: 'select',
 					details: {
-						variable: 'popout-modal-position',
+						variable: 'popout-image-position',
+						value: 'center',
+						options: [
+							{ label: 'Top left', value: 'top left' },
+							{ label: 'Top centre', value: 'top center' },
+							{ label: 'Top right', value: 'top right' },
+							{ label: 'Centre left', value: 'center left' },
+							{ label: 'Centre', value: 'center' },
+							{ label: 'Centre right', value: 'center right' },
+							{ label: 'Bottom left', value: 'Bottom left' },
+							{ label: 'Bottom centre', value: 'Bottom center' },
+							{ label: 'Bottom right', value: 'bottom right' }
+						],
+						title: 'Position'
+					}
+				}
+			]
+		},
+		{
+			title: 'Overlaying modals/popouts',
+			icon: 'Window',
+			userModal: true,
+			description: `Any modal or popout that isn't the user popout.`,
+			inputs: [
+				{
+					type: 'image',
+					details: {
+						variable: 'overlay-image',
+						start: 'var(--background-image)',
+						value: '',
+						title: 'Popout modal image'
+					}
+				},
+				{
+					type: 'slider',
+					details: {
+						variable: 'overlay-image-blur',
+						value: 5,
+						max: 30,
+						step: 1,
+						unit: 'px',
+						title: 'Blur'
+					}
+				},
+				{
+					type: 'select',
+					details: {
+						variable: 'overlay-image-size',
+						value: 'cover',
+						options: [
+							{ label: 'Cover', value: 'cover' },
+							{ label: 'Contain', value: 'contain' },
+							{ label: 'Auto', value: 'auto' },
+							{ label: '100%', value: '100%' },
+							{ label: '150%', value: '150%' },
+							{ label: '200%', value: '200%' }
+						],
+						title: 'Size'
+					}
+				},
+				{
+					type: 'select',
+					details: {
+						variable: 'overlay-image-position',
 						value: 'center',
 						options: [
 							{ label: 'Top left', value: 'top left' },
@@ -194,6 +259,7 @@ const theme: ITheme = {
 		{
 			title: 'Home button',
 			icon: 'Home',
+			description: 'The image of the Discord home button.',
 			inputs: [
 				{
 					type: 'image',
@@ -244,6 +310,7 @@ const theme: ITheme = {
 		{
 			title: 'Brightness',
 			icon: 'Sun',
+			description: 'How dark parts of the app are. 0 meaning fully transparent, 1 meaning full black.',
 			inputs: [
 				{
 					type: 'slider',
@@ -302,6 +369,7 @@ const theme: ITheme = {
 		{
 			title: 'Colours',
 			icon: 'Swatch',
+			description: 'The colours used in the theme to give it a unique feel.',
 			inputs: [
 				{
 					type: 'colour',
@@ -357,6 +425,7 @@ const theme: ITheme = {
 		{
 			title: 'Backgrount tint',
 			icon: 'Cog6Tooth',
+			description: 'Add colour on top of your image.',
 			inputs: [
 				{
 					type: 'colour',
@@ -397,6 +466,7 @@ const theme: ITheme = {
 		{
 			title: 'App settings',
 			icon: 'CpuChip',
+			description: `Don't like the spacing around the app? Set both of these to 0.`,
 			inputs: [
 				{
 					type: 'slider',

@@ -368,7 +368,8 @@ const theme: ITheme = {
 							{ label: 'False', value: '0' },
 							{ label: 'True', value: '1' }
 						],
-						title: 'Chat bubbles'
+						title: 'Chat bubbles',
+						customValue: false
 					}
 				},
 				{
@@ -647,7 +648,8 @@ const theme: ITheme = {
 							{ label: 'False', value: '0' }
 						],
 						title: 'Enable blur',
-						hint: 'Forces blur variables to 0.'
+						hint: 'Forces blur variables to 0.',
+						customValue: false
 					}
 				}
 			]
