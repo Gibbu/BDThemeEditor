@@ -79,7 +79,7 @@ const theme: ITheme = {
 						variable: 'background-image',
 						start: 'https://i.imgur.com/kYW2H5C.jpg',
 						value: '',
-						title: 'Background image'
+						title: 'Image'
 					}
 				},
 				{

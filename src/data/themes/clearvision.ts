@@ -164,7 +164,7 @@ const theme: ITheme = {
 						variable: 'background-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'App background image'
+						title: 'Image'
 					}
 				},
 				{
@@ -331,7 +331,7 @@ const theme: ITheme = {
 						variable: 'user-popout-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'User popout image'
+						title: 'Image'
 					}
 				},
 				{
@@ -477,7 +477,7 @@ const theme: ITheme = {
 						variable: 'user-modal-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'User profile image'
+						title: 'Image'
 					}
 				},
 				{

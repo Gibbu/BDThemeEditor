@@ -77,7 +77,7 @@ const theme: ITheme = {
 						variable: 'background-image',
 						start: 'https://i.imgur.com/Nglfni6.png',
 						value: '',
-						title: 'Background Image',
+						title: 'Image',
 						comment: 'Background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif)'
 					}
 				},

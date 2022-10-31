@@ -13,7 +13,7 @@
 	import { page } from '$app/stores';
 
 	import { Preview, Component, Download, Upload, Addons, OptionalImports } from '$components/editor';
-	import { MetaData, Modal, Button } from '$components/common';
+	import { MetaData, Modal, Button, Banner } from '$components/common';
 
 	// types
 	import type { ITheme } from '$types/theme';
@@ -172,6 +172,7 @@
 </Modal>
 
 <Modal bind:visible={modals.bug} title="Found a bug with the editor?" size="small">
+	<Banner type="info">Remember, any bugs with the theme should be reported to their respected developers.</Banner>
 	<div class="bugs">
 		<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer noopener" class="bug">
 			<Icon src={Icons.ChatBubbleBottomCenterText} size="32px" />
@@ -227,10 +228,12 @@
 				</div>
 			</div>
 			<div class="nav-right">
-				<button class="nav-btn" type="button" on:click={toggleTheme}>
-					<Icon src={Icons.Sun} />
-					Toggle Theme
-				</button>
+				{#if theme.features && theme.features.includes('light')}
+					<button class="nav-btn" type="button" on:click={toggleTheme}>
+						<Icon src={Icons.Sun} />
+						Toggle Theme
+					</button>
+				{/if}
 				<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>
 					<Icon src={Icons.ArrowsPointingOut} />
 					{fullscreen ? 'Show controls' : 'Fullscreen Previewer'}
@@ -544,6 +547,7 @@
 	.bugs {
 		display: flex;
 		gap: 16px;
+		margin-top: 16px;
 	}
 	.bug {
 		flex: 1;
