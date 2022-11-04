@@ -7,8 +7,8 @@ const theme: ITheme = {
 	developer: Disease,
 	meta: {
 		name: 'Solana',
-		author: 'Disease#3749',
-		version: '1.0.0',
+		author: 'Disease#5663',
+		version: '1.0.11',
 		description: 'macOS with barely any customization.',
 		source: 'https://github.com/maenDisease/BetterDiscordStuff/tree/main/Themes/Solana',
 		invite: 'BShu37e4jg',
@@ -17,26 +17,24 @@ const theme: ITheme = {
 	},
 	preview: `
 		@import url(https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css);
-		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css);
+		@import url(https://maendisease.github.io/BetterDiscordStuff/css/ProfileBannerSkins.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css);
+		@import url(https://fonts.cdnfonts.com/css/sf-pro-display);
+		@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap);
 	`,
-	features: ['background', 'font', 'transparent', 'solid'],
+	features: ['background', 'font', 'transparent', 'solid', 'light', 'home'],
 	imports: [
 		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/bearableInbox.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css',
-		'https://maendisease.github.io/BetterDiscordStuff/css/ChannelDms.css',
-<<<<<<< HEAD
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css',
-		'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
-=======
-		'https://maendisease.github.io/BetterDiscordStuff/css/wellThisIsAwkwardSoTryThis.css'
 	],
 	optionalImports: [
+		{
+			name: 'BD Addon Mini',
+			description: 'Simplifies the appearance of BetterDiscord addon cards.',
+			imports: ['https://maendisease.github.io/BetterDiscordStuff/css/bdAddonMini.css'],
+			enabled: true
+		},
 		{
 			name: 'MacOS titlebar',
 			description: 'Changes the Windows titlebar to mimic the MacOS Discord style.',
@@ -49,11 +47,8 @@ const theme: ITheme = {
 			imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'],
 			enabled: true
 		}
->>>>>>> 336181f264fa7a1e2d3e835809548c26c4a06b0d
 	],
 	fonts: [
-		'https://fonts.cdnfonts.com/css/sf-pro-display',
-		'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap'
 	],
 	variables: [
 		{
@@ -186,7 +181,7 @@ const theme: ITheme = {
 						value: 80,
 						max: 100,
 						unit: '%',
-						title: 'Overlay opacity'
+						title: 'Background overlay opacity'
 					}
 				},
 				{
@@ -197,7 +192,7 @@ const theme: ITheme = {
 						min: -1,
 						max: 1,
 						step: 0.01,
-						title: 'Overlay lightness'
+						title: 'Background overlay lightness'
 					}
 				},
 				{
@@ -442,64 +437,6 @@ const theme: ITheme = {
 						step: 0.01,
 						title: 'Dock radius'
 					}
-<<<<<<< HEAD
-=======
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-show',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Auto-collapse icons',
-						hint: 'The icons will reappear on hover.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-unread',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-ping',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-selected',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread',
-						hint: 'Partially show when collapsed.'
-					}
-				},
-				{
-					type: 'slider',
-					details: {
-						variable: 'guildlist-peek-group-unread',
-						value: 1,
-						max: 1,
-						step: 0.01,
-						title: 'Peek unread folder',
-						hint: 'Partially show when collapsed.'
-					}
->>>>>>> 336181f264fa7a1e2d3e835809548c26c4a06b0d
 				}
 			]
 		},
