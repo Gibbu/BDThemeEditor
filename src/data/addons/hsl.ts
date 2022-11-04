@@ -1,5 +1,5 @@
 import type { IAddon } from '$types/addon';
-import Gibbu from '$data/devs/gibbu';
+import Gibbu from '../devs/gibbu';
 
 const addon: IAddon = {
 	name: 'Horizontal Server List',

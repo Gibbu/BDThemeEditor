@@ -1,9 +1,9 @@
 import type { ITheme } from '$types/theme';
-import Monster from '$data/devs/monster';
+import Monster from '../devs/monster';
+import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Tranquil',
-	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Tranquil.theme.css',
 	thumbnail:
 		'https://camo.githubusercontent.com/99be7dd5541e0d05b5161054bc5a526bee786055029c693a13f7e71fa3200109/68747470733a2f2f692e696d6775722e636f6d2f344576764463382e706e67',
 	developer: Monster,
@@ -16,12 +16,23 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/blob/master/theme-files/Tranquil.theme.css'
 	},
+	preview: `
+		@import "https://monstrousdev.github.io/themes/phoenix-bundle/tranquil.css";
+		:root { 
+			--roundness: 0px;
+			--main-color: #8d2036;
+			--hover-color: #6f182a;
+			--home-color: #eee;
+			--shadow: rgba(0,0,0,.4);
+		}
+	`,
+	features: ['solid', 'light', 'addons'],
 	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/tranquil.css'],
 	fonts: [],
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -55,7 +66,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'slider',
@@ -82,7 +93,7 @@ const theme: ITheme = {
 			]
 		}
 	],
-	addons: ['discolored']
+	addons: [discolored]
 };
 
 export default theme;

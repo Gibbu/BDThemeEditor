@@ -1,44 +1,42 @@
 <script lang="ts">
+	import NProgress from 'nprogress';
 	import { onDestroy } from 'svelte';
-	import { loaded, preview } from '$lib/stores';
+	import { previewLoaded, previewer } from '$lib/stores';
+	import { PUBLIC_LOCAL_PREVIEWER } from '$env/static/public';
 
-	export let url: string;
+	export let urls: string[] = [];
 
 	let iframe: HTMLIFrameElement;
+	const previewURL =
+		PUBLIC_LOCAL_PREVIEWER && PUBLIC_LOCAL_PREVIEWER === 'true'
+			? 'http://localhost:5500'
+			: 'https://gibbu.github.io/ThemePreview';
 
-	const onLoad = () => {
-		let getIframe = iframe.contentDocument!.body.parentElement!;
-
-		$preview = getIframe;
-		getIframe.querySelector('#import')!.textContent = `@import url("${url}")`;
-
-		$loaded = true;
+	const load = () => {
+		$previewLoaded = true;
+		NProgress.done();
+		$previewer = iframe;
 	};
-	onDestroy(() => ($loaded = false));
+	onDestroy(() => ($previewLoaded = false));
 </script>
 
 <template>
-	<div class="preview">
-		{#if !$loaded}
+	<div class="container">
+		{#if !$previewLoaded}
 			<div class="loader">
 				<div class="spinner" />
+				<p class="info">Previewer is loading...</p>
+				<small class="retry">If this takes longer than 1 minute, refresh your page.</small>
 			</div>
 		{/if}
-		<iframe
-			bind:this={iframe}
-			on:load={onLoad}
-			src="/preview/index.html?id={new Date().getTime()}"
-			title="preview"
-			frameborder="0"
-		/>
+		<iframe bind:this={iframe} src="{previewURL}/?file={urls.join('|')}" title="" frameborder="0" on:load={load} />
 	</div>
 </template>
 
 <style lang="scss">
-	.preview {
+	.container {
 		width: 100%;
 		height: 100%;
-		padding: rem(16);
 		position: relative;
 		iframe {
 			width: 100%;
@@ -46,21 +44,31 @@
 		}
 	}
 	.loader {
+		background: var(--background-secondary);
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: var(--c1);
+		inset: 0;
+		text-align: center;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
 		z-index: 1;
 	}
+	.info {
+		font-size: 24px;
+		margin: 64px 0 8px;
+		font-family: var(--font-display);
+		color: var(--text-primary);
+	}
+	.retry {
+		display: block;
+		font-size: 12px;
+		color: var(--text-tertiary);
+	}
 	.spinner {
-		width: rem(64);
-		height: rem(64);
-		border: rem(2) solid var(--text-primary);
+		width: 64px;
+		height: 64px;
+		border: 4px solid var(--text-primary);
 		border-top-color: transparent;
 		border-radius: 50%;
 		animation: spinner 1s linear infinite;

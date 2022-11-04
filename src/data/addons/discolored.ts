@@ -1,5 +1,5 @@
 import type { IAddon } from '$types/addon';
-import Nyria from '$data/devs/nyria';
+import Nyria from '../devs/nyria';
 
 const addon: IAddon = {
 	name: 'Discolored',

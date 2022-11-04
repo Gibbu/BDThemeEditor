@@ -1,70 +1,157 @@
 <script lang="ts">
+	import { uid } from '$lib/utils';
+
 	export let value: string | number = '';
 
 	/**
-	 * Input type.
+	 * Input type.\
 	 * Default = `text`
 	 */
-	export let inputType: 'text' | 'number' = 'text';
+	export let type: 'text' | 'number' = 'text';
 
+	/** Placeholder of the input */
 	export let placeholder: string | null = null;
 
-	export let error: any = null;
+	/** The error message to be displayed under the input if available. */
+	export let error: string | undefined = undefined;
 
-	/** Minimum number when the `inputType` is set to `number` */
+	/** Minimum number when the `type` is set to `number` */
 	export let min: number = 0;
 
-	/** Maximum number when the `inputType` is set to `number` */
+	/** Maximum number when `type` is set to `number` */
 	export let max: number | undefined = undefined;
 
+	/** The step between numbers when `type` is set to `number` */
 	export let step: number | undefined = undefined;
+
+	export let self: HTMLInputElement | undefined = undefined;
+
+	export let label: string | undefined = undefined;
+	export let suffix: string | undefined = undefined;
+
+	const { id } = uid('textbox');
 </script>
 
 <template>
-	{#if inputType === 'text'}
-		<input type="text" class="input" class:error {placeholder} bind:value on:change on:input on:keyup />
-	{:else}
-		<input
-			type="number"
-			class="input"
-			class:error
-			{placeholder}
-			{min}
-			{max}
-			{step}
-			bind:value
-			on:change
-			on:input
-			on:keyup
-		/>
-	{/if}
+	<div id={id()} class="container">
+		{#if label}
+			<label for={id('input')} class="label">
+				{label}
+				{#if suffix}
+					<small class="suffix">({suffix})</small>
+				{/if}
+			</label>
+		{/if}
+		{#if type === 'text'}
+			<input
+				bind:this={self}
+				id={id('input')}
+				type="text"
+				class="input"
+				class:error
+				{placeholder}
+				bind:value
+				on:change
+				on:input
+				on:keyup
+			/>
+		{:else}
+			<input
+				bind:this={self}
+				id={id('input')}
+				type="number"
+				class="input"
+				class:error
+				{placeholder}
+				{min}
+				{max}
+				{step}
+				bind:value
+				on:change
+				on:input
+				on:keyup
+			/>
+		{/if}
+		{#if error}
+			<small class="message">{error}</small>
+		{/if}
+	</div>
 </template>
 
 <style lang="scss">
+	.container {
+		position: relative;
+	}
+	.label {
+		display: inline-flex;
+		align-items: center;
+		margin-bottom: 8px;
+	}
+	.suffix {
+		color: var(--text-tertiary);
+		margin-left: 4px;
+		font-size: 12px;
+	}
+
 	.input {
-		height: rem(38);
-		border-radius: rem(4);
-		font-size: rem(14);
-		border: rem(1) solid var(--border);
-		padding: 0 rem(12);
-		background: transparent;
+		border-radius: var(--text-input-roundness);
+		border: 1px solid var(--border);
+		background-color: var(--background-secondary-alt);
+		color: var(--text-secondary);
+		font-weight: 500;
+		transition: 0.1s ease;
 		width: 100%;
-		transition: 0.15s ease border-color, 0.15s ease color, 0.15s ease box-shadow;
-		&:hover {
-			border-color: var(--border-hover);
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		color: var(--text-primary);
+		outline-offset: 2px;
+		border-radius: 6px;
+		font-size: 14px;
+		outline: 0px solid transparent;
+		height: 36px;
+		padding: 0 12px;
+
+		// Interaction states
+		&:not(:disabled, .error) {
+			&:hover {
+				border-color: var(--border-alt);
+			}
+			&:focus {
+				border-color: hsl(var(--accent));
+				outline: 3px solid hsl(var(--accent) / 0.25);
+			}
 		}
-		&:focus {
-			border-color: hsl(var(--accent));
-			box-shadow: 0 0 0 5px hsl(var(--accent) / 0.2);
-			color: var(--text-primary);
+
+		// Placeholders
+		&::placeholder {
+			color: var(--text-tertiary);
+			opacity: 0.75;
+			user-select: none;
+		}
+
+		// Disbaled state
+		&:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		&::placeholder {
+			color: var(--text-tertiary);
+			overflow: 0.75;
 		}
 
 		&.error {
 			border-color: hsl(var(--red));
 			&:focus {
 				border-color: hsl(var(--red));
-				box-shadow: 0 0 0 5px hsl(var(--red) / 0.2);
+				outline: 3px solid hsl(var(--red) / 0.25);
 			}
 		}
+	}
+	.message {
+		color: hsl(var(--red));
+		display: block;
+		margin-top: 4px;
 	}
 </style>

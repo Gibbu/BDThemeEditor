@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { THEME, preview } from '$lib/stores';
+	import { store } from '$lib/stores';
 	import { varOutput } from '$lib/helpers';
+	import { preview } from '$lib/preview';
 
 	import { Colour, Font, Image, Slider, Select, Number } from '../inputs';
 
@@ -20,32 +21,32 @@
 		number: Number
 	};
 
-	export let data: {
-		type: string;
-		details: Record<string, any>;
+	export let data: any;
+
+	const getType = (type: string) => {
+		return inputs[type as keyof typeof inputs];
 	};
 
 	const update = ({ detail }: { detail: Details }): void => {
 		let { variable, value, addon } = detail;
 
-		$preview.style.setProperty(`--${variable}`, varOutput(detail).value);
+		preview({
+			action: 'setProp',
+			value: varOutput(detail).value,
+			variable
+		});
 
 		if (addon) {
-			$THEME.addons.forEach((group) => {
-				if (group.variables) {
+			$store.addons.forEach((group) => {
+				if (group.variables)
 					group.variables.forEach((input) => {
-						if (input.details.variable === variable) {
-							input.details.value = value;
-						}
+						if (input.details.variable === variable) input.details.value = value;
 					});
-				}
 			});
 		} else {
-			$THEME.variables.forEach((group) =>
+			$store.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
-					if (input.details.variable === variable) {
-						input.details.value = value;
-					}
+					if (input.details.variable === variable) input.details.value = value;
 				})
 			);
 		}
@@ -53,5 +54,5 @@
 </script>
 
 <template>
-	<svelte:component this={inputs[data.type]} {...data.details} on:update={update} />
+	<svelte:component this={getType(data.type)} {...data.details} on:update={update} />
 </template>

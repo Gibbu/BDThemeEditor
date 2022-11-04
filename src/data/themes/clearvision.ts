@@ -1,9 +1,9 @@
 import type { ITheme } from '$types/theme';
-import ClearVision from '$data/devs/clearvision';
+import ClearVision from '../devs/clearvision';
+import { hsl, columns, radialstatus, discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Clear Vision',
-	previewUrl: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/ClearVision_v6.theme.css',
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
 	developer: ClearVision,
 	meta: {
@@ -15,12 +15,96 @@ const theme: ITheme = {
 		website: 'https://clearvision.github.io',
 		invite: '7pNUC9C'
 	},
+	preview: `
+		@import url(https://clearvision.github.io/ClearVision-v6/main.css);
+		:root {
+			--main-color: #2780e6;
+			--hover-color: #1e63b3;
+			--success-color: #43b581;
+			--danger-color: #982929;
+			--url-color: var(--main-color);
+			--online-color: #43b581;
+			--idle-color: #faa61a;
+			--dnd-color: #982929;
+			--streaming-color: #593695;
+			--offline-color: #808080;
+			--main-font: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+			--code-font: Consolas, Liberation Mono, Menlo, Courier, monospace;
+			--text-normal: rgb(220, 221, 222);
+			--text-muted: rgb(114, 118, 125);
+			--channels-width: 220px;
+			--members-width: 240px;
+			--background-shading: 100%;
+			--background-overlay: rgba(0, 0, 0, 0.6);
+			--background-image: url(https://clearvision.github.io/images/sapphire.jpg);
+			--background-position: center;
+			--background-size: cover;
+			--background-repeat: no-repeat;
+			--background-attachment: fixed;
+			--background-brightness: 100%;
+			--background-contrast: 100%;
+			--background-saturation: 100%;
+			--background-invert: 0%;
+			--background-grayscale: 0%;
+			--background-sepia: 0%;
+			--background-blur: 0px;
+			--home-icon: url(https://clearvision.github.io/icons/discord.svg);
+			--home-position: center;
+			--home-size: 40px;
+			--channel-unread: var(--main-color);
+			--channel-color: rgba(255, 255, 255, 0.3);
+			--channel-text-selected: #fff;
+			--muted-color: rgba(255, 255, 255, 0.1);
+			--backdrop-overlay: rgba(0, 0, 0, 0.8);
+			--backdrop-image: var(--background-image);
+			--backdrop-position: var(--background-position);
+			--backdrop-size: var(--background-size);
+			--backdrop-repeat: var(--background-repeat);
+			--backdrop-attachment: var(--background-attachment);
+			--backdrop-brightness: var(--background-brightness);
+			--backdrop-contrast: var(--background-contrast);
+			--backdrop-saturation: var(--background-saturation);
+			--backdrop-invert: var(--background-invert);
+			--backdrop-grayscale: var(--background-grayscale);
+			--backdrop-sepia: var(--background-sepia);
+			--backdrop-blur: var(--background-blur);
+			--user-popout-image: var(--background-image);
+			--user-popout-position: var(--background-position);
+			--user-popout-size: var(--background-size);
+			--user-popout-repeat: var(--background-repeat);
+			--user-popout-attachment: var(--background-attachment);
+			--user-popout-brightness: var(--background-brightness);
+			--user-popout-contrast: var(--background-contrast);
+			--user-popout-saturation: var(--background-saturation);
+			--user-popout-invert: var(--background-invert);
+			--user-popout-grayscale: var(--background-grayscale);
+			--user-popout-sepia: var(--background-sepia);
+			--user-popout-blur: calc(var(--background-blur) + 3px);
+			--user-popout-overlay: rgba(0, 0, 0, 0.6);
+			--user-modal-image: var(--background-image);
+			--user-modal-position: var(--background-position);
+			--user-modal-size: var(--background-size);
+			--user-modal-repeat: var(--background-repeat);
+			--user-modal-attachment: var(--background-attachment);
+			--user-modal-brightness: var(--background-brightness);
+			--user-modal-contrast: var(--background-contrast);
+			--user-modal-saturation: var(--background-saturation);
+			--user-modal-invert: var(--background-invert);
+			--user-modal-grayscale: var(--background-grayscale);
+			--user-modal-sepia: var(--background-sepia);
+			--user-modal-blur: calc(var(--background-blur) + 3px);
+			--bd-blue: var(--main-color);
+			--bd-blue-hover: var(--hover-color);
+			--bd-blue-active: var(--hover-color);
+		}
+	`,
+	features: ['background', 'transparent', 'addons', 'font', 'home'],
 	imports: ['https://clearvision.github.io/ClearVision-v6/main.css'],
 	fonts: [],
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -72,7 +156,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'App background',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -80,7 +164,7 @@ const theme: ITheme = {
 						variable: 'background-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'App background image'
+						title: 'Image'
 					}
 				},
 				{
@@ -239,7 +323,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'User popout',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -247,7 +331,7 @@ const theme: ITheme = {
 						variable: 'user-popout-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'User popout image'
+						title: 'Image'
 					}
 				},
 				{
@@ -384,7 +468,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'User profile',
-			icon: 'Person',
+			icon: 'User',
 			userModal: true,
 			inputs: [
 				{
@@ -393,7 +477,7 @@ const theme: ITheme = {
 						variable: 'user-modal-image',
 						start: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
-						title: 'User profile image'
+						title: 'Image'
 					}
 				},
 				{
@@ -571,7 +655,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Channel colours',
-			icon: 'List',
+			icon: 'ListBullet',
 			inputs: [
 				{
 					type: 'colour',
@@ -608,7 +692,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Status colours',
-			icon: 'Status',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'colour',
@@ -659,7 +743,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Custom fonts',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
@@ -683,7 +767,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'number',
@@ -772,7 +856,7 @@ const theme: ITheme = {
 			value: 'var(--hover-color)'
 		}
 	],
-	addons: ['rs', 'columns', 'hsl', 'discolored']
+	addons: [radialstatus, hsl, columns, discolored]
 };
 
 export default theme;

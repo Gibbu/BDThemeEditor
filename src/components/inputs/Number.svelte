@@ -1,10 +1,9 @@
 <script lang="ts">
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-
 	// Components
-	import {Input} from '$components/common/Input';
+	import { Input } from '$components/common';
 
 	// Required input vars
 	export let variable: string;
@@ -24,48 +23,26 @@
 	const update = (): void => {
 		if (!/^\d*\.?\d*$/.test(value)) {
 			error = 'This input field can only contain numbers.';
-		} else {
-			error = '';
-			dispatch('update', {variable, value, addon, unit, varGroup});
+			return;
 		}
-	}
+
+		error = '';
+		dispatch('update', { variable, value, addon, unit, varGroup });
+	};
 </script>
 
 <template>
-	<header class="option-header">
-		<p class="option-title">
-			{title}
-			<small class="option-value">({value+unit})</small>
-		</p>
-		{#if hint}
-			<div class="option-hint">{hint}</div>
-		{/if}
-	</header>
-	<div class="option-body">
-		<Input inputType="number" {min} {step} bind:value on:input={update} {error} />
-		{#if error}
-			<small class="option-error">{error}</small>
-		{/if}
-	</div>
+	<Input type="number" {min} {step} bind:value on:input={update} {error} label={title} suffix={value + unit} />
+	{#if hint}
+		<div class="option-hint">{hint}</div>
+	{/if}
 </template>
 
 <style lang="scss">
 	.option {
-		&-header {
-			margin-bottom: rem(8);
-		}
-		&-error {
-			color: hsl(var(--red));
-			font-size: rem(12);
-			margin-top: rem(4);
-		}
-		&-value {
-			color: var(--text-tertiary);
-			margin-left: rem(4);
-		}
 		&-hint {
 			display: block;
-			font-size: rem(13);
+			font-size: 13px;
 			color: var(--text-tertiary);
 		}
 	}
