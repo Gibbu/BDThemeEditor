@@ -3,8 +3,10 @@
 
 	import { getSlug } from '$lib/utils';
 	import { MetaData, Input, Checkbox } from '$components/common';
+	import { Developer } from '$components/editor';
 
 	import type { Feature } from '$types/theme';
+	import type { IDev } from '$types/dev';
 
 	let search: string = '';
 	let selectedFeatures: Feature[] = [];
@@ -22,6 +24,8 @@
 		{ value: 'home', label: 'Home button', description: 'Support for a custom home button image.' }
 	];
 	let searchEl: HTMLInputElement;
+	let developer: IDev;
+	let developerModal: boolean = false;
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -42,6 +46,10 @@
 		if (selectedFeatures.includes(value)) selectedFeatures = selectedFeatures.filter((el) => el !== value);
 		else selectedFeatures = [...selectedFeatures, value];
 	};
+	const setDeveloper = (dev: IDev) => {
+		developer = dev;
+		developerModal = true;
+	};
 
 	const handleKeys = (e: KeyboardEvent) => {
 		if (e.key === '/') {
@@ -56,6 +64,8 @@
 
 <MetaData title="Themes" />
 <svelte:window on:keydown={handleKeys} />
+
+<Developer bind:visible={developerModal} {developer} />
 
 <template>
 	<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
@@ -90,19 +100,14 @@
 							<a {href} class="theme-name">{theme.name}</a>
 							<p class="theme-description truncate">{theme.meta.description}</p>
 						</div>
-						<a
-							href="https://github.com/{theme.developer.github}"
-							target="_blank"
-							rel="noreferrer noopener"
-							class="developer"
-						>
+						<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
 							<img
 								src="https://github.com/{theme.developer.github}.png"
 								alt="Theme developer"
 								class="developer-avatar"
 							/>
 							<span class="developer-name">{theme.developer.name}</span>
-						</a>
+						</button>
 					</div>
 				</div>
 			{/each}
@@ -208,7 +213,7 @@
 		}
 	}
 	.developer {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: 8px;
 		&-avatar {

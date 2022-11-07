@@ -6,11 +6,12 @@
 	import { trap, portal } from '$lib/actions';
 
 	export let visible: boolean = false;
-	export let title: string;
+	export let title: string | undefined = undefined;
 	export let description: string | undefined = undefined;
 	export let size: 'small' | 'medium' | 'large' = 'medium';
 	export let markdown: boolean = false;
 	export let closeable: boolean = true;
+	export let plain: boolean = false;
 
 	const { id } = uid('modal');
 
@@ -38,18 +39,21 @@
 			<div
 				id={id()}
 				class={classes('modal', size)}
+				class:plain
 				role="dialog"
 				aria-modal="true"
 				aria-labelledby={id('title')}
 				aria-describedby={description ? id('description') : id('body')}
 				transition:fly={{ duration: 150, y: 10 }}
 			>
-				<header class="header">
-					<h2 id={id('title')} class="title">{title}</h2>
-					{#if description}
-						<p id={id('description')}>{description}</p>
-					{/if}
-				</header>
+				{#if title || !plain}
+					<header class="header">
+						<h2 id={id('title')} class="title">{title}</h2>
+						{#if description}
+							<p id={id('description')}>{description}</p>
+						{/if}
+					</header>
+				{/if}
 				<div id={id('body')} class="body" class:markdown>
 					<slot />
 				</div>
@@ -93,6 +97,11 @@
 		&.large {
 			width: 750px;
 		}
+		&:not(.plain) {
+			.body {
+				padding: 0 20px 20px;
+			}
+		}
 	}
 	.header {
 		padding: 20px;
@@ -106,7 +115,6 @@
 		margin-top: 4px;
 	}
 	.body {
-		padding: 0 20px 20px;
 		max-height: 90vh;
 		overflow: hidden auto;
 	}

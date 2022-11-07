@@ -12,7 +12,7 @@
 	import { preview } from '$lib/preview';
 	import { page } from '$app/stores';
 
-	import { Preview, Component, Download, Upload, Addons, OptionalImports } from '$components/editor';
+	import { Preview, Component, Download, Upload, Addons, OptionalImports, Developer } from '$components/editor';
 	import { MetaData, Modal, Button, Banner } from '$components/common';
 
 	// types
@@ -56,7 +56,8 @@
 		back: false,
 		bug: false,
 		download: false,
-		upload: false
+		upload: false,
+		developer: false
 	};
 
 	// Construct theme object
@@ -189,6 +190,8 @@
 
 <Upload bind:visible={modals.upload} />
 
+<Developer bind:visible={modals.developer} developer={theme.developer} />
+
 <template>
 	<div class="editor" class:fullscreen>
 		<nav class="nav">
@@ -224,6 +227,11 @@
 					<button type="button" class="nav-btn" on:click={() => toggleModal('download')}>
 						<Icon src={Icons.ArrowDownTray} />
 						Download
+					</button>
+					<div class="nav-divider" />
+					<button type="button" class="nav-btn" on:click={() => toggleModal('developer')}>
+						<img src="https://github.com/{theme.developer.github}.png" alt="Avatar" class="developer-avatar" />
+						<span class="developer-name">{theme.developer.name}</span>
 					</button>
 				</div>
 			</div>
@@ -367,7 +375,8 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
-			padding: 8px 12px;
+			padding: 0 12px;
+			height: 38px;
 			border-radius: var(--radius);
 			position: relative;
 			:global(svg) {
@@ -377,7 +386,7 @@
 				content: '';
 				position: absolute;
 				left: 0;
-				bottom: -10px;
+				bottom: -9px;
 				width: 100%;
 				height: 1px;
 				pointer-events: none;
@@ -406,6 +415,18 @@
 			gap: 8px;
 			display: flex;
 			align-items: center;
+		}
+		&-divider {
+			height: 50%;
+			width: 1px;
+			background: var(--border);
+		}
+	}
+	.developer {
+		&-avatar {
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
 		}
 	}
 	.back {

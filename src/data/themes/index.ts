@@ -14,12 +14,12 @@ export const themes = [
 	softx,
 	basicbackground,
 	clearvision,
-	reborn,
-	tranquil,
-	discordrecolor,
 	comfy,
 	solana,
-	materialdesign
+	materialdesign,
+	discordrecolor,
+	reborn,
+	tranquil
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
