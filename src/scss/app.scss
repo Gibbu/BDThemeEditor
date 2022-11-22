@@ -1,66 +1,120 @@
-@use 'functions' as *;
 @use 'utils';
 
 :root {
-	--accent: 159 79% 56%;
-	--accent-dark: 159 70% 42%;
+	// Colours
+	--hue: 158;
+	--accent: var(--hue) 79% 56%;
+	--accent-dark: var(--hue) 70% 42%;
 
 	--yellow: 27 96% 61%;
 	--red: 0 84% 60%;
 	--green: 142 71% 45%;
+	--blue: 217 91% 60%;
 
-	--c0: hsl(0 0% 6%);
-	--c1: hsl(0 0% 10%);
-	--c2: hsl(0 0% 12%);
-	--c3: hsl(0 0% 14%);
-	--c4: hsl(0 0% 16%);
-	--c5: hsl(0 0% 18%);
-	--c6: hsl(0 0% 20%);
-	--c7: hsl(0 0% 22%);
-	--c8: hsl(0 0% 24%);
+	// Fonts
+	--font-body: 'Inter', 'Roboto', Arial, sans-serif;
+	--font-display: 'Manrope', var(--font-body);
 
-	--bg: var(--c1);
-	--bg-alt: var(--c1);
+	// Radius
+	--radius-sm: 2px;
+	--radius: 4px;
+	--radius-lg: 8px;
 
-	--text-primary: hsl(0 0% 100%);
-	--text-secondary: hsl(0 0% 80%);
-	--text-tertiary: hsl(0 0% 50%);
+	// Editor
+	--editor-nav-height: 56px;
+	--editor-sidebar-width: 500px;
+	--editor-vars-width: 64px;
 
-	--border: var(--c4);
-	--border-hover: var(--c8);
-
-	--card: var(--c2);
-	--card-border: var(--c4);
-	--card-hover: var(--c4);
-
-	--nav-hover: var(--c3);
-	--nav-active: var(--c4);
-
+	// Codeblocks
 	--syntax-purple: hsl(279 58% 66%);
 	--syntax-teal: hsl(184 67% 44%);
 	--syntax-red: hsl(346 77% 63%);
 	--syntax-orange-1: hsl(9 78% 73%);
 	--syntax-orange-2: hsl(20 91% 78%);
 	--syntax-orange-3: hsl(25 91% 79%);
+
+	// Primary backgrounds
+	--background-primary: hsl(0 0% 19%);
+	--background-primary-alt: hsl(0 0% 16%);
+
+	--background-secondary: hsl(0 0% 14.5%);
+	--background-secondary-alt: hsl(0 0% 13%);
+
+	--background-tertiary: hsl(0 0% 11%);
+	--background-tertiary-alt: hsl(0 0% 9.5%);
+
+	--background-quaternary: hsl(0 0% 3.5%);
+
+	// Foreground background
+	--foreground-primary: hsl(0 15% 25%);
+	--foreground-secondary: hsl(0 15% 21%);
+	--foreground-tertiary: hsl(0 15% 19%);
+
+	// Input background
+	--button-secondary: hsl(0 0% 50% / 0.1);
+	--button-secondary-hover: hsl(0 0% 50% / 0.15);
+	--button-ghost-hover: hsl(0 0% 100% / 0.025);
+
+	// Other backgrounds
+	--background-main: var(--background-tertiary-alt);
+	--border: hsl(0 0% 100% / 0.05);
+	--border-alt: hsl(0 0% 100% / 0.15);
+
+	// Text Colours
+	--text-primary: hsl(0 0% 100%);
+	--text-secondary: hsl(0 0% 76%);
+	--text-tertiary: hsl(0 0% 55%);
+	--text-link: hsl(var(--hue) 54% 58%);
+
+	// Accent colours
+	--accent: var(--hue) 78% 55%;
+	--accent-alt: var(--hue) 78% 55%;
+	--accent-hover: var(--hue) 60% 50%;
+	--accent-text: 0 0% 0%;
+
+	// Other vars
+	--modal-backdrop: hsl(0 0% 0% / 0.75);
+	--shadow: 0 5px 15px hsl(0 0% 0% / 0.35);
+	--accent-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
 }
 
 ::selection {
 	background: hsl(var(--accent));
 	color: #000;
-	text-shadow: 0 2px 5px hsl(0 0% 0% / 0.4);
+	text-shadow: var(--accent-shadow);
 }
 
 html {
-	overflow: hidden;
+	overflow: auto;
+	overflow: overlay;
+	scroll-behavior: smooth;
+	&.modal-active {
+		overflow: hidden !important;
+	}
 }
+
 body {
-	background: var(--bg);
-	font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
+	background-color: var(--background-main);
+	font-family: var(--font-body);
 	color: var(--text-secondary);
 }
 
-#svelte {
+// Always bottom footer
+body,
+#page {
+	min-height: 100vh;
+	height: auto;
+}
+
+#page {
 	display: flex;
-	height: 100vh;
-	width: 100vw;
+	flex-direction: column;
+}
+
+#content {
+	flex: 1 0 auto;
+}
+
+#footer {
+	flex-shrink: 0;
 }

@@ -1,9 +1,9 @@
 import type { ITheme } from '$types/theme';
-import DevilBro from '$data/devs/devilbro';
+import DevilBro from '../devs/devilbro';
+import { hsl, columns, radialstatus } from '../addons';
 
 const theme: ITheme = {
 	name: 'DiscordRecolor',
-	previewUrl: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.theme.css',
 	thumbnail: 'https://i.imgur.com/dF6Ic4U.png',
 	developer: DevilBro,
 	meta: {
@@ -18,12 +18,39 @@ const theme: ITheme = {
 		website: 'https://mwittrien.github.io/',
 		source: 'https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/DiscordRecolor/'
 	},
+	preview: `
+		@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css);
+		:root {
+			--font: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+			--settingsicons: 1;
+			--accentcolor: 88,101,242;
+			--accentcolor2: 255,115,250;
+			--linkcolor: 0,176,244;
+			--mentioncolor: 250,166,26;
+			--successcolor: 59,165,92;
+			--warningcolor: 250,166,26;
+			--dangercolor: 237,66,69;
+			--textbrightest: 255,255,255;
+			--textbrighter: 222,222,222;
+			--textbright: 185,185,185;
+			--textdark: 140,140,140;
+			--textdarker: 115,115,115;
+			--textdarkest: 80,80,80;
+			--backgroundaccent: 50,50,50;
+			--backgroundprimary: 30,30,30;
+			--backgroundsecondary: 20,20,20;
+			--backgroundsecondaryalt: 15,15,15;
+			--backgroundtertiary: 10,10,10;
+			--backgroundfloating: 0,0,0;	
+		}
+	`,
+	features: ['solid', 'addons'],
 	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'],
 	fonts: [],
 	variables: [
 		{
 			title: 'Colors',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -67,7 +94,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Text',
-			icon: 'Font',
+			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'colour',
@@ -135,7 +162,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Background colours',
-			icon: 'Colour',
+			icon: 'PaintBrush',
 			inputs: [
 				{
 					type: 'colour',
@@ -195,7 +222,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'select',
@@ -212,7 +239,8 @@ const theme: ITheme = {
 				}
 			]
 		}
-	]
+	],
+	addons: [hsl, radialstatus, columns]
 };
 
 export default theme;

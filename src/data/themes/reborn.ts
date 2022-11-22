@@ -1,9 +1,9 @@
 import type { ITheme } from '$types/theme';
-import Monster from '$data/devs/monster';
+import Monster from '../devs/monster';
+import { discolored } from '../addons';
 
 const theme: ITheme = {
 	name: 'Reborn',
-	previewUrl: 'https://monstrousdev.github.io/themes/theme-files/Reborn.theme.css',
 	thumbnail:
 		'https://camo.githubusercontent.com/737a92652884703c623bf8093f8bdf5121741375/68747470733a2f2f692e696d6775722e636f6d2f303943635242462e6a7067',
 	developer: Monster,
@@ -16,12 +16,28 @@ const theme: ITheme = {
 		authorId: '402272736665272320',
 		source: 'https://github.com/monstrousdev/themes/theme-files/Reborn.theme.css'
 	},
+	preview: `
+		@import "https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css";
+		:root {
+			--roundness: 50px;
+			--main-color: #007dbd;
+			--hover-color: #03679b;
+			--home-color: #eee;
+			--home-size: 24px;
+			--shadow: rgba(0,0,0,.4);
+			--background-image: url(https://s-media-cache-ak0.pinimg.com/originals/60/c4/bb/60c4bb55215c989b15b0fe144c73cf82.jpg);
+			--background-blur: 0px;
+			--popup-background: url(https://s-media-cache-ak0.pinimg.com/originals/60/c4/bb/60c4bb55215c989b15b0fe144c73cf82.jpg);
+			--background-darkness: 0.75;
+		}
+	`,
+	features: ['background', 'addons', 'transparent'],
 	imports: ['https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css'],
 	fonts: [],
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Image',
+			icon: 'Photo',
 			inputs: [
 				{
 					type: 'image',
@@ -66,7 +82,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Colour',
+			icon: 'Swatch',
 			inputs: [
 				{
 					type: 'colour',
@@ -91,7 +107,7 @@ const theme: ITheme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Gear',
+			icon: 'Cog6Tooth',
 			inputs: [
 				{
 					type: 'slider',
@@ -118,7 +134,7 @@ const theme: ITheme = {
 			]
 		}
 	],
-	addons: ['discolored']
+	addons: [discolored]
 };
 
 export default theme;

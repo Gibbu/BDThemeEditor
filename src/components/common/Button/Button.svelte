@@ -1,158 +1,110 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import { classes } from '$lib/helpers';
+	import { classes } from '$lib/utils';
 
-	const dispatch = createEventDispatcher();
-
-	/** Style of the button. */
-	export let type: 'primary' | 'secondary' | 'text' | 'danger';
-
-	/**
-	 * Size of the button.
-	 * Default = 'medium'
-	 */
-	export let size: 'medium' | 'large' | 'extralarge' = 'medium';
-
-	/**
-	 * Makes the button fill the available horizontal space.
-	 * Default = `false`
-	 */
+	export let variant: 'primary' | 'secondary' | 'danger';
+	export let href: string | undefined = undefined;
+	export let external: boolean = false;
+	export let size: 'small' | 'medium' | 'large' = 'medium';
+	export let disabled: boolean = false;
+	export let self: HTMLElement | undefined = undefined;
 	export let long: boolean = false;
-
-	/**
-	 * Disable the button. Turning it opaque and disabling the click event.
-	 * Click event will not fire even if styling is removed.
-	 */
-	export let disabled: any = null;
-
-	/**
-	 * Location to navigate to.
-	 * An anchor tag will be used instead of a button.
-	 */
-	export let href: string | null = null;
-
-	/** Open the location in a new tab. */
-	export let newTab: boolean = false;
-
-	const eventHandler = (e: MouseEvent) => {
-		if (!disabled) dispatch(e.type);
-	};
+	export let split: boolean = false;
 </script>
 
 <template>
-	{#if href}
-		<a {href} target={newTab ? '_blank' : null} class={classes('btn', type, size)} class:long>
-			{#if $$slots.iconL}
-				<div class="iconL">
-					<slot name="iconL" />
-				</div>
-			{/if}
-			{#if $$slots.default}
-				<span><slot /></span>
-			{/if}
-		</a>
-	{:else}
-		<button type="button" class={classes('btn', type, size)} class:long {disabled} on:click={eventHandler}>
-			{#if $$slots.iconL}
-				<div class="iconL">
-					<slot name="iconL" />
-				</div>
-			{/if}
-			{#if $$slots.default}
-				<span><slot /></span>
-			{/if}
-		</button>
-	{/if}
+	<svelte:element
+		this={href ? 'a' : 'button'}
+		bind:this={self}
+		href={href || undefined}
+		type={!href ? 'button' : undefined}
+		rel={external ? 'external' : undefined}
+		class={classes('btn', variant, size)}
+		class:long
+		class:split
+		{disabled}
+		on:click
+		on:keypress
+	>
+		<div class="content">
+			<slot />
+		</div>
+	</svelte:element>
 </template>
 
 <style lang="scss">
 	.btn {
-		font-weight: 500;
-		border-radius: rem(4);
-		display: flex;
+		--size: 18px;
+		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		transition: 0.15s ease background, 0.15s ease box-shadow, 0.15s ease color;
-		user-select: none;
-		line-height: normal;
+		border-radius: var(--radius);
+		border: 1px solid transparent;
+		font-weight: 500;
 
-		.iconL + span {
-			margin-left: rem(8);
+		.content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: 1;
+			gap: var(--gap);
+			user-select: none;
 		}
 
-		span {
-			width: min-content;
-			white-space: nowrap;
+		&.small {
+			padding: 6px 10px;
+			font-size: 12px;
+			--gap: 4px;
 		}
-
+		&.medium {
+			padding: 8px 14px;
+			font-size: 14px;
+			--gap: 8px;
+		}
+		&.large {
+			padding: 12px 22px;
+			font-size: 16px;
+			--gap: 12px;
+			--size: 20px;
+		}
 		&.long {
 			width: 100%;
 		}
-
-		&.medium {
-			font-size: rem(14);
-			height: rem(38);
-			padding: 0 rem(12);
-		}
-		&.large {
-			font-size: rem(16);
-			height: rem(42);
-			padding: 0 rem(18);
-		}
-		&.extralarge {
-			font-size: rem(18);
-			height: rem(52);
-			padding: 0 rem(32);
+		&.split .content {
+			justify-content: space-between;
 		}
 
 		&.primary {
 			background: hsl(var(--accent));
-			color: #000;
-			text-shadow: 0 rem(2) rem(5) hsl(0 0% 0% / 0.4);
+			color: hsl(var(--accent-text));
+			.content {
+				filter: drop-shadow(0 1px 5px hsl(0 0% 0% / 0.5));
+			}
 			&:hover {
-				background: hsl(var(--accent-dark));
-			}
-			&:active {
-				background: hsl(var(--accent));
-			}
-			&:focus {
-				outline: rem(2) solid hsl(var(--accent) / 0.6);
-				outline-offset: rem(3);
+				background: hsl(var(--accent-hover));
 			}
 		}
-
 		&.secondary {
-			background: var(--c4);
+			background: var(--button-secondary);
+			border-color: var(--button-secondary);
 			color: var(--text-secondary);
 			&:hover {
-				background: var(--c5);
-			}
-			&:focus {
-				background: var(--c7);
-				color: var(--text-primary);
+				background: var(--button-secondary-hover);
 			}
 		}
 
-		&.text {
-			color: var(--text-secondary);
-			&:hover {
-				color: var(--text-primary);
-			}
-			&:focus {
-				background: var(--c5);
-			}
+		&:focus {
+			outline: 3px solid hsl(var(--accent) / 0.4);
+			outline-offset: 2px;
 		}
 
-		&[disabled] {
+		&:disabled {
+			opacity: 0.5;
 			pointer-events: none;
-			opacity: 0.7;
-			filter: grayscale(0.4);
+			user-select: none;
 		}
-	}
 
-	.iconL {
-		display: inline-flex;
-		width: rem(20);
-		height: rem(20);
+		:global(svg) {
+			width: var(--size);
+			height: var(--size);
+		}
 	}
 </style>

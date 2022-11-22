@@ -1,48 +1,51 @@
-@use './functions' as *;
-
-// Page wrapper
-.wrapper {
-	padding: 0 rem(64);
-	max-width: rem(1280);
+.wrap {
+	max-width: 1280px;
 	width: 100%;
-	margin: 0 auto;
-	will-change: padding;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 32px;
+	padding-right: 32px;
 }
 
-// 16:9 resolution scaling
-.r16-9 {
-	position: relative;
-	padding-bottom: 56.2%;
-	width: 100%;
-	&-item {
-		position: absolute;
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-}
-
-// Default anchor tag
-.anchor {
-	color: hsl(var(--accent)) !important;
-	font-weight: 500 !important;
-	&:hover {
-		text-decoration: underline;
-	}
-}
-
-// Flex scroller
 .scroller {
 	display: flex;
-	flex: 1 1 0%;
-	overflow: hidden auto;
+	flex-direction: column;
+	overflow: hidden;
 	position: relative;
+
 	&-inner {
 		height: 100%;
 		min-height: min-content;
 		overflow: hidden auto;
 		width: 100%;
+		&.padding {
+			padding: 24px;
+		}
 	}
+}
+
+.anchor {
+	color: var(--text-link) !important;
+	font-weight: 500 !important;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.spacer {
+	height: 16px;
+}
+
+.truncate {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.glow {
+	--glow: var(--hue) 79% 56%;
+	filter: drop-shadow(0 0 8px hsl(var(--glow))) drop-shadow(0 0 5px hsl(var(--glow) / 0.2));
 }
 
 // Markdown
@@ -58,25 +61,25 @@
 	}
 
 	h1 {
-		font-size: rem(38);
+		font-size: 38px;
 	}
 	h2 {
-		font-size: rem(26);
+		font-size: 26px;
 	}
 	h3 {
-		font-size: rem(20);
+		font-size: 20px;
 	}
 	h4 {
-		font-size: rem(18);
+		font-size: 18px;
 	}
 
 	h1,
 	h2,
 	h3,
 	h4 {
-		margin: rem(35) 0 rem(15);
-		padding-bottom: rem(5);
-		border-bottom: rem(1) solid var(--border);
+		margin: 35px 0 15px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid var(--border);
 	}
 
 	h1,
@@ -92,203 +95,34 @@
 		}
 	}
 	p {
-		margin-bottom: rem(10);
+		margin-bottom: 10px;
 	}
 
 	a {
 		color: hsl(var(--accent));
 		text-decoration: underline;
 		&:hover {
-			box-shadow: inset 0 rem(-2) 0 hsl(var(--accent));
+			box-shadow: inset 0 -2px 0 hsl(var(--accent));
 		}
 	}
 
 	ul {
 		list-style-type: disc;
-		padding-left: rem(25);
-		margin-bottom: rem(15);
+		padding-left: 25px;
+		margin-bottom: 15px;
 		ul {
 			list-style-type: unset;
 		}
 	}
 	ol {
 		list-style-type: decimal;
-		padding-left: rem(25);
-		margin-bottom: rem(15);
+		padding-left: 25px;
+		margin-bottom: 15px;
 	}
 	li {
-		margin-bottom: rem(5);
+		margin-bottom: 5px;
 		p {
 			margin-bottom: 0;
 		}
-	}
-
-	blockquote {
-		border-left: rem(4) solid var(--border);
-		color: var(--text-tertiary);
-		font-style: italic;
-		margin-bottom: rem(15);
-		margin-left: 0;
-		padding-left: rem(15);
-	}
-
-	hr {
-		height: rem(4);
-		background: var(--border);
-		margin-bottom: rem(15);
-	}
-
-	details {
-		margin-bottom: rem(15);
-	}
-	summary {
-		cursor: pointer;
-	}
-
-	kbd {
-		border: rem(1) solid var(--border);
-		padding: rem(5);
-		border-radius: rem(4);
-		background: var(--c6);
-		box-shadow: inset 0 -rem(2) 0 var(--border);
-	}
-
-	table {
-		background: var(--c2);
-		margin-bottom: rem(15);
-		border-collapse: collapse;
-		width: 100%;
-		thead {
-			color: var(--text-primary);
-			th {
-				font-weight: 500;
-			}
-		}
-		th,
-		td {
-			border: rem(1) solid var(--border);
-			padding: rem(10);
-		}
-		tr:nth-child(even) {
-			background: var(--c2);
-		}
-		code:not(pre code) {
-			background: var(--c1);
-		}
-	}
-	// Syntax highlighting
-	code {
-		font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-		font-weight: 600;
-	}
-	pre {
-		font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-		font-weight: 600;
-		background: var(--c2);
-		border-radius: rem(4);
-		padding: rem(15);
-		margin-bottom: rem(15);
-		overflow: auto;
-	}
-	code:not(pre code) {
-		border: rem(1) solid var(--border);
-		background: var(--c2);
-		padding: rem(2) rem(5);
-		border-radius: rem(4);
-	}
-	pre[class*='language-'],
-	code[class*='language-'] {
-		color: var(--text-secondary);
-		font-size: rem(13);
-		text-shadow: none;
-		direction: ltr;
-		text-align: left;
-		white-space: pre;
-		word-spacing: normal;
-		word-break: normal;
-		line-height: 1.5;
-		tab-size: 4;
-		hyphens: none;
-	}
-	pre[class*='language-'] {
-		padding: 1em;
-		margin: 0.5em 0;
-		overflow: auto;
-	}
-	.namespace {
-		opacity: 0.7;
-	}
-	.token.comment,
-	.token.prolog,
-	.token.doctype,
-	.token.cdata {
-		color: var(--text-tertiary);
-	}
-	.token.punctuation {
-		color: var(--text-secondary);
-	}
-	.token.property,
-	.token.tag,
-	.token.boolean,
-	.token.number,
-	.token.constant,
-	.token.symbol,
-	.token.deleted {
-		color: var(--syntax-orange-1);
-	}
-	.token.selector,
-	.token.attr-name,
-	.token.string,
-	.token.char,
-	.token.builtin,
-	.token.inserted {
-		color: var(--syntax-orange-2);
-	}
-	.token.operator {
-		color: var(--text-secondary);
-	}
-	.token.interpolation {
-		color: var(--syntax-red);
-	}
-	.token.interpolation-punctuation {
-		color: var(--syntax-purple);
-	}
-	.token.interpolation .token.operator {
-		color: var(--text-secondary);
-	}
-	.token.entity,
-	.token.url,
-	.language-css .token.string,
-	.style .token.string,
-	.token.attr-value {
-		color: var(--syntax-orange-2);
-	}
-	.token.atrule,
-	.token.keyword {
-		color: var(--syntax-purple);
-	}
-	.token.function {
-		color: var(--syntax-teal);
-	}
-	.token.regex,
-	.token.important,
-	.token.variable {
-		color: var(--syntax-orange-2);
-	}
-	.token.important,
-	.token.bold {
-		font-weight: bold;
-	}
-	.token.italic {
-		font-style: italic;
-	}
-	.token.entity {
-		cursor: help;
-	}
-
-	// Language specific
-	pre[class*='javascript'],
-	code[class*='javascript'] {
-		color: var(--syntax-red);
 	}
 }
