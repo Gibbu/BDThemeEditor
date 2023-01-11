@@ -357,11 +357,12 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					details: {
-						variable: 'popout-modal-brightness',
+						variable: 'overlay-brightness',
 						value: 0.75,
 						max: 1,
 						step: 0.02,
-						title: 'Popout/Modal brightness'
+						title: 'Overlay brightness',
+						hint: 'Brightness of modals and context menus'
 					}
 				}
 			]
