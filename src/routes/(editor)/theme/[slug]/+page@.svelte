@@ -173,7 +173,7 @@
 </Modal>
 
 <Modal bind:visible={modals.bug} title="Found a bug with the editor?" size="small">
-	<Banner type="info">Remember, any bugs with the theme should be reported to their respected developers.</Banner>
+	<Banner type="info">Remember, any bugs with the theme should be reported to their respective developers.</Banner>
 	<div class="bugs">
 		<a href="https://discord.gg/ZHthyCw" target="_blank" rel="noreferrer noopener" class="bug">
 			<Icon src={Icons.ChatBubbleBottomCenterText} size="32px" />

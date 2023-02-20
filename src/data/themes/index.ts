@@ -8,6 +8,7 @@ import discordrecolor from './discordrecolor';
 import comfy from './comfy';
 import solana from './solana';
 import materialdesign from './materialdesign';
+import neutron from './neutron';
 
 export const themes = [
 	frostedglass,
@@ -17,6 +18,7 @@ export const themes = [
 	comfy,
 	solana,
 	materialdesign,
+	neutron,
 	discordrecolor,
 	reborn,
 	tranquil
