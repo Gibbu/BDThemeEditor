@@ -1,1 +1,0 @@
-import{f as t}from"./index-86e724ac.js";import{e as r}from"./index-4d8f42c1.js";const a=({params:o})=>{const e=o.slug;if(!t.includes(e))throw r(404,"That theme cannot be found");return{slug:e}},s=Object.freeze(Object.defineProperty({__proto__:null,load:a},Symbol.toStringTag,{value:"Module"}));export{s as _,a as l};
