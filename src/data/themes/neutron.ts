@@ -10,21 +10,21 @@ const theme: ITheme = {
 		name: 'Neutron',
 		version: '8.0',
 		description: 'A simple but highly customizable theme, now sugar free!',
-		author: 'Spectra#7698',
+		author: 'Spectra',
 		invite: 'PZdnCVD',
-		source: 'https://github.com/codedotspectra/themes',
+		source: 'https://github.com/xcruxiex/themes',
 		website: 'https://betterdiscord.app/theme/Neutron'
 	},
 	preview: `
-		@import url("https://codedotspectra.github.io/themes/themes-cores/neutron8.css");
+		@import url("https://xcruxiex.github.io/themes/themes-cores/neutron8.css");
 		:root {
 		--themeColor1: #36D1DC;
 		--themeColor2: #5B86E5;
 		--customFont: 'Open sans', sans-serif;
-		--homeImage: url('https://limeshark.dev/img/n/icon.png');
+		--homeImage: url('https://imgur.com/eItxuAq.png');
 		--homeImageSize: cover;
 		--backgroundColor: #0d0d0d;
-		--backgroundImage: url('https://limeshark.dev/img/n/background.jpg');
+		--backgroundImage: url('https://imgur.com/qhBghXt.png');
 		--backgroundPosition: center;
 		--backgroundSize: cover;
 		--backgroundRepeat: no-repeat;
@@ -35,7 +35,7 @@ const theme: ITheme = {
 		}
 	`,
 	features: ['background', 'font', 'transparent', 'home', 'addons'],
-	imports: ['https://codedotspectra.github.io/themes/themes-cores/neutron8.css'],
+	imports: ['https://xcruxiex.github.io/themes/themes-cores/neutron8.css'],
 	fonts: ['https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'],
 	variables: [
 		{
@@ -47,7 +47,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'backgroundImage',
-						start: 'https://limeshark.dev/img/n/background.jpg',
+						start: 'https://imgur.com/qhBghXt.png',
 						value: '',
 						title: 'Image'
 					}
@@ -141,7 +141,7 @@ const theme: ITheme = {
 					type: 'image',
 					details: {
 						variable: 'homeImage',
-						start: 'https://limeshark.dev/img/n/icon.png',
+						start: 'https://imgur.com/eItxuAq.png',
 						value: '',
 						title: 'Image'
 					}
