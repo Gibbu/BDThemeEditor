@@ -155,7 +155,8 @@ const theme: ITheme = {
 					details: {
 						variable: 'font',
 						index: 0,
-						title: 'App font'
+						title: 'App font',
+						value: 'gg sans'
 					}
 				}
 			]
