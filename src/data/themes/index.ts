@@ -9,6 +9,7 @@ import comfy from './comfy';
 import solana from './solana';
 import materialdesign from './materialdesign';
 import neutron from './neutron';
+import operagxtheme from './operagxtheme';
 
 export const themes = [
 	frostedglass,
@@ -21,7 +22,8 @@ export const themes = [
 	neutron,
 	discordrecolor,
 	reborn,
-	tranquil
+	tranquil,
+	operagxtheme
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
