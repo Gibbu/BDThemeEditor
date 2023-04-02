@@ -49,7 +49,7 @@ const theme: ITheme = {
 			--window-roundness: 10px; /* Roundness of Discord | DEFAULT: 10px */
 			--scrollbar-colour: rgba(255, 255, 255, 0.05); /* DEFAULT: rgba(255,255,255,0.05) */
 			--link-colour: #00b0f4; /* DEFAULT: #00b0f4 */
-			--font: "Whitney";
+			--font: "gg sans";
 			--update-notice-1: none;
 		}
 	`,
@@ -357,11 +357,12 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					details: {
-						variable: 'popout-modal-brightness',
+						variable: 'overlay-brightness',
 						value: 0.75,
 						max: 1,
 						step: 0.02,
-						title: 'Popout/Modal brightness'
+						title: 'Overlay brightness',
+						hint: 'Brightness of modals and context menus'
 					}
 				}
 			]
@@ -457,7 +458,7 @@ const theme: ITheme = {
 					details: {
 						variable: 'font',
 						index: 0,
-						value: 'Whitney',
+						value: 'gg sans',
 						title: 'App font'
 					}
 				}

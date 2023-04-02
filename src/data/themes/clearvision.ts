@@ -28,7 +28,7 @@ const theme: ITheme = {
 			--dnd-color: #982929;
 			--streaming-color: #593695;
 			--offline-color: #808080;
-			--main-font: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+			--main-font: gg sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 			--code-font: Consolas, Liberation Mono, Menlo, Courier, monospace;
 			--text-normal: rgb(220, 221, 222);
 			--text-muted: rgb(114, 118, 125);
@@ -749,7 +749,7 @@ const theme: ITheme = {
 					type: 'font',
 					details: {
 						variable: 'main-font',
-						value: 'Whitney',
+						value: 'gg sans',
 						index: 0,
 						title: 'Main font'
 					}
