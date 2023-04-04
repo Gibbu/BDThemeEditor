@@ -54,10 +54,7 @@ const theme: ITheme = {
 		}
 	`,
 	features: ['background', 'font', 'transparent', 'home', 'addons'],
-	imports: [
-		'https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css',
-		'https://discordstyles.github.io/Addons/windows-titlebar.css'
-	],
+	imports: ['https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css'],
 	optionalImports: [
 		{
 			name: 'Window Titlebar',
