@@ -45,7 +45,7 @@
 				<Icon src={Swatch} />
 				Select a Theme
 			</Button>
-			<Button variant="secondary" href="#" size="large">Discord Server</Button>
+			<Button variant="secondary" href="https://discord.gg/ZHthyCw" external size="large">Discord Server</Button>
 		</div>
 	</section>
 

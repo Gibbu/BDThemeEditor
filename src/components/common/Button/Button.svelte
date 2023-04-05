@@ -17,7 +17,8 @@
 		bind:this={self}
 		href={href || undefined}
 		type={!href ? 'button' : undefined}
-		rel={external ? 'external' : undefined}
+		rel={external ? 'noreferrer noopener' : undefined}
+		target={external ? '_blank' : undefined}
 		class={classes('btn', variant, size)}
 		class:long
 		class:split
