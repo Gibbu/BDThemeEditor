@@ -16,11 +16,11 @@ const theme: ITheme = {
 		authorId: '678469587444170762'
 	},
 	preview: `
-    @import url('https://maendisease.github.io/Outlook/dist/Outlook.css');
+    @import url('https://maendisease.github.io/Outlook/Outlook.css');
 	`,
 	features: ['font', 'solid', 'light'],
 	imports: [
-		'https://maendisease.github.io/Outlook/dist/Outlook.css',
+		'https://maendisease.github.io/Outlook/Outlook.css',
 	],
 	optionalImports: [
 		{
