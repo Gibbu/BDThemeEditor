@@ -1,0 +1,1 @@
+import{S as e,i as o,s as n,o as a}from"../chunks/index.99f4139b.js";import{g as r}from"../chunks/navigation.1929ef44.js";function i(t){return a(()=>{r("/themes")}),[]}class f extends e{constructor(s){super(),o(this,s,i,null,n,{})}}export{f as default};
