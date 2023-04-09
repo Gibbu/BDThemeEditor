@@ -18,9 +18,27 @@ interface ThemeVars {
 }
 
 interface HiddenVars {
+	/**
+	 * The variable name.
+	 *
+	 * `--` is not required.
+	 */
 	variable: string;
+	/** The end result of the variable. */
 	value: string;
+	/**
+	 * The "group" for the variable/value to be placed into.\
+	 * By default this will be `:root`.
+	 *
+	 * Example:
+	 * ```json
+	 * {
+	 * 	"varGroup": ".theme-light"
+	 * }
+	 * ```
+	 */
 	varGroup?: string;
+	/** The comment to be placed to the right of the inside the downloaded file. */
 	comment?: string;
 }
 interface OptionalImport {

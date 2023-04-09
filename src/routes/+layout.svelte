@@ -4,7 +4,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Check } from '@steeze-ui/heroicons';
 	import '$scss/app.scss';
-	import 'svooltip/svooltip.css';
+	import 'svooltip/styles.css';
 
 	// Browser warning
 	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
