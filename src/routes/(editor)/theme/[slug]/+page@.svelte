@@ -27,7 +27,7 @@
 	import { themes } from '$data/themes';
 
 	const clone: ITheme[] = JSON.parse(JSON.stringify(themes));
-	const theme = clone.find((theme) => getSlug(theme.name) === data.slug);
+	const theme = clone.find((theme) => getSlug(theme.name).toLowerCase() === data.slug.toLowerCase());
 
 	if (!theme) throw error(500, `Something's wrong, I can feel it.`);
 
