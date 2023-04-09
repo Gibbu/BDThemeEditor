@@ -10,6 +10,7 @@ import solana from './solana';
 import materialdesign from './materialdesign';
 import neutron from './neutron';
 import operagxtheme from './operagxtheme';
+import outlook from './outlook';
 
 export const themes = [
 	frostedglass,
@@ -23,7 +24,8 @@ export const themes = [
 	discordrecolor,
 	reborn,
 	tranquil,
-	operagxtheme
+	operagxtheme,
+	outlook
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
