@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { themes } from '$data/themes';
 	import { browser } from '$app/environment';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ListBullet, Squares2x2 } from '@steeze-ui/heroicons';
 
 	import { getSlug } from '$lib/utils';
 	import { MetaData, Input, Checkbox, Button } from '$components/common';
@@ -85,8 +87,14 @@
 			<section class="group">
 				<h4 class="sidebar-title">View</h4>
 				<div class="flex">
-					<Button variant={gridView ? 'secondary' : 'primary'} long on:click={() => setView(false)}>List</Button>
-					<Button variant={gridView ? 'primary' : 'secondary'} long on:click={() => setView(true)}>Grid</Button>
+					<Button variant={gridView ? 'secondary' : 'primary'} long on:click={() => setView(false)}>
+						<Icon src={ListBullet} />
+						List
+					</Button>
+					<Button variant={gridView ? 'primary' : 'secondary'} long on:click={() => setView(true)}>
+						<Icon src={Squares2x2} />
+						Grid
+					</Button>
 				</div>
 			</section>
 			<section class="group">
