@@ -9,7 +9,7 @@
 	export let developer: IDev;
 </script>
 
-<Modal bind:visible plain style="--colour: {developer.colour}">
+<Modal bind:visible plain style="--colour: {developer?.colour}">
 	<div
 		class="banner"
 		class:noBanner={!developer.banner}
