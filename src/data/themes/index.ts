@@ -22,8 +22,8 @@ export const themes = [
 	materialdesign,
 	neutron,
 	discordrecolor,
-	reborn,
-	tranquil,
+	// reborn,
+	// tranquil,
 	operagxtheme,
 	outlook
 ];
