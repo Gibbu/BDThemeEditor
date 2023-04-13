@@ -5,7 +5,7 @@ const dev: IDev = {
 	github: 'maenDisease',
 	donate: 'https://maendisease.github.io',
 	banner: 'https://i.imgur.com/j2H4s4f.png',
-	colour: '#fdece0',
+	colour: '25 88% 94%',
 	server: 'https://discord.gg/BShu37e4jg'
 };
 

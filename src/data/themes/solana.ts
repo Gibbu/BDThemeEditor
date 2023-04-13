@@ -23,9 +23,7 @@ const theme: ITheme = {
 		@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap);
 	`,
 	features: ['background', 'font', 'transparent', 'solid', 'light', 'home'],
-	imports: [
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
-	],
+	imports: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css'],
 	optionalImports: [
 		{
 			name: 'BD Addon Mini',
@@ -46,8 +44,7 @@ const theme: ITheme = {
 			enabled: true
 		}
 	],
-	fonts: [
-	],
+	fonts: [],
 	variables: [
 		{
 			title: 'Colors',
@@ -143,6 +140,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -159,6 +157,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -235,6 +234,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -251,6 +251,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},

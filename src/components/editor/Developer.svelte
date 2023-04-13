@@ -9,11 +9,11 @@
 	export let developer: IDev;
 </script>
 
-<Modal bind:visible plain>
+<Modal bind:visible plain style="--colour: {developer.colour}">
 	<div
 		class="banner"
 		class:noBanner={!developer.banner}
-		style={developer.banner ? `background: url('${developer.banner}') center/cover;` : `--colour: ${developer.colour}`}
+		style={developer.banner ? `background: url('${developer.banner}') center/cover;` : undefined}
 	/>
 	<div class="info">
 		<img src="https://github.com/{developer.github}.png" alt="Developer Avatar" class="avatar" />
@@ -62,7 +62,7 @@
 <style lang="scss">
 	.banner {
 		height: 200px;
-		background: var(--colour, var(--background-primary));
+		background: hsl(var(--colour));
 		position: relative;
 		&.noBanner {
 			height: 100px;
@@ -122,6 +122,9 @@
 			svg {
 				fill: currentColor;
 			}
+		}
+		a:hover {
+			color: hsl(var(--colour));
 		}
 	}
 </style>

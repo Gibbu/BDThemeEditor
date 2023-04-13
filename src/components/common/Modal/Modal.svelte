@@ -45,6 +45,7 @@
 				aria-labelledby={id('title')}
 				aria-describedby={description ? id('description') : id('body')}
 				transition:fly={{ duration: 150, y: 10 }}
+				{...$$restProps}
 			>
 				{#if title || !plain}
 					<header class="header">

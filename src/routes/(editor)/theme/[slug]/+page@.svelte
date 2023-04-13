@@ -11,6 +11,7 @@
 	import NProgress from 'nprogress';
 	import { preview } from '$lib/preview';
 	import { page } from '$app/stores';
+	import { darkenHslLightness } from '$lib/helpers';
 
 	import { Preview, Component, Download, Upload, Addons, OptionalImports, Developer } from '$components/editor';
 	import { MetaData, Modal, Button, Banner } from '$components/common';
@@ -52,6 +53,7 @@
 	let activeVar: string = getSlug(theme.variables[0].title);
 	let fullscreen: boolean = false;
 	let devWarning: boolean = browser && localStorage.dev_warning;
+	let darkTheme: boolean = true;
 	const modals = {
 		back: false,
 		bug: false,
@@ -76,6 +78,11 @@
 
 	onMount(() => {
 		$editorLoaded = true;
+
+		if (theme.developer.colour) {
+			document.documentElement.style.setProperty('--accent', theme.developer.colour);
+			document.documentElement.style.setProperty('--accent-hover', darkenHslLightness(theme.developer.colour));
+		}
 
 		if ($page.url.searchParams.has('tab')) {
 			activeVar = getSlug($page.url.searchParams.get('tab')!);
@@ -106,6 +113,11 @@
 		});
 	});
 	onDestroy(() => {
+		if (browser && theme.developer.colour) {
+			document.documentElement.style.removeProperty('--accent');
+			document.documentElement.style.removeProperty('--accent-hover');
+		}
+
 		$editorLoaded = false;
 		theme.optionalImports?.forEach((optionalImport) => {
 			preview({
@@ -129,6 +141,7 @@
 		modals[modal] = !modals[modal];
 	};
 	const toggleTheme = () => {
+		darkTheme = !darkTheme;
 		preview({
 			action: 'toggleTheme'
 		});
@@ -200,7 +213,7 @@
 					<button
 						type="button"
 						class="nav-btn"
-						use:tooltip={{ content: 'Back', placement: 'bottom-start' }}
+						use:tooltip={{ content: 'Back', placement: 'bottom' }}
 						on:click={() => (modals.back = true)}
 					>
 						<Icon src={Icons.ArrowLeft} size="18px" />
@@ -239,7 +252,7 @@
 				{#if theme.features && theme.features.includes('light')}
 					<button class="nav-btn" type="button" on:click={toggleTheme}>
 						<Icon src={Icons.Sun} />
-						Toggle Theme
+						Toggle {darkTheme ? 'Light' : 'Dark'} Theme
 					</button>
 				{/if}
 				<button class="nav-btn" type="button" on:click={() => (fullscreen = !fullscreen)}>

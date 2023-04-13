@@ -4,7 +4,8 @@ import { discolored, columns, hsl, radialstatus } from '../addons';
 
 const theme: ITheme = {
 	name: 'Neutron',
-	thumbnail: 'https://camo.githubusercontent.com/643015798319a56ca31864c0f22d6665e65bc215da3a9b29a1abc9c8d180d95e/68747470733a2f2f692e696d6775722e636f6d2f3559686f5274662e6a7067',
+	thumbnail:
+		'https://camo.githubusercontent.com/643015798319a56ca31864c0f22d6665e65bc215da3a9b29a1abc9c8d180d95e/68747470733a2f2f692e696d6775722e636f6d2f3559686f5274662e6a7067',
 	developer: Spectra,
 	meta: {
 		name: 'Neutron',
@@ -74,6 +75,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -93,6 +95,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -117,7 +120,7 @@ const theme: ITheme = {
 						max: 100,
 						min: 0,
 						unit: 'px',
-						title: 'Blur',
+						title: 'Blur'
 					}
 				},
 				{
@@ -127,7 +130,7 @@ const theme: ITheme = {
 						value: 0.65,
 						min: 0,
 						max: 1,
-						step: .05,
+						step: 0.05,
 						title: 'Opacity'
 					}
 				}
@@ -159,9 +162,10 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
-				},
+				}
 			]
 		},
 		{
@@ -175,7 +179,7 @@ const theme: ITheme = {
 						variable: 'themeColor1',
 						value: '#36D1DC',
 						type: 'HEX',
-						title: 'Primary Colour',
+						title: 'Primary Colour'
 					}
 				},
 				{
@@ -184,7 +188,7 @@ const theme: ITheme = {
 						variable: 'themeColor2',
 						value: '#5B86E5',
 						type: 'HEX',
-						title: 'Secondary Colour',
+						title: 'Secondary Colour'
 					}
 				}
 			]
@@ -230,11 +234,11 @@ const theme: ITheme = {
 						title: 'Title bar',
 						hint: 'The bar above the actual codeblock'
 					}
-				},
+				}
 			]
 		}
 	],
 	addons: [discolored, columns, hsl, radialstatus]
-}
+};
 
 export default theme;

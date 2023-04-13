@@ -4,7 +4,7 @@ const dev: IDev = {
 	name: 'Nyria',
 	github: 'NYRI4',
 	donate: 'https://ko-fi.com/nyria',
-	colour: '#d1a58e',
+	colour: '21 42% 69%',
 	server: 'https://discord.gg/rtBQX5D3bD'
 };
 

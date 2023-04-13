@@ -12,6 +12,17 @@ export interface IDev {
 	server?: string;
 	/** The full URL for your banner. */
 	banner?: string;
-	/** The colour of your banner if `banner` is not defined. */
+	/**
+	 * The HSL colour of your banner.
+	 *
+	 * This will be used in two placed:
+	 * - If `banner` is defined it will show this colour instead
+	 * - The "accent" of your theme page will be changed
+	 *
+	 * **NOTE**: IT MUST follow example format.
+	 *
+	 * @example
+	 * 176 59% 63%
+	 */
 	colour?: string;
 }
