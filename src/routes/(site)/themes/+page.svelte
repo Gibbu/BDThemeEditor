@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { themes } from '$data/themes';
-	import { browser } from '$app/environment';
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { ListBullet, Squares2x2 } from '@steeze-ui/heroicons';
 
 	import { getSlug } from '$lib/utils';
 	import { MetaData, Input, Checkbox, Button } from '$components/common';
@@ -29,7 +26,6 @@
 	let searchEl: HTMLInputElement;
 	let developer: IDev;
 	let developerModal: boolean = false;
-	let gridView: boolean = browser && localStorage.getItem('listView') === 'grid';
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -64,11 +60,6 @@
 			searchEl.blur();
 		}
 	};
-
-	const setView = (bool: boolean) => {
-		gridView = bool;
-		localStorage.setItem('listView', bool ? 'grid' : 'list');
-	};
 </script>
 
 <MetaData title="Themes" />
@@ -77,25 +68,10 @@
 <Developer bind:visible={developerModal} {developer} />
 
 <template>
-	<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
-
-	<main class="container">
+	<div class="container">
 		<aside class="sidebar">
 			<section class="group">
 				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
-			</section>
-			<section class="group">
-				<h4 class="sidebar-title">View</h4>
-				<div class="flex">
-					<Button variant={gridView ? 'secondary' : 'primary'} long on:click={() => setView(false)}>
-						<Icon src={ListBullet} />
-						List
-					</Button>
-					<Button variant={gridView ? 'primary' : 'secondary'} long on:click={() => setView(true)}>
-						<Icon src={Squares2x2} />
-						Grid
-					</Button>
-				</div>
 			</section>
 			<section class="group">
 				<h4 class="sidebar-title">Features</h4>
@@ -110,18 +86,22 @@
 				</ul>
 			</section>
 		</aside>
-		<section class="themes {gridView ? 'grid' : 'list'}">
-			{#each filtered as theme (theme.name)}
-				{@const href = `/theme/${getSlug(theme.name)}`}
-				<div class="theme">
-					<a {href} class="theme-head">
-						<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
-					</a>
-					<div class="theme-body">
-						<div class="theme-info">
-							<a {href} class="theme-name">{theme.name}</a>
-							<p class="theme-description truncate">{theme.meta.description}</p>
-						</div>
+		<main class="content">
+			<header class="header">
+				<div class="pattern" />
+				<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
+			</header>
+			<div class="themes">
+				{#each filtered as theme (theme.name)}
+					{@const href = `/theme/${getSlug(theme.name)}`}
+					<div class="theme">
+						<a {href} class="theme-head">
+							<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
+							<div class="theme-info">
+								<p class="theme-name">{theme.name}</p>
+								<span class="theme-description truncate">{theme.meta.description}</span>
+							</div>
+						</a>
 						<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
 							<img
 								src="https://github.com/{theme.developer.github}.png"
@@ -131,28 +111,82 @@
 							<span class="developer-name">{theme.developer.name}</span>
 						</button>
 					</div>
-				</div>
-			{/each}
-		</section>
-	</main>
+				{/each}
+			</div>
+		</main>
+	</div>
 </template>
 
 <style lang="scss">
 	.container {
-		display: grid;
+		display: flex;
 		align-items: flex-start;
-		grid-template-columns: 250px 1fr;
-		gap: 32px;
+	}
+	.sidebar {
+		position: fixed;
+		top: 0;
+		height: 100%;
+		background: var(--background-tertiary);
+		padding: 16px;
+		min-width: 350px;
+		max-width: 350px;
+		border-right: 1px solid var(--border);
+		&-title {
+			font-family: var(--font-display);
+			margin-bottom: 12px;
+			color: var(--text-primary);
+		}
 	}
 
+	.group:not(:last-child) {
+		border-bottom: 1px solid var(--border);
+		padding-bottom: 16px;
+		margin-bottom: 16px;
+	}
+	.features {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.feature {
+		&-description {
+			color: var(--text-tertiary);
+		}
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+
+	.content {
+		margin-left: 350px;
+		width: calc(100% - 350px);
+	}
+
+	.header {
+		position: relative;
+		padding: 64px 0;
+	}
+	.pattern {
+		position: absolute;
+		height: 500%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: url('/images/grid-pattern.png');
+		opacity: 0.035;
+		mask: linear-gradient(transparent, black);
+		rotate: 180deg;
+		z-index: -1;
+	}
 	.title {
 		font-family: var(--font-display);
 		color: var(--text-primary);
-		font-weight: 600;
 		font-size: 36px;
-		padding: 60px 0;
 		display: flex;
 		gap: 8px;
+		max-width: 1550px;
+		margin: 0 auto;
+		padding: 0 64px;
 	}
 	.count {
 		font-size: 16px;
@@ -165,125 +199,52 @@
 		}
 	}
 
-	.sidebar {
-		position: sticky;
-		top: 32px;
-		&-title {
+	.themes {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+		gap: 32px;
+		padding: 0 64px 64px;
+		max-width: 1550px;
+		margin: 0 auto;
+	}
+	.theme {
+		&-head {
+			height: 256px;
+			display: block;
+			overflow: hidden;
+			border-radius: var(--radius-lg);
+			position: relative;
+		}
+		&-thumbnail {
+			aspect-ratio: 16 / 9;
+			display: block;
+			width: 100%;
+		}
+		&-info {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 16px;
+			background: linear-gradient(transparent, black);
+			text-shadow: 0 2px 10px black;
+		}
+		&-name {
 			font-family: var(--font-display);
-			margin-bottom: 8px;
+			font-weight: 800;
+			font-size: 18px;
 			color: var(--text-primary);
 		}
-	}
-
-	.group {
-		.flex {
-			gap: 16px;
-		}
-		&:not(:last-child) {
-			border-bottom: 1px solid var(--border);
-			padding-bottom: 16px;
-			margin-bottom: 16px;
-		}
-	}
-	.features {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.feature {
 		&-description {
-			color: var(--text-tertiary);
-		}
-		&:not(:last-child) {
-			margin-bottom: 16px;
+			font-size: 14px;
+			display: block;
 		}
 	}
-
-	.themes {
-		&.grid {
-			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 16px;
-			.theme {
-				background: var(--background-secondary-alt);
-				overflow: hidden;
-				border-radius: var(--radius-lg);
-				border: 1px solid var(--border);
-				&-head {
-					display: block;
-				}
-				&-thumbnail {
-					display: block;
-					width: 100%;
-					aspect-ratio: 16 / 9;
-				}
-				&-body {
-					padding: 8px;
-				}
-				&-name {
-					color: var(--text-primary);
-					font-weight: 600;
-					font-family: var(--font-display);
-					&:hover {
-						color: hsl(var(--accent));
-						text-decoration: underline;
-					}
-				}
-				&-description {
-					margin: 2px 0 8px;
-					font-size: 14px;
-				}
-			}
-		}
-		&.list,
-		&:not(.grid) {
-			.theme {
-				display: flex;
-				gap: 16px;
-				&:not(:last-child) {
-					border-bottom: 1px solid var(--border);
-					padding-bottom: 16px;
-					margin-bottom: 16px;
-				}
-				&-head {
-					transition: 0.15s ease box-shadow, 0.15s ease transform;
-					&:hover {
-						box-shadow: var(--shadow);
-						transform: translateY(-5px);
-					}
-				}
-				&-thumbnail {
-					display: block;
-					width: 100%;
-					aspect-ratio: 16 / 9;
-					max-width: 256px;
-					border-radius: var(--radius-lg);
-				}
-				&-body {
-					padding: 12px;
-				}
-				&-name {
-					font-family: var(--font-display);
-					font-weight: 800;
-					font-size: 18px;
-					&:hover {
-						color: hsl(var(--accent));
-						text-decoration: underline;
-					}
-				}
-				&-description {
-					color: var(--text-tertiary);
-					font-size: 14px;
-					margin: 8px 0 16px;
-				}
-			}
-		}
-	}
-
 	.developer {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
+		margin-top: 4px;
 		&-avatar {
 			display: block;
 			border-radius: 50%;
