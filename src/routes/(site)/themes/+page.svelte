@@ -2,8 +2,10 @@
 	import { themes } from '$data/themes';
 
 	import { getSlug } from '$lib/utils';
-	import { MetaData, Input, Checkbox, Button } from '$components/common';
+	import { MetaData, Input, Checkbox, Modal, Button } from '$components/common';
 	import { Developer } from '$components/editor';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Funnel } from '@steeze-ui/heroicons';
 
 	import type { Feature } from '$types/theme';
 	import type { IDev } from '$types/dev';
@@ -26,6 +28,7 @@
 	let searchEl: HTMLInputElement;
 	let developer: IDev;
 	let developerModal: boolean = false;
+	let sortModal: boolean = false;
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -39,12 +42,13 @@
 			return el;
 		}
 	});
+	$: isSelectedFeature = (value: string) => selectedFeatures.includes(value as Feature);
 
-	const setFeature = (e: Event) => {
-		const value = (e.target as HTMLInputElement).value as Feature;
+	const setFeature = (value: string) => {
+		const _value = value as Feature;
 
-		if (selectedFeatures.includes(value)) selectedFeatures = selectedFeatures.filter((el) => el !== value);
-		else selectedFeatures = [...selectedFeatures, value];
+		if (selectedFeatures.includes(_value)) selectedFeatures = selectedFeatures.filter((el) => el !== _value);
+		else selectedFeatures = [...selectedFeatures, _value];
 	};
 	const setDeveloper = (dev: IDev) => {
 		developer = dev;
@@ -67,108 +71,75 @@
 
 <Developer bind:visible={developerModal} {developer} />
 
-<template>
-	<div class="container">
-		<aside class="sidebar">
-			<section class="group">
-				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
-			</section>
-			<section class="group">
-				<h4 class="sidebar-title">Features</h4>
+<Modal
+	bind:visible={sortModal}
+	title="Theme Selection Sorting"
+	description="Select what features you wish your desired theme to have."
+>
+	<div class="sorting">
+		{#each features as { value, label, description }}
+			<button type="button" class="sort" class:active={isSelectedFeature(value)} on:click={() => setFeature(value)}>
+				<p class="sort-label">{label}</p>
+				<span class="sort-description">{description}</span>
+			</button>
+		{/each}
+	</div>
+</Modal>
 
-				<ul class="features">
-					{#each features as { value, label, description }}
-						<li class="feature">
-							<Checkbox {value} {label} on:change={setFeature} />
-							<small class="feature-description">{description}</small>
-						</li>
-					{/each}
-				</ul>
-			</section>
-		</aside>
-		<main class="content">
-			<header class="header">
-				<div class="pattern" />
-				<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
-			</header>
-			<div class="themes">
-				{#each filtered as theme (theme.name)}
-					{@const href = `/theme/${getSlug(theme.name)}`}
-					<div class="theme">
-						<a {href} class="theme-head">
-							<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
-							<div class="theme-info">
-								<p class="theme-name">{theme.name}</p>
-								<span class="theme-description truncate">{theme.meta.description}</span>
-							</div>
-						</a>
-						<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
-							<img
-								src="https://github.com/{theme.developer.github}.png"
-								alt="Theme developer"
-								class="developer-avatar"
-							/>
-							<span class="developer-name">{theme.developer.name}</span>
-						</button>
-					</div>
-				{/each}
+<template>
+	<div class="pattern" />
+	<header class="header">
+		<div class="wrap">
+			<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
+			<div class="header-filters">
+				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
+				<Button variant="secondary" on:click={() => (sortModal = !sortModal)}>
+					<Icon src={Funnel} />
+					Sort
+				</Button>
 			</div>
-		</main>
+		</div>
+	</header>
+	<div class="themes wrap">
+		{#each filtered as theme (theme.name)}
+			{@const href = `/theme/${getSlug(theme.name)}`}
+			<div class="theme">
+				<a {href} class="theme-head">
+					<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
+					<div class="theme-info">
+						<p class="theme-name">{theme.name}</p>
+						<span class="theme-description truncate">{theme.meta.description}</span>
+					</div>
+				</a>
+				<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
+					<img src="https://github.com/{theme.developer.github}.png" alt="Theme developer" class="developer-avatar" />
+					<span class="developer-name">{theme.developer.name}</span>
+				</button>
+			</div>
+		{/each}
 	</div>
 </template>
 
 <style lang="scss">
-	.container {
-		display: flex;
-		align-items: flex-start;
-	}
-	.sidebar {
-		position: fixed;
-		top: 0;
-		height: 100%;
-		background: var(--background-tertiary);
-		padding: 16px;
-		min-width: 350px;
-		max-width: 350px;
-		border-right: 1px solid var(--border);
-		&-title {
-			font-family: var(--font-display);
-			margin-bottom: 12px;
-			color: var(--text-primary);
-		}
-	}
-
-	.group:not(:last-child) {
-		border-bottom: 1px solid var(--border);
-		padding-bottom: 16px;
-		margin-bottom: 16px;
-	}
-	.features {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.feature {
-		&-description {
-			color: var(--text-tertiary);
-		}
-		&:not(:last-child) {
-			margin-bottom: 24px;
-		}
-	}
-
-	.content {
-		margin-left: 350px;
-		width: calc(100% - 350px);
-	}
-
 	.header {
 		position: relative;
-		padding: 64px 0;
+		height: 300px;
+		display: flex;
+		align-items: center;
+		.wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&-filters {
+			display: flex;
+			gap: 16px;
+			align-items: center;
+		}
 	}
 	.pattern {
 		position: absolute;
-		height: 500%;
+		height: 100%;
 		width: 100%;
 		top: 0;
 		left: 0;
@@ -184,9 +155,6 @@
 		font-size: 36px;
 		display: flex;
 		gap: 8px;
-		max-width: 1550px;
-		margin: 0 auto;
-		padding: 0 64px;
 	}
 	.count {
 		font-size: 16px;
@@ -201,19 +169,22 @@
 
 	.themes {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
 		gap: 32px;
-		padding: 0 64px 64px;
-		max-width: 1550px;
-		margin: 0 auto;
+		margin-bottom: 128px;
 	}
 	.theme {
 		&-head {
-			height: 256px;
+			height: 224px;
 			display: block;
 			overflow: hidden;
 			border-radius: var(--radius-lg);
 			position: relative;
+			transition: translate 0.15s ease, box-shadow 0.15s ease;
+			&:hover {
+				translate: 0 -5px;
+				box-shadow: 0 10px 13px hsl(0 0% 0% / 0.25);
+			}
 		}
 		&-thumbnail {
 			aspect-ratio: 16 / 9;
@@ -256,6 +227,36 @@
 		&:hover {
 			color: hsl(var(--accent));
 			text-decoration: underline;
+		}
+	}
+
+	.sorting {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+	.sort {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		text-align: left;
+		padding: 16px;
+		&-label {
+			color: var(--text-primary);
+			font-family: var(--font-display);
+			font-weight: 800;
+		}
+		&-description {
+			display: block;
+			margin-top: 4px;
+			font-size: 14px;
+		}
+		&:hover {
+			border-color: var(--border-alt);
+		}
+		&.active {
+			background: hsl(var(--accent) / 0.075);
+			border-color: hsl(var(--accent));
+			color: var(--text-primary);
 		}
 	}
 </style>

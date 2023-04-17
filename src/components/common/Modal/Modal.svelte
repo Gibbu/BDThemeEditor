@@ -51,7 +51,7 @@
 					<header class="header">
 						<h2 id={id('title')} class="title">{title}</h2>
 						{#if description}
-							<p id={id('description')}>{description}</p>
+							<p id={id('description')} class="description">{description}</p>
 						{/if}
 					</header>
 				{/if}
@@ -113,7 +113,8 @@
 	}
 	.description {
 		font-size: 14px;
-		margin-top: 4px;
+		margin-top: 6px;
+		color: var(--text-tertiary);
 	}
 	.body {
 		max-height: 90vh;

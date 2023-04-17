@@ -55,6 +55,9 @@
 		&-btns {
 			display: flex;
 			gap: 16px;
+			opacity: 0;
+			animation: fadeUp 0.5s ease forwards;
+			animation-delay: 0.5s;
 		}
 	}
 	.pattern {
@@ -70,9 +73,14 @@
 		font-weight: 800;
 		font-size: 56px;
 		line-height: 1.5;
+		opacity: 0;
+		animation: fadeUp 0.5s ease forwards;
 	}
 	.features {
 		margin: 24px 0 86px;
+		opacity: 0;
+		animation: fadeUp 0.5s ease forwards;
+		animation-delay: 0.25s;
 	}
 	.feature {
 		font-size: 20px;
@@ -88,6 +96,9 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 16px 32px;
+		opacity: 0;
+		animation: fadeLeft 0.5s ease forwards;
+		animation-delay: 0.75s;
 		&-img {
 			aspect-ratio: 16 / 9;
 			border-radius: 8px;
@@ -130,6 +141,26 @@
 		}
 		100% {
 			top: 0;
+		}
+	}
+	@keyframes fadeUp {
+		from {
+			opacity: 0;
+			translate: 0 20px;
+		}
+		to {
+			opacity: 1;
+			transalte: 0 0;
+		}
+	}
+	@keyframes fadeLeft {
+		from {
+			opacity: 0;
+			translate: -20px 0;
+		}
+		to {
+			opacity: 1;
+			transalte: 0 0;
 		}
 	}
 
