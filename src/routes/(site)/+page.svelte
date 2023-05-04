@@ -28,11 +28,11 @@
 			</div>
 			<div class="home-right">
 				<div class="gallery">
-					<img src="/images/gallery/basicbackground-blue.png" alt="theme screenshot" class="gallery-img" />
-					<img src="/images/gallery/clearvision-hogwarts.png" alt="theme screenshot" class="gallery-img" />
-					<img src="/images/gallery/outlook.png" alt="theme screenshot" class="gallery-img" />
-					<img src="/images/gallery/softx-spectra.png" alt="theme screenshot" class="gallery-img" />
-					<img src="/images/gallery/frostedglass-naat.png" alt="theme screenshot" class="gallery-img" />
+					<img src="/images/gallery/basicbackground-blue.webp" alt="theme screenshot" class="gallery-img" />
+					<img src="/images/gallery/clearvision-hogwarts.webp" alt="theme screenshot" class="gallery-img" />
+					<img src="/images/gallery/outlook.webp" alt="theme screenshot" class="gallery-img" />
+					<img src="/images/gallery/softx-spectra.webp" alt="theme screenshot" class="gallery-img" />
+					<img src="/images/gallery/frostedglass-naat.webp" alt="theme screenshot" class="gallery-img" />
 				</div>
 			</div>
 		</div>
