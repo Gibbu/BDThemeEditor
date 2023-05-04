@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { inject } from '@vercel/analytics';
+	// import { inject } from '@vercel/analytics';
 	import { browser, dev } from '$app/environment';
 	import { Modal, Button } from '$components/common';
 	import { Icon } from '@steeze-ui/svelte-icon';
@@ -7,7 +7,7 @@
 	import '$scss/app.scss';
 	import 'svooltip/styles.css';
 
-	inject({ mode: dev ? 'development' : 'production' });
+	// inject({ mode: dev ? 'development' : 'production' });
 
 	// Browser warning
 	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
