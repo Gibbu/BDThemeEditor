@@ -10,13 +10,13 @@ const theme: ITheme = {
 		author: 'Disease#5663',
 		version: '1.0.11',
 		description: 'macOS with barely any customization.',
-		source: 'https://github.com/maenDisease/BetterDiscordStuff/tree/main/Themes/Solana',
+		source: 'https://github.com/maenDisease/Solana',
 		invite: 'BShu37e4jg',
 		website: 'https://maendisease.github.io/',
 		authorId: '678469587444170762'
 	},
 	preview: `
-		@import url(https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css);
+		@import url(https://maendisease.github.io/Solana/Solana.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/ProfileBannerSkins.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css);
 		@import url(https://fonts.cdnfonts.com/css/sf-pro-display);
@@ -24,7 +24,7 @@ const theme: ITheme = {
 	`,
 	features: ['background', 'font', 'transparent', 'solid', 'light', 'home'],
 	imports: [
-		'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css',
+		'https://maendisease.github.io/Solana/Solana.css',
 	],
 	optionalImports: [
 		{
