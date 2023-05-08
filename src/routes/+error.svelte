@@ -16,7 +16,7 @@
 		<div class="info">
 			<h1>{$page.status}</h1>
 			<p>{$page.error?.message}</p>
-			<Button type="primary" href="/">
+			<Button variant="primary" href="/">
 				<Icon src={Home} />
 				Return Home
 			</Button>

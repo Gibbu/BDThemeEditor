@@ -4,7 +4,7 @@ const dev: IDev = {
 	name: 'TheCommieAxolotl',
 	github: 'TheCommieAxolotl',
 	donate: 'https://github.com/sponsors/TheCommieAxolotl/',
-	colour: '#e3a9f5',
+	colour: '286 79% 81%',
 	server: 'https://discord.gg/5BSWtSM3XU'
 };
 

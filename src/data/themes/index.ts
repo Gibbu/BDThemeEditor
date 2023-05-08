@@ -2,8 +2,8 @@ import frostedglass from './frostedglass';
 import softx from './softx';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
-import reborn from './reborn';
-import tranquil from './tranquil';
+// import reborn from './reborn';
+// import tranquil from './tranquil';
 import discordrecolor from './discordrecolor';
 import comfy from './comfy';
 import solana from './solana';
@@ -22,8 +22,8 @@ export const themes = [
 	materialdesign,
 	neutron,
 	discordrecolor,
-	reborn,
-	tranquil,
+	// reborn,
+	// tranquil,
 	operagxtheme,
 	outlook
 ];

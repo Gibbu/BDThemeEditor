@@ -2,8 +2,10 @@
 	import { themes } from '$data/themes';
 
 	import { getSlug } from '$lib/utils';
-	import { MetaData, Input, Checkbox } from '$components/common';
+	import { MetaData, Input, Checkbox, Modal, Button } from '$components/common';
 	import { Developer } from '$components/editor';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Funnel } from '@steeze-ui/heroicons';
 
 	import type { Feature } from '$types/theme';
 	import type { IDev } from '$types/dev';
@@ -26,6 +28,7 @@
 	let searchEl: HTMLInputElement;
 	let developer: IDev;
 	let developerModal: boolean = false;
+	let sortModal: boolean = false;
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -39,12 +42,13 @@
 			return el;
 		}
 	});
+	$: isSelectedFeature = (value: string) => selectedFeatures.includes(value as Feature);
 
-	const setFeature = (e: Event) => {
-		const value = (e.target as HTMLInputElement).value as Feature;
+	const setFeature = (value: string) => {
+		const _value = value as Feature;
 
-		if (selectedFeatures.includes(value)) selectedFeatures = selectedFeatures.filter((el) => el !== value);
-		else selectedFeatures = [...selectedFeatures, value];
+		if (selectedFeatures.includes(_value)) selectedFeatures = selectedFeatures.filter((el) => el !== _value);
+		else selectedFeatures = [...selectedFeatures, _value];
 	};
 	const setDeveloper = (dev: IDev) => {
 		developer = dev;
@@ -67,68 +71,88 @@
 
 <Developer bind:visible={developerModal} {developer} />
 
+<Modal
+	bind:visible={sortModal}
+	title="Theme Selection Sorting"
+	description="Select what features you wish your desired theme to have."
+>
+	<div class="sorting">
+		{#each features as { value, label, description }}
+			<button type="button" class="sort" class:active={isSelectedFeature(value)} on:click={() => setFeature(value)}>
+				<p class="sort-label">{label}</p>
+				<span class="sort-description">{description}</span>
+			</button>
+		{/each}
+	</div>
+</Modal>
+
 <template>
-	<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
-
-	<main class="container">
-		<aside class="sidebar">
-			<div class="group">
+	<div class="pattern" />
+	<header class="header">
+		<div class="wrap">
+			<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
+			<div class="header-filters">
 				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
+				<Button variant="secondary" on:click={() => (sortModal = !sortModal)}>
+					<Icon src={Funnel} />
+					Sort
+				</Button>
 			</div>
-			<div class="group">
-				<h4 class="sidebar-title">Features</h4>
-
-				<ul class="features">
-					{#each features as { value, label, description }}
-						<li class="feature">
-							<Checkbox {value} {label} on:change={setFeature} />
-							<small class="feature-description">{description}</small>
-						</li>
-					{/each}
-				</ul>
-			</div>
-		</aside>
-		<section class="themes">
-			{#each filtered as theme (theme.name)}
-				{@const href = `/theme/${getSlug(theme.name)}`}
-				<div class="theme">
-					<a {href} class="theme-head">
-						<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
-					</a>
-					<div class="theme-body">
-						<div class="theme-info">
-							<a {href} class="theme-name">{theme.name}</a>
-							<p class="theme-description truncate">{theme.meta.description}</p>
-						</div>
-						<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
-							<img
-								src="https://github.com/{theme.developer.github}.png"
-								alt="Theme developer"
-								class="developer-avatar"
-							/>
-							<span class="developer-name">{theme.developer.name}</span>
-						</button>
+		</div>
+	</header>
+	<div class="themes wrap">
+		{#each filtered as theme (theme.name)}
+			{@const href = `/theme/${getSlug(theme.name)}`}
+			<div class="theme">
+				<a {href} class="theme-head">
+					<img loading="lazy" src={theme.thumbnail} alt="Theme thumbnail" class="theme-thumbnail" />
+					<div class="theme-info">
+						<p class="theme-name">{theme.name}</p>
+						<span class="theme-description truncate">{theme.meta.description}</span>
 					</div>
-				</div>
-			{/each}
-		</section>
-	</main>
+				</a>
+				<button type="button" class="developer" on:click={() => setDeveloper(theme.developer)} on:keydown>
+					<img src="https://github.com/{theme.developer.github}.png" alt="Theme developer" class="developer-avatar" />
+					<span class="developer-name">{theme.developer.name}</span>
+				</button>
+			</div>
+		{/each}
+	</div>
 </template>
 
 <style lang="scss">
-	.container {
-		display: grid;
-		align-items: flex-start;
-		grid-template-columns: 250px 1fr;
-		gap: 32px;
+	.header {
+		position: relative;
+		height: 300px;
+		display: flex;
+		align-items: center;
+		.wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&-filters {
+			display: flex;
+			gap: 16px;
+			align-items: center;
+		}
 	}
-
+	.pattern {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: url('/images/grid-pattern.png');
+		opacity: 0.035;
+		mask: linear-gradient(transparent, black);
+		rotate: 180deg;
+		z-index: -1;
+	}
 	.title {
 		font-family: var(--font-display);
 		color: var(--text-primary);
-		font-weight: 600;
 		font-size: 36px;
-		padding: 60px 0;
 		display: flex;
 		gap: 8px;
 	}
@@ -143,79 +167,55 @@
 		}
 	}
 
-	.sidebar {
-		position: sticky;
-		top: 32px;
-		&-title {
-			font-family: var(--font-display);
-			margin-bottom: 8px;
-			color: var(--text-primary);
-		}
+	.themes {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
+		gap: 32px;
+		margin-bottom: 128px;
 	}
-
-	.group:not(:last-child) {
-		border-bottom: 1px solid var(--border);
-		padding-bottom: 16px;
-		margin-bottom: 16px;
-	}
-	.features {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.feature {
-		&-description {
-			color: var(--text-tertiary);
-		}
-		&:not(:last-child) {
-			margin-bottom: 16px;
-		}
-	}
-
 	.theme {
-		display: flex;
-		gap: 16px;
-		&:not(:last-child) {
-			border-bottom: 1px solid var(--border);
-			padding-bottom: 16px;
-			margin-bottom: 16px;
-		}
 		&-head {
-			transition: 0.15s ease box-shadow, 0.15s ease transform;
+			height: 224px;
+			display: block;
+			overflow: hidden;
+			border-radius: var(--radius-lg);
+			position: relative;
+			transition: translate 0.15s ease, box-shadow 0.15s ease;
 			&:hover {
-				box-shadow: var(--shadow);
-				transform: translateY(-5px);
+				translate: 0 -5px;
+				box-shadow: 0 10px 13px hsl(0 0% 0% / 0.25);
 			}
 		}
 		&-thumbnail {
+			aspect-ratio: 16 / 9;
 			display: block;
 			width: 100%;
-			aspect-ratio: 16 / 9;
-			max-width: 256px;
-			border-radius: var(--radius-lg);
 		}
-		&-body {
-			padding: 12px;
+		&-info {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 16px;
+			background: linear-gradient(transparent, black);
+			text-shadow: 0 2px 10px black;
 		}
 		&-name {
 			font-family: var(--font-display);
 			font-weight: 800;
 			font-size: 18px;
-			&:hover {
-				color: var(--text-link);
-				text-decoration: underline;
-			}
+			color: var(--text-primary);
 		}
 		&-description {
-			color: var(--text-tertiary);
 			font-size: 14px;
-			margin: 8px 0 16px;
+			display: block;
 		}
 	}
 	.developer {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
+		margin-top: 4px;
 		&-avatar {
 			display: block;
 			border-radius: 50%;
@@ -225,8 +225,38 @@
 			max-height: 32px;
 		}
 		&:hover {
-			color: var(--text-link);
+			color: hsl(var(--accent));
 			text-decoration: underline;
+		}
+	}
+
+	.sorting {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+	.sort {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		text-align: left;
+		padding: 16px;
+		&-label {
+			color: var(--text-primary);
+			font-family: var(--font-display);
+			font-weight: 800;
+		}
+		&-description {
+			display: block;
+			margin-top: 4px;
+			font-size: 14px;
+		}
+		&:hover {
+			border-color: var(--border-alt);
+		}
+		&.active {
+			background: hsl(var(--accent) / 0.075);
+			border-color: hsl(var(--accent));
+			color: var(--text-primary);
 		}
 	}
 </style>
