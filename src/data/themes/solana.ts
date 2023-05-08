@@ -10,20 +10,22 @@ const theme: ITheme = {
 		author: 'Disease#5663',
 		version: '1.0.11',
 		description: 'macOS with barely any customization.',
-		source: 'https://github.com/maenDisease/BetterDiscordStuff/tree/main/Themes/Solana',
+		source: 'https://github.com/maenDisease/Solana',
 		invite: 'BShu37e4jg',
 		website: 'https://maendisease.github.io/',
 		authorId: '678469587444170762'
 	},
 	preview: `
-		@import url(https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css);
+		@import url(https://maendisease.github.io/Solana/Solana.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/ProfileBannerSkins.css);
 		@import url(https://maendisease.github.io/BetterDiscordStuff/css/bettterInvites.css);
 		@import url(https://fonts.cdnfonts.com/css/sf-pro-display);
 		@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap);
 	`,
 	features: ['background', 'font', 'transparent', 'solid', 'light', 'home'],
-	imports: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/Solana.css'],
+	imports: [
+		'https://maendisease.github.io/Solana/Solana.css',
+	],
 	optionalImports: [
 		{
 			name: 'BD Addon Mini',
@@ -44,7 +46,8 @@ const theme: ITheme = {
 			enabled: true
 		}
 	],
-	fonts: [],
+	fonts: [
+	],
 	variables: [
 		{
 			title: 'Colors',
@@ -140,7 +143,6 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -157,7 +159,6 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -234,7 +235,6 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -251,7 +251,6 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
 						title: 'Size'
 					}
 				},
