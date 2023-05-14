@@ -194,6 +194,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -210,6 +211,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -350,6 +352,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -366,6 +369,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -496,6 +500,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},
@@ -512,6 +517,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
+						customValue: true,
 						title: 'Size'
 					}
 				},
@@ -639,6 +645,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'bottom center' },
 							{ label: 'Bottom left', value: 'bottom left' }
 						],
+						customValue: true,
 						title: 'Position'
 					}
 				},

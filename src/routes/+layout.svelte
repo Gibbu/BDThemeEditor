@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	// import { inject } from '@vercel/analytics';
+	import { browser, dev } from '$app/environment';
 	import { Modal, Button } from '$components/common';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Check } from '@steeze-ui/heroicons';
 	import '$scss/app.scss';
-	import 'svooltip/svooltip.css';
+	import 'svooltip/styles.css';
+
+	// inject({ mode: dev ? 'development' : 'production' });
 
 	// Browser warning
 	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);

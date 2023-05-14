@@ -13,7 +13,7 @@
 
 	// Optional input vars
 	export let hint: string = '';
-	export let customValue: boolean = true;
+	export let customValue: boolean = false;
 	export let addon: boolean = false;
 	export let varGroup: string = ':root';
 

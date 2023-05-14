@@ -65,3 +65,13 @@ export const parseMeta = (meta: string) => {
 
 	return _meta;
 };
+
+/**
+ * Darkens the lightness of a HSL string
+ * @param hsl The HSL string to be transformed.
+ */
+export const darkenHslLightness = (hsl: string) => {
+	const [h, s, l] = hsl.split(' ').map((el) => parseInt(el));
+
+	return `${h} ${s - 10}% ${l - 10}%`;
+};

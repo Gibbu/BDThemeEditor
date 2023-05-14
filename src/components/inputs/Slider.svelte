@@ -125,7 +125,7 @@
 			height: 16px;
 			width: 16px;
 			border-radius: 50px;
-			background: #36e7a9;
+			background: hsl(var(--accent));
 			cursor: pointer;
 			appearance: none;
 			margin-top: -3px;
@@ -145,7 +145,7 @@
 			height: 16px;
 			width: 16px;
 			border-radius: 50px;
-			background: #36e7a9;
+			background: hsl(var(--accent));
 			cursor: pointer;
 		}
 		&::-ms-track {
@@ -175,7 +175,7 @@
 			height: 16px;
 			width: 16px;
 			border-radius: 50px;
-			background: #36e7a9;
+			background: hsl(var(--accent));
 			cursor: pointer;
 		}
 	}

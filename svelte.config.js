@@ -1,6 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +13,9 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			runtime: 'edge'
+		})
 	}
 };
 

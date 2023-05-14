@@ -4,7 +4,7 @@ const dev: IDev = {
 	name: 'Gibbu',
 	github: 'Gibbu',
 	banner: 'https://i.imgur.com/kYW2H5C.jpg',
-	colour: '#68d8d1',
+	colour: '159 79% 56%',
 	server: 'https://discord.gg/ZHthyCw'
 };
 
