@@ -11,6 +11,7 @@ import materialdesign from './materialdesign';
 import neutron from './neutron';
 import operagxtheme from './operagxtheme';
 import outlook from './outlook';
+import cyan from './cyan';
 
 export const themes = [
 	frostedglass,
@@ -25,7 +26,8 @@ export const themes = [
 	// reborn,
 	// tranquil,
 	operagxtheme,
-	outlook
+	outlook,
+	cyan
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
