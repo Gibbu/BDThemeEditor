@@ -9,9 +9,8 @@ const theme: ITheme = {
 		name: 'Cyan',
 		author: 'DaBluLite',
 		version: '5.0.0',
-		description: 'Sleek and clean, with custom background support',
-		source:
-			'https://dablulite.github.io/Cyan/Cyan.theme.css',
+		description: 'Clean and Customizable, with custom background support',
+		source: 'https://dablulite.github.io/Cyan/Cyan.theme.css',
 		invite: 'ZfPH6SDkMW',
 		website: 'https://github.com/DaBluLite/Cyan',
 		authorId: '582170007505731594'
