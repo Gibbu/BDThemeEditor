@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import { inject } from '@vercel/analytics';
+	import { inject } from '@vercel/analytics';
 	import { browser, dev } from '$app/environment';
 	import { Modal, Button } from '$components/common';
 	import { Icon } from '@steeze-ui/svelte-icon';
