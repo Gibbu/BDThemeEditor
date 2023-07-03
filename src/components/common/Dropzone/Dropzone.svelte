@@ -82,7 +82,7 @@
 			</div>
 		{:else}
 			<span class="message" class:error>
-				{error || message}
+				{@html error || message}
 			</span>
 		{/if}
 

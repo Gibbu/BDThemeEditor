@@ -29,7 +29,7 @@
 	const update = (): void => {
 		const output = value.split(',').map((font) => font.trim());
 
-		if (!local && !value.includes('Whitney')) {
+		if (!local && (!value.includes('Whitney') || !value.includes('gg sans'))) {
 			const fontUrl: string = `https://fonts.googleapis.com/css2?family=${output[0].replace(
 				/ /g,
 				'+'

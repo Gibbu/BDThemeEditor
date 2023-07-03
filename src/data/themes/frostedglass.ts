@@ -49,7 +49,7 @@ const theme: ITheme = {
 			--window-roundness: 10px; /* Roundness of Discord | DEFAULT: 10px */
 			--scrollbar-colour: rgba(255, 255, 255, 0.05); /* DEFAULT: rgba(255,255,255,0.05) */
 			--link-colour: #00b0f4; /* DEFAULT: #00b0f4 */
-			--font: "gg sans";
+			--font: "Whitney";
 			--update-notice-1: none;
 		}
 	`,

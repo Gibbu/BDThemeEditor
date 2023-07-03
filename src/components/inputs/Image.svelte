@@ -58,7 +58,15 @@
 
 		if (uploadType === 'imgur') {
 			fileUploading = true;
-			await imgur(file);
+			try {
+				await imgur(file);
+			} catch (err) {
+				const { stack, ...rest } = err as any;
+				console.log('[BDEditor Image Upload]:', rest);
+				error = `An error occured while uploading: ${
+					(err as any).response.data.data.error
+				}.<br>Check the developer console for more information`;
+			}
 		} else if (uploadType === 'b64') {
 			base64(file);
 		}
@@ -68,12 +76,12 @@
 		const formData = new FormData();
 		formData.append('image', file);
 
-		const { data }: any = await axios.post('https://api.imgur.com/3/image', formData, {
+		const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
 			headers: {
 				Authorization: 'Client-ID 52c59e859f41ce2'
 			},
 			onUploadProgress: (e) => {
-				fileUploadProgress = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
+				fileUploadProgress = e.progress as number;
 			}
 		});
 
@@ -154,7 +162,7 @@
 </template>
 
 <Modal bind:visible={fileUploadModal} title="How should we upload?">
-	{#if fileUploading}
+	{#if fileUploading && !error}
 		<div class="progress">
 			<div class="progress-text">
 				<p class="progress-status" class:done={fileUploadProgress === 100}>

@@ -35,7 +35,7 @@
 <template>
 	{#if visible}
 		<div class="container" use:portal use:trap>
-			<div class="backdrop" transition:fade={{ duration: 120 }} on:click={close} on:keypress />
+			<div class="backdrop" role="none" transition:fade={{ duration: 120 }} on:click={close} on:keypress />
 			<div
 				id={id()}
 				class={classes('modal', size)}

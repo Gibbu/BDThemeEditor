@@ -14,6 +14,7 @@
 <template>
 	<svelte:element
 		this={href ? 'a' : 'button'}
+		role={href ? 'link' : 'button'}
 		bind:this={self}
 		href={href || undefined}
 		type={!href ? 'button' : undefined}

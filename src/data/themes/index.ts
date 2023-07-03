@@ -12,22 +12,24 @@ import neutron from './neutron';
 import operagxtheme from './operagxtheme';
 import outlook from './outlook';
 import cyan from './cyan';
+import darkmatter from './darkmatter';
 
 export const themes = [
 	frostedglass,
 	softx,
 	basicbackground,
 	clearvision,
+	darkmatter,
 	comfy,
 	solana,
-	materialdesign,
-	neutron,
-	discordrecolor,
-	// reborn,
-	// tranquil,
 	operagxtheme,
 	outlook,
-	cyan
+	neutron,
+	cyan,
+	// reborn,
+	// tranquil,
+	materialdesign,
+	discordrecolor,
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
