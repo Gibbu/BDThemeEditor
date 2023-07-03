@@ -81,7 +81,7 @@
 				Authorization: 'Client-ID 52c59e859f41ce2'
 			},
 			onUploadProgress: (e) => {
-				fileUploadProgress = e.progress as number;
+				fileUploadProgress = (e.progress as number) * 100;
 			}
 		});
 
