@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { uid } from '$lib/utils';
+	import { createUID } from '$lib/utils';
 
 	/**
 	 * The value of the checkbox.\
@@ -28,14 +28,14 @@
 	 */
 	export let label: string | undefined = undefined;
 
-	const { id } = uid('checkbox');
+	const { uid } = createUID('checkbox');
 </script>
 
 <template>
-	<div id={id()} class="checkbox">
-		<input id={id('input')} type="checkbox" class="input" {name} {value} {group} bind:checked on:change />
+	<div id={uid()} class="checkbox">
+		<input id={uid('input')} type="checkbox" class="input" {name} {value} {group} bind:checked on:change />
 		{#if label}
-			<label for={id('input')} class="label">{label}</label>
+			<label for={uid('input')} class="label">{label}</label>
 		{/if}
 	</div>
 </template>

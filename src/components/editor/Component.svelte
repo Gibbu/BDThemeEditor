@@ -3,7 +3,7 @@
 	import { varOutput } from '$lib/helpers';
 	import { preview } from '$lib/preview';
 
-	import { Colour, Font, Image, Slider, Select, Number } from '../inputs';
+	import { Colour, Font, Image, Slider, Select, Number, Banner } from '../inputs';
 
 	interface Details {
 		variable: string;
@@ -18,7 +18,8 @@
 		image: Image,
 		slider: Slider,
 		select: Select,
-		number: Number
+		number: Number,
+		banner: Banner
 	};
 
 	export let data: any;
@@ -40,13 +41,13 @@
 			$store.addons.forEach((group) => {
 				if (group.variables)
 					group.variables.forEach((input) => {
-						if (input.details.variable === variable) input.details.value = value;
+						if (input.type !== 'banner' && input.details.variable === variable) input.details.value = value;
 					});
 			});
 		} else {
 			$store.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
-					if (input.details.variable === variable) input.details.value = value;
+					if (input.type !== 'banner' && input.details.variable === variable) input.details.value = value;
 				})
 			);
 		}

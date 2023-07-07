@@ -19,7 +19,7 @@
 	// types
 	import type { ITheme } from '$types/theme';
 	import type { PageData } from './$types';
-	import type { IconSource } from '@steeze-ui/svelte-icon/types';
+	import type { IconSource } from '@steeze-ui/svelte-icon';
 	type TabType = 'vars' | 'imports' | 'addons' | 'upload' | 'download';
 
 	export let data: PageData;
@@ -364,6 +364,9 @@
 </template>
 
 <style lang="scss">
+	.option:empty {
+		display: none;
+	}
 	.editor {
 		height: 100vh;
 		overflow: hidden;

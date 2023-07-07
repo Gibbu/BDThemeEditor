@@ -159,6 +159,16 @@ const theme: ITheme = {
 			icon: 'Photo',
 			inputs: [
 				{
+					type: 'banner',
+					details: {
+						id: 'cv-transparency-window',
+						type: 'warning',
+						message:
+							'ClearVision requires aditional steps to achieve a see through window. Join their <a href="https://discord.gg/673e2sqBzd" rel="noopener noreferrer">Discord Server</a> for help.',
+						closable: true
+					}
+				},
+				{
 					type: 'image',
 					details: {
 						variable: 'background-image',

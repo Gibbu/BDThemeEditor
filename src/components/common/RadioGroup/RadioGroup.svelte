@@ -32,7 +32,7 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { uid, calculateIndex } from '$lib/utils';
+	import { createUID, calculateIndex } from '$lib/utils';
 	import { createEventDispatcher } from 'svelte';
 
 	/** The selected value */
@@ -42,7 +42,7 @@
 	export let title: string | undefined = undefined;
 
 	const dispatch = createEventDispatcher();
-	const { id } = uid('radiogroup');
+	const { uid } = createUID('radiogroup');
 	let items: Context['items'] = [];
 	let index: Context['index'] = -1;
 	let activeItem: Context['activeItem'] = null;
@@ -61,7 +61,7 @@
 	};
 
 	let api = writable<Context>({
-		id,
+		id: uid,
 		value,
 		items,
 		index,
@@ -96,11 +96,11 @@
 </script>
 
 <template>
-	<div id={id()} role="radiogroup" aria-labelledby={title ? id('title') : undefined} class="radiogroup">
+	<div id={uid()} role="radiogroup" aria-labelledby={title ? uid('title') : undefined} class="radiogroup">
 		{#if title}
-			<p id={id('title')} class="title">{title}</p>
+			<p id={uid('title')} class="title">{title}</p>
 		{/if}
-		<div id={id('items')} role="none" class="radioitems">
+		<div id={uid('items')} role="none" class="radioitems">
 			<slot />
 		</div>
 	</div>

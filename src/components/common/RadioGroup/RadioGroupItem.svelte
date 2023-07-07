@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { uid } from '$lib/utils';
+	import { createUID } from '$lib/utils';
 	import { context } from './RadioGroup.svelte';
 
 	/** The "title" of the radioitem. */
@@ -19,21 +19,20 @@
 	export let disabled: boolean = false;
 
 	const api = context();
-	const { id } = uid('radio-item');
+	const { uid } = createUID('radio-item');
 
 	onMount(() => {
-		if (!disabled)
-			$api.addItem({
-				id,
-				disabled,
-				value
-			});
+		$api.addItem({
+			id: uid,
+			disabled,
+			value
+		});
 	});
 
 	const handleClick = () => {
 		if (!disabled)
 			$api.setItem({
-				id,
+				id: uid,
 				value
 			});
 	};
@@ -52,22 +51,22 @@
 
 <template>
 	<button
-		id={id()}
+		id={uid()}
 		type="button"
 		role="radio"
 		class="radioitem"
 		{disabled}
-		aria-labelledby={id('label')}
-		aria-describedby={description ? id('description') : undefined}
-		aria-checked={$api.activeItem?.id() === id()}
+		aria-labelledby={uid('label')}
+		aria-describedby={description ? uid('description') : undefined}
+		aria-checked={$api.activeItem?.id() === uid()}
 		on:click={handleClick}
 		on:keydown={handleKeys}
 	>
 		<div class="box" />
 		<div class="info">
-			<p id={id('label')} class="label">{label}</p>
+			<p id={uid('label')} class="label">{label}</p>
 			{#if description}
-				<span id={id('description')} class="description">{description}</span>
+				<span id={uid('description')} class="description">{description}</span>
 			{/if}
 		</div>
 	</button>

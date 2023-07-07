@@ -1,22 +1,30 @@
 <script lang="ts">
-	import { uid } from '$lib/utils';
+	import { browser } from '$app/environment';
+	import { createUID } from '$lib/utils';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { InformationCircle, ExclamationCircle, XCircle, XMark } from '@steeze-ui/heroicons';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
-	export let visible: boolean = true;
+	export let id: string | undefined = undefined;
+	export let visible: boolean = (browser && !localStorage.getItem(id!)) || false;
 	export let type: 'info' | 'warning' | 'error';
+	export let message: string | undefined = undefined;
 	export let closable: boolean = false;
+
+	onMount(() => {
+		console.log(visible);
+	});
 
 	const icons = {
 		info: InformationCircle,
 		warning: ExclamationCircle,
 		error: XCircle
 	};
-	const { id } = uid('banner');
+	const { uid } = createUID('banner');
 	const dispatch = createEventDispatcher();
 
 	const close = () => {
+		if (id) localStorage.setItem(id, 'is-set');
 		visible = false;
 		dispatch('close');
 	};
@@ -24,11 +32,11 @@
 
 <template>
 	{#if visible}
-		<div id={id()} class="banner {type}">
+		<div id={uid()} class="banner {type}">
 			<div class="icon">
 				<Icon src={icons[type]} size="24px" />
 			</div>
-			<div class="message"><slot /></div>
+			<div class="message"><slot>{@html message}</slot></div>
 			{#if closable}
 				<button type="button" class="close" on:click={close}>
 					<Icon src={XMark} size="18px" />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { uid } from '$lib/utils';
+	import { createUID } from '$lib/utils';
 
 	export let value: string | number = '';
 
@@ -29,13 +29,13 @@
 	export let label: string | undefined = undefined;
 	export let suffix: string | undefined = undefined;
 
-	const { id } = uid('textbox');
+	const { uid } = createUID('textbox');
 </script>
 
 <template>
-	<div id={id()} class="container">
+	<div id={uid()} class="container">
 		{#if label}
-			<label for={id('input')} class="label">
+			<label for={uid('input')} class="label">
 				{label}
 				{#if suffix}
 					<small class="suffix">({suffix})</small>
@@ -45,7 +45,7 @@
 		{#if type === 'text'}
 			<input
 				bind:this={self}
-				id={id('input')}
+				id={uid('input')}
 				type="text"
 				class="input"
 				class:error
@@ -58,7 +58,7 @@
 		{:else}
 			<input
 				bind:this={self}
-				id={id('input')}
+				id={uid('input')}
 				type="number"
 				class="input"
 				class:error

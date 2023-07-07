@@ -2,7 +2,7 @@
 	import { fly, fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
 
-	import { uid, classes } from '$lib/utils';
+	import { createUID, classes } from '$lib/utils';
 	import { trap, portal } from '$lib/actions';
 
 	export let visible: boolean = false;
@@ -13,7 +13,7 @@
 	export let closeable: boolean = true;
 	export let plain: boolean = false;
 
-	const { id } = uid('modal');
+	const { uid } = createUID('modal');
 
 	$: if (browser && visible) {
 		document.documentElement.classList.add('modal-active');
@@ -37,25 +37,25 @@
 		<div class="container" use:portal use:trap>
 			<div class="backdrop" role="none" transition:fade={{ duration: 120 }} on:click={close} on:keypress />
 			<div
-				id={id()}
+				id={uid()}
 				class={classes('modal', size)}
 				class:plain
 				role="dialog"
 				aria-modal="true"
-				aria-labelledby={id('title')}
-				aria-describedby={description ? id('description') : id('body')}
+				aria-labelledby={uid('title')}
+				aria-describedby={description ? uid('description') : uid('body')}
 				transition:fly={{ duration: 150, y: 10 }}
 				{...$$restProps}
 			>
 				{#if title || !plain}
 					<header class="header">
-						<h2 id={id('title')} class="title">{title}</h2>
+						<h2 id={uid('title')} class="title">{title}</h2>
 						{#if description}
-							<p id={id('description')} class="description">{description}</p>
+							<p id={uid('description')} class="description">{description}</p>
 						{/if}
 					</header>
 				{/if}
-				<div id={id('body')} class="body" class:markdown>
+				<div id={uid('body')} class="body" class:markdown>
 					<slot />
 				</div>
 				{#if $$slots.footer}

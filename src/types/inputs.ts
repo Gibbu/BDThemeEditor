@@ -1,3 +1,17 @@
+export interface IMessage {
+	/** Adds a banner displaying type of information. */
+	type: 'banner';
+	details: {
+		/** ID for the banner. Used to keep it closed if user has dismissed it. */
+		id: string;
+		/** The message to be displayed. */
+		message: string;
+		/** Level of banner to be displayed. */
+		type: 'info' | 'warning' | 'error';
+		closable?: boolean;
+	};
+}
+
 export interface IColour {
 	type: 'colour';
 	/**
@@ -262,4 +276,4 @@ export interface ISlider {
 	};
 }
 
-export type Inputs = IColour | IFont | IImage | INumber | ISelect | ISlider;
+export type Inputs = IMessage | IColour | IFont | IImage | INumber | ISelect | ISlider;

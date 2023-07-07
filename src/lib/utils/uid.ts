@@ -14,7 +14,7 @@ export default (
 	 * The current index of the uid.\
 	 * This is a pretty much a "helper" so no need to split the string and parseInt.
 	 */
-	id_index: number;
+	uid_index: number;
 	/**
 	 * Append a suffix to the UID.
 	 * @example
@@ -24,13 +24,13 @@ export default (
 	 * const dropdownID = uid('dropdown'); // menu-1-dropdown
 	 * ```
 	 */
-	id: UID;
+	uid: UID;
 } => {
 	const UID = ID();
 
 	return {
-		id_index: id,
-		id: (suffix?: string) => {
+		uid_index: id,
+		uid: (suffix?: string) => {
 			const uid = `${prefix}-${UID}`;
 			return suffix ? `${uid}-${suffix}` : uid;
 		}
