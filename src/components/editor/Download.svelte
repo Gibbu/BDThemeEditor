@@ -28,7 +28,15 @@
 	const copyFileContents = async () => {
 		generateFileContents(false);
 		await window.navigator.clipboard.writeText(fileContents);
-		toast.success('Copied generated CSS to clipboard.');
+		toast.success('Copied generated CSS to clipboard.', {
+			duration: '2s',
+			onRemove() {
+				toast.info(`If you're using Vencord, copy the contents into your Vencord CustomCSS Editor.`, {
+					duration: '15s',
+					closable: true
+				});
+			}
+		});
 	};
 	let fileContents: string = '';
 
