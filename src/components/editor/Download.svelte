@@ -6,6 +6,7 @@
 	import { ArrowDownTray } from '@steeze-ui/heroicons';
 	import { varOutput } from '$lib/helpers';
 	import { getSlug } from '$lib/utils';
+	import { toast } from 'svoast';
 
 	import { Input, Button, Modal, Banner } from '../common';
 
@@ -24,34 +25,38 @@
 		showDonate = false;
 		localStorage.setItem(`donate_${getSlug($store.name)}`, 'true');
 	};
+	const copyFileContents = async () => {
+		generateFileContents(false);
+		await window.navigator.clipboard.writeText(fileContents);
+		toast.success('Copied generated CSS to clipboard.');
+	};
+	let fileContents: string = '';
 
-	const download = () => {
-		if (disabled) return;
-
+	const generateFileContents = (includeMeta: boolean) => {
 		$store.meta.name = value;
 
-		let save: string;
+		if (includeMeta) {
+			// Meta
+			let meta = `/**\n${Object.entries($store.meta)
+				.map(([key, value]) => ` * @${key} ${value}\n`)
+				.join('')}`;
+			meta += ` * @BDEditor ${$store.name}\n`;
+			meta += '*/\n\n';
 
-		// Meta
-		let meta = `/**\n${Object.entries($store.meta)
-			.map(([key, value]) => ` * @${key} ${value}\n`)
-			.join('')}`;
-		meta += ` * @BDEditor ${$store.name}\n`;
-		meta += '*/\n\n';
-
-		save = meta;
+			fileContents = meta;
+		}
 
 		// Fonts
-		save += $store.fonts ? $store.fonts.map((url) => `@import url('${url}');\n`).join('') : '';
+		fileContents += $store.fonts ? $store.fonts.map((url) => `@import url('${url}');\n`).join('') : '';
 
 		// Imports
-		save += $store.imports.map((url) => `@import url('${url}');\n`).join('');
+		fileContents += $store.imports.map((url) => `@import url('${url}');\n`).join('');
 		let addonImports = $store.addons.filter((obj) => obj.use);
-		addonImports.forEach((obj) => obj.imports.forEach((url) => (save += `@import url('${url}');\n`)));
+		addonImports.forEach((obj) => obj.imports.forEach((url) => (fileContents += `@import url('${url}');\n`)));
 
 		// Optional imports
 		if ($store.optionalImports.length > 0) {
-			save += $store.optionalImports
+			fileContents += $store.optionalImports
 				.map(({ enabled, imports }) => {
 					if (enabled) {
 						return imports.map((el) => `@import url('${el}');\n`);
@@ -69,7 +74,7 @@
 		Object.keys(groups).forEach((group) => {
 			$store.variables.forEach((vars) => {
 				vars.inputs.forEach((input) => {
-					if (input.varGroup === group || (group === ':root' && !input.varGroup))
+					if (input.type !== 'banner' && (input.varGroup === group || (group === ':root' && !input.varGroup)))
 						groups[group] = [...groups[group], input.details];
 				});
 			});
@@ -91,18 +96,26 @@
 		});
 
 		Object.entries(groups).forEach(([group, vars]) => {
-			save += `\n${group} {\n`;
-			save += vars
+			fileContents += `\n${group} {\n`;
+			fileContents += vars
 				.map((input) => varOutput(input))
 				.map(({ variable, value, comment }) => `  --${variable}: ${value};${comment ? ` /* ${comment} */` : ''}\n`)
 				.join('');
-			save += '}\n';
+			fileContents += '}\n';
 		});
 
-		save += '\n/* Any custom CSS below here */\n\n\n';
+		fileContents += '\n/* Any custom CSS below here */\n\n\n';
+	};
 
-		const file = new Blob([save], { type: 'text/plain;charset=utf-8' });
+	const download = () => {
+		if (disabled) return;
+		generateFileContents(true);
+
+		const file = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
 		FileSaver.saveAs(file, `${getSlug(value)}.theme.css`);
+		fileContents = '';
+		value = '';
+		toast.success('Theme successfully downloaded.');
 	};
 </script>
 
@@ -123,6 +136,7 @@
 	<Input label="Give your theme a name" placeholder="Theme name..." bind:value on:input={validate} {error} />
 
 	<svelte:fragment slot="footer">
+		<Button variant="secondary" on:click={copyFileContents}>Copy CSS</Button>
 		<Button variant="primary" {disabled} on:click={download}>
 			<Icon src={ArrowDownTray} size="18px" />
 			Download

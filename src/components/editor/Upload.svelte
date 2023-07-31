@@ -3,6 +3,7 @@
 	import { Modal, Banner, Dropzone } from '../common';
 	import { parseMeta, getUrl, stripVal } from '$lib/helpers';
 	import { preview } from '$lib/preview';
+	import { toast } from 'svoast';
 
 	export let visible: boolean = false;
 
@@ -92,7 +93,7 @@
 
 					$store.variables.forEach((el) =>
 						el.inputs.forEach((input) => {
-							if (input.details.variable === variable) {
+							if (input.type !== 'banner' && input.details.variable === variable) {
 								input.details.value = input.type === 'select' ? value : stripVal(value);
 							}
 						})
@@ -100,7 +101,7 @@
 					$store.addons.forEach((el) => {
 						if (el.variables) {
 							el.variables.forEach((input) => {
-								if (input.details.variable === variable) {
+								if (input.type !== 'banner' && input.details.variable === variable) {
 									input.details.value = input.type === 'select' ? value : stripVal(value);
 								}
 							});
@@ -108,6 +109,7 @@
 					});
 
 					visible = false;
+					toast.success('Uploaded theme.');
 				}
 			});
 		});

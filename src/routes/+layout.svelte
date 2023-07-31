@@ -4,6 +4,7 @@
 	import { Modal, Button } from '$components/common';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Check } from '@steeze-ui/heroicons';
+	import { Toasts } from 'svoast';
 	import '$scss/app.scss';
 	import 'svooltip/styles.css';
 
@@ -22,6 +23,7 @@
 </script>
 
 <template>
+	<Toasts position="top-center" />
 	<slot />
 </template>
 

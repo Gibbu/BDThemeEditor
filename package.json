@@ -35,6 +35,7 @@
 		"svelte": "^4.0.1",
 		"svelte-check": "^3.4.4",
 		"svelte-preprocess": "^5.0.4",
+		"svoast": "^2.2.1",
 		"svooltip": "^0.7.4",
 		"tslib": "^2.6.0",
 		"typescript": "^5.1.6",

@@ -76,7 +76,7 @@
 		justify-content: center;
 		align-items: flex-start;
 		z-index: 99;
-		padding: 64px;
+		padding: 128px;
 	}
 	.backdrop {
 		background: var(--modal-backdrop);

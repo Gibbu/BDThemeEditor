@@ -61,6 +61,9 @@ devDependencies:
   svelte-preprocess:
     specifier: ^5.0.4
     version: 5.0.4(postcss@8.4.24)(sass@1.63.6)(svelte@4.0.1)(typescript@5.1.6)
+  svoast:
+    specifier: ^2.2.1
+    version: 2.2.1(svelte@4.0.1)
   svooltip:
     specifier: ^0.7.4
     version: 0.7.4
@@ -1577,6 +1580,14 @@ packages:
       locate-character: 3.0.0
       magic-string: 0.30.0
       periscopic: 3.1.0
+    dev: true
+
+  /svoast@2.2.1(svelte@4.0.1):
+    resolution: {integrity: sha512-ZnKoHInmTKHpY8gIqwxJi3juafykF1FJeieN2gE3+E9Jb7iR1wOZG88WCHeVXcsYaSBLatHBGHf5AZ1lszkjlw==}
+    peerDependencies:
+      svelte: ^4.0.0
+    dependencies:
+      svelte: 4.0.1
     dev: true
 
   /svooltip@0.7.4:
