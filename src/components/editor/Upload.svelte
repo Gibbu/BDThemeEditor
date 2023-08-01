@@ -11,7 +11,6 @@
 	let error: string;
 
 	const upload = () => {
-		console.log('wowzers');
 		const file = files[0];
 
 		const reader = new FileReader();

@@ -34,7 +34,7 @@
 
 <template>
 	{#if visible}
-		<div class="container" use:portal use:trap>
+		<div class="container" use:portal use:trap={{ allowOutsideClick: true }}>
 			<div class="backdrop" role="none" transition:fade={{ duration: 120 }} on:click={close} on:keypress />
 			<div
 				id={uid()}

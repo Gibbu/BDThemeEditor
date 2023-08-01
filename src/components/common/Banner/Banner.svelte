@@ -11,10 +11,6 @@
 	export let message: string | undefined = undefined;
 	export let closable: boolean = false;
 
-	onMount(() => {
-		console.log(visible);
-	});
-
 	const icons = {
 		info: InformationCircle,
 		warning: ExclamationCircle,
