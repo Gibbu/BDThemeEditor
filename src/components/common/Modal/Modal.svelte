@@ -5,6 +5,8 @@
 	import { createUID, classes } from '$lib/utils';
 	import { trap, portal } from '$lib/actions';
 
+	import type { Options } from 'focus-trap';
+
 	export let visible: boolean = false;
 	export let title: string | undefined = undefined;
 	export let description: string | undefined = undefined;
@@ -12,6 +14,7 @@
 	export let markdown: boolean = false;
 	export let closeable: boolean = true;
 	export let plain: boolean = false;
+	export let trapOptions: Options | undefined = undefined;
 
 	const { uid } = createUID('modal');
 
@@ -34,7 +37,7 @@
 
 <template>
 	{#if visible}
-		<div class="container" use:portal use:trap={{ allowOutsideClick: true }}>
+		<div class="container" use:portal use:trap={trapOptions}>
 			<div class="backdrop" role="none" transition:fade={{ duration: 120 }} on:click={close} on:keypress />
 			<div
 				id={uid()}

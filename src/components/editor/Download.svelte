@@ -127,7 +127,7 @@
 	};
 </script>
 
-<Modal bind:visible title="Download" size="small">
+<Modal bind:visible title="Download" size="small" trapOptions={{ allowOutsideClick: true }}>
 	{#if $store.developer.donate && showDonate}
 		<Banner type="info" closable on:close={hideDonate}>
 			<p>Like {$store.name}?</p>
