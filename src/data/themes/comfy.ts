@@ -103,7 +103,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'mention-color-bar',
 						type: 'HEX',
 						value: '#C66262',
@@ -113,7 +113,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'mention-color-background',
 						type: 'RGB',
 						value: 'rgba(198, 98, 98, 0.12)',
@@ -125,7 +125,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'mention-color-hover',
 						type: 'RGB',
 						value: 'rgba(198, 98, 98, 0.15)',
@@ -137,7 +137,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'mention-color',
 						type: 'HEX',
 						value: '#F04747',
@@ -147,7 +147,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'unread-color',
 						type: 'HEX',
 						value: '#7289DA',
@@ -157,7 +157,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'chat-buttons',
 						type: 'HEX',
 						value: '#7289DA',
@@ -173,7 +173,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'avatar-radius',
 						value: 5,
 						unit: 'px',
@@ -183,7 +183,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'status-radius',
 						value: 3,
 						unit: 'px',
@@ -193,7 +193,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'server-radius',
 						value: 8,
 						unit: 'px',
@@ -209,7 +209,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'status-background',
 						start: 'https://i.imgur.com/ODa8LKK.jpg',
 						value: '',
@@ -218,7 +218,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'online',
 						type: 'HEX',
 						value: '#43B581',
@@ -227,7 +227,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'iddle',
 						type: 'HEX',
 						value: '#FAA61A',
@@ -236,7 +236,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'dnd',
 						type: 'HEX',
 						value: '#F04747',
@@ -245,7 +245,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'offline',
 						type: 'HEX',
 						value: '#747F8D',
@@ -254,7 +254,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'streaming',
 						type: 'HEX',
 						value: '#593695',
@@ -263,7 +263,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'spotify-color',
 						type: 'HEX',
 						value: '#1EDC62',
@@ -279,7 +279,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-primary',
 						type: 'HEX',
 						value: '#23283D',
@@ -290,7 +290,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-secondary',
 						type: 'HEX',
 						value: '#1E2233',
@@ -301,7 +301,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-secondary-alt',
 						type: 'HEX',
 						value: '#191F2E',
@@ -312,7 +312,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-tertiary',
 						type: 'HEX',
 						value: '#101320',
@@ -323,7 +323,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-mobile-primary',
 						type: 'HEX',
 						value: '#23283D',
@@ -334,7 +334,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-mobile-secondary',
 						type: 'HEX',
 						value: '#1E2233',
@@ -345,7 +345,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'channeltextarea-background',
 						type: 'HEX',
 						value: '#191F2E',
@@ -356,7 +356,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-accent',
 						type: 'HEX',
 						value: '#7289DA',
@@ -367,7 +367,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-modifier-hover',
 						type: 'RGB',
 						alpha: true,
@@ -380,7 +380,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-modifier-active',
 						type: 'RGB',
 						alpha: true,
@@ -393,7 +393,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-modifier-selected',
 						type: 'RGB',
 						alpha: true,
@@ -406,7 +406,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'deprecated-card-bg',
 						type: 'RGB',
 						alpha: true,
@@ -419,7 +419,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'background-floating',
 						type: 'RGB',
 						alpha: true,
@@ -432,7 +432,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'deprecated-quickswitcher-input-background',
 						type: 'HEX',
 						value: '#101320',
@@ -443,7 +443,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'scrollbar-auto-thumb',
 						type: 'HEX',
 						value: '#121722',
@@ -454,7 +454,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'scrollbar-auto-track',
 						type: 'HEX',
 						value: '#191F2E',
@@ -465,7 +465,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'scrollbar-thin-thumb',
 						type: 'HEX',
 						value: '#141925',
@@ -476,7 +476,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'activity-card-background',
 						type: 'HEX',
 						value: '#101320',
@@ -492,7 +492,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'user-buttons-spacing',
 						value: 8,
 						unit: 'px',
@@ -502,7 +502,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'user-buttons-color',
 						type: 'HEX',
 						value: '#096DC0',
@@ -512,7 +512,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'role-circle',
 						value: 10,
 						unit: 'px',
@@ -522,13 +522,13 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'discord-logo',
 						options: [
 							{ label: 'True', value: 'block' },
 							{ label: 'False', value: 'none' }
 						],
-						customValue: false,
+						custom: false,
 						value: 'none',
 						title: 'Display Discord logo',
 						hint: 'Display or not Discord watermark on the top left'

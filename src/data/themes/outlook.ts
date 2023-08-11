@@ -19,9 +19,7 @@ const theme: ITheme = {
     @import url('https://maendisease.github.io/Outlook/Outlook.css');
 	`,
 	features: ['font', 'solid', 'light'],
-	imports: [
-		'https://maendisease.github.io/Outlook/Outlook.css',
-	],
+	imports: ['https://maendisease.github.io/Outlook/Outlook.css'],
 	optionalImports: [
 		{
 			name: 'BD Addon Mini',
@@ -30,25 +28,25 @@ const theme: ITheme = {
 			enabled: true
 		}
 	],
-    fonts: [],
+	fonts: [],
 	variables: [
 		{
 			title: 'Options',
 			icon: 'Swatch',
 			inputs: [
-                {
+				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'home-image',
 						start: 'https://maendisease.github.io/Outlook/illustrations/homeimage-default.avif',
 						value: '',
 						title: 'Home image',
-                        hint: 'Image appears from the home page.'
+						hint: 'Image appears from the home page.'
 					}
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-hue',
 						value: 208,
 						max: 359,
@@ -57,7 +55,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-saturation',
 						value: 85,
 						max: 100,
@@ -67,7 +65,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-brightness',
 						value: 40,
 						max: 100,
@@ -75,9 +73,9 @@ const theme: ITheme = {
 						title: 'Accent brightness'
 					}
 				},
-                {
+				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'gradient-toggle',
 						value: '1',
 						options: [
@@ -85,12 +83,12 @@ const theme: ITheme = {
 							{ label: 'False', value: '0' }
 						],
 						title: 'Gradient theme background',
-                        hint: 'Emulate Discord gradient themes.'
+						hint: 'Emulate Discord gradient themes.'
 					}
 				},
-                {
+				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'gradient-hue-shift',
 						value: 0.2,
 						min: 0,
@@ -101,7 +99,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'gradient-saturation',
 						value: 50,
 						max: 100,
@@ -111,7 +109,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'gradient-deg',
 						value: 179.52,
 						max: 360,
@@ -121,21 +119,21 @@ const theme: ITheme = {
 				}
 			]
 		},
-        {
+		{
 			title: 'Custom font',
 			icon: 'ChatBubbleBottomCenterText',
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'customFont',
 						index: 0,
 						value: 'Segoe UI',
 						title: 'App font'
 					}
 				}
-            ]
-        }
+			]
+		}
 	]
 };
 

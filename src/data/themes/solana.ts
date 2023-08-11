@@ -23,9 +23,7 @@ const theme: ITheme = {
 		@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap);
 	`,
 	features: ['background', 'font', 'transparent', 'solid', 'light', 'home'],
-	imports: [
-		'https://maendisease.github.io/Solana/Solana.css',
-	],
+	imports: ['https://maendisease.github.io/Solana/Solana.css'],
 	optionalImports: [
 		{
 			name: 'BD Addon Mini',
@@ -46,8 +44,7 @@ const theme: ITheme = {
 			enabled: true
 		}
 	],
-	fonts: [
-	],
+	fonts: [],
 	variables: [
 		{
 			title: 'Colors',
@@ -55,7 +52,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-hue',
 						value: 213,
 						max: 359,
@@ -64,7 +61,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-saturation',
 						value: 100,
 						max: 100,
@@ -74,7 +71,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'accent-brightness',
 						value: 50,
 						max: 100,
@@ -84,7 +81,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-accent-hue',
 						value: 213,
 						max: 359,
@@ -93,7 +90,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-accent-saturation',
 						value: 100,
 						max: 100,
@@ -103,7 +100,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-accent-brightness',
 						value: 50,
 						max: 100,
@@ -119,7 +116,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background-image',
 						start: 'initial',
 						value: '',
@@ -129,7 +126,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'background-image-position',
 						value: 'center',
 						options: [
@@ -148,7 +145,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'background-image-size',
 						value: 'cover',
 						options: [
@@ -164,7 +161,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-image-blur',
 						value: 0,
 						max: 50,
@@ -174,7 +171,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-overlay-opacity',
 						value: 80,
 						max: 100,
@@ -184,7 +181,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-overlay-color-lightness',
 						value: 0,
 						min: -1,
@@ -195,7 +192,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-hue-shift-strength',
 						value: 100,
 						max: 100,
@@ -212,7 +209,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'window-background-image',
 						start: 'initial',
 						value: '',
@@ -221,7 +218,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'window-background-image-position',
 						value: 'center',
 						options: [
@@ -240,7 +237,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'window-background-image-size',
 						value: 'cover',
 						options: [
@@ -256,7 +253,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'window-background-image-attachment',
 						value: 'fixed',
 						options: [
@@ -268,7 +265,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-opacity',
 						value: 100,
 						max: 100,
@@ -279,7 +276,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-blur',
 						value: 0,
 						max: 50,
@@ -290,7 +287,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-friends-blur',
 						value: 0,
 						max: 50,
@@ -300,7 +297,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-margin',
 						value: 24,
 						max: 100,
@@ -311,7 +308,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-margin-left',
 						value: 0,
 						max: 100,
@@ -321,7 +318,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-border-radius',
 						value: 10,
 						max: 100,
@@ -333,7 +330,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-background-lightness',
 						value: 0,
 						min: -1,
@@ -344,7 +341,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-accent-tint-strength',
 						value: 5,
 						max: 100,
@@ -360,7 +357,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'chat-bubble',
 						value: '0',
 						options: [
@@ -368,12 +365,12 @@ const theme: ITheme = {
 							{ label: 'True', value: '1' }
 						],
 						title: 'Chat bubbles',
-						customValue: false
+						custom: false
 					}
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'text-link-hue',
 						value: 212,
 						max: 359,
@@ -382,7 +379,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'chat-text-brightness',
 						value: 0,
 						min: -1,
@@ -399,7 +396,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'home-icon',
 						start: 'initial',
 						value: '',
@@ -408,7 +405,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'favorites-icon',
 						start: 'initial',
 						value: '',
@@ -417,7 +414,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'dock-blur',
 						value: 0,
 						max: 50,
@@ -427,7 +424,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'dock-border-radius',
 						value: 0,
 						min: -1,
@@ -444,7 +441,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'sidebar-width',
 						value: 240,
 						min: 48,
@@ -456,7 +453,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'members-width',
 						value: 240,
 						min: 64,
@@ -468,7 +465,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'sidebar-text-brightness',
 						value: 0,
 						min: -1,
@@ -485,7 +482,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-floating-blur',
 						value: 20,
 						max: 50,
@@ -497,7 +494,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'floating-background-lightness',
 						value: 0,
 						min: -1,
@@ -508,7 +505,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-floating-opacity',
 						value: 1,
 						min: 0,
@@ -519,7 +516,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'enable-floating-transparency',
 						value: '1',
 						options: [
@@ -537,7 +534,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'custom-font-display',
 						start: '""',
 						index: 0,
@@ -547,7 +544,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'custom-font-regular',
 						start: '""',
 						index: 0,
@@ -558,7 +555,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'custom-font-primary',
 						start: '""',
 						index: 0,
@@ -568,7 +565,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'custom-font-code',
 						start: '""',
 						index: 0,
@@ -584,7 +581,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'enable-blur',
 						value: '1',
 						options: [
@@ -593,7 +590,7 @@ const theme: ITheme = {
 						],
 						title: 'Enable blur',
 						hint: 'Forces blur variables to 0.',
-						customValue: false
+						custom: false
 					}
 				}
 			]

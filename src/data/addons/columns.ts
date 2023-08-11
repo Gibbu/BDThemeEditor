@@ -13,7 +13,7 @@ const addon: IAddon = {
 	variables: [
 		{
 			type: 'number',
-			details: {
+			props: {
 				variable: 'columns',
 				value: 3,
 				min: 1,
@@ -23,7 +23,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'number',
-			details: {
+			props: {
 				variable: 'guildgap',
 				value: 3,
 				min: 0,
@@ -33,11 +33,11 @@ const addon: IAddon = {
 		},
 		{
 			type: 'select',
-			details: {
+			props: {
 				addon: true,
 				variable: 'aligndms',
 				value: '0',
-				customValue: false,
+				custom: false,
 				options: [
 					{ label: 'True', value: '0' },
 					{ label: 'False', value: '1' }

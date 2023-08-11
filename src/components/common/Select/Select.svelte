@@ -15,13 +15,13 @@
 		value: string;
 	}
 
-	export let options: Option[];
+	export let options: Option[] = [];
 	export let value: string = '';
 	export let custom: boolean = false;
 
 	// Values
-	$: selected = options.find((el) => el.value === value) || options[0];
-	let customValue: string;
+	$: selected = options?.find((el) => el.value === value) || options[0];
+	let customValue: string = '';
 
 	// Dropdown
 	let selectBtn: HTMLButtonElement;

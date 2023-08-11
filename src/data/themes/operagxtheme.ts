@@ -90,7 +90,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background',
 						start: 'https://cdn.discordapp.com/attachments/1045691215330422864/1055544062213636196/grayscale.png',
 						value: '',
@@ -99,7 +99,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'background-behind-appmount',
 						value: '8, 5, 14',
 						type: 'RGB',
@@ -110,7 +110,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'background-accent-color-1',
 						value: '222,67,100 ',
 						type: 'RGB',
@@ -121,7 +121,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accent-color-1',
 						value: '222,67,100',
 						type: 'RGB',
@@ -130,7 +130,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accent-color-2',
 						value: '222,67,100',
 						type: 'RGB',
@@ -138,19 +138,21 @@ const theme: ITheme = {
 					}
 				},
 				{
-					type: 'slider',
-					details: {
+					type: 'select',
+					props: {
 						variable: 'border-brightness',
+						options: [
+							{ label: 'On', value: '1' },
+							{ label: 'Off', value: '0' }
+						],
 						value: '1',
-						max: 1,
-						step: 1,
 						title: 'Border Brightness',
 						hint: `Turns borders off and on`
 					}
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'dark-background-color',
 						value: '18, 16, 25 ',
 						type: 'RGB',
@@ -160,7 +162,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'darker-background-color',
 						value: '8, 5, 14',
 						type: 'RGB',
@@ -177,7 +179,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'wintitlebar-transparency',
 						value: 0.7,
 						max: 1,
@@ -187,7 +189,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'header-transparency',
 						value: 0.5,
 						max: 1,
@@ -197,7 +199,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'serverlist-transparency',
 						value: 0.5,
 						max: 1,
@@ -207,7 +209,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'channels-transparency',
 						value: 0.5,
 						max: 1,
@@ -217,7 +219,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'chat-transparency',
 						value: 0.5,
 						max: 1,
@@ -227,7 +229,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'memberlist-transparency',
 						value: 0.5,
 						max: 1,
@@ -244,7 +246,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'wintitlebar-background-blur',
 						value: 0,
 						max: 100,
@@ -255,7 +257,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'header-background-blur',
 						value: 0,
 						max: 100,
@@ -266,7 +268,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'serverlist-background-blur',
 						value: 0,
 						max: 100,
@@ -277,7 +279,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'channels-background-blur',
 						value: 0,
 						max: 100,
@@ -288,7 +290,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'chat-background-blur',
 						value: 0,
 						max: 100,
@@ -299,7 +301,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'memberlist-background-blur',
 						max: 100,
 						step: 5,
@@ -317,7 +319,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'customFont',
 						index: 0,
 						value: 'Chakra Petch',
@@ -326,7 +328,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'codeBlocksCustomFont',
 						index: 0,
 						value: 'Chakra Petch',
@@ -335,7 +337,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'fullwhite-font',
 						value: '250, 253, 255',
 						type: 'RGB',
@@ -345,7 +347,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'normal-font',
 						value: '201, 203, 206',
 						type: 'RGB',
@@ -354,7 +356,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'normal-hover-font',
 						value: '238, 239, 240',
 						type: 'RGB',
@@ -363,7 +365,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'muted-font',
 						value: '114, 118, 125',
 						type: 'RGB',
@@ -372,7 +374,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'link-text',
 						value: '0, 176, 244',
 						type: 'RGB',

@@ -72,7 +72,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background-image',
 						start: 'https://i.imgur.com/kYW2H5C.jpg',
 						value: '',
@@ -81,7 +81,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-image-blur',
 						value: 5,
 						max: 30,
@@ -93,7 +93,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'background-image-size',
 						value: 'cover',
 						options: [
@@ -104,13 +104,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'background-image-position',
 						value: 'center',
 						options: [
@@ -124,7 +124,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				}
@@ -137,7 +137,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'popout-image',
 						start: 'var(--background-image)',
 						value: '',
@@ -146,7 +146,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'popout-image-blur',
 						value: 5,
 						max: 30,
@@ -157,7 +157,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'popout-image-size',
 						value: 'cover',
 						options: [
@@ -168,13 +168,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'popout-image-position',
 						value: 'center',
 						options: [
@@ -188,7 +188,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				}
@@ -202,7 +202,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'overlay-image',
 						start: 'var(--background-image)',
 						value: '',
@@ -211,7 +211,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'overlay-image-blur',
 						value: 5,
 						max: 30,
@@ -222,7 +222,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'overlay-image-size',
 						value: 'cover',
 						options: [
@@ -233,13 +233,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'overlay-image-position',
 						value: 'center',
 						options: [
@@ -253,7 +253,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				}
@@ -266,7 +266,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'home-button-image',
 						start: 'https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg',
 						value: '',
@@ -275,7 +275,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'home-button-size',
 						value: 'cover',
 						options: [
@@ -286,13 +286,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Image size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'home-button-position',
 						value: 'center',
 						options: [
@@ -306,7 +306,7 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Image position'
 					}
 				}
@@ -319,7 +319,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'serverlist-brightness',
 						value: 0.8,
 						max: 1,
@@ -329,7 +329,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'left-brightness',
 						value: 0.8,
 						max: 1,
@@ -339,7 +339,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'middle-brightness',
 						value: 0.6,
 						max: 1,
@@ -350,7 +350,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'right-brightness',
 						value: 0,
 						max: 1,
@@ -361,7 +361,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'overlay-brightness',
 						value: 0.75,
 						max: 1,
@@ -379,7 +379,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'gradient-primary',
 						value: '103,58,183',
 						type: 'RGB',
@@ -388,7 +388,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'gradient-secondary',
 						value: '63,81,181',
 						type: 'RGB',
@@ -397,7 +397,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'link-colour',
 						value: '#00b0f4',
 						type: 'HEX',
@@ -406,7 +406,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'scrollbar-colour',
 						value: 'rgba(255,255,255,0.05)',
 						type: 'RGB',
@@ -417,7 +417,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'gradient-direction',
 						value: 320,
 						unit: 'deg',
@@ -435,7 +435,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'tint-colour',
 						value: '255,51,159',
 						type: 'RGB',
@@ -444,7 +444,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'tint-brightness',
 						value: 0,
 						max: 1,
@@ -460,7 +460,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'font',
 						index: 0,
 						value: 'gg sans',
@@ -476,7 +476,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-padding',
 						value: 20,
 						max: 100,
@@ -488,7 +488,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-roundness',
 						value: 10,
 						max: 100,

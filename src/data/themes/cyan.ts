@@ -36,7 +36,10 @@ const theme: ITheme = {
 	`,
 	features: ['background', 'font', 'transparent'],
 	imports: ['https://dablulite.github.io/Cyan/import.css'],
-	fonts: ['https://fonts.googleapis.com/css2?family=Montserrat&display=swap', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap'],
+	fonts: [
+		'https://fonts.googleapis.com/css2?family=Montserrat&display=swap',
+		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap'
+	],
 	variables: [
 		{
 			title: 'Background Image',
@@ -44,7 +47,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'cyan-background-img',
 						start: 'https://dablulite.github.io/Cyan/cyan-waves.png',
 						value: '',
@@ -53,7 +56,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'cyan-blur-radius',
 						value: 10,
 						unit: 'px',
@@ -70,7 +73,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'cyan-accent-color',
 						value: '#009f88',
 						type: 'HEX',
@@ -79,7 +82,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'cyan-background-hue',
 						max: 360,
 						min: 0,
@@ -96,7 +99,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'cyan-elevation-shadow',
 						title: 'Use Colored Border',
 						value: '0 0 0 1.5px var(--cyan-accent-color), 0 2px 10px 0 rgb(0 0 0 / 60%)',
@@ -104,12 +107,12 @@ const theme: ITheme = {
 							{ label: 'True', value: '0 0 0 1.5px var(--cyan-accent-color), 0 2px 10px 0 rgb(0 0 0 / 60%)' },
 							{ label: 'False', value: '0 0 10px 0 rgb(0 0 0 / 60%)' }
 						],
-						customValue: false
+						custom: false
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'cyan-tint-visibility',
 						title: 'Glass Tint',
 						value: '8%',
@@ -117,12 +120,12 @@ const theme: ITheme = {
 							{ label: 'True', value: '100%' },
 							{ label: 'False', value: '8%' }
 						],
-						customValue: false
+						custom: false
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'cyan-text-shadow',
 						title: 'Text/Icon Drop Shadow',
 						value: '1',
@@ -130,7 +133,7 @@ const theme: ITheme = {
 							{ label: 'True', value: '1' },
 							{ label: 'False', value: '0' }
 						],
-						customValue: false
+						custom: false
 					}
 				}
 			]
@@ -141,7 +144,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'cyan-font',
 						index: 0,
 						value: 'Montserrat',
@@ -157,7 +160,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'window-margin',
 						max: 1000,
 						min: 0,

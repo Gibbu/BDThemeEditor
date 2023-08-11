@@ -12,7 +12,7 @@ const theme: ITheme = {
 		author: 'Tropical#8908, Hammock#3110',
 		version: '3.0.0',
 		description: 'A cold, dark & frosty theme.',
-		source: 'https://github.com/DiscordStyles/DarkMatter/',
+		source: 'https://github.com/DiscordStyles/DarkMatter/'
 	},
 	preview: `
 		@import url('https://DiscordStyles.github.io/DarkMatter/src/base.css');
@@ -37,7 +37,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background-image',
 						start: 'https://i.imgur.com/7SbtKvw.png',
 						value: '',
@@ -46,7 +46,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'home-image',
 						start: 'https://i.imgur.com/233d55Y.gif',
 						value: '',
@@ -61,7 +61,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accent',
 						value: '37, 172, 232',
 						type: 'RGB',
@@ -70,7 +70,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accent-alt',
 						value: '29, 101, 134',
 						type: 'RGB',
@@ -80,7 +80,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'background-solid',
 						value: '#161921',
 						type: 'HEX',
@@ -90,7 +90,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'background-solid-dark',
 						value: '#101218',
 						type: 'HEX',
@@ -100,18 +100,18 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'background-solid-darker',
 						value: '#0c0e12',
 						type: 'HEX',
 						title: 'Background solid darker',
 						hint: 'Right sidebar of setings, attachment borders, ect...'
 					}
-				},
+				}
 			]
 		}
 	],
-	addons: [radialstatus, discolored],
+	addons: [radialstatus, discolored]
 };
 
 export default theme;

@@ -41,13 +41,13 @@
 			$store.addons.forEach((group) => {
 				if (group.variables)
 					group.variables.forEach((input) => {
-						if (input.type !== 'banner' && input.details.variable === variable) input.details.value = value;
+						if (input.type !== 'banner' && input.props.variable === variable) input.props.value = value;
 					});
 			});
 		} else {
 			$store.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
-					if (input.type !== 'banner' && input.details.variable === variable) input.details.value = value;
+					if (input.type !== 'banner' && input.props.variable === variable) input.props.value = value;
 				})
 			);
 		}
@@ -55,5 +55,5 @@
 </script>
 
 <template>
-	<svelte:component this={getType(data.type)} {...data.details} on:update={update} />
+	<svelte:component this={getType(data.type)} {...data.props} on:update={update} />
 </template>

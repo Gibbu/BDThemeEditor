@@ -9,7 +9,6 @@
 
 <template>
 	<section class="home">
-		<div class="pattern" />
 		<div class="wrap">
 			<div class="home-left">
 				<h1 class="title">The Easiest Way To Edit Discord Themes</h1>
@@ -59,13 +58,6 @@
 			animation: fadeUp 0.5s ease forwards;
 			animation-delay: 0.5s;
 		}
-	}
-	.pattern {
-		position: absolute;
-		inset: 0;
-		background: url('/images/grid-pattern.png');
-		opacity: 0.035;
-		mask: linear-gradient(black -15%, transparent 80%);
 	}
 	.title {
 		font-family: var(--font-display);

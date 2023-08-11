@@ -63,7 +63,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background',
 						start: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg',
 						value: '',
@@ -72,7 +72,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundsize',
 						value: 'cover',
 						options: [
@@ -83,13 +83,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
@@ -103,13 +103,13 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'backgroundblur',
 						value: 0,
 						unit: 'px',
@@ -126,7 +126,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'popout',
 						start: 'var(--background)',
 						value: '',
@@ -135,7 +135,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'popoutsize',
 						value: 'var(--backgroundsize)',
 						options: [
@@ -146,13 +146,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundposition',
 						value: 'center',
 						options: [
@@ -166,13 +166,13 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'popoutblur',
 						value: 0,
 						unit: 'px',
@@ -189,7 +189,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'transparencycolor',
 						value: '0,0,0',
 						type: 'RGB',
@@ -198,7 +198,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accentcolor',
 						value: '190,78,180',
 						type: 'RGB',
@@ -207,7 +207,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backdrop',
 						value: 'rgba(0,0,0,0.85)',
 						alpha: true,
@@ -219,7 +219,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textshadow',
 						value: 'transparent',
 						alpha: true,
@@ -237,7 +237,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'transparencyalpha',
 						value: 0.15,
 						max: 1,
@@ -248,7 +248,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'messagetransparency',
 						value: 0.5,
 						max: 1,
@@ -258,7 +258,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'guildchanneltransparency',
 						value: 0.15,
 						max: 1,
@@ -268,7 +268,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'chatinputtransparency',
 						value: 0,
 						max: 1,
@@ -277,7 +277,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'memberlisttransparency',
 						value: 0,
 						max: 1,
@@ -293,7 +293,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'font',
 						index: 0,
 						value: 'Whitney',
@@ -302,7 +302,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbrightest',
 						value: '255,255,255',
 						type: 'RGB',
@@ -311,7 +311,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbrighter',
 						value: '222,222,222',
 						type: 'RGB',
@@ -320,7 +320,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbright',
 						value: '200,200,200',
 						type: 'RGB',
@@ -329,7 +329,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdark',
 						value: '160,160,160',
 						type: 'RGB',
@@ -338,7 +338,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdarker',
 						value: '125,125,125',
 						type: 'RGB',
@@ -347,7 +347,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdarkest',
 						value: '90,90,90',
 						type: 'RGB',
@@ -362,7 +362,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'settingsicons',
 						title: 'Show setting icons',
 						value: '1',
@@ -370,7 +370,7 @@ const theme: ITheme = {
 							{ label: 'True', value: '1' },
 							{ label: 'False', value: '0' }
 						],
-						customValue: false
+						custom: false
 					}
 				}
 			]

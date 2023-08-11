@@ -54,7 +54,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accentcolor',
 						type: 'RGB',
 						value: '114,137,218',
@@ -64,7 +64,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accentcolor2',
 						type: 'RGB',
 						value: '255,115,250',
@@ -74,7 +74,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'linkcolor',
 						type: 'RGB',
 						value: '0,176,244',
@@ -83,7 +83,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'mentioncolor',
 						type: 'RGB',
 						value: '250,166,26',
@@ -98,7 +98,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbrightest',
 						type: 'RGB',
 						value: '255,255,255',
@@ -107,7 +107,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbrighter',
 						type: 'RGB',
 						value: '222,222,222',
@@ -116,7 +116,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textbright',
 						type: 'RGB',
 						value: '185,185,185',
@@ -125,7 +125,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdark',
 						type: 'RGB',
 						value: '140,140,140',
@@ -134,7 +134,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdarker',
 						type: 'RGB',
 						value: '115,115,115',
@@ -143,7 +143,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'textdarkest',
 						type: 'RGB',
 						value: '80,80,80',
@@ -152,7 +152,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'font',
 						index: 0,
 						title: 'App font',
@@ -167,7 +167,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundaccent',
 						type: 'RGB',
 						value: '50,50,50',
@@ -176,7 +176,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundprimary',
 						type: 'RGB',
 						value: '30,30,30',
@@ -185,7 +185,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundsecondary',
 						type: 'RGB',
 						value: '20,20,20',
@@ -194,7 +194,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundsecondaryalt',
 						type: 'RGB',
 						value: '15,15,15',
@@ -203,7 +203,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundtertiary',
 						type: 'RGB',
 						value: '10,10,10',
@@ -212,7 +212,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundfloating',
 						type: 'RGB',
 						value: '0,0,0',
@@ -227,7 +227,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'settingsicons',
 						value: '1',
 						options: [
@@ -235,7 +235,7 @@ const theme: ITheme = {
 							{ label: 'False', value: '0' }
 						],
 						title: 'Show settings icons',
-						customValue: false
+						custom: false
 					}
 				}
 			]

@@ -13,7 +13,7 @@ const addon: IAddon = {
 	variables: [
 		{
 			type: 'number',
-			details: {
+			props: {
 				addon: true,
 				variable: 'HSL-server-icon-size',
 				value: 45,
@@ -23,7 +23,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'number',
-			details: {
+			props: {
 				addon: true,
 				variable: 'HSL-server-spacing',
 				value: 10,

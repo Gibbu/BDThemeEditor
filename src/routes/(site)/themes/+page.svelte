@@ -28,7 +28,7 @@
 	let searchEl: HTMLInputElement;
 	let developer: IDev;
 	let developerModal: boolean = false;
-	let sortModal: boolean = false;
+	let filterModal: boolean = false;
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -72,30 +72,35 @@
 <Developer bind:visible={developerModal} {developer} />
 
 <Modal
-	bind:visible={sortModal}
-	title="Theme Selection Sorting"
+	bind:visible={filterModal}
+	title="Theme Selection filtering"
 	description="Select what features you wish your desired theme to have."
 >
-	<div class="sorting">
+	<div class="filters">
 		{#each features as { value, label, description }}
-			<button type="button" class="sort" class:active={isSelectedFeature(value)} on:click={() => setFeature(value)}>
-				<p class="sort-label">{label}</p>
-				<span class="sort-description">{description}</span>
+			<button
+				type="button"
+				role="checkbox"
+				aria-checked={isSelectedFeature(value)}
+				class="filter"
+				on:click={() => setFeature(value)}
+			>
+				<p class="filter-label">{label}</p>
+				<span class="filter-description">{description}</span>
 			</button>
 		{/each}
 	</div>
 </Modal>
 
 <template>
-	<div class="pattern" />
 	<header class="header">
 		<div class="wrap">
 			<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
 			<div class="header-filters">
 				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
-				<Button variant="secondary" on:click={() => (sortModal = !sortModal)}>
+				<Button variant="secondary" on:click={() => (filterModal = !filterModal)}>
 					<Icon src={Funnel} />
-					Sort
+					Filters
 				</Button>
 			</div>
 		</div>
@@ -136,18 +141,6 @@
 			gap: 16px;
 			align-items: center;
 		}
-	}
-	.pattern {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		background: url('/images/grid-pattern.png');
-		opacity: 0.035;
-		mask: linear-gradient(transparent, black);
-		rotate: 180deg;
-		z-index: -1;
 	}
 	.title {
 		font-family: var(--font-display);
@@ -230,12 +223,12 @@
 		}
 	}
 
-	.sorting {
+	.filters {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 16px;
 	}
-	.sort {
+	.filter {
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
 		text-align: left;
@@ -253,7 +246,11 @@
 		&:hover {
 			border-color: var(--border-alt);
 		}
-		&.active {
+		&:focus {
+			outline: 2px solid hsl(var(--accent));
+			outline-offset: 2px;
+		}
+		&[aria-checked='true'] {
 			background: hsl(var(--accent) / 0.075);
 			border-color: hsl(var(--accent));
 			color: var(--text-primary);

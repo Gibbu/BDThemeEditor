@@ -46,7 +46,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'backgroundImage',
 						start: 'https://imgur.com/qhBghXt.png',
 						value: '',
@@ -55,7 +55,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundColor',
 						value: '#0d0d0d',
 						type: 'HEX',
@@ -64,7 +64,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundSize',
 						value: 'cover',
 						options: [
@@ -75,13 +75,13 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundPosition',
 						value: 'center',
 						options: [
@@ -95,15 +95,15 @@ const theme: ITheme = {
 							{ label: 'Bottom centre', value: 'Bottom center' },
 							{ label: 'Bottom right', value: 'bottom right' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Position'
 					}
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'backgroundRepeat',
-						customValue: false,
+						custom: false,
 						value: 'no-repeat',
 						options: [
 							{ label: 'True', value: 'repeat' },
@@ -114,7 +114,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'backgroundBlur',
 						value: 100,
 						max: 100,
@@ -125,7 +125,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'backgroundOpacity',
 						value: 0.65,
 						min: 0,
@@ -142,7 +142,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'homeImage',
 						start: 'https://imgur.com/eItxuAq.png',
 						value: '',
@@ -151,7 +151,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'homeImageSize',
 						value: 'cover',
 						options: [
@@ -162,7 +162,7 @@ const theme: ITheme = {
 							{ label: '150%', value: '150%' },
 							{ label: '200%', value: '200%' }
 						],
-						customValue: true,
+						custom: true,
 						title: 'Size'
 					}
 				}
@@ -175,7 +175,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'themeColor1',
 						value: '#36D1DC',
 						type: 'HEX',
@@ -184,7 +184,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'themeColor2',
 						value: '#5B86E5',
 						type: 'HEX',
@@ -199,7 +199,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'customFont',
 						value: 'Open Sans',
 						index: 0,
@@ -214,7 +214,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundCode',
 						type: 'RGB',
 						alpha: true,
@@ -225,7 +225,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'backgroundName',
 						type: 'RGB',
 						alpha: true,

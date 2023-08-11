@@ -161,7 +161,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-accent-h',
 						max: 360,
 						min: 0,
@@ -173,7 +173,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-accent-s',
 						max: 100,
 						min: 0,
@@ -186,7 +186,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-accent-l',
 						max: 100,
 						min: 0,
@@ -198,7 +198,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-accent-a',
 						max: 100,
 						min: 0,
@@ -210,7 +210,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-background-h',
 						max: 360,
 						min: 0,
@@ -222,7 +222,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-background-s',
 						max: 100,
 						min: 0,
@@ -235,7 +235,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-background-l',
 						max: 100,
 						min: 0,
@@ -247,7 +247,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						variable: 'skin-background-a',
 						max: 100,
 						min: 0,
@@ -259,7 +259,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						type: 'HSL',
 						title: 'Switch Checked Background',
 						variable: 'switch-checked-background',
@@ -269,7 +269,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						title: 'Switch Unchecked Background',
 						type: 'HEX',
 						variable: 'switch-unchecked-background',
@@ -279,7 +279,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-dark',
-					details: {
+					props: {
 						title: 'Switch Unchecked Color',
 						type: 'HEX',
 						variable: 'switch-unchecked-color',
@@ -295,7 +295,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						variable: 'skin-accent-h',
 						max: 360,
 						min: 0,
@@ -307,7 +307,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						variable: 'skin-accent-s',
 						max: 100,
 						min: 0,
@@ -320,7 +320,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						variable: 'skin-accent-l',
 						max: 100,
 						min: 0,
@@ -332,7 +332,7 @@ const theme: ITheme = {
 				{
 					type: 'slider',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						variable: 'skin-accent-a',
 						max: 100,
 						min: 0,
@@ -344,7 +344,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						type: 'HSL',
 						title: 'Switch Checked Background',
 						variable: 'switch-checked-background',
@@ -354,7 +354,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						title: 'Switch Unchecked Background',
 						type: 'HEX',
 						variable: 'switch-unchecked-background',
@@ -364,7 +364,7 @@ const theme: ITheme = {
 				{
 					type: 'colour',
 					varGroup: '.theme-light',
-					details: {
+					props: {
 						title: 'Switch Unchecked Color',
 						type: 'HEX',
 						variable: 'switch-unchecked-color',
@@ -380,7 +380,7 @@ const theme: ITheme = {
 				{
 					type: 'font',
 					varGroup: ':root',
-					details: {
+					props: {
 						variable: 'font-primary',
 						value: 'Roboto',
 						title: 'Font',
@@ -390,7 +390,7 @@ const theme: ITheme = {
 				{
 					type: 'font',
 					varGroup: ':root',
-					details: {
+					props: {
 						variable: 'font-code',
 						value: 'Source Code Pro',
 						title: 'Code Font',
@@ -405,7 +405,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'floating-background-opacity',
 						max: 100,
 						min: 0,
@@ -416,7 +416,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'floating-background-blur',
 						max: 40,
 						min: 0,

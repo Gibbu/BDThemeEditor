@@ -73,7 +73,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'image',
-					details: {
+					props: {
 						variable: 'background-image',
 						start: 'https://i.imgur.com/Nglfni6.png',
 						value: '',
@@ -83,7 +83,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'background-blur',
 						value: 0,
 						max: 50,
@@ -94,7 +94,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'opacity',
 						max: 0.85,
 						step: 0.01,
@@ -111,7 +111,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'accent',
 						type: 'RGB',
 						value: '0, 231, 169',
@@ -122,7 +122,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'glow-intensity',
 						value: 1,
 						min: 0,
@@ -141,7 +141,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'font',
-					details: {
+					props: {
 						variable: 'font',
 						index: 0,
 						value: 'Inter',
@@ -157,7 +157,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'channels-width',
 						value: 300,
 						unit: 'px',
@@ -167,7 +167,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'guilds-width',
 						value: 105,
 						unit: 'px',
@@ -177,7 +177,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'members-width',
 						value: 280,
 						unit: 'px',
@@ -187,7 +187,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'server-size',
 						value: 50,
 						unit: 'px',
@@ -198,7 +198,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'number',
-					details: {
+					props: {
 						variable: 'chat-avatar-size',
 						value: 32,
 						unit: 'px',
@@ -214,7 +214,7 @@ const theme: ITheme = {
 			inputs: [
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-small-spacing',
 						value: 2,
 						unit: 'px',
@@ -227,7 +227,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-medium-spacing',
 						value: 2,
 						unit: 'px',
@@ -240,7 +240,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-large-spacing',
 						value: 2,
 						unit: 'px',
@@ -253,7 +253,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-small-width',
 						value: 2,
 						unit: 'px',
@@ -266,7 +266,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-medium-width',
 						value: 2,
 						unit: 'px',
@@ -278,7 +278,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-large-width',
 						value: 2,
 						unit: 'px',
@@ -290,7 +290,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'slider',
-					details: {
+					props: {
 						variable: 'rs-avatar-shape',
 						value: 50,
 						unit: '%',
@@ -303,7 +303,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-online-color',
 						value: '#43b581',
 						type: 'HEX',
@@ -313,7 +313,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-idle-color',
 						value: '#faa61a',
 						type: 'HEX',
@@ -323,7 +323,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-dnd-color',
 						value: '#f04747',
 						type: 'HEX',
@@ -333,7 +333,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-offline-color',
 						value: '#636b75',
 						type: 'HEX',
@@ -343,7 +343,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-phone-color',
 						value: 'var(--rs-online-color)',
 						type: 'HEX',
@@ -353,7 +353,7 @@ const theme: ITheme = {
 				},
 				{
 					type: 'colour',
-					details: {
+					props: {
 						variable: 'rs-streaming-color',
 						value: '#643da7',
 						type: 'HEX',
@@ -363,9 +363,9 @@ const theme: ITheme = {
 				},
 				{
 					type: 'select',
-					details: {
+					props: {
 						variable: 'rs-phone-visible',
-						customValue: false,
+						custom: false,
 						options: [
 							{ label: 'Visible', value: 'block' },
 							{ label: 'Hidden', value: 'none' }

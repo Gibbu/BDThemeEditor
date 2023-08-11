@@ -1,14 +1,11 @@
 <script lang="ts">
-	// import { inject } from '@vercel/analytics';
-	import { browser, dev } from '$app/environment';
+	import { browser } from '$app/environment';
 	import { Modal, Button } from '$components/common';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Check } from '@steeze-ui/heroicons';
 	import { Toasts } from 'svoast';
 	import '$scss/app.scss';
 	import 'svooltip/styles.css';
-
-	// inject({ mode: dev ? 'development' : 'production' });
 
 	// Browser warning
 	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -24,6 +21,7 @@
 
 <template>
 	<Toasts position="top-center" />
+	<div class="pattern" />
 	<slot />
 </template>
 
@@ -50,3 +48,18 @@
 		</Button>
 	</svelte:fragment>
 </Modal>
+
+<style>
+	.pattern {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: url('/images/grid-pattern.png');
+		opacity: 0.035;
+		mask: linear-gradient(transparent, black);
+		rotate: 180deg;
+		z-index: -1;
+	}
+</style>

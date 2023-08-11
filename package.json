@@ -1,11 +1,4 @@
 {
-	"name": "bdthemeeditor",
-	"version": "3.0.0",
-	"description": "Website to edit themes for BetterDiscord with an easy to use interface.",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Gibbu/BDThemeEditor.git"
-	},
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev --port=3000",
@@ -19,27 +12,27 @@
 		"@steeze-ui/heroicons": "^2.2.3",
 		"@steeze-ui/svelte-icon": "^1.5.0",
 		"@sveltejs/adapter-vercel": "^2.4.3",
-		"@sveltejs/kit": "^1.21.0",
+		"@sveltejs/kit": "^1.22.5",
 		"@types/file-saver": "^2.0.5",
 		"@types/nprogress": "^0.2.0",
-		"@vercel/analytics": "^1.0.1",
+		"@vercel/analytics": "^1.0.2",
 		"autoprefixer": "^10.4.14",
 		"axios": "^1.4.0",
 		"file-saver": "^2.0.5",
-		"focus-trap": "^7.4.3",
+		"focus-trap": "^7.5.2",
 		"nprogress": "^0.2.0",
-		"postcss": "^8.4.24",
+		"postcss": "^8.4.27",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
-		"sass": "^1.63.6",
-		"svelte": "^4.0.1",
-		"svelte-check": "^3.4.4",
+		"sass": "^1.65.1",
+		"svelte": "^4.1.2",
+		"svelte-check": "^3.4.6",
 		"svelte-preprocess": "^5.0.4",
 		"svoast": "^2.2.1",
 		"svooltip": "^0.7.4",
-		"tslib": "^2.6.0",
+		"tslib": "^2.6.1",
 		"typescript": "^5.1.6",
-		"vite": "^4.3.9"
+		"vite": "^4.4.9"
 	},
 	"type": "module"
 }

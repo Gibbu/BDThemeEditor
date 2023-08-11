@@ -13,7 +13,7 @@ const addon: IAddon = {
 	variables: [
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-small-spacing',
 				value: 2,
 				unit: 'px',
@@ -26,7 +26,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-medium-spacing',
 				value: 2,
 				unit: 'px',
@@ -39,7 +39,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-large-spacing',
 				value: 2,
 				unit: 'px',
@@ -52,7 +52,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-small-width',
 				value: 2,
 				unit: 'px',
@@ -65,7 +65,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-medium-width',
 				value: 2,
 				unit: 'px',
@@ -78,7 +78,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-large-width',
 				value: 2,
 				unit: 'px',
@@ -91,7 +91,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'slider',
-			details: {
+			props: {
 				variable: 'rs-avatar-shape',
 				value: 50,
 				unit: '%',
@@ -104,7 +104,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'colour',
-			details: {
+			props: {
 				variable: 'rs-online-color',
 				value: '#43b581',
 				type: 'HEX',
@@ -114,7 +114,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'colour',
-			details: {
+			props: {
 				variable: 'rs-idle-color',
 				value: '#faa61a',
 				type: 'HEX',
@@ -124,7 +124,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'colour',
-			details: {
+			props: {
 				variable: 'rs-dnd-color',
 				value: '#f04747',
 				type: 'HEX',
@@ -134,7 +134,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'colour',
-			details: {
+			props: {
 				variable: 'rs-offline-color',
 				value: '#636b75',
 				type: 'HEX',
@@ -144,7 +144,7 @@ const addon: IAddon = {
 		},
 		{
 			type: 'colour',
-			details: {
+			props: {
 				variable: 'rs-streaming-color',
 				value: '#643da7',
 				type: 'HEX',
@@ -154,9 +154,9 @@ const addon: IAddon = {
 		},
 		{
 			type: 'select',
-			details: {
+			props: {
 				variable: 'rs-phone-visible',
-				customValue: false,
+				custom: false,
 				options: [
 					{ label: 'Visible', value: 'block' },
 					{ label: 'Hidden', value: 'none' }

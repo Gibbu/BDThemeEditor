@@ -13,7 +13,7 @@
 
 	// Optional input vars
 	export let hint: string = '';
-	export let customValue: boolean = false;
+	export let custom: boolean = false;
 	export let addon: boolean = false;
 	export let varGroup: string = ':root';
 
@@ -30,7 +30,7 @@
 		{/if}
 	</header>
 	<div class="option-body">
-		<Select {options} {value} custom={customValue} on:update={update} />
+		<Select {options} {value} {custom} on:update={update} />
 	</div>
 </template>
 
