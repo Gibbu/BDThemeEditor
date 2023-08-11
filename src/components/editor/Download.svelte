@@ -83,7 +83,7 @@
 			$store.variables.forEach((vars) => {
 				vars.inputs.forEach((input) => {
 					if (input.type !== 'banner' && (input.varGroup === group || (group === ':root' && !input.varGroup)))
-						groups[group] = [...groups[group], input.details];
+						groups[group] = [...groups[group], input.props];
 				});
 			});
 		});
@@ -98,7 +98,7 @@
 		$store.addons.forEach((addon) => {
 			if (addon.variables) {
 				addon.variables.forEach((input) => {
-					if (addon.use) groups[':root'] = [...groups[':root'], input.details];
+					if (addon.use) groups[':root'] = [...groups[':root'], input.props];
 				});
 			}
 		});
@@ -117,13 +117,18 @@
 
 	const download = () => {
 		if (disabled) return;
-		generateFileContents(true);
-
-		const file = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
-		FileSaver.saveAs(file, `${getSlug(value)}.theme.css`);
-		fileContents = '';
-		value = '';
-		toast.success('Theme successfully downloaded.');
+		try {
+			generateFileContents(true);
+			const file = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
+			FileSaver.saveAs(file, `${getSlug(value)}.theme.css`);
+			fileContents = '';
+			value = '';
+			toast.success('Theme successfully downloaded.');
+		} catch (err) {
+			toast.error('There was an error trying to download your theme.', {
+				duration: '10s'
+			});
+		}
 	};
 </script>
 

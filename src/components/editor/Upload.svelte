@@ -92,16 +92,16 @@
 
 					$store.variables.forEach((el) =>
 						el.inputs.forEach((input) => {
-							if (input.type !== 'banner' && input.details.variable === variable) {
-								input.details.value = input.type === 'select' ? value : stripVal(value);
+							if (input.type !== 'banner' && input.props.variable === variable) {
+								input.props.value = input.type === 'select' ? value : stripVal(value);
 							}
 						})
 					);
 					$store.addons.forEach((el) => {
 						if (el.variables) {
 							el.variables.forEach((input) => {
-								if (input.type !== 'banner' && input.details.variable === variable) {
-									input.details.value = input.type === 'select' ? value : stripVal(value);
+								if (input.type !== 'banner' && input.props.variable === variable) {
+									input.props.value = input.type === 'select' ? value : stripVal(value);
 								}
 							});
 						}
