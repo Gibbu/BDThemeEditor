@@ -96,7 +96,7 @@
 	.input {
 		border-radius: var(--text-input-roundness);
 		border: 1px solid var(--border);
-		background-color: var(--background-secondary-alt);
+		background-color: var(--background-quaternary);
 		color: var(--text-secondary);
 		font-weight: 500;
 		transition: 0.1s ease;

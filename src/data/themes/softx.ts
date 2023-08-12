@@ -1,7 +1,7 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import Gibbu from '../devs/gibbu';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'SoftX',
 	thumbnail:
 		'https://camo.githubusercontent.com/6806907a0313ec99a80fe2ead0d275570332a3d8b36287f9b97b6529543877ab/68747470733a2f2f692e696d6775722e636f6d2f4535376746334c2e706e67',

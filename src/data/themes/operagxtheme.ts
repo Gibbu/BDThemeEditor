@@ -1,7 +1,7 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import Hawk from '../devs/hawk';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'OperaGX Theme',
 	thumbnail:
 		'https://camo.githubusercontent.com/6f7125bdcae596d9407a4e38f7827bd32ffbc4fb3fe6a7dfaaa33f2d2b0ed55e/68747470733a2f2f692e696d6775722e636f6d2f767a4b4d31346c2e706e67',

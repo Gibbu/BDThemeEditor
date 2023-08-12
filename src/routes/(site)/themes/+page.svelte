@@ -8,7 +8,7 @@
 	import { Funnel } from '@steeze-ui/heroicons';
 
 	import type { Feature } from '$types/theme';
-	import type { IDev } from '$types/dev';
+	import type { Developer } from '$types/dev';
 
 	let search: string = '';
 	let selectedFeatures: Feature[] = [];

@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import ClearVision from '../devs/clearvision';
 import { hsl, columns, radialstatus, discolored } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'Clear Vision',
 	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
 	developer: ClearVision,

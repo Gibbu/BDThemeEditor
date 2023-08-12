@@ -5,11 +5,9 @@
 
 	import { Colour, Font, Image, Slider, Select, Number, Banner } from '../inputs';
 
-	interface Details {
+	interface Props {
 		variable: string;
 		value: string;
-		unit?: string;
-		addon?: boolean;
 	}
 
 	const inputs = {
@@ -23,13 +21,14 @@
 	};
 
 	export let data: any;
+	export let addon: boolean = false;
 
 	const getType = (type: string) => {
 		return inputs[type as keyof typeof inputs];
 	};
 
-	const update = ({ detail }: { detail: Details }): void => {
-		let { variable, value, addon } = detail;
+	const update = ({ detail }: { detail: Props }): void => {
+		let { variable, value } = detail;
 
 		preview({
 			action: 'setProp',

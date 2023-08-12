@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import DevilBro from '../devs/devilbro';
 import { hsl, columns, radialstatus } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'DiscordRecolor',
 	thumbnail: 'https://i.imgur.com/dF6Ic4U.png',
 	developer: DevilBro,

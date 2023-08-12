@@ -7,5 +7,3 @@ export const editorLoaded = writable<boolean>(false);
 
 export const previewer = writable<HTMLIFrameElement>();
 export const store = writable<IStoreTheme>();
-
-export const fontIndex = writable<number>(0);

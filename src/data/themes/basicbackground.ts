@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import DevilBro from '../devs/devilbro';
 import { columns, radialstatus, hsl } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'BasicBackground',
 	thumbnail: 'https://i.imgur.com/XORsntg.jpg',
 	developer: DevilBro,

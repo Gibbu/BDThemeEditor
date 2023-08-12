@@ -1,4 +1,4 @@
-export interface IDev {
+export interface Developer {
 	/** Your name to be displayed throughout the editor */
 	name: string;
 	/**

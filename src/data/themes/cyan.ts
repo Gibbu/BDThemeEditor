@@ -1,7 +1,7 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import DaBluLite from '../devs/dablulite';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'Cyan',
 	thumbnail: 'https://raw.githubusercontent.com/DaBluLite/Cyan/master/screenshots/cyan-screenshot-1.png',
 	developer: DaBluLite,

@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import TheCommieAxolotl from '../devs/thecommieaxolotl';
 import { hsl, discolored, columns, radialstatus } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'MaterialDesign',
 	thumbnail: 'https://raw.githubusercontent.com/TheCommieAxolotl/BetterDiscord-Stuff/main/MaterialDesign/assets/md.png',
 	developer: TheCommieAxolotl,

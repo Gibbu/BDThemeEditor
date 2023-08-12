@@ -1,7 +1,7 @@
-import type { IAddon } from '$types/addon';
+import type { Addon } from '$types/addon';
 import DevilBro from '../devs/devilbro';
 
-const addon: IAddon = {
+const addon: Addon = {
 	name: 'ServerColumns',
 	description: 'Changes the Server List to a gridlike container to allow servers to be displayed in columns.',
 	developer: DevilBro,
@@ -17,8 +17,7 @@ const addon: IAddon = {
 				variable: 'columns',
 				value: 3,
 				min: 1,
-				title: 'Number of columns',
-				addon: true
+				title: 'Number of columns'
 			}
 		},
 		{
@@ -27,14 +26,12 @@ const addon: IAddon = {
 				variable: 'guildgap',
 				value: 3,
 				min: 0,
-				title: 'Server icon spacing',
-				addon: true
+				title: 'Server icon spacing'
 			}
 		},
 		{
 			type: 'select',
 			props: {
-				addon: true,
 				variable: 'aligndms',
 				value: '0',
 				custom: false,

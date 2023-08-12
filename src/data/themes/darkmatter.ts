@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import Tropical from '../devs/tropical';
 import { radialstatus, discolored } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'Dark Matter',
 	thumbnail:
 		'https://camo.githubusercontent.com/700f74ca6db36bd4f26d186d34ac5c7ff3d34d5fbb97737c1cd3a21b7f3995d9/68747470733a2f2f692e696d6775722e636f6d2f785347393671612e706e67',

@@ -1,7 +1,7 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import Disease from '../devs/disease';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'Solana',
 	thumbnail: 'https://i.imgur.com/tnJ6KE7.jpg',
 	developer: Disease,

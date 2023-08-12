@@ -1,6 +1,6 @@
-import type { IDev } from '$types/dev';
+import type { Developer } from '$types/dev';
 
-const dev: IDev = {
+const dev: Developer = {
 	name: 'Gibbu',
 	github: 'Gibbu',
 	banner: 'https://i.imgur.com/kYW2H5C.jpg',

@@ -1,6 +1,6 @@
-import type { IDev } from '$types/dev';
+import type { Developer } from '$types/dev';
 
-const dev: IDev = {
+const dev: Developer = {
 	name: 'Spectra',
 	github: 'xcruxiex',
 	banner: 'https://cdn.discordapp.com/banners/286208664623120384/91ab39c81aae3abf1b087d07df6b489b.png?size=600',

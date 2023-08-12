@@ -17,7 +17,7 @@
 	import { MetaData, Modal, Button, Banner } from '$components/common';
 
 	// types
-	import type { ITheme } from '$types/theme';
+	import type { Theme } from '$types/theme';
 	import type { PageData } from './$types';
 	import type { IconSource } from '@steeze-ui/svelte-icon';
 	type TabType = 'vars' | 'imports' | 'addons' | 'upload' | 'download';
@@ -27,7 +27,7 @@
 	// Data
 	import { themes } from '$data/themes';
 
-	const clone: ITheme[] = JSON.parse(JSON.stringify(themes));
+	const clone: Theme[] = JSON.parse(JSON.stringify(themes));
 	const theme = clone.find((theme) => getSlug(theme.name).toLowerCase() === data.slug.toLowerCase());
 
 	if (!theme) throw error(500, `Something's wrong, I can feel it.`);
@@ -237,9 +237,11 @@
 						<Icon src={Icons.ArrowUpTray} />
 						Upload
 					</button>
-					<button type="button" class="nav-btn" on:click={() => toggleModal('download')}>
-						<Icon src={Icons.ArrowDownTray} />
-						Download
+					<button type="button" class="nav-btn download" on:click={() => toggleModal('download')}>
+						<div class="content">
+							<Icon src={Icons.ArrowDownTray} />
+							Download
+						</div>
 					</button>
 					<div class="nav-divider" />
 					<button type="button" class="nav-btn" on:click={() => toggleModal('developer')}>
@@ -395,29 +397,48 @@
 			height: 38px;
 			border-radius: var(--radius);
 			position: relative;
+			.content {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
 			:global(svg) {
 				width: 20px;
 			}
-			&::before {
-				content: '';
-				position: absolute;
-				left: 0;
-				bottom: -9px;
-				width: 100%;
-				height: 1px;
-				pointer-events: none;
-			}
-			&:hover {
-				background: var(--button-ghost-hover);
+			&:not(.download) {
 				&::before {
-					background: var(--border-alt);
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: -9px;
+					width: 100%;
+					height: 1px;
+					pointer-events: none;
+				}
+				&:hover {
+					background: var(--button-ghost-hover);
+					&::before {
+						background: var(--border-alt);
+					}
+				}
+				&.active {
+					color: var(--text-primary);
+					&::before {
+						background: hsl(var(--accent));
+						box-shadow: 0 0 8px hsl(var(--accent)), 0 0 5px hsl(var(--accent) / 0.2);
+					}
 				}
 			}
-			&.active {
-				color: var(--text-primary);
-				&::before {
+			&.download {
+				background: hsl(var(--accent) / 0.085);
+				color: hsl(var(--accent));
+				font-weight: 500;
+				&:hover {
 					background: hsl(var(--accent));
-					box-shadow: 0 0 8px hsl(var(--accent)), 0 0 5px hsl(var(--accent) / 0.2);
+					color: black;
+					.content {
+						filter: drop-shadow(0 1px 5px hsl(0 0% 0% / 0.5));
+					}
 				}
 			}
 		}

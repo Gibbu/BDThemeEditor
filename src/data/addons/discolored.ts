@@ -1,7 +1,7 @@
-import type { IAddon } from '$types/addon';
+import type { Addon } from '$types/addon';
 import Nyria from '../devs/nyria';
 
-const addon: IAddon = {
+const addon: Addon = {
 	name: 'Discolored',
 	description: `Colorize Discord's boring SVGs.`,
 	developer: Nyria,

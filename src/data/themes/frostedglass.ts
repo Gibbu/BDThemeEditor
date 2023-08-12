@@ -1,8 +1,8 @@
-import type { ITheme } from '$types/theme';
+import type { Theme } from '$types/theme';
 import Gibbu from '../devs/gibbu';
 import { radialstatus, hsl, columns, discolored } from '../addons';
 
-const theme: ITheme = {
+const theme: Theme = {
 	name: 'Frosted Glass',
 	thumbnail: 'https://i.imgur.com/Gr8JJAv.jpg',
 	developer: Gibbu,

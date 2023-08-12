@@ -1,11 +1,11 @@
-import type { IDev } from './dev';
+import type { Developer } from './dev';
 import type { Inputs } from './inputs';
 
-export interface IAddon {
+export interface Addon {
 	name: string;
 	description: string;
 	imports: string[];
-	developer: IDev;
+	developer: Developer;
 	selector: string;
 	previewUrl: string[];
 	group: string;

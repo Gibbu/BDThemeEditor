@@ -125,6 +125,7 @@
 			value = '';
 			toast.success('Theme successfully downloaded.');
 		} catch (err) {
+			console.error(err);
 			toast.error('There was an error trying to download your theme.', {
 				duration: '10s'
 			});

@@ -2,7 +2,7 @@
 	import { store } from '$lib/stores';
 	import { preview } from '$lib/preview';
 
-	import type { IAddon } from '$types/addon';
+	import type { Addon } from '$types/addon';
 
 	import Component from './Component.svelte';
 	import { Checkbox } from '../common';
@@ -38,7 +38,7 @@
 	};
 
 	// Adds addon to previewer and enables the addon in the `THEME` store.
-	const applyAddon = (addon: IAddon): void => {
+	const applyAddon = (addon: Addon): void => {
 		$store.addons.forEach((obj) => {
 			if (obj.selector === addon.selector) {
 				obj.use = true;
@@ -55,7 +55,7 @@
 	};
 
 	// Removes addon to previewer and disables the addon in the `THEME` store.
-	const removeAddon = (addon: IAddon): void => {
+	const removeAddon = (addon: Addon): void => {
 		preview({
 			action: 'removeAddon',
 			class: addon.selector
@@ -85,7 +85,7 @@
 				<div class="addon-body" class:active={getState(addon.selector)}>
 					{#each addon.variables as data}
 						<div class="option">
-							<Component {data} />
+							<Component {data} addon />
 						</div>
 					{/each}
 				</div>

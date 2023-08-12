@@ -3,7 +3,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { ArrowTopRightOnSquare, Banknotes, QuestionMarkCircle } from '@steeze-ui/heroicons';
 
-	import type { IDev } from '$types/dev';
+	import type { Developer } from '$types/dev';
 
 	export let visible: boolean = false;
 	export let developer: IDev;
