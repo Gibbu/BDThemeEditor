@@ -11,6 +11,7 @@ import operagxtheme from './operagxtheme';
 import outlook from './outlook';
 import cyan from './cyan';
 import darkmatter from './darkmatter';
+import translucence from './translucence';
 
 export const themes = [
 	frostedglass,
@@ -18,13 +19,14 @@ export const themes = [
 	basicbackground,
 	clearvision,
 	darkmatter,
-	comfy,
-	solana,
 	operagxtheme,
+	translucence,
+	solana,
 	outlook,
-	neutron,
 	cyan,
+	comfy,
 	materialdesign,
+	neutron,
 	discordrecolor
 ];
 

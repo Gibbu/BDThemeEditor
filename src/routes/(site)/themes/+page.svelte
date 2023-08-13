@@ -2,13 +2,13 @@
 	import { themes } from '$data/themes';
 
 	import { getSlug } from '$lib/utils';
-	import { MetaData, Input, Checkbox, Modal, Button } from '$components/common';
+	import { MetaData, Input, Modal, Button } from '$components/common';
 	import { Developer } from '$components/editor';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Funnel } from '@steeze-ui/heroicons';
 
 	import type { Feature } from '$types/theme';
-	import type { Developer } from '$types/dev';
+	import type { Developer as Dev } from '$types/dev';
 
 	let search: string = '';
 	let selectedFeatures: Feature[] = [];
@@ -26,7 +26,7 @@
 		{ value: 'home', label: 'Home button', description: 'Support for a custom home button image.' }
 	];
 	let searchEl: HTMLInputElement;
-	let developer: IDev;
+	let developer: Dev;
 	let developerModal: boolean = false;
 	let filterModal: boolean = false;
 
@@ -50,7 +50,7 @@
 		if (selectedFeatures.includes(_value)) selectedFeatures = selectedFeatures.filter((el) => el !== _value);
 		else selectedFeatures = [...selectedFeatures, _value];
 	};
-	const setDeveloper = (dev: IDev) => {
+	const setDeveloper = (dev: Dev) => {
 		developer = dev;
 		developerModal = true;
 	};

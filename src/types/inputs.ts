@@ -30,6 +30,16 @@ interface BaseInput<T, V, P = any> {
 	} & P;
 }
 
+export interface Divider {
+	type: 'divider';
+	props: {
+		/** The title to be placed under the divider. */
+		title?: string;
+		/** A small descriptor of the section under the divider. */
+		description?: string;
+	};
+}
+
 export interface Banner {
 	/** Adds a banner displaying type of information. */
 	type: 'banner';
@@ -142,4 +152,4 @@ export interface SliderInput
 		}
 	> {}
 
-export type Inputs = ColourInput | FontInput | ImageInput | NumberInput | SelectInput | SliderInput | Banner;
+export type Inputs = ColourInput | FontInput | ImageInput | NumberInput | SelectInput | SliderInput | Banner | Divider;

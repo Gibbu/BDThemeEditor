@@ -3,7 +3,7 @@
 	import { varOutput } from '$lib/helpers';
 	import { preview } from '$lib/preview';
 
-	import { Colour, Font, Image, Slider, Select, Number, Banner } from '../inputs';
+	import { Colour, Font, Image, Slider, Select, Number, Banner, Divider } from '../inputs';
 
 	interface Props {
 		variable: string;
@@ -17,7 +17,8 @@
 		slider: Slider,
 		select: Select,
 		number: Number,
-		banner: Banner
+		banner: Banner,
+		divider: Divider
 	};
 
 	export let data: any;
@@ -40,13 +41,15 @@
 			$store.addons.forEach((group) => {
 				if (group.variables)
 					group.variables.forEach((input) => {
-						if (input.type !== 'banner' && input.props.variable === variable) input.props.value = value;
+						if (input.type !== 'banner' && input.type !== 'divider' && input.props.variable === variable)
+							input.props.value = value;
 					});
 			});
 		} else {
 			$store.variables.forEach((group) =>
 				group.inputs.forEach((input) => {
-					if (input.type !== 'banner' && input.props.variable === variable) input.props.value = value;
+					if (input.type !== 'banner' && input.type !== 'divider' && input.props.variable === variable)
+						input.props.value = value;
 				})
 			);
 		}

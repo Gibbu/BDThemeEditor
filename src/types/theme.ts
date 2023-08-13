@@ -1,14 +1,19 @@
 import type { Inputs } from './inputs';
 import type { Developer } from './dev';
 import type { Addon } from './addon';
+import type * as HeroIcons from '@steeze-ui/heroicons';
 
 export type Feature = 'background' | 'font' | 'transparent' | 'solid' | 'light' | 'addons' | 'home';
 
 interface ThemeVars {
 	/** The text to be displayed in the tooltip */
 	title: string;
-	/** The icon of the tab */
-	icon: string;
+	/**
+	 * Icon of the tab.
+	 *
+	 * View all available icons here: https://heroicons.com
+	 */
+	icon: keyof typeof HeroIcons;
 	/** The bread and butter */
 	inputs: Inputs[];
 	/** Describe what this tab is indended for. */
