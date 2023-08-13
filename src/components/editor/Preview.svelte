@@ -10,7 +10,7 @@
 	const previewURL =
 		PUBLIC_LOCAL_PREVIEWER && PUBLIC_LOCAL_PREVIEWER === 'true'
 			? 'http://localhost:5500'
-			: 'https://gibbu.github.io/ThemePreview';
+			: 'https://discord-preview.vercel.app';
 
 	const load = () => {
 		$previewLoaded = true;

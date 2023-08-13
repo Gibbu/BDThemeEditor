@@ -12,6 +12,7 @@ import outlook from './outlook';
 import cyan from './cyan';
 import darkmatter from './darkmatter';
 import translucence from './translucence';
+import materialdiscord from './materialdiscord';
 
 export const themes = [
 	frostedglass,
@@ -27,6 +28,7 @@ export const themes = [
 	comfy,
 	materialdesign,
 	neutron,
+	materialdiscord,
 	discordrecolor
 ];
 

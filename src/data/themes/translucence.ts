@@ -427,7 +427,6 @@ const theme: Theme = {
 	hiddenVars: [
 		{ variable: 'button-height', value: '32px' },
 		{ variable: 'button-padding', value: '0 16px' },
-		{ variable: 'button-action-color', value: '#000' },
 		{ variable: 'button-radius', value: '16px' }
 	]
 };
