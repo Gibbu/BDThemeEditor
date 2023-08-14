@@ -7,7 +7,7 @@ const theme: Theme = {
 	developer: Disease,
 	meta: {
 		name: 'Outlook',
-		author: 'Disease#5663',
+		author: 'maenDisease',
 		version: '1.0.0',
 		description: 'Based on Outlook Web.',
 		source: 'https://github.com/maenDisease/Outlook',
