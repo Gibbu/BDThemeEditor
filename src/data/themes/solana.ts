@@ -7,7 +7,7 @@ const theme: Theme = {
 	developer: Disease,
 	meta: {
 		name: 'Solana',
-		author: 'Disease#5663',
+		author: 'maenDisease',
 		version: '1.0.11',
 		description: 'macOS with barely any customization.',
 		source: 'https://github.com/maenDisease/Solana',

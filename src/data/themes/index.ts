@@ -13,6 +13,7 @@ import cyan from './cyan';
 import darkmatter from './darkmatter';
 import translucence from './translucence';
 import materialdiscord from './materialdiscord';
+import steam from './steam';
 
 export const themes = [
 	frostedglass,
@@ -29,7 +30,8 @@ export const themes = [
 	materialdesign,
 	neutron,
 	materialdiscord,
-	discordrecolor
+	discordrecolor,
+	steam
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
