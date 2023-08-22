@@ -56,7 +56,7 @@
 		if (!item.disabled) items = [...items, item];
 	};
 	const gotoItem: Context['gotoItem'] = (action) => {
-		index = calculateIndex({ action, items, index });
+		index = calculateIndex(action, items, index);
 		setItem(items[index]);
 	};
 

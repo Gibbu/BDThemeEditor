@@ -120,7 +120,7 @@
 		color: var(--text-tertiary);
 	}
 	.body {
-		max-height: 90vh;
+		max-height: 50vh;
 		overflow: hidden auto;
 	}
 	.footer {
