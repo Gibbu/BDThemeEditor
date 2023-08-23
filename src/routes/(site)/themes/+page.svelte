@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { themes } from '$data/themes';
+	import { tooltip } from 'svooltip';
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { MagnifyingGlass, XMark } from '@steeze-ui/heroicons';
 
 	import { getSlug } from '$lib/utils';
-	import { MetaData, Input, Modal, Button } from '$components/common';
+	import { MetaData, Button } from '$components/common';
 	import { Developer } from '$components/editor';
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { Funnel } from '@steeze-ui/heroicons';
 
 	import type { Feature } from '$types/theme';
 	import type { Developer as Dev } from '$types/dev';
@@ -28,7 +29,6 @@
 	let searchEl: HTMLInputElement;
 	let developer: Dev;
 	let developerModal: boolean = false;
-	let filterModal: boolean = false;
 
 	$: filtered = themes.filter((el) => {
 		const val = search.toLowerCase();
@@ -71,37 +71,43 @@
 
 <Developer bind:visible={developerModal} {developer} />
 
-<Modal
-	bind:visible={filterModal}
-	title="Theme Selection filtering"
-	description="Select what features you wish your desired theme to have."
->
-	<div class="filters">
-		{#each features as { value, label, description }}
-			<button
-				type="button"
-				role="checkbox"
-				aria-checked={isSelectedFeature(value)}
-				class="filter"
-				on:click={() => setFeature(value)}
-			>
-				<p class="filter-label">{label}</p>
-				<span class="filter-description">{description}</span>
-			</button>
-		{/each}
-	</div>
-</Modal>
-
 <template>
 	<header class="header">
 		<div class="wrap">
-			<h2 class="title">Available themes <span class="count">{filtered.length}</span></h2>
-			<div class="header-filters">
-				<Input bind:self={searchEl} bind:value={search} placeholder="Quick search" />
-				<Button variant="secondary" on:click={() => (filterModal = !filterModal)}>
-					<Icon src={Funnel} />
-					Filters
-				</Button>
+			<h2 class="title">Select A Theme <span class="count">{filtered.length}</span></h2>
+			<div class="features">
+				{#each features as { value, label, description }}
+					<button
+						type="button"
+						class="feature"
+						role="checkbox"
+						aria-checked={isSelectedFeature(value)}
+						on:click={() => setFeature(value)}
+						use:tooltip={{ content: description, placement: 'top-start' }}
+					>
+						<div class="box" />
+						{label}
+					</button>
+				{/each}
+			</div>
+			<div class="search">
+				<div class="search-icon">
+					<Icon src={MagnifyingGlass} />
+				</div>
+				<input
+					bind:this={searchEl}
+					bind:value={search}
+					class="search-box"
+					placeholder="Search for name, developer, ect..."
+					type="text"
+				/>
+				{#if search.length}
+					<div class="search-reset">
+						<Button variant="secondary" on:click={() => (search = '')}>
+							<Icon src={XMark} />
+						</Button>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</header>
@@ -128,19 +134,7 @@
 <style lang="scss">
 	.header {
 		position: relative;
-		height: 300px;
-		display: flex;
-		align-items: center;
-		.wrap {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-		&-filters {
-			display: flex;
-			gap: 16px;
-			align-items: center;
-		}
+		padding: 100px 0 64px;
 	}
 	.title {
 		font-family: var(--font-display);
@@ -160,6 +154,92 @@
 		}
 	}
 
+	.features {
+		display: flex;
+		gap: 12px;
+		margin: 50px 0 16px;
+		flex-wrap: wrap;
+		position: sticky;
+		top: 0;
+	}
+	.feature {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		border: 1px solid var(--border-alt);
+		padding: 8px 12px;
+		border-radius: var(--radius);
+		font-size: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		background: var(--background-tertiary);
+		.box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 18px;
+			max-width: 18px;
+			min-height: 18px;
+			max-height: 18px;
+			border-radius: 50px;
+			border: 1px solid var(--border-alt);
+			position: relative;
+			&::before {
+				content: '';
+				width: 10px;
+				height: 5px;
+				border-left: 2px solid #fff;
+				border-bottom: 2px solid #fff;
+				rotate: -45deg;
+				translate: 0 -1px;
+				opacity: 0;
+			}
+		}
+		&[aria-checked='true'] {
+			border-color: hsl(var(--accent));
+			.box {
+				background: hsl(var(--accent) / 0.25);
+				border-color: transparent;
+				&::before {
+					border-color: hsl(var(--accent));
+					opacity: 1;
+				}
+			}
+		}
+		&:focus-visible {
+			outline: 2px solid hsl(var(--accent));
+			outline-offset: 2px;
+		}
+	}
+	.search {
+		position: relative;
+		display: flex;
+		align-items: center;
+		&-icon {
+			width: 20px;
+			height: 20px;
+			left: 16px;
+			position: absolute;
+			color: var(--text-tertiary);
+		}
+		&-box {
+			font-size: 14px;
+			background: var(--background-tertiary);
+			border: 1px solid var(--border-alt);
+			border-radius: var(--radius);
+			padding: 12px 64px 12px 50px;
+			width: 100%;
+			&:focus {
+				border-color: hsl(var(--accent));
+				box-shadow: 0 0 0 5px hsl(var(--accent) / 0.25);
+			}
+		}
+		&-reset {
+			position: absolute;
+			right: 4px;
+		}
+	}
+
 	.themes {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
@@ -173,10 +253,14 @@
 			overflow: hidden;
 			border-radius: var(--radius-lg);
 			position: relative;
-			transition: translate 0.15s ease, box-shadow 0.15s ease;
-			&:hover {
-				translate: 0 -5px;
-				box-shadow: 0 10px 13px hsl(0 0% 0% / 0.25);
+			transition: outline 0.15s ease, outline-offset 0.15s ease;
+			background: var(--background-primary);
+			outline: 3px solid transparent;
+			outline-offset: 0;
+			&:hover,
+			&:focus {
+				outline-color: hsl(var(--accent));
+				outline-offset: 4px;
 			}
 		}
 		&-thumbnail {
@@ -209,6 +293,7 @@
 		align-items: center;
 		gap: 8px;
 		margin-top: 4px;
+		border-radius: var(--radius);
 		&-avatar {
 			display: block;
 			border-radius: 50%;
@@ -221,39 +306,9 @@
 			color: hsl(var(--accent));
 			text-decoration: underline;
 		}
-	}
-
-	.filters {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 16px;
-	}
-	.filter {
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		text-align: left;
-		padding: 16px;
-		&-label {
-			color: var(--text-primary);
-			font-family: var(--font-display);
-			font-weight: 800;
-		}
-		&-description {
-			display: block;
-			margin-top: 4px;
-			font-size: 14px;
-		}
-		&:hover {
-			border-color: var(--border-alt);
-		}
-		&:focus {
+		&:focus-visible {
 			outline: 2px solid hsl(var(--accent));
-			outline-offset: 2px;
-		}
-		&[aria-checked='true'] {
-			background: hsl(var(--accent) / 0.075);
-			border-color: hsl(var(--accent));
-			color: var(--text-primary);
+			outline-offset: 2;
 		}
 	}
 </style>

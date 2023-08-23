@@ -233,6 +233,7 @@
 							</button>
 						{/if}
 					{/each}
+					<div class="nav-divider" />
 					<button type="button" class="nav-btn" on:click={() => toggleModal('upload')}>
 						<Icon src={Icons.ArrowUpTray} />
 						Upload
