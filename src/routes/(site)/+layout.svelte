@@ -19,3 +19,10 @@
 		</div>
 	{/key}
 </template>
+
+<style>
+	#content {
+		display: flex;
+		flex-direction: column;
+	}
+</style>

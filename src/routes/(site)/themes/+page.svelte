@@ -129,6 +129,11 @@
 			</div>
 		{/each}
 	</div>
+	<footer class="footer">
+		<div class="wrap">
+			<p>Website created by <a href="https://gibbu.me" target="_blank" rel="noreferrer noopener">Gibbu</a></p>
+		</div>
+	</footer>
 </template>
 
 <style lang="scss">
@@ -159,8 +164,6 @@
 		gap: 12px;
 		margin: 50px 0 16px;
 		flex-wrap: wrap;
-		position: sticky;
-		top: 0;
 	}
 	.feature {
 		display: flex;
@@ -245,6 +248,7 @@
 		grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
 		gap: 32px;
 		margin-bottom: 128px;
+		flex: 1 0 auto;
 	}
 	.theme {
 		&-head {
@@ -309,6 +313,39 @@
 		&:focus-visible {
 			outline: 2px solid hsl(var(--accent));
 			outline-offset: 2;
+		}
+	}
+
+	.footer {
+		padding: 75px 0 50px;
+		position: relative;
+		font-size: 14px;
+		user-select: none;
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: url('/images/background.png');
+			mask: linear-gradient(transparent, black);
+			opacity: 0.75;
+		}
+		.wrap {
+			position: relative;
+			z-index: 1;
+			opacity: 0.5;
+			display: flex;
+			justify-content: space-between;
+		}
+		a {
+			color: hsl(var(--accent));
+			&:hover {
+				text-decoration: underline;
+			}
+			&:focus-visible {
+				outline: 2px solid hsl(var(--accent));
+				outline-offset: 2px;
+				border-radius: var(--radius);
+			}
 		}
 	}
 </style>

@@ -22,6 +22,7 @@
 	}
 	h4 {
 		font-family: var(--font-display);
+		margin-top: 16px;
 	}
 	p {
 		font-size: 14px;
