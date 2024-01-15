@@ -38,8 +38,8 @@
 	const web = (): void => {
 		error = '';
 		try {
-			const extension = new URL(value).pathname.split('.')[1];
-			if (!allowed.includes(extension) && value.length > 0) {
+			const extension = new URL(value).pathname.split('.').pop();
+			if (!extension || (!allowed.includes(extension) && value.length > 0)) {
 				error = 'URL must be a direct link (ending in: jpg, jpeg, png, ect...)';
 				return;
 			} else if (value.length > 0) {
