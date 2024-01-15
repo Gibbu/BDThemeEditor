@@ -58,8 +58,8 @@ const theme: Theme = {
 		--hide-active-now: 1;
 		--hide-profile-panel: 1;
 		--hide-channel-list: 0;
-		--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
-		--HSL-server-icon-size:
+		--win-min-max-close-button-width: 28px;
+		--HSL-server-icon-size: 40px;
 		--HSL-server-spacing: 10px;
 		--HSL-server-direction: column;
 		--update-notice-dec23: none;
@@ -717,6 +717,53 @@ const theme: Theme = {
 						rule: true,
 						title: 'Active Button Overlay',
 						hint: 'Overlay applied to buttons when clicked'
+					}
+				}
+			]
+		},
+		{
+			title: 'Horizontal Server List',
+			icon: 'Cog6Tooth',
+			inputs: [
+				{
+					type: 'banner',
+					props: {
+						message: 'These will only take effect if Pyrite\'s \"Horizontal Server List\" optional import is enabled.',
+						id: 'pyrite-hsl-info',
+						type: 'info',
+						closable: false
+					}
+				},
+				{
+					type: 'number',
+					props: {
+						variable: 'HSL-server-icon-size',
+						title: 'Icon Size',
+						unit: 'px',
+						value: 40,
+						min: 0
+					}
+				},
+				{
+					type: 'number',
+					props: {
+						variable: 'HSL-server-spacing',
+						title: 'Icon Spacing',
+						unit: 'px',
+						value: 10,
+						min: 0
+					}
+				},
+				{
+					type: 'select',
+					props: {
+						value: 'column',
+						variable: 'HSL-server-direction',
+						title: 'Direction',
+						options: [
+							{ label: 'Left-to-right', value: 'column' },
+							{ label: 'Right-to-left', value: 'column-reverse' }
+						]
 					}
 				}
 			]
