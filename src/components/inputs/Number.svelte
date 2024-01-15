@@ -34,7 +34,7 @@
 <template>
 	<Input type="number" {min} {step} bind:value on:input={update} {error} label={title} suffix={value + unit} />
 	{#if hint}
-		<div class="option-hint">{hint}</div>
+		<div class="option-hint">{@html hint}</div>
 	{/if}
 </template>
 

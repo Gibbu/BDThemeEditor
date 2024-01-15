@@ -26,7 +26,7 @@
 	<header class="option-header">
 		<p class="option-title">{title}</p>
 		{#if hint}
-			<small class="option-hint">{hint}</small>
+			<small class="option-hint">{@html hint}</small>
 		{/if}
 	</header>
 	<div class="option-body">
