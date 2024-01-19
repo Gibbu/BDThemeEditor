@@ -14,6 +14,7 @@
 	export let title: string;
 
 	// Optional vars
+	export let hint: string | null = null;
 	export let varGroup: string = ':root';
 
 	let local: boolean = false;
@@ -61,6 +62,9 @@
 	</header>
 	<div class="option-body">
 		<Input placeholder="Font name" bind:value on:change={update} />
+		{#if hint}
+			<small class="font-hint">{@html hint}</small>
+		{/if}
 		<small class="option-hint">Click away or press Enter to update preview.</small>
 		<div class="local">
 			<Checkbox bind:checked={local} label="Use font installed on my computer" />
@@ -82,6 +86,11 @@
 			color: var(--text-tertiary);
 			font-size: 12px;
 		}
+	}
+	.font-hint {
+		display: block;
+		font-size: 13px;
+		color: var(--text-tertiary);
 	}
 	.local {
 		display: flex;

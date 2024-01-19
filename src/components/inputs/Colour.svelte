@@ -111,7 +111,7 @@
 			<div class="colour-info">
 				<p class="colour-title">{title}</p>
 				{#if hint}
-					<small class="colour-hint">{hint}</small>
+					<small class="colour-hint">{@html hint}</small>
 				{/if}
 			</div>
 		</div>

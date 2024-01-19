@@ -15,6 +15,7 @@ import translucence from './translucence';
 import materialdiscord from './materialdiscord';
 import steam from './steam';
 import minimalcord from './minimalcord';
+import pyrite from './pyrite';
 
 export const themes = [
 	frostedglass,
@@ -33,7 +34,8 @@ export const themes = [
 	materialdiscord,
 	discordrecolor,
 	steam,
-	minimalcord
+	minimalcord,
+	pyrite
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
