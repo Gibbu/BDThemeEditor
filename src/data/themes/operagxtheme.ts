@@ -92,7 +92,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background',
-						start: 'https://cdn.discordapp.com/attachments/1045691215330422864/1055544062213636196/grayscale.png',
+						start: 'https://i.imgur.com/9wxpbVw.png',
 						value: '',
 						title: 'Image'
 					}
