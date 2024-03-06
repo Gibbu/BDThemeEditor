@@ -4,16 +4,16 @@ import { hsl, columns, radialstatus, discolored } from '../addons';
 
 const theme: Theme = {
 	name: 'Clear Vision',
-	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
+	thumbnail: 'https://i.imgur.com/U7UXrEN.png',
 	developer: ClearVision,
 	meta: {
 		name: 'ClearVision',
 		author: 'ClearVision Team',
-		version: '6.3.0',
+		version: '6.9.0',
 		description: 'Highly customizable and beautiful theme for BetterDiscord.',
 		source: 'https://github.com/ClearVision/ClearVision-v6',
 		website: 'https://clearvision.github.io',
-		invite: '7pNUC9C'
+		invite: 'dHaSxn3'
 	},
 	preview: `
 		@import url(https://clearvision.github.io/ClearVision-v6/main.css);
@@ -161,10 +161,10 @@ const theme: Theme = {
 				{
 					type: 'banner',
 					props: {
-						id: 'cv-transparency-window',
+						id: 'cv-addons-window',
 						type: 'warning',
 						message:
-							'ClearVision requires aditional steps to achieve a see through window. Join their <a href="https://discord.gg/673e2sqBzd" rel="noopener noreferrer">Discord Server</a> for help.',
+							'ClearVision addons, including transparency, require extra work. See their <a href="https://github.com/ClearVision/Addons" target="_blank" rel="noopener noreferrer">Addons Page</a> for more info and support server',
 						closable: true
 					}
 				},
