@@ -4,16 +4,16 @@ import { hsl, columns, radialstatus, discolored } from '../addons';
 
 const theme: Theme = {
 	name: 'Clear Vision',
-	thumbnail: 'https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png',
+	thumbnail: 'https://i.imgur.com/U7UXrEN.png',
 	developer: ClearVision,
 	meta: {
 		name: 'ClearVision',
 		author: 'ClearVision Team',
-		version: '6.3.0',
+		version: '6.9.0',
 		description: 'Highly customizable and beautiful theme for BetterDiscord.',
 		source: 'https://github.com/ClearVision/ClearVision-v6',
 		website: 'https://clearvision.github.io',
-		invite: '7pNUC9C'
+		invite: 'dHaSxn3'
 	},
 	preview: `
 		@import url(https://clearvision.github.io/ClearVision-v6/main.css);
