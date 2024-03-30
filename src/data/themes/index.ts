@@ -16,6 +16,7 @@ import materialdiscord from './materialdiscord';
 import steam from './steam';
 import minimalcord from './minimalcord';
 import pyrite from './pyrite';
+import glasswave from './glasswave';
 
 export const themes = [
 	frostedglass,
@@ -35,7 +36,8 @@ export const themes = [
 	discordrecolor,
 	steam,
 	minimalcord,
-	pyrite
+	pyrite,
+	glasswave
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
