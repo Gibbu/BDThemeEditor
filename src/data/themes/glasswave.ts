@@ -131,7 +131,7 @@ const theme: Theme = {
                     props: {
                         variable: 'var-font',
                         index: 0,
-                        value: '',
+                        value: 'gg sans',
                         title: 'App font'
                     }
                 },
