@@ -164,7 +164,7 @@ const theme: Theme = {
 						id: 'cv-addons-window',
 						type: 'warning',
 						message:
-							'ClearVision addons, including transparency, require extra work. See their <a href="https://github.com/ClearVision/Addons" target="_blank" rel="noopener noreferrer">Addons Page</a> for more info and support server',
+							'ClearVision has addons that require extra work. See their <a href="https://github.com/ClearVision/Addons" target="_blank" rel="noopener noreferrer">Addons Page</a> for more info and support server',
 						closable: true
 					}
 				},
