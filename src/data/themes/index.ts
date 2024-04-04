@@ -17,6 +17,7 @@ import steam from './steam';
 import minimalcord from './minimalcord';
 import pyrite from './pyrite';
 import glasswave from './glasswave';
+import fvui from './fvui';
 
 export const themes = [
 	frostedglass,
@@ -37,7 +38,8 @@ export const themes = [
 	steam,
 	minimalcord,
 	pyrite,
-	glasswave
+	glasswave,
+	fvui,
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());
