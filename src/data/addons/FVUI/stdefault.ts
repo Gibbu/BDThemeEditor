@@ -9,7 +9,7 @@ const addon: Addon = {
 	previewUrl: ['https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/Default.css'],
 	group: 'subtheme',
 	selector: 'Def',
-	use: true,
+	use: false,
 	variables: [
 		{
 
