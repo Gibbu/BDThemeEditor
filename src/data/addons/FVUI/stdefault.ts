@@ -10,11 +10,6 @@ const addon: Addon = {
 	group: 'subtheme',
 	selector: 'Def',
 	use: false,
-	variables: [
-		{
-
-		}
-	]
 };
 
 export default addon;
