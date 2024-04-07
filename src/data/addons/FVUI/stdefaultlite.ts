@@ -7,14 +7,9 @@ const addon: Addon = {
 	developer: FeoreV,
 	imports: ['https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/Default_lite.css'],
 	previewUrl: ['https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/Default_lite.css'],
-	use: false,
+	use: true,
 	group: 'subtheme',
 	selector: 'DefL',
-	variables: [
-		{
-
-		}
-	]
 };
 
 export default addon;
