@@ -58,15 +58,7 @@
 
 		if (uploadType === 'imgur') {
 			fileUploading = true;
-			try {
-				await imgur(file);
-			} catch (err) {
-				const { stack, ...rest } = err as any;
-				console.warn('[BDEditor Image Upload]:', rest);
-				error = `An error occured while uploading: ${
-					(err as any).response.data.data.error
-				}.<br>Check the developer console for more information`;
-			}
+			await imgur(file);
 		} else if (uploadType === 'b64') {
 			base64(file);
 		}
@@ -76,24 +68,26 @@
 		const formData = new FormData();
 		formData.append('image', file);
 
-		const { data, status, request } = await axios.post('https://api.imgur.com/3/image', formData, {
-			headers: {
-				Authorization: 'Client-ID 8887dd35aa4e9c0'
-			},
-			onUploadProgress: (e) => {
-				fileUploadProgress = (e.progress as number) * 100;
-			}
-		});
+		try {
+			const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
+				headers: {
+					Authorization: 'Client-ID 8887dd35aa4e9c0'
+				},
+				onUploadProgress: (e) => {
+					fileUploadProgress = (e.progress as number) * 100;
+				}
+			});
+			value = data.data.link;
 
-		if (!status.toString().startsWith('2')) {
-			console.warn(`[BDEditor Image Upload]:`, data, request);
-			throw new Error('There was an issue with the Imgur API.');
+			reset();
+			updatePreview(data.data.link);
+		} catch (err) {
+			const { stack, ...rest } = err as any;
+			console.warn('[BDEditor Image Upload]:', rest);
+			error = `An error occured while uploading: ${
+				(err as any).response.data.data.error
+			}.<br>Check the developer console for more information`;
 		}
-
-		value = data.data.link;
-
-		reset();
-		updatePreview(data.data.link);
 	};
 	const base64 = (file: File) => {
 		const reader = new FileReader();
