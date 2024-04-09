@@ -86,9 +86,8 @@
 		});
 
 		if (!status.toString().startsWith('2')) {
-			error = 'An error has occured with the Imgur API. Check developer console for more information.';
-			console.warn(`[BDEditor Image Upload]:`, { data, request });
-			return;
+			console.warn(`[BDEditor Image Upload]:`, data, request);
+			throw new Error('There was an issue with the Imgur API.');
 		}
 
 		value = data.data.link;
