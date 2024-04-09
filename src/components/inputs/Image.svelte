@@ -71,10 +71,11 @@
 		try {
 			const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
 				headers: {
-					Authorization: 'Client-ID 8887dd35aa4e9c0'
+					Authorization: 'Client-ID cb21a6b4af1a570'
 				},
 				onUploadProgress: (e) => {
-					fileUploadProgress = (e.progress as number) * 100;
+					if (error) fileUploadProgress = 0;
+					else fileUploadProgress = (e.progress as number) * 100;
 				}
 			});
 			value = data.data.link;
