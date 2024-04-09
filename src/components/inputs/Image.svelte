@@ -62,7 +62,7 @@
 				await imgur(file);
 			} catch (err) {
 				const { stack, ...rest } = err as any;
-				console.log('[BDEditor Image Upload]:', rest);
+				console.warn('[BDEditor Image Upload]:', rest);
 				error = `An error occured while uploading: ${
 					(err as any).response.data.data.error
 				}.<br>Check the developer console for more information`;
@@ -76,7 +76,7 @@
 		const formData = new FormData();
 		formData.append('image', file);
 
-		const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
+		const { data, status, request } = await axios.post('https://api.imgur.com/3/image', formData, {
 			headers: {
 				Authorization: 'Client-ID 8887dd35aa4e9c0'
 			},
@@ -84,6 +84,12 @@
 				fileUploadProgress = (e.progress as number) * 100;
 			}
 		});
+
+		if (!status.toString().startsWith('2')) {
+			error = 'An error has occured with the Imgur API. Check developer console for more information.';
+			console.warn(`[BDEditor Image Upload]:`, { data, request });
+			return;
+		}
 
 		value = data.data.link;
 
