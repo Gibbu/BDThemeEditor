@@ -69,7 +69,7 @@
 		formData.append('image', file);
 
 		try {
-			const { data, request } = await axios.post('https://api.imgur.com/3/image', formData, {
+			const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
 				headers: {
 					Authorization: 'Client-ID cb21a6b4af1a570'
 				},
@@ -79,8 +79,6 @@
 				}
 			});
 			value = data.data.link;
-
-			console.log('[BDEditor Image Upload]', request);
 
 			reset();
 			updatePreview(data.data.link);
