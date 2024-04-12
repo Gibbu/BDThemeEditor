@@ -80,6 +80,8 @@
 			});
 			value = data.data.link;
 
+			console.log('[BDEditor Image Upload]', data);
+
 			reset();
 			updatePreview(data.data.link);
 		} catch (err) {
