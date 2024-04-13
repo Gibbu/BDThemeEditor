@@ -184,7 +184,7 @@ const theme: Theme = {
 					props: {
 						variable: 'FVUI',
 						title: 'Theme name',
-						value: '0',
+						value: 'var(--subtheme)',
 						options: [
 							{ label: 'Default', value: 'var(--subtheme)' },
 						],
@@ -197,7 +197,7 @@ const theme: Theme = {
 					props: {
 						variable: 'customdesc',
 						title: 'Custom description',
-						value: '0',
+						value: '""',
 						options: [
 							{ label: 'No', value: '' },
 						],
