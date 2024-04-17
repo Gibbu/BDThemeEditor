@@ -9,6 +9,7 @@ import stcustombackground from './FVUI/stcustombackground';
 import stcustombackgroundlite from './FVUI/stcustombackgroundlite';
 import stmica from './FVUI/stmica';
 import materialyou from './FVUI/materialyou';
+import materialwin from './FVUI/materialwin';
 import modulardesign from './FVUI/modulardesign';
 
-export { hsl, columns, radialstatus, discolored, stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, modulardesign};
+export { hsl, columns, radialstatus, discolored, stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, materialwin, modulardesign};
