@@ -1,6 +1,6 @@
 import type { Theme } from '$types/theme';
 import FeoreV from '../devs/FeoreV';
-import { stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, modulardesign } from '../addons';
+import { stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, materialwin, modulardesign } from '../addons';
 
 const theme: Theme = {
 	name: 'FVUI',
@@ -208,7 +208,7 @@ const theme: Theme = {
 			]
 		},
 	],
-	addons: [ stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, modulardesign]
+	addons: [ stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, materialwin, modulardesign]
 };
 
 export default theme;
