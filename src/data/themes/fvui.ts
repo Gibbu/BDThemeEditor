@@ -16,7 +16,10 @@ const theme: Theme = {
 		website: 'https://feorev.github.io/',
 		authorId: '489785940546551831'
 	},
-	preview: `@import url('https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css');@import url('https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/Default.css');`,
+	preview: `
+	@import url('https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css');
+	@import url('https://feorev.github.io/Themes/Discord/FVUI/assets/BDeditor.css');
+	`,
 	features: ['background', 'font', 'transparent', 'home', 'light'],
 	imports: ['https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css'],
 	optionalImports: [
