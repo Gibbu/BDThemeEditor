@@ -14,7 +14,7 @@ const theme: Theme = {
 		source: 'https://github.com/DiscordStyles/FrostedGlass',
 		invite: 'ZHthyCw',
 		donate: 'https://paypal.me/IanRGibson',
-		website: 'https://gibbu.me',
+		website: 'https://gibbu.dev',
 		authorId: '174868361040232448'
 	},
 	preview: `

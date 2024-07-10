@@ -131,7 +131,7 @@
 	</div>
 	<footer class="footer">
 		<div class="wrap">
-			<p>Website created by <a href="https://gibbu.me" target="_blank" rel="noreferrer noopener">Gibbu</a></p>
+			<p>Website created by <a href="https://gibbu.dev" target="_blank" rel="noreferrer noopener">Gibbu</a></p>
 		</div>
 	</footer>
 </template>
