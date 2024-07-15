@@ -14,13 +14,6 @@ const addon: Addon = {
         {
             type: 'divider',
             props: {
-                title: 'ModularDesign',
-                description: 'Required to enable ModularDesign in Optional Imports.'
-            }
-        },
-        {
-            type: 'divider',
-            props: {
                 title: '',
                 description: 'Main modules'
             }
@@ -42,7 +35,6 @@ const addon: Addon = {
                 type: 'RGB',
                 value: 'var(--color03)',
                 title: 'Outline color',
-                hint: 'The default is set to variable theme color. Dont change it if you want to maintain compatibility with MaterialYou and accentcolor'
             }
         },
         {
@@ -78,101 +70,35 @@ const addon: Addon = {
         {
             type: 'colour',
             props: {
-                variable: 'outlineBG',
+                variable: 'outlineBGclr',
                 type: 'RGB',
                 value: 'unset',
                 title: 'Outline content background color',
             }
         },
         {
-            type: 'number',
+            type: 'slider',
+            props: {
+                variable: 'outlineBGalpha',
+                value: 1,
+                max: 1,
+                step: .1,
+                title: 'Background transparency',
+            }
+        },
+        {
+            type: 'select',
             props: {
                 variable: 'outlineBLUR',
-                value: 0,
-                step: 1,
-                title: 'Background content blur',
-                unit: 'px',
-                hint: 'Use only with the CustomBackground subtheme (NOT Mica and so on)'
+                title: 'Background content blur. Format: blur(*px) ',
+                value: '""',
+                options: [
+                    { label: 'No', value: '' },
+                ],
+                hint: 'Use only with the CustomBackground subtheme (NOT Mica and so on)',
+                custom: true
             }
-        },
-        {
-            type: 'divider',
-            props: {
-                title: '',
-                description: 'Additional modules'
-            }
-        },
-        {
-            type: 'number',
-            props: {
-                variable: 'outline2',
-                value: 0,
-                step: 1,
-                title: 'Outline size',
-                unit: 'px',
-            }
-        },
-        {
-            type: 'colour',
-            props: {
-                variable: 'outlineCLR2',
-                type: 'RGB',
-                value: 'var(--outlineCLR)',
-                title: 'Outline color',
-                hint: 'The default is set to variable theme color. Dont change it if you want to maintain compatibility with MaterialYou and accentcolor'
-            }
-        },
-        {
-            type: 'number',
-            props: {
-                variable: 'outlineBR2',
-                value: 'var(--outlineBR)',
-                step: 1,
-                title: 'Outline rounding',
-                unit: 'px',
-                hint: 'The default value is equal to main modules'
-            }
-        },
-        {
-            type: 'number',
-            props: {
-                variable: 'outlineMG2',
-                value: 'var(--outlineMG)',
-                step: 1,
-                title: 'Outline margin',
-                unit: '',
-                hint: 'The default value is equal to main modules. Specify the value in rem (for example 2rem)'
-            }
-        },
-        {
-            type: 'number',
-            props: {
-                variable: 'outlineBS2',
-                value: 'unset',
-                step: 2,
-                title: 'Outline boxshadow size',
-            }
-        },
-        {
-            type: 'colour',
-            props: {
-                variable: 'outlineBG2',
-                type: 'RGB',
-                value: 'unset',
-                title: 'Outline content background color',
-            }
-        },
-        {
-            type: 'number',
-            props: {
-                variable: 'outlineBLUR2',
-                value: 0,
-                step: 1,
-                title: 'Background content blur',
-                unit: 'px',
-                hint: 'Use only with the CustomBackground subtheme (NOT Mica and so on)'
-            }
-        },
+        }
 	]
 };
 
