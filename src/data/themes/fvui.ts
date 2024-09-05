@@ -1,6 +1,6 @@
 import type { Theme } from '$types/theme';
 import FeoreV from '../devs/FeoreV';
-import { stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, modulardesign } from '../addons';
+import { stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, materialwin, modulardesign } from '../addons';
 
 const theme: Theme = {
 	name: 'FVUI',
@@ -16,7 +16,10 @@ const theme: Theme = {
 		website: 'https://feorev.github.io/',
 		authorId: '489785940546551831'
 	},
-	preview: `@import url('https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css');@import url('https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/Default.css');`,
+	preview: `
+	@import url('https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css');
+	@import url('https://feorev.github.io/Themes/Discord/FVUI/assets/BDeditor.css');
+	`,
 	features: ['background', 'font', 'transparent', 'home', 'light'],
 	imports: ['https://feorev.github.io/Themes/Discord/FVUI/Cores/preload.css'],
 	optionalImports: [
@@ -184,7 +187,7 @@ const theme: Theme = {
 					props: {
 						variable: 'FVUI',
 						title: 'Theme name',
-						value: '0',
+						value: 'var(--subtheme)',
 						options: [
 							{ label: 'Default', value: 'var(--subtheme)' },
 						],
@@ -197,7 +200,7 @@ const theme: Theme = {
 					props: {
 						variable: 'customdesc',
 						title: 'Custom description',
-						value: '0',
+						value: '""',
 						options: [
 							{ label: 'No', value: '' },
 						],
@@ -208,7 +211,7 @@ const theme: Theme = {
 			]
 		},
 	],
-	addons: [ stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, modulardesign]
+	addons: [ stdefault, stdefaultlite, stcustombackground, stcustombackgroundlite, stmica, materialyou, materialwin, modulardesign]
 };
 
 export default theme;
