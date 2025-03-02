@@ -71,7 +71,7 @@
 		try {
 			const { data } = await axios.post('https://api.imgur.com/3/image', formData, {
 				headers: {
-					Authorization: 'Client-ID 82d2d94e2fa2184'
+					Authorization: 'Client-ID 58529b2a13754e3'
 				},
 				onUploadProgress: (e) => {
 					if (error) fileUploadProgress = 0;
