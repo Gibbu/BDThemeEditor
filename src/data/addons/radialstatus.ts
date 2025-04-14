@@ -5,7 +5,7 @@ const addon: Addon = {
 	name: 'RadialStatus',
 	description: 'Changes the status icons to wrap around the avatar.',
 	developer: Gibbu,
-	imports: ['https://discordstyles.github.io/RadialStatus/dist/RadialStatus.css'],
+	imports: ['https://discordstyles.github.io/RadialStatus/RadialStatus.css'],
 	previewUrl: ['https://discordstyles.github.io/RadialStatus/RadialStatus.theme.css'],
 	group: 'avatar',
 	selector: 'rs',
