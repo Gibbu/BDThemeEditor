@@ -1,4 +1,4 @@
-import frostedglass from './frostedglass';
+// import frostedglass from './frostedglass';
 // import softx from './softx';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
@@ -20,7 +20,7 @@ import glasswave from './glasswave';
 import fvui from './fvui';
 
 export const themes = [
-	frostedglass,
+	// frostedglass,
 	// softx,
 	basicbackground,
 	clearvision,
