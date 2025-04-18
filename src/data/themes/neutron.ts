@@ -5,7 +5,7 @@ import { discolored, columns, hsl, radialstatus } from '../addons';
 const theme: Theme = {
 	name: 'Neutron',
 	thumbnail:
-		'https://camo.githubusercontent.com/643015798319a56ca31864c0f22d6665e65bc215da3a9b29a1abc9c8d180d95e/68747470733a2f2f692e696d6775722e636f6d2f3559686f5274662e6a7067',
+		'https://camo.githubusercontent.com/3bbdc6a5fcca0d412deb75680efccdbd806dd803c6d6eaaf065819bdeff04caa/68747470733a2f2f692e696d6775722e636f6d2f3559686f5274662e6a7067',
 	developer: Spectra,
 	meta: {
 		name: 'Neutron',
