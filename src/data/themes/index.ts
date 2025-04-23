@@ -1,4 +1,4 @@
-// import frostedglass from './frostedglass';
+import frostedglass from './frostedglass';
 // import softx from './softx';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
