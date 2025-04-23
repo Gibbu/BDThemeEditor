@@ -20,7 +20,7 @@ import glasswave from './glasswave';
 import fvui from './fvui';
 
 export const themes = [
-	// frostedglass,
+	frostedglass,
 	// softx,
 	basicbackground,
 	clearvision,

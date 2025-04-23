@@ -8,17 +8,14 @@ const theme: Theme = {
 	developer: Gibbu,
 	meta: {
 		name: 'Frosted Glass',
-		author: 'Gibbu#1211',
+		author: 'Gibbu',
 		version: '2.0.0',
 		description: 'Display your picture of choice with adjustable blur and brightness.',
 		source: 'https://github.com/DiscordStyles/FrostedGlass',
-		invite: 'ZHthyCw',
-		donate: 'https://paypal.me/IanRGibson',
-		website: 'https://gibbu.dev',
-		authorId: '174868361040232448'
+		invite: 'ZHthyCw'
 	},
 	preview: `
-		@import url('https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css');
+		@import url('https://discordstyles.github.io/FrostedGlass/FrostedGlass.css');
 		:root {
 			--background-image: url("https://i.imgur.com/kYW2H5C.jpg"); /* Main background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
 			--background-image-blur: 5px; /* Blur intensity of --background-image | Must end in px | DEFAULT: 5px */
@@ -54,7 +51,7 @@ const theme: Theme = {
 		}
 	`,
 	features: ['background', 'font', 'transparent', 'home', 'addons'],
-	imports: ['https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css'],
+	imports: ['https://discordstyles.github.io/FrostedGlass/FrostedGlass.css'],
 	optionalImports: [
 		{
 			name: 'Window Titlebar',
