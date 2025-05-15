@@ -3,7 +3,8 @@ import DaBluLite from '../devs/dablulite';
 
 const theme: Theme = {
 	name: 'Cyan',
-	thumbnail: 'https://raw.githubusercontent.com/DaBluLite/Cyan/master/screenshots/cyan-screenshot-1.png',
+	thumbnail:
+		'https://raw.githubusercontent.com/DaBluLite/Cyan/master/screenshots/cyan-screenshot-1.png',
 	developer: DaBluLite,
 	meta: {
 		name: 'Cyan',
@@ -43,7 +44,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Background Image',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -69,7 +70,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -104,7 +105,10 @@ const theme: Theme = {
 						title: 'Use Colored Border',
 						value: '0 0 0 1.5px var(--cyan-accent-color), 0 2px 10px 0 rgb(0 0 0 / 60%)',
 						options: [
-							{ label: 'True', value: '0 0 0 1.5px var(--cyan-accent-color), 0 2px 10px 0 rgb(0 0 0 / 60%)' },
+							{
+								label: 'True',
+								value: '0 0 0 1.5px var(--cyan-accent-color), 0 2px 10px 0 rgb(0 0 0 / 60%)'
+							},
 							{ label: 'False', value: '0 0 10px 0 rgb(0 0 0 / 60%)' }
 						],
 						custom: false
@@ -140,7 +144,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -156,7 +160,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Layout',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'slider',
@@ -179,7 +183,8 @@ const theme: Theme = {
 		},
 		{
 			variable: 'cyan-background-primary',
-			value: 'hsla(var(--cyan-background-hue) var(--cyan-tint-visibility) var(--cyan-background-lightness) / 40%)',
+			value:
+				'hsla(var(--cyan-background-hue) var(--cyan-tint-visibility) var(--cyan-background-lightness) / 40%)',
 			varGroup: ':root'
 		}
 	]

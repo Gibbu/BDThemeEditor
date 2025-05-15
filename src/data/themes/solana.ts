@@ -34,13 +34,17 @@ const theme: Theme = {
 		{
 			name: 'MacOS titlebar',
 			description: 'Changes the Windows titlebar to mimic the MacOS Discord style.',
-			imports: ['https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css'],
+			imports: [
+				'https://maendisease.github.io/BetterDiscordStuff/Themes/Solana/addon/mac-titlebar.css'
+			],
 			enabled: true
 		},
 		{
 			name: 'Apple EmojiReplace',
 			description: 'Replaces default emojis to Apples. Made by DevilBro',
-			imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'],
+			imports: [
+				'https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css'
+			],
 			enabled: true
 		}
 	],
@@ -48,7 +52,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Colors',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'slider',
@@ -112,7 +116,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Background image',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -121,7 +125,8 @@ const theme: Theme = {
 						start: 'initial',
 						value: '',
 						title: 'Background image',
-						comment: 'url(https://site.com/foobar.png) | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif)'
+						comment:
+							'url(https://site.com/foobar.png) | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif)'
 					}
 				},
 				{
@@ -205,7 +210,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Window',
-			icon: 'Window',
+			icon: 'AppWindow',
 			inputs: [
 				{
 					type: 'image',
@@ -353,7 +358,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Chat',
-			icon: 'ChatBubbleBottomCenter',
+			icon: 'MessageCircle',
 			inputs: [
 				{
 					type: 'select',
@@ -437,7 +442,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Sidebar',
-			icon: 'ListBullet',
+			icon: 'LayoutList',
 			inputs: [
 				{
 					type: 'slider',
@@ -478,7 +483,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Floating background',
-			icon: 'Square2Stack',
+			icon: 'SquaresSubtract',
 			inputs: [
 				{
 					type: 'slider',
@@ -530,7 +535,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -577,7 +582,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Compatibility',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'select',

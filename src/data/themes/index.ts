@@ -4,12 +4,12 @@ import basicbackground from './basicbackground';
 import clearvision from './clearvision';
 import discordrecolor from './discordrecolor';
 // import comfy from './comfy';
-import solana from './solana';
+// import solana from './solana';
 // import materialdesign from './materialdesign';
 import neutron from './neutron';
 import operagxtheme from './operagxtheme';
-import outlook from './outlook';
-import cyan from './cyan';
+// import outlook from './outlook';
+// import cyan from './cyan';
 // import darkmatter from './darkmatter';
 import translucence from './translucence';
 import materialdiscord from './materialdiscord';
@@ -17,7 +17,7 @@ import materialdiscord from './materialdiscord';
 // import minimalcord from './minimalcord';
 // import pyrite from './pyrite';
 import glasswave from './glasswave';
-import fvui from './fvui';
+// import fvui from './fvui';
 
 export const themes = [
 	frostedglass,
@@ -27,9 +27,9 @@ export const themes = [
 	// darkmatter,
 	operagxtheme,
 	translucence,
-	solana,
-	outlook,
-	cyan,
+	// solana,
+	// outlook,
+	// cyan,
 	// comfy,
 	// materialdesign,
 	neutron,
@@ -38,8 +38,8 @@ export const themes = [
 	// steam,
 	// minimalcord,
 	// pyrite,
-	glasswave,
-	fvui
+	glasswave
+	// fvui
 ];
 
 export const fallbacks = themes.map((el) => el.name.replace(/ /g, '').toLowerCase());

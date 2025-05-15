@@ -4,7 +4,8 @@ import { hsl, discolored, columns, radialstatus } from '../addons';
 
 const theme: Theme = {
 	name: 'MaterialDesign',
-	thumbnail: 'https://raw.githubusercontent.com/TheCommieAxolotl/BetterDiscord-Stuff/main/MaterialDesign/assets/md.png',
+	thumbnail:
+		'https://raw.githubusercontent.com/TheCommieAxolotl/BetterDiscord-Stuff/main/MaterialDesign/assets/md.png',
 	developer: TheCommieAxolotl,
 	meta: {
 		name: 'MaterialDesign',
@@ -375,7 +376,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Fonts',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -401,7 +402,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Floating Backgrounds',
-			icon: 'Square2Stack',
+			icon: 'SquaresSubtract',
 			inputs: [
 				{
 					type: 'slider',
@@ -442,27 +443,32 @@ const theme: Theme = {
 		},
 		{
 			variable: '01dpShadow',
-			value: '0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12)',
+			value:
+				'0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12)',
 			varGroup: ':root'
 		},
 		{
 			variable: '02dpShadow',
-			value: '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+			value:
+				'0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
 			varGroup: ':root'
 		},
 		{
 			variable: '03dpShadow',
-			value: '0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12)',
+			value:
+				'0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12)',
 			varGroup: ':root'
 		},
 		{
 			variable: '04dpShadow',
-			value: '0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12)',
+			value:
+				'0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12)',
 			varGroup: ':root'
 		},
 		{
 			variable: '06dpShadow',
-			value: '0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12)',
+			value:
+				'0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12)',
 			varGroup: ':root'
 		},
 		{

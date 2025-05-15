@@ -32,7 +32,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Options',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'image',
@@ -121,7 +121,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',

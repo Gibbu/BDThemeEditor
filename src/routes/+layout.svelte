@@ -1,65 +1,76 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { Modal, Button } from '$components/common';
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { Check } from '@steeze-ui/heroicons';
-	import { Toasts } from 'svoast';
-	import '$scss/app.scss';
-	import 'svooltip/styles.css';
+	import '../app.css';
+	import { EDITOR_STATE } from '$lib/editor.svelte';
+	import { ThemeControls, Sidebar, Upload, Download } from '$lib/editor';
+	import { fly } from 'svelte/transition';
+	import { CodeXmlIcon } from 'lucide-svelte';
+	import { ProgressBar } from '@prgm/sveltekit-progress-bar';
+	import { Tooltip } from 'bits-ui';
 
-	// Browser warning
-	let isChrome: boolean = browser && /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-	let browserWarning: boolean = browser && !localStorage.browser_warning;
-
-	$: visible = !isChrome && browserWarning;
-
-	const closeWarning = () => {
-		browserWarning = false;
-		localStorage.browser_warning = true;
-	};
+	let { children } = $props();
 </script>
 
-<template>
-	<Toasts position="top-center" />
-	<div class="pattern" />
-	<slot />
-</template>
+<ProgressBar class="text-turquoise-500" />
 
-<Modal bind:visible title="Unsupported Browser" closeable={false} markdown>
-	<p>This browser is not recommended when using this editor.</p>
-	<p>
-		We recommend using a Chromium browser such as
-		<a href="https://www.google.com/chrome/" target="_blank" rel="noreferrer" class="anchor">Google Chrome</a>,
-		<a href="https://brave.com/" target="_blank" rel="noreferrer" class="anchor">Brave</a>
-		or the new
-		<a
-			href="https://support.microsoft.com/en-us/microsoft-edge/download-the-new-microsoft-edge-based-on-chromium-0f4a3dd7-55df-60f5-739f-00010dba52cf"
-			target="_blank"
-			rel="noreferrer"
-			class="anchor">Edge</a
-		>.
-	</p>
-	<p>If you wish to continue, remember elements inside the preview may not be displayed correctly.</p>
-
-	<svelte:fragment slot="footer">
-		<Button variant="primary" on:click={closeWarning}>
-			<Icon src={Check} />
-			I Understand
-		</Button>
-	</svelte:fragment>
-</Modal>
-
-<style>
-	.pattern {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		background: url('/images/grid-pattern.png');
-		opacity: 0.035;
-		mask: linear-gradient(transparent, black);
-		rotate: 180deg;
-		z-index: -1;
-	}
-</style>
+<Tooltip.Provider disableHoverableContent disableCloseOnTriggerClick>
+	<div
+		class={[
+			'grid h-screen w-screen flex-1 gap-2 p-2 transition-all',
+			EDITOR_STATE.THEME ? 'grid-cols-[564px_1fr]' : 'grid-cols-[450px_1fr] delay-100'
+		]}
+	>
+		<div class="relative flex flex-col gap-4 p-6">
+			{#if EDITOR_STATE.THEME}
+				<div
+					in:fly={{ x: -10, duration: 200, delay: 200 }}
+					out:fly={{ x: -10, duration: 200 }}
+					class="absolute inset-6 -ml-8 grid flex-1 grid-cols-[86px_1fr] gap-8"
+				>
+					<Sidebar />
+					<div class="flex flex-col">
+						<header class="flex items-center gap-4">
+							<Upload />
+							<Download />
+						</header>
+						<ThemeControls />
+					</div>
+				</div>
+			{:else}
+				<div
+					in:fly={{ x: 10, duration: 200, delay: 200 }}
+					out:fly={{ x: 10, duration: 200 }}
+					class="absolute inset-6 flex flex-1 flex-col justify-between"
+				>
+					<header class="flex items-center gap-4">
+						<a href="/">
+							<img
+								src="/images/favicon.png"
+								alt="Website icon"
+								class="size-10 transition-transform hover:scale-110"
+							/>
+						</a>
+						<h2 class="font-manrope text-xl font-semibold tracking-wide text-white">
+							BD Theme Editor
+						</h2>
+					</header>
+					<div class="flex items-center justify-between">
+						<p class="text-sm opacity-50">Website made by Gibbu</p>
+						<div class="flex items-center gap-4">
+							<a
+								href="https://gibbu.dev"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="opacity-50 hover:opacity-100"
+							>
+								<CodeXmlIcon class="size-6" />
+							</a>
+						</div>
+					</div>
+				</div>
+			{/if}
+		</div>
+		<main class="overflow-y-auto rounded-lg rounded-tl-4xl rounded-bl-4xl bg-zinc-800">
+			{@render children()}
+		</main>
+	</div>
+</Tooltip.Provider>

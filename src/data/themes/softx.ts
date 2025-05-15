@@ -50,7 +50,10 @@ const theme: Theme = {
 			--rs-phone-visible: block;
 		}
 	`,
-	imports: ['https://discordstyles.github.io/SoftX/SoftX.css', 'https://discordstyles.github.io/SoftX/RadialGlow.css'],
+	imports: [
+		'https://discordstyles.github.io/SoftX/SoftX.css',
+		'https://discordstyles.github.io/SoftX/RadialGlow.css'
+	],
 	optionalImports: [
 		{
 			name: 'Vertical User Area',
@@ -69,7 +72,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -78,7 +81,8 @@ const theme: Theme = {
 						start: 'https://i.imgur.com/Nglfni6.png',
 						value: '',
 						title: 'Image',
-						comment: 'Background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif)'
+						comment:
+							'Background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif)'
 					}
 				},
 				{
@@ -107,7 +111,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours/Glow',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -117,7 +121,8 @@ const theme: Theme = {
 						value: '0, 231, 169',
 						title: 'Accent',
 						hint: 'Colour used around the app.',
-						comment: 'Colour used around the app. | Values are in R,G,B format. | Default: 0, 231, 169'
+						comment:
+							'Colour used around the app. | Values are in R,G,B format. | Default: 0, 231, 169'
 					}
 				},
 				{
@@ -137,7 +142,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -153,7 +158,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Sizing',
-			icon: 'ArrowsRightLeft',
+			icon: 'ImageUpscale',
 			inputs: [
 				{
 					type: 'number',
@@ -210,7 +215,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'RadialGlow',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'slider',
@@ -372,7 +377,8 @@ const theme: Theme = {
 						],
 						value: 'block',
 						title: 'Phone indicator visibility',
-						comment: 'Visibility of the phone icon next to a users avatar. | block = visible | none = hidden'
+						comment:
+							'Visibility of the phone icon next to a users avatar. | block = visible | none = hidden'
 					}
 				}
 			]

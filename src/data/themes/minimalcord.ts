@@ -39,7 +39,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -124,7 +124,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Chat',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',

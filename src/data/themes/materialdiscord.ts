@@ -5,7 +5,8 @@ import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Material Discord',
-	thumbnail: 'https://user-images.githubusercontent.com/4013216/216792441-cc02a2fc-d175-432d-af75-81975d75e65e.png',
+	thumbnail:
+		'https://user-images.githubusercontent.com/4013216/216792441-cc02a2fc-d175-432d-af75-81975d75e65e.png',
 	developer: CapnKitten,
 	meta: {
 		name: 'Material Discord',
@@ -13,7 +14,8 @@ const theme: Theme = {
 		description: `A theme based on Google's Material Design`,
 		author: 'CapnKitten',
 		website: 'http://github.com/CapnKitten',
-		source: 'https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Material-Discord/css/source.css',
+		source:
+			'https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Material-Discord/css/source.css',
 		donate: 'https://paypal.me/capnkitten',
 		invite: 'jzJkA6Z'
 	},
@@ -42,7 +44,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Accent colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'slider',
@@ -86,7 +88,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Sizing',
-			icon: 'ArrowsRightLeft',
+			icon: 'ImageUpscale',
 			inputs: [
 				{
 					type: 'slider',
@@ -173,7 +175,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Popout',
-			icon: 'Square2Stack',
+			icon: 'SquaresSubtract',
 			inputs: [
 				{
 					type: 'number',

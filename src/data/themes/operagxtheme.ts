@@ -3,8 +3,7 @@ import Hawk from '../devs/hawk';
 
 const theme: Theme = {
 	name: 'OperaGX Theme',
-	thumbnail:
-		'https://i.imgur.com/74uuxSw.png',
+	thumbnail: 'https://i.imgur.com/74uuxSw.png',
 	developer: Hawk,
 	meta: {
 		name: 'OperaGX',
@@ -85,7 +84,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Main Settings',
-			icon: 'Photo',
+			icon: 'Image',
 			description: 'The main background covering most of the app.',
 			inputs: [
 				{
@@ -175,7 +174,8 @@ const theme: Theme = {
 		{
 			title: 'Background Transparency',
 			icon: 'Sun',
-			description: 'How dark parts of the background overlay are. 0 meaning fully transparent, 1 meaning full black.',
+			description:
+				'How dark parts of the background overlay are. 0 meaning fully transparent, 1 meaning full black.',
 			inputs: [
 				{
 					type: 'slider',
@@ -315,7 +315,7 @@ const theme: Theme = {
 
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',

@@ -89,7 +89,8 @@ const theme: Theme = {
 		},
 		{
 			name: 'Better SpotifyControls seek bar',
-			description: 'Transforms the seek bar to cover the whole background. Requires SpotifyControls by DevilBro',
+			description:
+				'Transforms the seek bar to cover the whole background. Requires SpotifyControls by DevilBro',
 			imports: ['https://comfy-themes.github.io/Discord/betterdiscord/better-spotify.css'],
 			enabled: true
 		}
@@ -99,7 +100,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -169,7 +170,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Roundness',
-			icon: 'AdjustmentsHorizontal',
+			icon: 'SquareRoundCorner',
 			inputs: [
 				{
 					type: 'slider',
@@ -488,7 +489,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'number',

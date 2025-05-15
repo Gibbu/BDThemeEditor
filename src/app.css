@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Manrope';
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Manrope[wght].woff2') format('woff2');
+}
+
+@theme {
+	--font-inter: 'Inter', 'Roboto', 'Lucida Console', 'Courier New', monospace;
+	--font-manrope: 'Manrope', var(--font-inter);
+	--container-8xl: 96rem;
+
+	--color-zinc-920: oklch(0.19 0.006 285.82);
+
+	--color-turquoise: oklch(82.291% 0.16807 162.45);
+	--color-turquoise-50: oklch(95.656% 0.04014 171.02);
+	--color-turquoise-100: oklch(93.805% 0.05886 170.68);
+	--color-turquoise-200: oklch(90.258% 0.09135 169.47);
+	--color-turquoise-300: oklch(87.262% 0.12261 166.93);
+	--color-turquoise-400: oklch(84.428% 0.14779 165.14);
+	--color-turquoise-500: oklch(82.291% 0.16807 162.45);
+	--color-turquoise-600: oklch(73.724% 0.16023 160.89);
+	--color-turquoise-700: oklch(59.636% 0.1282 161.3);
+	--color-turquoise-800: oklch(44.67% 0.09372 161.99);
+	--color-turquoise-900: oklch(28.308% 0.05539 163.8);
+	--color-turquoise-950: oklch(19.196% 0.03396 167.16);
+}
+
+.wrap {
+	@apply mx-auto w-full max-w-screen-xl px-8;
+}
+.focusOutline {
+	@apply focus:outline-turquoise-500 focus:outline focus:outline-offset-[3px];
+}

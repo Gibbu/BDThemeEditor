@@ -64,7 +64,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Main background',
-			icon: 'Photo',
+			icon: 'Image',
 			description: 'The main background covering most of the app.',
 			inputs: [
 				{
@@ -129,8 +129,9 @@ const theme: Theme = {
 		},
 		{
 			title: 'User popout',
-			icon: 'Square2Stack',
-			description: 'The popout that appears when clicking on a user whether it being the members list or in chat.',
+			icon: 'SquareUserRound',
+			description:
+				'The popout that appears when clicking on a user whether it being the members list or in chat.',
 			inputs: [
 				{
 					type: 'image',
@@ -193,7 +194,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Overlaying modals/popouts',
-			icon: 'Window',
+			icon: 'AppWindow',
 			userModal: true,
 			description: `Any modal or popout that isn't the user popout.`,
 			inputs: [
@@ -312,7 +313,8 @@ const theme: Theme = {
 		{
 			title: 'Brightness',
 			icon: 'Sun',
-			description: 'How dark parts of the app are. 0 meaning fully transparent, 1 meaning full black.',
+			description:
+				'How dark parts of the app are. 0 meaning fully transparent, 1 meaning full black.',
 			inputs: [
 				{
 					type: 'slider',
@@ -371,7 +373,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			description: 'The colours used in the theme to give it a unique feel.',
 			inputs: [
 				{
@@ -427,7 +429,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Backgrount tint',
-			icon: 'Cog6Tooth',
+			icon: 'PaintBucket',
 			description: 'Add colour on top of your image.',
 			inputs: [
 				{
@@ -453,7 +455,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'MessageCircle',
 			inputs: [
 				{
 					type: 'font',
@@ -468,7 +470,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'App settings',
-			icon: 'CpuChip',
+			icon: 'Cpu',
 			description: `Don't like the spacing around the app? Set both of these to 0.`,
 			inputs: [
 				{

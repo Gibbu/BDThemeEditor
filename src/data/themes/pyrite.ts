@@ -89,7 +89,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Main Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -134,7 +134,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'App Background',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -191,7 +191,8 @@ const theme: Theme = {
 					type: 'banner',
 					props: {
 						id: 'pyrite-UML-width-height-warning',
-						message: 'The do not take any effect if the optional import "User Modal Layout" is deselected.<br>Changing the values below HAS NOT BEEN TESTED.<br>The maximum value is <em>calc(100v</em>x<em> - 20px)</em>.',
+						message:
+							'The do not take any effect if the optional import "User Modal Layout" is deselected.<br>Changing the values below HAS NOT BEEN TESTED.<br>The maximum value is <em>calc(100v</em>x<em> - 20px)</em>.',
 						closable: false,
 						type: 'warning'
 					}
@@ -224,7 +225,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'User Popout',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -267,7 +268,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Channel Colours',
-			icon: 'ListBullet',
+			icon: 'LayoutList',
 			inputs: [
 				{
 					type: 'colour',
@@ -361,7 +362,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Status Colours',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'colour',
@@ -424,7 +425,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom Fonts',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -443,14 +444,14 @@ const theme: Theme = {
 						value: 'Hack, Monaco, Consolas, Courier, monospace',
 						index: 1,
 						title: 'Code font',
-						hint: 'It\'s likely two or more fonts won\'t exist for you so multiple have been included'
+						hint: "It's likely two or more fonts won't exist for you so multiple have been included"
 					}
 				}
 			]
 		},
 		{
 			title: 'Toggles',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'number',
@@ -469,7 +470,8 @@ const theme: Theme = {
 					type: 'banner',
 					props: {
 						id: 'pyrite-toggles-warning',
-						message: 'Setting the values of these below beneath 0 or above the maximum may have unknown effects. Do so at your own risk.',
+						message:
+							'Setting the values of these below beneath 0 or above the maximum may have unknown effects. Do so at your own risk.',
 						type: 'warning',
 						closable: false
 					}
@@ -526,7 +528,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'colour',
@@ -566,7 +568,8 @@ const theme: Theme = {
 		{
 			title: 'Dark Theme',
 			icon: 'Moon',
-			varGroup: '.theme-dark, .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_])',
+			varGroup:
+				'.theme-dark, .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_])',
 			inputs: [
 				{
 					type: 'colour',
@@ -645,7 +648,8 @@ const theme: Theme = {
 		{
 			title: 'Light Theme',
 			icon: 'Sun',
-			varGroup: '.theme-light, .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_])',
+			varGroup:
+				'.theme-light, .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_])',
 			inputs: [
 				{
 					type: 'colour',
@@ -723,12 +727,13 @@ const theme: Theme = {
 		},
 		{
 			title: 'Horizontal Server List',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'banner',
 					props: {
-						message: 'These will only take effect if Pyrite\'s \"Horizontal Server List\" optional import is enabled.',
+						message:
+							'These will only take effect if Pyrite\'s \"Horizontal Server List\" optional import is enabled.',
 						id: 'pyrite-hsl-info',
 						type: 'info',
 						closable: false
@@ -780,9 +785,9 @@ const theme: Theme = {
 	optionalImports: [
 		{
 			name: 'User Modal Layout',
-			description: 'Pyrite\'s own custom user modal layout',
+			description: "Pyrite's own custom user modal layout",
 			enabled: true,
-			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css'],
+			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css']
 		},
 		{
 			name: 'BetterDiscord Support',
@@ -792,37 +797,44 @@ const theme: Theme = {
 		},
 		{
 			name: 'Vencord Support',
-			description: 'Enables support for Vencord and a few plugins (it\'s also very cute)',
+			description: "Enables support for Vencord and a few plugins (it's also very cute)",
 			enabled: true,
 			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/vencord.css']
 		},
 		{
 			name: 'Whitney Font',
-			description: 'Allows usage of Discord\'s previously used font, Whitney.',
+			description: "Allows usage of Discord's previously used font, Whitney.",
 			enabled: true,
 			imports: ['https://leafyluigi.github.io/discord-themes/whitney.css']
 		},
 		{
 			name: 'HorizontalServerList',
-			description: 'Forked from Gibbu. Do not use this with the original. Moves the server list from the left to the top of Discord.',
+			description:
+				'Forked from Gibbu. Do not use this with the original. Moves the server list from the left to the top of Discord.',
 			enabled: false,
-			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css']
+			imports: [
+				'https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css'
+			]
 		},
 		{
 			name: 'HorizontalServerList on bottom',
 			description: 'Requires the above optional import to be enabled.',
 			enabled: false,
-			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list-bottom.css']
+			imports: [
+				'https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list-bottom.css'
+			]
 		},
 		{
 			name: 'Border Radius / Radical Status',
-			description: 'Forked from Gibbu. Do not use this with the original. Changes the status icons to wrap around the avatar.',
+			description:
+				'Forked from Gibbu. Do not use this with the original. Changes the status icons to wrap around the avatar.',
 			enabled: false,
 			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css']
 		},
 		{
 			name: 'Restore Windows Titlebar',
-			description: 'The preview on this website is for Windows. This optional import will not work for those using Mac OS, Linux or using Web.',
+			description:
+				'The preview on this website is for Windows. This optional import will not work for those using Mac OS, Linux or using Web.',
 			enabled: false,
 			imports: ['https://leafyluigi.github.io/discord-themes/pyrite/build/windows-titlebar.css']
 		}

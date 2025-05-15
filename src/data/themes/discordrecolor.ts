@@ -45,12 +45,14 @@ const theme: Theme = {
 		}
 	`,
 	features: ['solid', 'addons'],
-	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'],
+	imports: [
+		'https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css'
+	],
 	fonts: [],
 	variables: [
 		{
 			title: 'Colors',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -94,7 +96,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Text',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'colour',
@@ -163,7 +165,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Background colours',
-			icon: 'PaintBrush',
+			icon: 'Paintbrush',
 			inputs: [
 				{
 					type: 'colour',
@@ -223,7 +225,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'select',

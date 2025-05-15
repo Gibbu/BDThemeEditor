@@ -33,7 +33,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Images',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -57,7 +57,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',

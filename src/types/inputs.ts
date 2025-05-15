@@ -152,4 +152,12 @@ export interface SliderInput
 		}
 	> {}
 
-export type Inputs = ColourInput | FontInput | ImageInput | NumberInput | SelectInput | SliderInput | Banner | Divider;
+export type Inputs =
+	| ColourInput
+	| FontInput
+	| ImageInput
+	| NumberInput
+	| SelectInput
+	| SliderInput
+	| Banner
+	| Divider;

@@ -104,7 +104,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -156,7 +156,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'App background',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'banner',
@@ -335,7 +335,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'User popout',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -672,7 +672,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Channel colours',
-			icon: 'ListBullet',
+			icon: 'LayoutList',
 			inputs: [
 				{
 					type: 'colour',
@@ -709,7 +709,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Status colours',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'colour',
@@ -760,7 +760,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom fonts',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -784,7 +784,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'number',

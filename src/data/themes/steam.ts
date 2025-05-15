@@ -36,7 +36,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Options',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'slider',
@@ -54,7 +54,7 @@ const theme: Theme = {
 						value: '940px',
 						options: [
 							{ label: '940px', value: '940px' },
-							{ label: '100%', value: '100%' },
+							{ label: '100%', value: '100%' }
 						],
 						custom: true,
 						title: 'App Width',
@@ -68,7 +68,7 @@ const theme: Theme = {
 						value: '640px',
 						options: [
 							{ label: '640px', value: '640px' },
-							{ label: '100%', value: '100%' },
+							{ label: '100%', value: '100%' }
 						],
 						custom: true,
 						title: 'Message Width',
@@ -88,7 +88,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom Font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',

@@ -5,7 +5,8 @@ import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Translucence',
-	thumbnail: 'https://user-images.githubusercontent.com/4013216/125158359-b07aec80-e13e-11eb-8a85-01e49d772192.png',
+	thumbnail:
+		'https://user-images.githubusercontent.com/4013216/125158359-b07aec80-e13e-11eb-8a85-01e49d772192.png',
 	developer: CapnKitten,
 	meta: {
 		name: 'Translucence',
@@ -13,7 +14,8 @@ const theme: Theme = {
 		description: 'A translucent/frosted glass Discord theme',
 		author: 'CapnKitten',
 		website: 'http://github.com/CapnKitten',
-		source: 'https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Translucence/css/source.css',
+		source:
+			'https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Translucence/css/source.css',
 		donate: 'https://paypal.me/capnkitten',
 		invite: 'jzJkA6Z'
 	},
@@ -66,7 +68,7 @@ const theme: Theme = {
 		{
 			title: 'App',
 			description: 'Options to edit the app in general.',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -111,7 +113,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Accent',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			description: 'The colour used around the Discord app.',
 			inputs: [
 				{
@@ -157,7 +159,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'ListBullet',
+			icon: 'LayoutList',
 			inputs: [
 				{
 					type: 'colour',
@@ -251,7 +253,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Messages',
-			icon: 'ChatBubbleLeft',
+			icon: 'MessageCircle',
 			inputs: [
 				{
 					type: 'colour',
@@ -340,7 +342,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Textbox',
-			icon: 'Envelope',
+			icon: 'TextCursorInput',
 			description: 'The colour for all textboxes',
 			inputs: [
 				{
@@ -385,7 +387,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Cards',
-			icon: 'Square2Stack',
+			icon: 'SquaresSubtract',
 			inputs: [
 				{
 					type: 'colour',

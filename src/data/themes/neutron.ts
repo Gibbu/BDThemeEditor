@@ -41,7 +41,7 @@ const theme: Theme = {
 	variables: [
 		{
 			title: 'Background image',
-			icon: 'Photo',
+			icon: 'Image',
 			description: 'The main background behind the app.',
 			inputs: [
 				{
@@ -170,7 +170,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			description: 'The colours used throughout the theme.',
 			inputs: [
 				{
@@ -195,7 +195,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Custom font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -210,7 +210,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Codeblocks',
-			icon: 'CodeBracket',
+			icon: 'CodeXml',
 			inputs: [
 				{
 					type: 'colour',

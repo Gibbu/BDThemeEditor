@@ -10,7 +10,8 @@ const theme: Theme = {
 		name: 'BasicBackground',
 		author: 'DevilBro',
 		version: '1.0.5',
-		description: 'Allows you to use a background image without greatly altering the basic look of Discord.',
+		description:
+			'Allows you to use a background image without greatly altering the basic look of Discord.',
 		source:
 			'https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Themes/BasicBackground/BasicBackground.theme.css',
 		invite: 'Jx3TjNS',
@@ -54,18 +55,21 @@ const theme: Theme = {
 		}
 	`,
 	features: ['background', 'addons', 'font', 'transparent'],
-	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css'],
+	imports: [
+		'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css'
+	],
 	fonts: [],
 	variables: [
 		{
 			title: 'Background Image',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
 					props: {
 						variable: 'background',
-						start: 'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg',
+						start:
+							'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg',
 						value: '',
 						title: 'Background Image'
 					}
@@ -122,7 +126,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Popout image',
-			icon: 'Photo',
+			icon: 'Image',
 			inputs: [
 				{
 					type: 'image',
@@ -185,7 +189,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Colours',
-			icon: 'Swatch',
+			icon: 'SwatchBook',
 			inputs: [
 				{
 					type: 'colour',
@@ -289,7 +293,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Font',
-			icon: 'ChatBubbleBottomCenterText',
+			icon: 'CaseUpper',
 			inputs: [
 				{
 					type: 'font',
@@ -358,7 +362,7 @@ const theme: Theme = {
 		},
 		{
 			title: 'Others',
-			icon: 'Cog6Tooth',
+			icon: 'Settings',
 			inputs: [
 				{
 					type: 'select',

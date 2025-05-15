@@ -1,7 +1,7 @@
 import type { Inputs } from './inputs';
 import type { Developer } from './dev';
 import type { Addon } from './addon';
-import type * as HeroIcons from '@steeze-ui/heroicons';
+import type * as LucideIcons from 'lucide-svelte';
 
 export type Feature = 'background' | 'font' | 'transparent' | 'solid' | 'light' | 'addons' | 'home';
 
@@ -11,15 +11,27 @@ interface ThemeVars {
 	/**
 	 * Icon of the tab.
 	 *
-	 * View all available icons here: https://heroicons.com
+	 * View all available icons here: https://lucide.dev/icons/
 	 */
-	icon: keyof typeof HeroIcons;
+	icon: keyof typeof LucideIcons;
 	/** The bread and butter */
 	inputs: Inputs[];
 	/** Describe what this tab is indended for. */
 	description?: string;
 	/** Shows the profile modal when the tab is active */
 	userModal?: boolean;
+	/**
+	 * The "group" for the variable/value to be placed into.\
+	 * By default this will be `:root`.
+	 *
+	 * Example:
+	 * ```json
+	 * {
+	 * 	"varGroup": ".theme-light"
+	 * }
+	 * ```
+	 */
+	varGroup?: string;
 }
 
 interface HiddenVars {
@@ -131,7 +143,7 @@ export interface Theme {
 	features?: Feature[];
 }
 
-export interface IStoreTheme {
+export interface EditorData {
 	name: string;
 	meta: Meta;
 	developer: Developer;
@@ -139,6 +151,7 @@ export interface IStoreTheme {
 	variables: ThemeVars[];
 	addons: Addon[];
 	optionalImports: OptionalImport[];
+	preview: string;
 	fonts?: string[];
 	hiddenVars?: HiddenVars[];
 	varGroups?: string[];

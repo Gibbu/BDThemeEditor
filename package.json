@@ -1,38 +1,36 @@
 {
-	"license": "MIT",
-	"scripts": {
-		"dev": "vite dev --port=3000",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@simonwep/pickr": "^1.8.2",
-		"@steeze-ui/heroicons": "^2.2.3",
-		"@steeze-ui/svelte-icon": "^1.5.0",
-		"@sveltejs/adapter-vercel": "^2.4.3",
-		"@sveltejs/kit": "^1.22.5",
-		"@types/file-saver": "^2.0.5",
-		"@types/nprogress": "^0.2.0",
-		"@vercel/analytics": "^1.0.2",
-		"autoprefixer": "^10.4.14",
-		"axios": "^1.4.0",
-		"file-saver": "^2.0.5",
-		"focus-trap": "^7.5.2",
-		"nprogress": "^0.2.0",
-		"postcss": "^8.4.27",
-		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^2.10.1",
-		"sass": "^1.65.1",
-		"svelte": "^4.1.2",
-		"svelte-check": "^3.4.6",
-		"svelte-preprocess": "^5.0.4",
-		"svoast": "^2.2.1",
-		"svooltip": "^0.7.4",
-		"tslib": "^2.6.1",
-		"typescript": "^5.1.6",
-		"vite": "^4.4.9"
-	},
-	"type": "module"
+  "name": "editor",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@prgm/sveltekit-progress-bar": "^3.0.2",
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.20.7",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "bits-ui": "^1.4.2",
+    "clsx": "^2.1.1",
+    "lucide-svelte": "^0.503.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-svelte": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "svelte": "5.28.2",
+    "svelte-check": "^4.1.6",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4"
+  }
 }
