@@ -1,3 +1,7 @@
+type OmitProps<T extends Record<string, any>> = Omit<T, 'comment' | 'hint' | 'title'> & {
+	addon?: boolean;
+};
+
 interface BaseInput<T, V, P = any> {
 	type: T;
 	/**
@@ -28,6 +32,11 @@ interface BaseInput<T, V, P = any> {
 		/** The comment to be placed to the right of the inside the downloaded file. */
 		comment?: string;
 	} & P;
+}
+export interface BaseInputProps<V = string | number> {
+	variable: string;
+	value: V;
+	[key: string]: any;
 }
 
 export interface Divider {
@@ -76,6 +85,7 @@ export interface ColourInput
 			rule?: boolean;
 		}
 	> {}
+export type ColourInputProps = OmitProps<ColourInput['props']>;
 
 export interface FontInput
 	extends BaseInput<
@@ -90,6 +100,7 @@ export interface FontInput
 			start?: string;
 		}
 	> {}
+export type FontInputProps = OmitProps<FontInput['props']>;
 
 export interface ImageInput
 	extends BaseInput<
@@ -103,6 +114,7 @@ export interface ImageInput
 			start: string;
 		}
 	> {}
+export type ImageInputProps = OmitProps<ImageInput['props']>;
 
 export interface NumberInput
 	extends BaseInput<
@@ -119,6 +131,7 @@ export interface NumberInput
 			step?: number;
 		}
 	> {}
+export type NumberInputProps = OmitProps<NumberInput['props']>;
 
 export interface SelectInput
 	extends BaseInput<
@@ -135,6 +148,7 @@ export interface SelectInput
 			custom?: boolean;
 		}
 	> {}
+export type SelectInputProps = OmitProps<SelectInput['props']>;
 
 export interface SliderInput
 	extends BaseInput<
@@ -151,6 +165,7 @@ export interface SliderInput
 			step?: number;
 		}
 	> {}
+export type SliderInputProps = OmitProps<SliderInput['props']>;
 
 export type Inputs =
 	| ColourInput

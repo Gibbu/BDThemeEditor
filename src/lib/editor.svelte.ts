@@ -1,8 +1,10 @@
 import { themes } from '$data/themes';
-import { slug } from './utils';
+import { parseValue, slug } from './utils';
 import { page } from '$app/state';
 
 import type { EditorData } from '$types/theme';
+import { preview } from './preview';
+import type { BaseInputProps } from '$types/inputs';
 
 class EditorState {
 	THEME = $state<EditorData | null>(null);
@@ -34,16 +36,36 @@ class EditorState {
 		else this.tab = slug(this.THEME.variables[0].title);
 	}
 
-	updateVariable(variableName: string, value: string | number) {
+	updateVariable(payload: BaseInputProps, addon = false) {
 		if (!this.THEME) throw new Error('Theme data did not initalize.');
 
-		this.THEME.variables.forEach((variable) => {
-			variable.inputs.forEach((input) => {
-				if ('variable' in input.props && input.props.variable === variableName) {
-					input.props.value = value;
+		const { variable, value } = payload;
+
+		preview({
+			action: 'setProp',
+			value: parseValue(payload).value,
+			variable: variable
+		});
+
+		if (addon) {
+			this.THEME.addons.forEach((addon) => {
+				if (addon.variables && addon.use) {
+					addon.variables.forEach((input) => {
+						if ('variable' in input.props && input.props.variable === variable) {
+							input.props.value = value;
+						}
+					});
 				}
 			});
-		});
+		} else {
+			this.THEME.variables.forEach((group) => {
+				group.inputs.forEach((input) => {
+					if ('variable' in input.props && input.props.variable === variable) {
+						input.props.value = value;
+					}
+				});
+			});
+		}
 	}
 
 	reset() {
@@ -60,6 +82,9 @@ class EditorState {
 	}
 	isActiveTab(id: string) {
 		return this.tab === slug(id);
+	}
+	getActiveTab() {
+		return this.THEME?.variables.find((el) => slug(el.title) === this.tab)!;
 	}
 }
 

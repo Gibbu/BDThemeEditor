@@ -25,9 +25,9 @@ interface ThemeVars {
 	 * By default this will be `:root`.
 	 *
 	 * Example:
-	 * ```json
+	 * ```js
 	 * {
-	 * 	"varGroup": ".theme-light"
+	 * 	varGroup: ".theme-light"
 	 * }
 	 * ```
 	 */

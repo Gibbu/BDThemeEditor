@@ -13,7 +13,7 @@
 	};
 </script>
 
-{#snippet button(title: string, Icon: any, first: boolean = false)}
+{#snippet button(title: string, Icon: any)}
 	<Tooltip side="right" content={title}>
 		{#snippet children(props)}
 			<button
@@ -22,7 +22,6 @@
 				class={[
 					'relative flex aspect-square cursor-pointer items-center justify-center rounded-lg',
 					'transition-colors',
-					first && 'first:rounded-tr-3xl',
 					EDITOR_STATE.tab === slug(title) ? 'bg-zinc-800 text-white' : 'hover:bg-zinc-700/20'
 				]}
 				onclick={() => EDITOR_STATE.setTab(title)}
@@ -41,16 +40,15 @@
 
 <div
 	class={[
-		'bg-zinc-920 -my-6 overflow-y-auto rounded-tr-4xl rounded-br-4xl p-3',
-		'flex flex-col gap-4',
-		''
+		'bg-zinc-920 -my-6 overflow-y-auto rounded-tr-md rounded-br-md p-3',
+		'flex flex-col gap-4'
 	]}
 >
 	{#if EDITOR_STATE.THEME}
 		<div class="flex flex-col gap-2">
 			{#each EDITOR_STATE.THEME?.variables as group}
 				{@const Icon = getIcon(group.icon)}
-				{@render button(group.title, Icon, true)}
+				{@render button(group.title, Icon)}
 			{/each}
 		</div>
 		<hr class="mx-auto h-1 w-1/2 rounded-xl border-none bg-zinc-700" />

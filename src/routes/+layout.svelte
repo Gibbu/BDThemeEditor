@@ -19,16 +19,16 @@
 			EDITOR_STATE.THEME ? 'grid-cols-[564px_1fr]' : 'grid-cols-[450px_1fr] delay-100'
 		]}
 	>
-		<div class="relative flex flex-col gap-4 p-6">
+		<div class="relative flex flex-col gap-4">
 			{#if EDITOR_STATE.THEME}
 				<div
 					in:fly={{ x: -10, duration: 200, delay: 200 }}
 					out:fly={{ x: -10, duration: 200 }}
-					class="absolute inset-6 -ml-8 grid flex-1 grid-cols-[86px_1fr] gap-8"
+					class="absolute top-6 right-0 bottom-6 left-6 -ml-8 grid flex-1 grid-cols-[86px_1fr] gap-2"
 				>
 					<Sidebar />
-					<div class="flex flex-col">
-						<header class="flex items-center gap-4">
+					<div class="flex flex-col gap-6">
+						<header class="flex items-center gap-4 px-6">
 							<Upload />
 							<Download />
 						</header>
