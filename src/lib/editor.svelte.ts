@@ -36,7 +36,7 @@ class EditorState {
 		else this.tab = slug(this.THEME.variables[0].title);
 	}
 
-	updateVariable(payload: BaseInputProps, addon = false) {
+	updateVariable<T extends BaseInputProps>(payload: T, addon = false) {
 		if (!this.THEME) throw new Error('Theme data did not initalize.');
 
 		const { variable, value } = payload;

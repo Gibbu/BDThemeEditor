@@ -2,19 +2,11 @@
 	import { Tooltip } from '$lib/common';
 	import { EDITOR_STATE } from '$lib/editor.svelte';
 	import { slug } from '$lib/utils';
-	import * as icons from 'lucide-svelte';
-	import type { Component } from 'svelte';
-
-	const getIcon = (icon: string): Component => {
-		const _icon = icons[icon as keyof typeof icons];
-		if (!_icon) throw new TypeError(`\`${icon}\` is not an available icon from Lucide.`);
-
-		return _icon as unknown as Component;
-	};
+	import { SquareDashed } from 'lucide-svelte';
 </script>
 
-{#snippet button(title: string, Icon: any)}
-	<Tooltip side="right" content={title}>
+{#snippet button(title: string)}
+	<Tooltip placement="right" content={title}>
 		{#snippet children(props)}
 			<button
 				{...props}
@@ -32,7 +24,7 @@
 						EDITOR_STATE.tab === slug(title) && 'h-6 opacity-100'
 					]}
 				></span>
-				<Icon class="size-6" />
+				<SquareDashed class="size-6" />
 			</button>
 		{/snippet}
 	</Tooltip>
@@ -47,17 +39,16 @@
 	{#if EDITOR_STATE.THEME}
 		<div class="flex flex-col gap-2">
 			{#each EDITOR_STATE.THEME?.variables as group}
-				{@const Icon = getIcon(group.icon)}
-				{@render button(group.title, Icon)}
+				{@render button(group.title)}
 			{/each}
 		</div>
 		<hr class="mx-auto h-1 w-1/2 rounded-xl border-none bg-zinc-700" />
 		<div class="flex flex-col gap-2">
 			{#if EDITOR_STATE.THEME.addons.length}
-				{@render button('Addons', icons.PuzzleIcon)}
+				{@render button('Addons')}
 			{/if}
 			{#if EDITOR_STATE.THEME.optionalImports.length}
-				{@render button('Optional Imports', icons.Blocks)}
+				{@render button('Optional Imports')}
 			{/if}
 		</div>
 	{/if}

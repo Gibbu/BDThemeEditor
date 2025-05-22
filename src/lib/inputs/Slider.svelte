@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-	// import { Slider } from 'bits-ui';
-	import { onUpdate } from './helpers';
-	import { Slider, SliderThumb, SliderRange } from 'lithesome';
+	import { Slider } from 'melt/builders';
+	import { EDITOR_STATE } from '$lib/editor.svelte';
 
 	import type { SliderInputProps } from '$types/inputs';
 
@@ -16,18 +14,30 @@
 		unit
 	}: SliderInputProps = $props();
 
-	$effect(() => {
-		onUpdate<SliderInputProps>({ value, variable, max, min, step, unit }, addon);
+	const slider = new Slider({
+		value,
+		min,
+		max,
+		step,
+		onValueChange(newVal) {
+			EDITOR_STATE.updateVariable<SliderInputProps>(
+				{ value: newVal, variable, max, min, step, unit },
+				addon
+			);
+		}
 	});
 </script>
 
-<Slider
-	bind:value
-	{step}
-	{min}
-	{max}
-	class="relative flex h-2 cursor-pointer items-center rounded-full bg-neutral-700"
->
-	<SliderRange class="h-full rounded-full bg-white" />
-	<SliderThumb class="size-6 cursor-pointer rounded-full border border-black bg-white shadow-md" />
-</Slider>
+<div class="rounded-full bg-neutral-700 px-2">
+	<div {...slider.root} class="relative flex h-2 cursor-pointer items-center">
+		<div class="-mx-2 h-full w-(--percentage) rounded-full bg-white"></div>
+		<div
+			{...slider.thumb}
+			class={[
+				'absolute left-(--percentage) size-6 -translate-x-1/2 cursor-pointer rounded-md',
+				'border border-black bg-white shadow-md',
+				'focus:outline-turquoise-500 focus:outline-2 focus:outline-offset-2'
+			]}
+		></div>
+	</div>
+</div>

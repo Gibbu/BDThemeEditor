@@ -1,37 +1,57 @@
 <script lang="ts">
-	import { Tooltip } from 'bits-ui';
-	import type { Snippet } from 'svelte';
+	import { Tooltip } from 'melt/builders';
 	import { cn } from '$lib/utils';
+	import { fly } from 'svelte/transition';
+
+	import type { Snippet } from 'svelte';
+	import type { Placement } from '$lib/types';
 
 	let {
 		children,
 		content,
-		align = 'center',
-		side = 'top',
+		placement = 'top',
+		openDelay = 0,
 		class: klass
 	}: {
 		children: Snippet<[Record<string, any>]>;
 		content: string;
-		align?: Tooltip.ContentProps['align'];
-		side?: Tooltip.ContentProps['side'];
+		placement?: Placement;
+		openDelay?: number;
 		class?: string;
 	} = $props();
+
+	const tooltip = new Tooltip({
+		floatingConfig: {
+			computePosition: {
+				placement
+			}
+		},
+		openDelay,
+		disableHoverableContent: true,
+		closeOnPointerDown: false
+	});
+
+	const flyConfig = {
+		top: { y: -5 },
+		right: { x: -5 },
+		bottom: { y: 5 },
+		left: { x: 5 }
+	}[placement.split('-')[0]!];
 </script>
 
-<Tooltip.Root delayDuration={0}>
-	<Tooltip.Trigger class={klass}>
-		{#snippet child({ props })}
-			{@render children(props)}
-		{/snippet}
-	</Tooltip.Trigger>
-	<Tooltip.Content {align} {side} sideOffset={8}>
-		<div
-			class={cn(
-				'pointer-events-none rounded-md px-3 py-1 text-sm shadow-lg',
-				'bg-zinc-700 text-zinc-200'
-			)}
-		>
-			{content}
-		</div>
-	</Tooltip.Content>
-</Tooltip.Root>
+{@render children(tooltip.trigger)}
+
+{#if tooltip.isVisible}
+	<div
+		{...tooltip.content}
+		transition:fly={{ ...flyConfig, duration: 150 }}
+		class={cn(
+			'pointer-events-none rounded-md px-3 py-1 text-sm shadow-lg',
+			'bg-zinc-700 text-zinc-200',
+			klass
+		)}
+	>
+		<div {...tooltip.arrow} class="size-2 bg-zinc-700"></div>
+		{content}
+	</div>
+{/if}
