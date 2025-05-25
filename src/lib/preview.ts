@@ -1,4 +1,4 @@
-import { EDITOR_STATE } from './editor.svelte';
+import { STATE } from './editor.svelte';
 
 interface SetPreview {
 	action: 'setPreview';
@@ -59,5 +59,5 @@ export const preview = (
 		| ToggleModal
 		| ToggleTheme
 ) => {
-	EDITOR_STATE.preview?.contentWindow?.postMessage(JSON.stringify(message), '*');
+	STATE.previewElement?.contentWindow?.postMessage(JSON.stringify(message), '*');
 };

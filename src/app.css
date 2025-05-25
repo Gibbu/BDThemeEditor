@@ -43,3 +43,7 @@
 .focusOutline {
 	@apply focus:outline-turquoise-500 focus:outline focus:outline-offset-[3px];
 }
+
+.pickr {
+	@apply flex;
+}

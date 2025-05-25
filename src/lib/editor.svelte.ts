@@ -1,15 +1,19 @@
+import { preview } from './preview';
 import { themes } from '$data/themes';
 import { parseValue, slug } from './utils';
 import { page } from '$app/state';
 
 import type { EditorData } from '$types/theme';
-import { preview } from './preview';
 import type { BaseInputProps } from '$types/inputs';
+import { tick } from 'svelte';
 
-class EditorState {
+class State {
 	THEME = $state<EditorData | null>(null);
 	tab = $state<string | null>(null);
-	preview = $state<HTMLIFrameElement | null>(null);
+	previewElement = $state<HTMLIFrameElement | null>(null);
+	uploaded = $state<boolean>(false);
+
+	Loaded = $derived(!!this.THEME && !!this.previewElement);
 
 	init(themeName: string) {
 		const theme = structuredClone(themes).find((theme) => slug(theme.name) === themeName);
@@ -34,6 +38,14 @@ class EditorState {
 		const activeTab = page.url.searchParams.get('tab');
 		if (activeTab) this.tab = activeTab;
 		else this.tab = slug(this.THEME.variables[0].title);
+	}
+
+	// Hacky way to tell comonents to update their UI
+	// when importing a theme.
+	async fireUploadedEvent() {
+		this.uploaded = true;
+		await tick();
+		this.uploaded = false;
 	}
 
 	updateVariable<T extends BaseInputProps>(payload: T, addon = false) {
@@ -71,7 +83,7 @@ class EditorState {
 	reset() {
 		this.THEME = null;
 		this.tab = null;
-		this.preview = null;
+		this.previewElement = null;
 	}
 
 	setTab(id: string) {
@@ -83,9 +95,6 @@ class EditorState {
 	isActiveTab(id: string) {
 		return this.tab === slug(id);
 	}
-	getActiveTab() {
-		return this.THEME?.variables.find((el) => slug(el.title) === this.tab)!;
-	}
 }
 
-export const EDITOR_STATE = new EditorState();
+export const STATE = new State();

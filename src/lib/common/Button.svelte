@@ -29,16 +29,16 @@
 	bind:this={self}
 	disabled={disabled || undefined}
 	class={cn(
-		'focusOutline inline-flex cursor-pointer items-center justify-center rounded-xl font-medium',
+		'focusOutline inline-flex cursor-pointer items-center justify-center font-medium',
 		{
 			primary: 'bg-turquoise-500/15 hover:bg-turquoise-500 text-turquoise-400 hover:text-zinc-800',
 			secondary: 'bg-white/5 hover:bg-white/10 hover:text-white',
 			text: 'hover:bg-white/5 hover:text-white'
 		}[variant],
 		{
-			sm: 'gap-1 text-xs',
-			md: 'gap-1 px-4 py-2',
-			lg: 'gap-2.5 px-8 py-4 text-lg'
+			sm: 'gap-1 rounded-md text-xs',
+			md: 'gap-1 rounded-lg px-4 py-2',
+			lg: 'gap-2.5 rounded-xl px-8 py-4 text-lg'
 		}[size],
 		klass
 	)}

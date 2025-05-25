@@ -6,19 +6,15 @@
 	import type { Snippet } from 'svelte';
 	import type { Placement } from '$lib/types';
 
-	let {
-		children,
-		content,
-		placement = 'top',
-		openDelay = 0,
-		class: klass
-	}: {
+	interface Props {
 		children: Snippet<[Record<string, any>]>;
 		content: string;
 		placement?: Placement;
 		openDelay?: number;
 		class?: string;
-	} = $props();
+	}
+
+	let { children, content, placement = 'top', openDelay = 0, class: klass }: Props = $props();
 
 	const tooltip = new Tooltip({
 		floatingConfig: {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Slider } from 'melt/builders';
-	import { EDITOR_STATE } from '$lib/editor.svelte';
+	import { STATE } from '$lib/editor.svelte';
 
 	import type { SliderInputProps } from '$types/inputs';
 
@@ -20,7 +20,7 @@
 		max,
 		step,
 		onValueChange(newVal) {
-			EDITOR_STATE.updateVariable<SliderInputProps>(
+			STATE.updateVariable<SliderInputProps>(
 				{ value: newVal, variable, max, min, step, unit },
 				addon
 			);

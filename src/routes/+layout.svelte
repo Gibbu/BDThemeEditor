@@ -1,10 +1,11 @@
 <script lang="ts">
-	import '../app.css';
-	import { EDITOR_STATE } from '$lib/editor.svelte';
-	import { ThemeControls, Sidebar, Upload, Download } from '$lib/editor';
+	import { STATE } from '$lib/editor.svelte';
 	import { fly } from 'svelte/transition';
-	import { CodeXmlIcon } from 'lucide-svelte';
 	import { ProgressBar } from '@prgm/sveltekit-progress-bar';
+	import { CodeXmlIcon } from 'lucide-svelte';
+	import { Controls, Download, Tabs, Upload } from '$lib/editor';
+	import '../app.css';
+	import '@simonwep/pickr/dist/themes/classic.min.css';
 
 	let { children } = $props();
 </script>
@@ -13,31 +14,35 @@
 
 <div
 	class={[
-		'grid h-screen w-screen flex-1 gap-2 p-2 transition-all',
-		EDITOR_STATE.THEME ? 'grid-cols-[564px_1fr]' : 'grid-cols-[450px_1fr] delay-100'
+		'grid h-screen w-screen grid-cols-[var(--sidebar-width)_1fr] overflow-hidden transition-all',
+		!STATE.THEME && 'delay-75'
 	]}
+	style:--sidebar-width={STATE.THEME ? '586px' : '450px'}
 >
-	<div class="relative flex flex-col gap-4">
-		{#if EDITOR_STATE.THEME}
+	<div class="relative">
+		{#if STATE.THEME}
 			<div
 				in:fly={{ x: -10, duration: 200, delay: 200 }}
 				out:fly={{ x: -10, duration: 200 }}
-				class="absolute top-6 right-0 bottom-6 left-6 -ml-8 grid flex-1 grid-cols-[86px_1fr] gap-2"
+				class={[
+					'absolute inset-0 grid flex-1 grid-cols-[86px_1fr] gap-2',
+					!STATE.Loaded && 'pointer-events-none'
+				]}
 			>
-				<Sidebar />
-				<div class="flex flex-col gap-6">
+				<Tabs />
+				<div class="flex flex-col gap-6 pt-6">
 					<header class="flex items-center gap-4 px-6">
 						<Upload />
 						<Download />
 					</header>
-					<ThemeControls />
+					<Controls />
 				</div>
 			</div>
 		{:else}
 			<div
 				in:fly={{ x: 10, duration: 200, delay: 200 }}
 				out:fly={{ x: 10, duration: 200 }}
-				class="absolute inset-6 flex flex-1 flex-col justify-between"
+				class="absolute inset-0 flex flex-1 flex-col justify-between p-6"
 			>
 				<header class="flex items-center gap-4">
 					<a href="/">
@@ -67,7 +72,9 @@
 			</div>
 		{/if}
 	</div>
-	<main class="overflow-y-auto rounded-lg rounded-tl-4xl rounded-bl-4xl bg-zinc-800">
-		{@render children()}
-	</main>
+	<div class="p-2">
+		<div class="h-full rounded-2xl bg-zinc-800">
+			{@render children()}
+		</div>
+	</div>
 </div>

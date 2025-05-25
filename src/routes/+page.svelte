@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { themes } from '$data/themes';
 	import { Meta } from '$lib/common';
-	import { EDITOR_STATE } from '$lib/editor.svelte';
+	import { STATE } from '$lib/editor.svelte';
 	import { slug } from '$lib/utils';
 	import { beforeNavigate } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	EDITOR_STATE.reset();
+	STATE.reset();
 
 	let mounted = $state<boolean>(false);
 	beforeNavigate(() => {
