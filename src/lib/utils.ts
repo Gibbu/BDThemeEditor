@@ -1,13 +1,20 @@
 import type { BaseInputProps } from '$types/inputs';
 import { type ClassValue, clsx } from 'clsx';
-import { tick } from 'svelte';
+import { getContext, hasContext, setContext, tick } from 'svelte';
 import type { Attachment } from 'svelte/attachments';
 import { twMerge } from 'tailwind-merge';
+
+type Class<T> = new (...args: any[]) => T;
 
 export const cn = (...inputs: ClassValue[]) => {
 	return twMerge(clsx(inputs));
 };
 
+/**
+ * Replaces any special characters.
+ * @param string The string to parse
+ * @param replace The character to be replaced
+ */
 export const slug = (string: string, replace: string = '') => {
 	return string
 		.replace(/[^a-zA-Z_-]/g, replace)
@@ -37,6 +44,10 @@ export const parseValue = (
 	};
 };
 
+/**
+ * Mount elements from a component to another element in the DOM.
+ * @param selector The CSS selector to append the element to.
+ */
 export const portal = (selector: HTMLElement | string = 'body'): Attachment<HTMLElement> => {
 	return (element) => {
 		let target: HTMLElement | null = null;
@@ -55,7 +66,7 @@ export const portal = (selector: HTMLElement | string = 'body'): Attachment<HTML
 				throw new TypeError(
 					`Invalid portal target type: ${
 						!target ? 'null' : typeof target
-					}. Valid types: CSS selector or HTMLElement.`
+					}. Valid types: css selector or HTMLElement.`
 				);
 			}
 
@@ -67,5 +78,35 @@ export const portal = (selector: HTMLElement | string = 'body'): Attachment<HTML
 		return () => {
 			element?.remove();
 		};
+	};
+};
+
+/**
+ * Creates a unique ID used for accessability.
+ * @param namespace The namespace for each of the components
+ */
+export const createUID = (namespace: string) => {
+	const id = Math.random().toString(36).substring(2, 10);
+
+	return (component?: string) => {
+		return component ? `${namespace}-${id}-${component}` : `${namespace}-${id}`;
+	};
+};
+
+/**
+ * State machine to allow for dynamic two-way binding through function params.
+ * @param value The current value of the state
+ * @param updater The function to call when needing to update state outside of the context.
+ */
+export const stateValue = <T>(value: () => T, updater?: (newValue: T) => void) => {
+	const val = $derived.by(value);
+
+	return {
+		get val() {
+			return val;
+		},
+		set val(v: T) {
+			updater?.(v);
+		}
 	};
 };

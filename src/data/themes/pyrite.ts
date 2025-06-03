@@ -140,7 +140,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
+						starting: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
 						value: '',
 						title: 'Image'
 					}
@@ -169,7 +169,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'user-modal-image',
-						start: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
+						starting: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
 						value: '',
 						title: 'Image'
 					}
@@ -231,7 +231,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'user-popout-image',
-						start: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
+						starting: 'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png',
 						value: '',
 						title: 'Image'
 					}
@@ -259,7 +259,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-icon',
-						start: 'https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png',
+						starting: 'https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png',
 						value: '',
 						title: 'Home button image'
 					}

@@ -42,8 +42,8 @@
 		{...tooltip.content}
 		transition:fly={{ ...flyConfig, duration: 150 }}
 		class={cn(
-			'pointer-events-none rounded-md px-3 py-1 text-sm shadow-lg',
-			'bg-zinc-700 text-zinc-200',
+			'pointer-events-none rounded-md px-3 py-1 text-sm font-semibold shadow-lg',
+			'bg-white text-zinc-700',
 			klass
 		)}
 	>

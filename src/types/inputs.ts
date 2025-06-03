@@ -1,5 +1,6 @@
-type OmitProps<T extends Record<string, any>> = Omit<T, 'comment' | 'hint' | 'title'> & {
+type OmitProps<T extends Record<string, any>> = Omit<T, 'hint' | 'title'> & {
 	addon?: boolean;
+	varGroup?: string;
 };
 
 interface BaseInput<T, V, P = any> {
@@ -108,10 +109,10 @@ export interface ImageInput
 		string,
 		{
 			/**
-			 * The starting value of the variable.\
+			 * The default value of the variable.\
 			 * This will not display the value initially in the URL input.
 			 */
-			start: string;
+			starting: string;
 		}
 	> {}
 export type ImageInputProps = OmitProps<ImageInput['props']>;

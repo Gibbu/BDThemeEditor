@@ -47,3 +47,7 @@
 .pickr {
 	@apply flex;
 }
+
+.anchor {
+	@apply text-turquoise-500 cursor-pointer underline;
+}

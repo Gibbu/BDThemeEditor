@@ -71,7 +71,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'https://i.imgur.com/kYW2H5C.jpg',
+						starting: 'https://i.imgur.com/kYW2H5C.jpg',
 						value: '',
 						title: 'Image'
 					}
@@ -137,7 +137,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'popout-image',
-						start: 'var(--background-image)',
+						starting: 'var(--background-image)',
 						value: '',
 						title: 'Popout modal image'
 					}
@@ -202,7 +202,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'overlay-image',
-						start: 'var(--background-image)',
+						starting: 'var(--background-image)',
 						value: '',
 						title: 'Popout modal image'
 					}
@@ -266,7 +266,8 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-button-image',
-						start: 'https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg',
+						starting:
+							'https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg',
 						value: '',
 						title: 'Home button image'
 					}

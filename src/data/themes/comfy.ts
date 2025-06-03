@@ -212,7 +212,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'status-background',
-						start: 'https://i.imgur.com/ODa8LKK.jpg',
+						starting: 'https://i.imgur.com/ODa8LKK.jpg',
 						value: '',
 						title: 'Status Picker Background'
 					}

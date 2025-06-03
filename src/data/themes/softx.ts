@@ -78,7 +78,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'https://i.imgur.com/Nglfni6.png',
+						starting: 'https://i.imgur.com/Nglfni6.png',
 						value: '',
 						title: 'Image',
 						comment:

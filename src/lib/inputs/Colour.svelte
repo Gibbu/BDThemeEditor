@@ -9,15 +9,14 @@
 
 	let element = $state<HTMLElement | null>(null);
 	let pickr = $state<Pickr | null>(null);
+	let buttonValue = $state<string>('');
 
 	const rd = (val: number): number => Math.round(val);
 
 	// When uploading a theme, we need to tell pickr
 	// to update the colour on the input.
 	$effect(() => {
-		if (STATE.uploaded && pickr) {
-			pickr.setColor(value);
-		}
+		if (STATE.uploaded && pickr) pickr.setColor(value);
 	});
 
 	onMount(async () => {
@@ -36,6 +35,7 @@
 				theme: 'classic',
 				position: 'bottom-start',
 				default: start,
+				useAsButton: true,
 				swatches: [
 					'rgb(244, 67, 54)',
 					'rgb(233, 30, 99)',
@@ -56,7 +56,6 @@
 					opacity: alpha,
 					hue: true,
 					interaction: {
-						save: true,
 						input: true,
 						hex: true,
 						hsla: true,
@@ -80,7 +79,11 @@
 					}`;
 				}
 
-				STATE.updateVariable({ variable, value: output, addon });
+				STATE.updateVariable({ variable, value: output }, addon);
+				buttonValue = colour.toHSLA().toString();
+			})
+			.on('init', (instance: Pickr) => {
+				buttonValue = instance.getColor().toHSLA().toString();
 			});
 	});
 
@@ -90,6 +93,20 @@
 </script>
 
 <div class="flex items-center gap-4 rounded-md bg-zinc-800 p-3">
-	<div bind:this={element}></div>
+	<button
+		bind:this={element}
+		type="button"
+		class="size-8 cursor-pointer overflow-hidden rounded-md"
+		aria-label="Colour picker"
+		style:--colour={buttonValue}
+	>
+		<div class="h-full w-full bg-(--colour)"></div>
+	</button>
 	<span class="tracking-wide">{value}</span>
 </div>
+
+<style>
+	button {
+		background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	}
+</style>

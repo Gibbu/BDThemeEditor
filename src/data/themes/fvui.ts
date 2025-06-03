@@ -159,7 +159,7 @@ const theme: Theme = {
 						variable: 'cursor',
 						value: 'https://feorev.github.io/Themes/Discord/FVUI/assets/Cursor.cur',
 						title: 'Cursor (direct link to .cur file)',
-						start: ''
+						starting: ''
 					}
 				},
 				{
@@ -177,7 +177,7 @@ const theme: Theme = {
 						variable: 'homeicon',
 						value: 'https://feorev.github.io/Themes/Discord/FVUI/assets/HomeIcon/Icon.png',
 						title: 'HomeIcon (direct link)',
-						start: ''
+						starting: ''
 					}
 				}
 			]

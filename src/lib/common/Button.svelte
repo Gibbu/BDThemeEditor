@@ -37,7 +37,7 @@
 		}[variant],
 		{
 			sm: 'gap-1 rounded-md text-xs',
-			md: 'gap-1 rounded-lg px-4 py-2',
+			md: 'gap-1 rounded-lg px-4 py-3 text-sm',
 			lg: 'gap-2.5 rounded-xl px-8 py-4 text-lg'
 		}[size],
 		klass

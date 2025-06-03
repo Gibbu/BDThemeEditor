@@ -39,7 +39,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'https://i.imgur.com/7SbtKvw.png',
+						starting: 'https://i.imgur.com/7SbtKvw.png',
 						value: '',
 						title: 'Background image'
 					}
@@ -48,7 +48,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-image',
-						start: 'https://i.imgur.com/233d55Y.gif',
+						starting: 'https://i.imgur.com/233d55Y.gif',
 						value: '',
 						title: 'Home button image'
 					}

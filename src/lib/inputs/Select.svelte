@@ -6,14 +6,22 @@
 	import type { SelectInputProps } from '$types/inputs';
 	import { CheckIcon, ChevronsUpDownIcon } from 'lucide-svelte';
 
-	let { value, variable, addon = false, options, custom }: SelectInputProps = $props();
+	let {
+		value,
+		variable,
+		addon = false,
+		options,
+		comment,
+		varGroup,
+		custom
+	}: SelectInputProps = $props();
 	let label = $state<string>(options.find((el) => el.value === value)?.label || '');
 
 	const select = new Select({
 		value,
 		onValueChange(newVal) {
 			if (newVal) {
-				STATE.updateVariable({ variable, value: newVal }, addon);
+				STATE.updateVariable({ variable, value: newVal, comment, varGroup }, addon);
 				label = options.find((el) => el.value === newVal)?.label || '';
 			}
 		}

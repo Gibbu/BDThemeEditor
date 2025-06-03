@@ -36,6 +36,7 @@ class State {
 		};
 
 		const activeTab = page.url.searchParams.get('tab');
+
 		if (activeTab) this.tab = activeTab;
 		else this.tab = slug(this.THEME.variables[0].title);
 	}
@@ -56,7 +57,7 @@ class State {
 		preview({
 			action: 'setProp',
 			value: parseValue(payload).value,
-			variable: variable
+			variable
 		});
 
 		if (addon) {

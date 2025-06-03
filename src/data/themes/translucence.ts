@@ -74,7 +74,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'app-bg',
-						start: 'https://i.imgur.com/bgmVeyt.jpg',
+						starting: 'https://i.imgur.com/bgmVeyt.jpg',
 						value: '',
 						title: 'Background Image'
 					}

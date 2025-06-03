@@ -38,7 +38,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-image',
-						start: 'https://maendisease.github.io/Outlook/illustrations/homeimage-default.avif',
+						starting: 'https://maendisease.github.io/Outlook/illustrations/homeimage-default.avif',
 						value: '',
 						title: 'Home image',
 						hint: 'Image appears from the home page.'

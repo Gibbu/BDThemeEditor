@@ -172,7 +172,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'https://clearvision.github.io/images/sapphire.jpg',
+						starting: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'Image'
 					}
@@ -341,7 +341,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'user-popout-image',
-						start: 'https://clearvision.github.io/images/sapphire.jpg',
+						starting: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'Image'
 					}
@@ -489,7 +489,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'user-modal-image',
-						start: 'https://clearvision.github.io/images/sapphire.jpg',
+						starting: 'https://clearvision.github.io/images/sapphire.jpg',
 						value: '',
 						title: 'Image'
 					}
@@ -636,7 +636,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-icon',
-						start: 'https://clearvision.github.io/icons/discord.svg',
+						starting: 'https://clearvision.github.io/icons/discord.svg',
 						value: '',
 						title: 'Home button image'
 					}

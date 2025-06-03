@@ -11,7 +11,9 @@
 		max = 100,
 		min = 0,
 		step = 1,
-		unit
+		unit,
+		comment,
+		varGroup
 	}: SliderInputProps = $props();
 
 	const slider = new Slider({
@@ -21,7 +23,7 @@
 		step,
 		onValueChange(newVal) {
 			STATE.updateVariable<SliderInputProps>(
-				{ value: newVal, variable, max, min, step, unit },
+				{ value: newVal, variable, max, min, step, unit, comment, varGroup },
 				addon
 			);
 		}

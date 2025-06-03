@@ -50,7 +50,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'cyan-background-img',
-						start: 'https://dablulite.github.io/Cyan/cyan-waves.png',
+						starting: 'https://dablulite.github.io/Cyan/cyan-waves.png',
 						value: '',
 						title: 'Background Image'
 					}

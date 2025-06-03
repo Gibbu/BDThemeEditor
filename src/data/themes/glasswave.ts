@@ -31,7 +31,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'var-background',
-						start:
+						starting:
 							'linear-gradient(138deg, rgba(162,247,220,1) 0%, rgba(18,145,187,1) 80%, rgba(35,108,179,1) 100%)',
 						value: '',
 						title: 'Background Image'

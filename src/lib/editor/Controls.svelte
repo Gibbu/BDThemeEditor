@@ -23,7 +23,7 @@
 							<p class="font-manrope font-semibold tracking-wide">
 								{input.props.title}
 								{#if type == 'slider' || type === 'number'}
-									<small>({input.props.value}{input.props.unit})</small>
+									<small class="text-xs opacity-50">({input.props.value}{input.props.unit})</small>
 								{/if}
 							</p>
 						{/if}
@@ -32,17 +32,17 @@
 						{/if}
 						<div class="mt-3 pb-2">
 							{#if type === 'slider'}
-								<Slider {...input.props} />
+								<Slider {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'select'}
-								<Select {...input.props} />
+								<Select {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'number'}
-								<Number {...input.props} />
+								<Number {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'colour'}
-								<Colour {...input.props} />
+								<Colour {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'font'}
-								<Font {...input.props} />
+								<Font {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'image'}
-								<Image {...input.props} />
+								<Image {...input.props} varGroup={input.varGroup} />
 							{:else if type === 'banner'}
 								<Banner {...input.props} />
 							{:else if type === 'divider'}

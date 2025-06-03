@@ -68,7 +68,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background',
-						start:
+						starting:
 							'https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg',
 						value: '',
 						title: 'Background Image'
@@ -132,7 +132,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'popout',
-						start: 'var(--background)',
+						starting: 'var(--background)',
 						value: '',
 						title: 'Popout background Image'
 					}

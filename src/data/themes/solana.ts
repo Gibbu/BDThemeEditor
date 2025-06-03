@@ -122,7 +122,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'background-image',
-						start: 'initial',
+						starting: 'initial',
 						value: '',
 						title: 'Background image',
 						comment:
@@ -216,7 +216,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'window-background-image',
-						start: 'initial',
+						starting: 'initial',
 						value: '',
 						title: 'Window background image'
 					}
@@ -403,7 +403,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'home-icon',
-						start: 'initial',
+						starting: 'initial',
 						value: '',
 						title: 'Home button image'
 					}
@@ -412,7 +412,7 @@ const theme: Theme = {
 					type: 'image',
 					props: {
 						variable: 'favorites-icon',
-						start: 'initial',
+						starting: 'initial',
 						value: '',
 						title: 'Favorites button image'
 					}
@@ -541,7 +541,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font-display',
-						start: '""',
+						starting: '""',
 						index: 0,
 						value: '',
 						title: 'Display font'
@@ -551,7 +551,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font-regular',
-						start: '""',
+						starting: '""',
 						index: 0,
 						value: '',
 						title: 'Regular font',
@@ -562,7 +562,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font-primary',
-						start: '""',
+						starting: '""',
 						index: 0,
 						value: '',
 						title: 'Primary font'
@@ -572,7 +572,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font-code',
-						start: '""',
+						starting: '""',
 						index: 0,
 						value: '',
 						title: 'Code font'
