@@ -2,7 +2,7 @@
 	import { themes } from '$data/themes';
 	import { Meta } from '$lib/common';
 	import { STATE } from '$lib/editor.svelte';
-	import { slug } from '$lib/utils';
+	import { slug } from '$lib';
 	import { beforeNavigate } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';

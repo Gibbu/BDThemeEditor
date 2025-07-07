@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
 	import { DownloadIcon } from 'lucide-svelte';
 	import { Button, Modal } from '../common';
+
+	let modalVisible = $state<boolean>(false);
 </script>
 
-<Modal title="Download" description="Hi there">
-	{#snippet trigger(props)}
-		<Button variant="primary" class="w-full" size="lg" {...props}>
-			<DownloadIcon class="size-6" /> Download
-		</Button>
-	{/snippet}
+<Button variant="primary" class="w-full" size="lg" onclick={() => (modalVisible = !modalVisible)}>
+	<DownloadIcon class="size-6" /> Download
+</Button>
 
-	Hi there dude bro
-</Modal>
+<Modal title="Download" description="Hi there">Hi there dude bro</Modal>

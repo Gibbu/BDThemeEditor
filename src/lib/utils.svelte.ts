@@ -1,10 +1,8 @@
 import type { BaseInputProps } from '$types/inputs';
 import { type ClassValue, clsx } from 'clsx';
-import { getContext, hasContext, setContext, tick } from 'svelte';
+import { tick } from 'svelte';
 import type { Attachment } from 'svelte/attachments';
 import { twMerge } from 'tailwind-merge';
-
-type Class<T> = new (...args: any[]) => T;
 
 export const cn = (...inputs: ClassValue[]) => {
 	return twMerge(clsx(inputs));
@@ -109,4 +107,8 @@ export const stateValue = <T>(value: () => T, updater?: (newValue: T) => void) =
 			updater?.(v);
 		}
 	};
+};
+
+export const bytesToMegabytes = (bytes: number) => {
+	return bytes / (1024 * 1024);
 };

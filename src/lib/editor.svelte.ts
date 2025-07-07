@@ -1,6 +1,6 @@
 import { preview } from './preview';
 import { themes } from '$data/themes';
-import { parseValue, slug } from './utils';
+import { parseValue, slug } from './utils.svelte';
 import { page } from '$app/state';
 
 import type { EditorData } from '$types/theme';
@@ -92,9 +92,6 @@ class State {
 
 		page.url.searchParams.set('tab', this.tab);
 		window.history.replaceState(null, '', page.url.href);
-	}
-	isActiveTab(id: string) {
-		return this.tab === slug(id);
 	}
 }
 

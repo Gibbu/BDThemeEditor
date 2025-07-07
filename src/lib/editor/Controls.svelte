@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { STATE } from '$lib/editor.svelte';
+	import { slug } from '$lib';
 	import { Slider, Colour, Font, Select, Banner, Divider, Image, Number } from '../inputs';
 </script>
 
 <div class="flex flex-1 overflow-x-hidden overflow-y-auto p-6 pt-0">
 	{#if STATE.THEME}
 		{#each STATE.THEME.variables as variables}
-			<div class={[STATE.isActiveTab(variables.title) ? 'flex flex-1 flex-col gap-4' : 'hidden']}>
+			<div class={[STATE.tab === slug(variables.title) ? 'flex flex-1 flex-col gap-4' : 'hidden']}>
 				<header class="border-b border-zinc-700 pb-6">
 					<h4 class="font-manrope text-xl font-semibold tracking-wide text-zinc-100">
 						{variables.title}

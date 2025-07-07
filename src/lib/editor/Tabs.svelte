@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Tooltip } from '$lib/common';
 	import { STATE } from '$lib/editor.svelte';
+	import { slug } from '$lib';
 	import * as icons from 'lucide-svelte';
 	import { mergeAttrs } from 'melt';
 
@@ -25,13 +26,13 @@
 				class={[
 					'relative flex aspect-square cursor-pointer items-center justify-center rounded-lg',
 					'transition-colors',
-					STATE.isActiveTab(title) ? 'bg-zinc-800 text-white' : 'hover:bg-zinc-700/20'
+					STATE.tab === slug(title) ? 'bg-zinc-800 text-white' : 'hover:bg-zinc-700/20'
 				]}
 			>
 				<span
 					class={[
 						'bg-turquoise-500 absolute left-0 h-3 w-1 rounded-lg opacity-0 transition-all',
-						STATE.isActiveTab(title) && 'h-6 opacity-100'
+						STATE.tab === slug(title) && 'h-6 opacity-100'
 					]}
 				></span>
 				<Icon class="size-6" />

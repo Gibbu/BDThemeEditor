@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Tooltip } from 'melt/builders';
-	import { cn } from '$lib/utils';
+	import { cn } from '$lib';
 	import { fly } from 'svelte/transition';
 
 	import type { Snippet } from 'svelte';

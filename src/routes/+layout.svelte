@@ -4,6 +4,7 @@
 	import { ProgressBar } from '@prgm/sveltekit-progress-bar';
 	import { CodeXmlIcon } from 'lucide-svelte';
 	import { Controls, Download, Tabs, Upload } from '$lib/editor';
+	import { Toaster } from '$lib/common';
 	import '../app.css';
 	import '@simonwep/pickr/dist/themes/classic.min.css';
 
@@ -11,6 +12,8 @@
 </script>
 
 <ProgressBar class="text-turquoise-500" />
+
+<Toaster />
 
 <div
 	class={[
@@ -57,7 +60,7 @@
 					</h2>
 				</header>
 				<div class="flex items-center justify-between">
-					<p class="text-sm opacity-50">Website made by Gibbu</p>
+					<p class="text-sm opacity-50">Editor made by Gibbu</p>
 					<div class="flex items-center gap-4">
 						<a
 							href="https://gibbu.dev"
