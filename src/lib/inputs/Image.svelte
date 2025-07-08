@@ -8,7 +8,7 @@
 		SquaresIntersectIcon,
 		UploadCloudIcon
 	} from 'lucide-svelte';
-	import { Button, Textbox, Modal, RadioGroup } from '$lib/common';
+	import { Button, Textbox, Modal, RadioGroup, Progress } from '$lib/common';
 	import { STATE } from '$lib/editor.svelte';
 	import { cn } from '$lib/utils.svelte';
 	import { ApiRequest } from '$lib/ApiRequest.svelte';
@@ -47,6 +47,8 @@
 				const reader = new FileReader();
 				API.file = file;
 
+				console.log(API.file);
+
 				reader.readAsDataURL(file);
 				reader.addEventListener('load', () => {
 					const image = new Image();
@@ -77,14 +79,14 @@
 			terms: 'https://imgbb.com/tos'
 		},
 		{
+			id: 'imghippo',
+			title: 'ImgHippo',
+			terms: 'https://www.imghippo.com/terms-and-conditions'
+		},
+		{
 			id: 'imgur',
 			title: 'Imgur',
 			terms: 'https://imgur.com/tos'
-		},
-		{
-			id: 'freeimage',
-			title: 'Freeimage',
-			terms: 'https://freeimage.host/page/tos'
 		}
 	];
 	const SelectedItem = $derived(radioGroupItems.find((el) => el.id === API.website));
@@ -108,7 +110,7 @@
 		if (API.website === 'base64') {
 			// turn to b64 and apply...
 		} else {
-			API.submit((result) => {
+			API.send((result) => {
 				update(result);
 				modalVisible = false;
 			});
@@ -186,6 +188,7 @@
 	{/if}
 	<div class={['flex flex-col gap-6', API.uploading && 'pointer-events-none opacity-50']}>
 		<RadioGroup
+			label="First, where do we upload?"
 			name="uploadlocation"
 			value={API.website}
 			onChange={(value) => {
@@ -195,8 +198,8 @@
 		/>
 		<p class="-mt-4 text-xs opacity-75">
 			{#if SelectedItem?.terms}
-				Note: Uploading to a third-party image hosting service (such as {SelectedItem.title}) will
-				result in your image being public and subject to their
+				Uploading to a third-party image hosting service (such as {SelectedItem.title}) will result
+				in your image being public and subject to their
 				<a href={SelectedItem.terms} target="_blank" rel="noopener noreffer" class="anchor"
 					>Terms of Service</a
 				>
@@ -212,7 +215,8 @@
 				class={[
 					'cursor-pointer rounded-lg border-3 border-dashed border-zinc-700 py-8 text-center text-zinc-500',
 					'flex flex-col items-center justify-center',
-					'hover:border-zinc-600 hover:text-zinc-300'
+					'hover:border-zinc-600 hover:text-zinc-300',
+					API.file ? 'py-4' : 'py-16'
 				]}
 				{...fileUpload.dropzone}
 			>
@@ -245,7 +249,7 @@
 			{/if}
 			{#if Submittable && !API.uploading}
 				<Button variant="primary" size="lg" onclick={submit} class="w-full">
-					{API.website === 'base64' ? 'Apply' : 'Upload'}
+					{API.website === 'base64' ? 'Apply' : `Upload to ${API.website}`}
 					{#if API.website === 'base64'}
 						<CheckIcon class="size-6" />
 					{:else}
@@ -253,10 +257,12 @@
 					{/if}
 				</Button>
 			{:else if API.uploading}
-				<div class="h-8 w-full overflow-hidden rounded-md bg-zinc-700">
-					<div class="bg-turquoise-500 flex h-8 transition-all" style:width="{API.progress}%">
-						<span class="m-auto text-black">{API.progress.toFixed()}%</span>
+				<div>
+					<div class="mb-2 flex items-center justify-between">
+						<p>Uploading...</p>
+						<p>{API.progress.toFixed()}%</p>
 					</div>
+					<Progress value={API.progress} />
 				</div>
 			{/if}
 		</div>

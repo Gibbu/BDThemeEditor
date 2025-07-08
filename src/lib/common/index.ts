@@ -5,3 +5,4 @@ export { default as Textbox } from './Textbox.svelte';
 export { default as Modal } from './Modal.svelte';
 export { default as RadioGroup } from './RadioGroup.svelte';
 export { default as Toaster } from './Toaster.svelte';
+export { default as Progress } from './Progress.svelte';

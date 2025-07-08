@@ -4,6 +4,7 @@
 	interface Props {
 		value: string;
 		name: string;
+		label: string;
 		items: {
 			id: string;
 			title: string;
@@ -11,7 +12,7 @@
 		onChange?: (value: string) => void;
 	}
 
-	let { value, name, items, onChange }: Props = $props();
+	let { value, name, items, label, onChange }: Props = $props();
 
 	const radioGroup = new RadioGroup({
 		name,
@@ -21,13 +22,13 @@
 </script>
 
 <div>
-	<label class="mb-1 inline-block" {...radioGroup.label}>First, where do we upload?</label>
+	<label class="mb-1 inline-block" {...radioGroup.label}>{label}</label>
 	<div class="flex gap-4" {...radioGroup.root}>
 		{#each items as { id, title }}
 			{@const item = radioGroup.getItem(id)}
 			<div
 				class={[
-					'relative flex aspect-square flex-1 cursor-pointer rounded-md border text-center',
+					'relative flex flex-1 cursor-pointer rounded-md border py-12 text-center',
 					'flex gap-4 select-none',
 					item.checked
 						? 'border-turquoise-500 bg-turquoise-500/15 text-turquoise-400'
