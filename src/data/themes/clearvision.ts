@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, discolored, hsl, radialstatus } from '../addons';
 import ClearVision from '../devs/clearvision';
-import { hsl, columns, radialstatus, discolored } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Clear Vision',
@@ -767,7 +768,6 @@ const theme: Theme = {
 					props: {
 						variable: 'main-font',
 						value: 'gg sans',
-						index: 0,
 						title: 'Main font'
 					}
 				},
@@ -776,7 +776,6 @@ const theme: Theme = {
 					props: {
 						variable: 'code-font',
 						value: 'Consolas',
-						index: 1,
 						title: 'Code font'
 					}
 				}

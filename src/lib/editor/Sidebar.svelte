@@ -1,9 +1,8 @@
 <script lang="ts">
+	import * as icons from '@lucide/svelte';
+	import { slug } from '$lib';
 	import { Tooltip } from '$lib/common';
 	import { STATE } from '$lib/editor.svelte';
-	import { slug } from '$lib';
-	import * as icons from 'lucide-svelte';
-	import { mergeAttrs } from 'melt';
 
 	import type { Component } from 'svelte';
 
@@ -19,15 +18,14 @@
 	<Tooltip placement="right" content={title}>
 		{#snippet children(props)}
 			<button
-				{...mergeAttrs(props, {
-					onclick: () => STATE.setTab(title)
-				})}
+				onclick={() => STATE.setTab(title)}
 				type="button"
 				class={[
 					'relative flex aspect-square cursor-pointer items-center justify-center rounded-lg',
 					'transition-colors',
 					STATE.tab === slug(title) ? 'bg-zinc-800 text-white' : 'hover:bg-zinc-700/20'
 				]}
+				{...props}
 			>
 				<span
 					class={[

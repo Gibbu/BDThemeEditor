@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { discolored, radialstatus } from '../addons';
 import Tropical from '../devs/tropical';
-import { radialstatus, discolored } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Dark Matter',

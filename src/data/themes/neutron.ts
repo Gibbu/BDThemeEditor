@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, discolored, hsl, radialstatus } from '../addons';
 import Spectra from '../devs/spectra';
-import { discolored, columns, hsl, radialstatus } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Neutron',
@@ -202,7 +203,6 @@ const theme: Theme = {
 					props: {
 						variable: 'customFont',
 						value: 'Open Sans',
-						index: 0,
 						title: 'Font name'
 					}
 				}

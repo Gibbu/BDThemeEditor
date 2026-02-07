@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import Disease from '../devs/disease';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Outlook',
@@ -127,7 +128,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'customFont',
-						index: 0,
+
 						value: 'Segoe UI',
 						title: 'App font'
 					}

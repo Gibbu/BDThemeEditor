@@ -1,5 +1,6 @@
-import type { Addon } from '$types/addon/FVUI';
 import FeoreV from '$data/devs/FeoreV';
+
+import type { Addon } from '$types/addon/FVUI';
 
 const addon: Addon = {
 	name: 'Addon - MaterialYou',
@@ -11,27 +12,27 @@ const addon: Addon = {
 	selector: 'MaterialYou',
 	use: false,
 	variables: [
-        {
-            type: 'slider',
-            props: {
-                variable: 'accentcolor-HUE',
-                value: 210,
-                max: 255,
-                step: 1,
-                title: 'Hue'
-            }
-        },
-        {
-            type: 'slider',
-            props: {
-                variable: 'accentcolor-SATURATION',
-                value: 68,
-                max: 255,
-                unit: '%',
-                step: 1,
-                title: 'Saturation',
-            }
-        },
+		{
+			type: 'slider',
+			props: {
+				variable: 'accentcolor-HUE',
+				value: 210,
+				max: 255,
+				step: 1,
+				title: 'Hue'
+			}
+		},
+		{
+			type: 'slider',
+			props: {
+				variable: 'accentcolor-SATURATION',
+				value: 68,
+				max: 255,
+				unit: '%',
+				step: 1,
+				title: 'Saturation'
+			}
+		}
 	]
 };
 

@@ -1,12 +1,18 @@
-import type { Addon } from '$types/addon';
 import DevilBro from '../devs/devilbro';
+
+import type { Addon } from '$types/addon';
 
 const addon: Addon = {
 	name: 'ServerColumns',
-	description: 'Changes the Server List to a gridlike container to allow servers to be displayed in columns.',
+	description:
+		'Changes the Server List to a gridlike container to allow servers to be displayed in columns.',
 	developer: DevilBro,
-	imports: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/ServerColumns/ServerColumns.css'],
-	previewUrl: ['https://mwittrien.github.io/BetterDiscordAddons/Themes/ServerColumns/ServerColumns.theme.css'],
+	imports: [
+		'https://mwittrien.github.io/BetterDiscordAddons/Themes/ServerColumns/ServerColumns.css'
+	],
+	previewUrl: [
+		'https://mwittrien.github.io/BetterDiscordAddons/Themes/ServerColumns/ServerColumns.theme.css'
+	],
 	group: 'serverlist',
 	selector: 'columns',
 	use: false,

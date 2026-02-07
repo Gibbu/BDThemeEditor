@@ -1,53 +1,49 @@
 <script lang="ts">
-	import { Tooltip } from 'melt/builders';
-	import { cn } from '$lib';
+	import { Tooltip, TooltipArrow, TooltipContent, TooltipTrigger } from 'lithesome';
 	import { fly } from 'svelte/transition';
 
-	import type { Snippet } from 'svelte';
 	import type { Placement } from '$lib/types';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		children: Snippet<[Record<string, any>]>;
 		content: string;
 		placement?: Placement;
-		openDelay?: number;
+		delay?: number | [number, number];
 		class?: string;
 	}
 
-	let { children, content, placement = 'top', openDelay = 0, class: klass }: Props = $props();
+	let { children, content, placement = 'top', delay = 0 }: Props = $props();
 
-	const tooltip = new Tooltip({
-		floatingConfig: {
-			computePosition: {
-				placement
-			}
-		},
-		openDelay,
-		disableHoverableContent: true,
-		closeOnPointerDown: false
-	});
-
-	const flyConfig = {
-		top: { y: -5 },
-		right: { x: -5 },
-		bottom: { y: 5 },
-		left: { x: 5 }
-	}[placement.split('-')[0]!];
+	const flyConfig = $derived(
+		{
+			top: { y: -5 },
+			right: { x: -5 },
+			bottom: { y: 5 },
+			left: { x: 5 }
+		}[placement.split('-')[0]!]
+	);
 </script>
 
-{@render children(tooltip.trigger)}
-
-{#if tooltip.isVisible}
-	<div
-		{...tooltip.content}
-		transition:fly={{ ...flyConfig, duration: 150 }}
-		class={cn(
+<Tooltip floatingConfig={{ placement }} {delay}>
+	<TooltipTrigger>
+		{#snippet custom({ props })}
+			{@render children(props)}
+		{/snippet}
+	</TooltipTrigger>
+	<TooltipContent
+		class={[
 			'pointer-events-none rounded-md px-3 py-1 text-sm font-semibold shadow-lg',
-			'bg-white text-zinc-700',
-			klass
-		)}
+			'bg-white text-zinc-700'
+		]}
 	>
-		<div {...tooltip.arrow} class="size-2 bg-zinc-700"></div>
-		{content}
-	</div>
-{/if}
+		{#snippet custom({ props, state })}
+			{#if state.visible}
+				<div {...props} transition:fly={{ ...flyConfig, duration: 150 }}>
+					<TooltipArrow class="size-2 rotate-45 bg-zinc-700" />
+					{content}
+				</div>
+			{/if}
+		{/snippet}
+	</TooltipContent>
+</Tooltip>

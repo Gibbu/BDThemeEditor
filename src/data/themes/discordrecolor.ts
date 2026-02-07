@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, hsl, radialstatus } from '../addons';
 import DevilBro from '../devs/devilbro';
-import { hsl, columns, radialstatus } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'DiscordRecolor',
@@ -156,7 +157,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'font',
-						index: 0,
 						title: 'App font',
 						value: 'gg sans'
 					}

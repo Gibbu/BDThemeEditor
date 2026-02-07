@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, discolored, hsl, radialstatus } from '../addons';
 import Gibbu from '../devs/gibbu';
-import { radialstatus, hsl, columns, discolored } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'MinimalCord',
@@ -130,7 +131,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'font',
-						index: 0,
 						value: '',
 						title: 'Font'
 					}

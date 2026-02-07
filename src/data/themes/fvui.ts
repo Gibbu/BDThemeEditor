@@ -1,15 +1,16 @@
-import type { Theme } from '$types/theme';
-import FeoreV from '../devs/FeoreV';
 import {
-	stdefault,
-	stdefaultlite,
+	materialwin,
+	materialyou,
+	modulardesign,
 	stcustombackground,
 	stcustombackgroundlite,
-	stmica,
-	materialyou,
-	materialwin,
-	modulardesign
+	stdefault,
+	stdefaultlite,
+	stmica
 } from '../addons';
+import FeoreV from '../devs/FeoreV';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'FVUI',
@@ -166,7 +167,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'font',
-						index: 0,
 						value: 'Comfortaa',
 						title: 'Font'
 					}

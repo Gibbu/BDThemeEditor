@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, discolored, hsl, radialstatus } from '../addons';
 import TheCommieAxolotl from '../devs/thecommieaxolotl';
-import { hsl, discolored, columns, radialstatus } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'MaterialDesign',
@@ -384,8 +385,7 @@ const theme: Theme = {
 					props: {
 						variable: 'font-primary',
 						value: 'Roboto',
-						title: 'Font',
-						index: 0
+						title: 'Font'
 					}
 				},
 				{
@@ -394,8 +394,7 @@ const theme: Theme = {
 					props: {
 						variable: 'font-code',
 						value: 'Source Code Pro',
-						title: 'Code Font',
-						index: 1
+						title: 'Code Font'
 					}
 				}
 			]

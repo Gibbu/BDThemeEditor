@@ -1,8 +1,10 @@
-import type { BaseInputProps } from '$types/inputs';
-import { type ClassValue, clsx } from 'clsx';
+import { clsx } from 'clsx';
 import { tick } from 'svelte';
-import type { Attachment } from 'svelte/attachments';
 import { twMerge } from 'tailwind-merge';
+
+import type { BaseInputProps } from '$types/inputs';
+import type { ClassValue } from 'clsx';
+import type { Attachment } from 'svelte/attachments';
 
 export const cn = (...inputs: ClassValue[]) => {
 	return twMerge(clsx(inputs));
@@ -111,4 +113,35 @@ export const stateValue = <T>(value: () => T, updater?: (newValue: T) => void) =
 
 export const bytesToMegabytes = (bytes: number) => {
 	return bytes / (1024 * 1024);
+};
+
+type ExlcudeElement = HTMLElement | null | undefined;
+
+/**
+ * Checks if the user clicks outside of the given node.
+ * @param opts The opts to be passed in.
+ */
+export const outside = (opts: {
+	callback: () => void;
+	exclude?: ExlcudeElement[] | ExlcudeElement;
+	on?: keyof DocumentEventMap;
+}): Attachment<HTMLElement> => {
+	const { callback, exclude, on = 'click' } = opts;
+
+	return (node) => {
+		const event = (e: Event) => {
+			const target = e.target as HTMLElement;
+			const contains = Array.isArray(exclude)
+				? exclude.some((el) => el?.contains(target))
+				: exclude?.contains(target);
+
+			if (node && !node.contains(target) && !e.defaultPrevented && !contains) callback();
+		};
+
+		document.addEventListener(on, event);
+
+		return () => {
+			document.removeEventListener(on, event);
+		};
+	};
 };

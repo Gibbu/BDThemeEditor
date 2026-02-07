@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { STATE } from '$lib/editor.svelte';
+	import { ArrowLeftIcon, ArrowLeftToLineIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { ArrowLeftIcon } from 'lucide-svelte';
+	import { page } from '$app/state';
 	import { Button } from '$lib/common';
+	import Modal from '$lib/common/Modal.svelte';
 	import { Preview } from '$lib/editor';
-
-	STATE.init(page.params.slug);
+	import { STATE } from '$lib/editor.svelte';
 
 	let mounted = $state<boolean>(false);
-	let back = $state<boolean>(false);
+
+	STATE.init(page.params.slug);
 
 	onMount(() => {
 		mounted = true;
@@ -25,9 +25,26 @@
 	>
 		<header class="flex h-16 items-center justify-between gap-4 border-b border-zinc-700 px-3">
 			<div class="flex items-center gap-2">
-				<Button variant="text" onclick={() => (back = !back)}>
-					<ArrowLeftIcon class="size-4" /> Back
-				</Button>
+				<Modal
+					title="Back to theme selection?"
+					description="Choose another theme."
+					class="max-w-125"
+				>
+					{#snippet trigger(props)}
+						<Button variant="text" {...props}>
+							<ArrowLeftIcon class="size-4" /> Back
+						</Button>
+					{/snippet}
+
+					<p>Any changes made, will <u>NOT</u> be saved.</p>
+
+					{#snippet footer()}
+						<Button variant="primary" href="/">
+							<ArrowLeftToLineIcon class="size-4" />
+							Go Back
+						</Button>
+					{/snippet}
+				</Modal>
 			</div>
 			<button
 				type="button"

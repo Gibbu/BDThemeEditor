@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
+import { columns, hsl, radialstatus } from '../addons';
 import DevilBro from '../devs/devilbro';
-import { columns, radialstatus, hsl } from '../addons';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'BasicBackground',
@@ -299,7 +300,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'font',
-						index: 0,
 						value: 'Whitney',
 						title: 'App font'
 					}

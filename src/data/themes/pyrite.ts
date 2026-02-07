@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
-import LeafyLuigi from '../devs/leafyluigi';
 import { discolored } from '../addons';
+import LeafyLuigi from '../devs/leafyluigi';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Pyrite',
@@ -432,7 +433,7 @@ const theme: Theme = {
 					props: {
 						variable: 'body-font',
 						value: 'Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif',
-						index: 0,
+
 						title: 'Main font',
 						hint: 'If the Whitney import is not selected, "gg sans", Discord\'s default will be used instead'
 					}
@@ -442,7 +443,7 @@ const theme: Theme = {
 					props: {
 						variable: 'code-font',
 						value: 'Hack, Monaco, Consolas, Courier, monospace',
-						index: 1,
+
 						title: 'Code font',
 						hint: "It's likely two or more fonts won't exist for you so multiple have been included"
 					}

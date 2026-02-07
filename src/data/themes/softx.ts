@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import Gibbu from '../devs/gibbu';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'SoftX',
@@ -148,7 +149,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'font',
-						index: 0,
+
 						value: 'Inter',
 						title: 'App font',
 						comment: "Custom font | Default: 'Inter'"

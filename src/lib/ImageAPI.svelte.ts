@@ -1,30 +1,41 @@
 import { createId } from '@paralleldrive/cuid2';
 import { bytesToMegabytes } from './utils.svelte';
 
-export class ApiRequest {
+export class ImageAPI {
 	uploading = $state<boolean>(false);
 	completed = $state<boolean>(false);
 	progress = $state<number>(0);
 	error = $state<any>();
 	file = $state<File | null>(null);
 	website = $state<string>('base64');
+	result = $state<string | null>(null);
 
 	#url = '';
 	#payload = new FormData();
-	#headers = {};
+	#headers: Record<string, string> = {};
 	#maxSize = 0;
 
 	send = (cb: (result: string) => void) => {
+		this.error = null;
+
 		const map = {
 			imgbb: this.imgbb,
 			imghippo: this.imghippo,
-			imgur: this.imgbb
+			imgur: this.imgur
 		};
 
 		map[this.website as keyof typeof map]();
 
+		if (!this.checkSize()) return;
+
 		const req = new XMLHttpRequest();
 		req.open('POST', this.#url);
+
+		if (Object.keys(this.#headers).length > 0) {
+			Object.entries(this.#headers).forEach(([key, value]) => {
+				req.setRequestHeader(key, value);
+			});
+		}
 
 		req.upload.addEventListener('progress', (e) => {
 			this.progress = (e.loaded / e.total) * 100;
@@ -33,6 +44,10 @@ export class ApiRequest {
 		req.addEventListener('load', () => {
 			if (req.status === 403 || req.status === 429) {
 				this.error = `${this.website} has rate limted the API key. Try another hosting service.`;
+				console.error(
+					'[BDEditor - API_RATE_LIMIT]',
+					`${this.website} has rate limited the API key.`
+				);
 				this.reset();
 				return;
 			} else if (!req.status.toString().startsWith('20')) {
@@ -46,12 +61,15 @@ export class ApiRequest {
 				return;
 			}
 
-			if (this.website === 'imgbb' || this.website === 'imghippo') {
-				const { success, data } = JSON.parse(req.response);
-				if (success) cb(data.url);
-			} else if (this.website === 'imgur') {
-				// ?????
+			const { success, data } = JSON.parse(req.response);
+			if (!success) {
+				this.error = 'An error has occured.';
+				console.error('[BDEditor - API_SUCCESS_FAIL]', JSON.parse(req.response));
+				return;
 			}
+
+			cb(data.url);
+			this.result = data.url;
 
 			this.completed = true;
 			this.uploading = false;
@@ -65,23 +83,26 @@ export class ApiRequest {
 		this.uploading = false;
 		this.completed = false;
 		this.progress = 0;
-		this.error = null;
 
 		this.#payload = new FormData();
 		this.#headers = {};
 	};
-	validate = (file: File | null): file is File => {
+
+	checkFile = (file: File | null): file is File => {
 		if (!file) {
 			this.error = 'You must provide an image.';
 			return false;
 		}
+		return true;
+	};
+	checkSize = () => {
+		if (!this.checkFile(this.file)) return false;
 
-		if (this.#maxSize && file.size > this.#maxSize) {
-			this.error = `Image is too large. Max size: ${bytesToMegabytes(this.#maxSize)}`;
-
+		if (this.#maxSize && this.file.size > this.#maxSize) {
+			this.error = `Image is too large. Max size: ${bytesToMegabytes(this.#maxSize)}MB`;
 			console.error(
 				'[BDEditor - IMAGE_TOO_LARGE]\n',
-				`Your image size: ${file.size}\n`,
+				`Your image size: ${this.file.size}\n`,
 				`Max image size: ${this.#maxSize}`
 			);
 
@@ -92,16 +113,16 @@ export class ApiRequest {
 	};
 
 	imgbb = () => {
-		if (!this.validate(this.file)) return;
+		if (!this.checkFile(this.file)) return;
 		this.reset();
 
 		this.#url = 'https://api.imgbb.com/1/upload?key=cfc22cdc2086db1cfde408ec032cefe7';
 		this.#payload.append('image', this.file, createId());
-		this.#maxSize = 33554432;
+		this.#maxSize = 1048576;
 	};
 
 	imghippo = () => {
-		if (!this.validate(this.file)) return;
+		if (!this.checkFile(this.file)) return;
 		this.reset();
 
 		this.#url = 'https://api.imghippo.com/v1/upload';
@@ -110,7 +131,7 @@ export class ApiRequest {
 	};
 
 	imgur = () => {
-		if (!this.validate(this.file)) return;
+		if (!this.checkFile(this.file)) return;
 		this.reset();
 
 		this.#url = 'https://api.imgur.com/3/image';

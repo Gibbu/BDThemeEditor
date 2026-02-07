@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import DaBluLite from '../devs/dablulite';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Cyan',
@@ -150,7 +151,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'cyan-font',
-						index: 0,
 						value: 'Montserrat',
 						title: 'App font',
 						comment: "Custom font | Default: 'Montserrat'"

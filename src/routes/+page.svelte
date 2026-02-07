@@ -1,11 +1,11 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+	import { beforeNavigate } from '$app/navigation';
 	import { themes } from '$data/themes';
+	import { slug } from '$lib';
 	import { Meta } from '$lib/common';
 	import { STATE } from '$lib/editor.svelte';
-	import { slug } from '$lib';
-	import { beforeNavigate } from '$app/navigation';
-	import { fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
 
 	STATE.reset();
 

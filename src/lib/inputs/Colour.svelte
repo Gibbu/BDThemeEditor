@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { STATE } from '$lib/editor.svelte';
 	import { onDestroy, onMount } from 'svelte';
+	import { STATE } from '$lib/editor.svelte';
 
-	import type { ColourInputProps } from '$types/inputs';
 	import type Pickr from '@simonwep/pickr';
+	import type { ColourInputProps } from '$types/inputs';
 
 	let { variable, type, value, addon, alpha, rule }: ColourInputProps = $props();
 
@@ -13,8 +13,7 @@
 
 	const rd = (val: number): number => Math.round(val);
 
-	// When uploading a theme, we need to tell pickr
-	// to update the colour on the input.
+	// When uploading a theme, we need to tell pickr to remount input.
 	$effect(() => {
 		if (STATE.uploaded && pickr) pickr.setColor(value);
 	});

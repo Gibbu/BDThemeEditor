@@ -1,14 +1,22 @@
 <script lang="ts">
-	import { STATE } from '$lib/editor.svelte';
-	import { fly } from 'svelte/transition';
+	import { CodeXmlIcon } from '@lucide/svelte';
 	import { ProgressBar } from '@prgm/sveltekit-progress-bar';
-	import { CodeXmlIcon } from 'lucide-svelte';
-	import { Controls, Download, Tabs, Upload } from '$lib/editor';
+	import { fly } from 'svelte/transition';
 	import { Toaster } from '$lib/common';
+	import { Controls, Download, Sidebar, Upload } from '$lib/editor';
+	import { STATE } from '$lib/editor.svelte';
+	import { FONTS } from '$lib/fonts.svelte';
+
 	import '../app.css';
 	import '@simonwep/pickr/dist/themes/classic.min.css';
 
+	import { onMount } from 'svelte';
+
 	let { children } = $props();
+
+	onMount(async () => {
+		await FONTS.get();
+	});
 </script>
 
 <ProgressBar class="text-turquoise-500" />
@@ -32,8 +40,8 @@
 					!STATE.Loaded && 'pointer-events-none'
 				]}
 			>
-				<Tabs />
-				<div class="flex flex-col gap-6 pt-6">
+				<Sidebar />
+				<div class="flex flex-col gap-6 overflow-x-hidden overflow-y-auto pt-6">
 					<header class="flex items-center gap-4 px-6">
 						<Upload />
 						<Download />

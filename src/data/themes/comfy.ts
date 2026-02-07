@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
-import Nyria from '../devs/nyria';
 import { discolored } from '../addons';
+import Nyria from '../devs/nyria';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Comfy',

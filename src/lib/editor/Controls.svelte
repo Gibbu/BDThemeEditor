@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { STATE } from '$lib/editor.svelte';
 	import { slug } from '$lib';
-	import { Slider, Colour, Font, Select, Banner, Divider, Image, Number } from '../inputs';
+	import { STATE } from '$lib/editor.svelte';
+	import { Banner, Colour, Divider, Font, Image, Number, Select, Slider } from '../inputs';
 </script>
 
-<div class="flex flex-1 overflow-x-hidden overflow-y-auto p-6 pt-0">
+<div class="flex flex-1 p-6 pt-0">
 	{#if STATE.THEME}
 		{#each STATE.THEME.variables as variables}
 			<div class={[STATE.tab === slug(variables.title) ? 'flex flex-1 flex-col gap-4' : 'hidden']}>
@@ -31,22 +31,22 @@
 						{#if 'hint' in input.props}
 							<small class="mt-0.5 block text-zinc-500">{input.props.hint}</small>
 						{/if}
-						<div class="mt-3 pb-2">
-							{#if type === 'slider'}
+						<div class="mt-1 pb-2">
+							{#if input.type === 'slider'}
 								<Slider {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'select'}
+							{:else if input.type === 'select'}
 								<Select {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'number'}
+							{:else if input.type === 'number'}
 								<Number {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'colour'}
+							{:else if input.type === 'colour'}
 								<Colour {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'font'}
+							{:else if input.type === 'font'}
 								<Font {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'image'}
+							{:else if input.type === 'image'}
 								<Image {...input.props} varGroup={input.varGroup} />
-							{:else if type === 'banner'}
+							{:else if input.type === 'banner'}
 								<Banner {...input.props} />
-							{:else if type === 'divider'}
+							{:else if input.type === 'divider'}
 								<Divider {...input.props} />
 							{/if}
 						</div>
@@ -54,5 +54,19 @@
 				{/each}
 			</div>
 		{/each}
+
+		{#if STATE.THEME.addons.length}
+			<div class={[STATE.tab === slug('addons') ? 'flex flex-1 flex-col gap-4' : 'hidden']}>
+				Addons
+			</div>
+		{/if}
+
+		{#if STATE.THEME.optionalImports.length}
+			<div
+				class={[STATE.tab === slug('optionalimports') ? 'flex flex-1 flex-col gap-4' : 'hidden']}
+			>
+				Optional Imports
+			</div>
+		{/if}
 	{/if}
 </div>

@@ -1,7 +1,7 @@
-import type { Inputs } from './inputs';
-import type { Developer } from './dev';
+import type * as LucideIcons from '@lucide/svelte';
 import type { Addon } from './addon';
-import type * as LucideIcons from 'lucide-svelte';
+import type { Developer } from './dev';
+import type { Inputs } from './inputs';
 
 export type Feature = 'background' | 'font' | 'transparent' | 'solid' | 'light' | 'addons' | 'home';
 

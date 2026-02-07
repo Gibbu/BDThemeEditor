@@ -1,5 +1,5 @@
+import { columns, discolored, hsl, radialstatus } from '../addons';
 import CapnKitten from '../devs/capnkitten';
-import { columns, hsl, radialstatus, discolored } from '../addons';
 
 import type { Theme } from '$types/theme';
 

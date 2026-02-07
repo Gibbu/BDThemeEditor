@@ -1,5 +1,6 @@
-import type { Addon } from '$types/addon';
 import Nyria from '../devs/nyria';
+
+import type { Addon } from '$types/addon';
 
 const addon: Addon = {
 	name: 'Discolored',

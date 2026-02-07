@@ -1,12 +1,15 @@
-import type { Addon } from '$types/addon/FVUI';
 import FeoreV from '$data/devs/FeoreV';
+
+import type { Addon } from '$types/addon/FVUI';
 
 const addon: Addon = {
 	name: 'SubTheme - Custom Background',
 	description: 'Background with a picture',
 	developer: FeoreV,
 	imports: ['https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/CustomBackground.css'],
-	previewUrl: ['https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/CustomBackground.css'],
+	previewUrl: [
+		'https://feorev.github.io/Themes/Discord/FVUI/assets/SubThemes/CustomBackground.css'
+	],
 	group: 'subtheme',
 	selector: 'CB',
 	use: false,
@@ -16,7 +19,7 @@ const addon: Addon = {
 			props: {
 				variable: 'image',
 				value: 'https://feorev.github.io/Themes/Discord/FVUI/assets/Wallpapers/dark.avif',
-				title: 'Background image (direct link)',
+				title: 'Background image (direct link)'
 			}
 		},
 		{
@@ -27,7 +30,7 @@ const addon: Addon = {
 				max: 100,
 				unit: '%',
 				step: 1,
-				title: 'Opacity',
+				title: 'Opacity'
 			}
 		},
 		{
@@ -37,9 +40,9 @@ const addon: Addon = {
 				value: 0,
 				unit: 'px',
 				step: 1,
-				title: 'Blur',
+				title: 'Blur'
 			}
-		},
+		}
 	]
 };
 

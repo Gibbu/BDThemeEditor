@@ -1,12 +1,15 @@
-import type { Addon } from '$types/addon';
 import Gibbu from '../devs/gibbu';
+
+import type { Addon } from '$types/addon';
 
 const addon: Addon = {
 	name: 'Horizontal Server List',
 	description: 'Moves the server list from the left to the top of Discord.',
 	developer: Gibbu,
 	imports: ['https://discordstyles.github.io/HorizontalServerList/HorizontalServerList.css'],
-	previewUrl: ['https://discordstyles.github.io/HorizontalServerList/HorizontalServerList.theme.css'],
+	previewUrl: [
+		'https://discordstyles.github.io/HorizontalServerList/HorizontalServerList.theme.css'
+	],
 	group: 'serverlist',
 	selector: 'hsl',
 	use: false,

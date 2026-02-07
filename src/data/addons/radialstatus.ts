@@ -1,5 +1,6 @@
-import type { Addon } from '$types/addon';
 import Gibbu from '../devs/gibbu';
+
+import type { Addon } from '$types/addon';
 
 const addon: Addon = {
 	name: 'RadialStatus',

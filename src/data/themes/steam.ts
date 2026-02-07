@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import Disease from '../devs/disease';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Steam',
@@ -94,7 +95,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font',
-						index: 0,
+
 						value: 'gg sans',
 						title: 'App Font'
 					}
@@ -103,7 +104,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'custom-font-code',
-						index: 0,
+
 						value: 'monospace',
 						title: 'Code Font'
 					}

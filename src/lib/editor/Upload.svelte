@@ -1,7 +1,7 @@
 <script>
-	import { UploadIcon } from 'lucide-svelte';
-	import { Button } from '../common';
+	import { UploadIcon } from '@lucide/svelte';
 	import { STATE } from '$lib/editor.svelte';
+	import { Button } from '../common';
 </script>
 
 <Button variant="secondary" class="w-full" size="lg" onclick={() => STATE.fireUploadedEvent()}>

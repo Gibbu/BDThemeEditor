@@ -1,8 +1,13 @@
-import frostedglass from './frostedglass';
 // import softx from './softx';
 import basicbackground from './basicbackground';
 import clearvision from './clearvision';
 import discordrecolor from './discordrecolor';
+import frostedglass from './frostedglass';
+// import steam from './steam';
+// import minimalcord from './minimalcord';
+// import pyrite from './pyrite';
+import glasswave from './glasswave';
+import materialdiscord from './materialdiscord';
 // import comfy from './comfy';
 // import solana from './solana';
 // import materialdesign from './materialdesign';
@@ -12,11 +17,7 @@ import operagxtheme from './operagxtheme';
 // import cyan from './cyan';
 // import darkmatter from './darkmatter';
 import translucence from './translucence';
-import materialdiscord from './materialdiscord';
-// import steam from './steam';
-// import minimalcord from './minimalcord';
-// import pyrite from './pyrite';
-import glasswave from './glasswave';
+
 // import fvui from './fvui';
 
 export const themes = [

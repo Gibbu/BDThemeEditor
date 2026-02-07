@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import Disease from '../devs/disease';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Solana',
@@ -542,7 +543,7 @@ const theme: Theme = {
 					props: {
 						variable: 'custom-font-display',
 						starting: '""',
-						index: 0,
+
 						value: '',
 						title: 'Display font'
 					}
@@ -552,7 +553,7 @@ const theme: Theme = {
 					props: {
 						variable: 'custom-font-regular',
 						starting: '""',
-						index: 0,
+
 						value: '',
 						title: 'Regular font',
 						hint: 'Like the primary font, but used in specific areas.'
@@ -563,7 +564,7 @@ const theme: Theme = {
 					props: {
 						variable: 'custom-font-primary',
 						starting: '""',
-						index: 0,
+
 						value: '',
 						title: 'Primary font'
 					}
@@ -573,7 +574,7 @@ const theme: Theme = {
 					props: {
 						variable: 'custom-font-code',
 						starting: '""',
-						index: 0,
+
 						value: '',
 						title: 'Code font'
 					}

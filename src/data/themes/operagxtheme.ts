@@ -1,5 +1,6 @@
-import type { Theme } from '$types/theme';
 import Hawk from '../devs/hawk';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'OperaGX Theme',
@@ -321,7 +322,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'customFont',
-						index: 0,
+
 						value: 'Chakra Petch',
 						title: 'Main Font'
 					}
@@ -330,7 +331,7 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'codeBlocksCustomFont',
-						index: 0,
+
 						value: 'Chakra Petch',
 						title: 'Codeblocks Font'
 					}

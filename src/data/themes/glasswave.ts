@@ -1,6 +1,7 @@
-import type { Theme } from '$types/theme';
-import Elisniper from '../devs/elisniper';
 import { radialstatus } from '../addons';
+import Elisniper from '../devs/elisniper';
+
+import type { Theme } from '$types/theme';
 
 const theme: Theme = {
 	name: 'Glass Wave',
@@ -132,7 +133,6 @@ const theme: Theme = {
 					type: 'font',
 					props: {
 						variable: 'var-font',
-						index: 0,
 						value: 'gg sans',
 						title: 'App font'
 					}
