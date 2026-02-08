@@ -36,7 +36,7 @@
 				<div
 					transition:fly={{ y: 5, duration: 150 }}
 					class={[
-						'absolute m-0 flex scale-95 flex-col gap-1 rounded-lg bg-zinc-800 p-2 opacity-0 shadow-lg',
+						'absolute z-10 m-0 flex scale-95 flex-col gap-1 rounded-lg bg-zinc-800 p-2 opacity-0 shadow-lg',
 						'focus:outline-none'
 					]}
 					{...props}

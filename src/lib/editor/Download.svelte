@@ -61,7 +61,9 @@
 				</div>
 			</div>
 
-			<div class="relative z-10 w-full max-w-7xl overflow-auto rounded-lg bg-zinc-900 shadow-xl">
+			<div
+				class="relative z-10 max-h-[75vh] w-full max-w-7xl overflow-auto overflow-y-auto rounded-lg bg-zinc-900 shadow-xl"
+			>
 				<pre class="p-6"><code
 						>{@html hljs
 							.highlight(STATE.generateCSS(false), { language: 'css' })

@@ -1,3 +1,7 @@
+<script lang="ts" module>
+	let index = $state<number>(-1);
+</script>
+
 <script lang="ts">
 	import { HardDriveIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
@@ -12,7 +16,6 @@
 	let { value, variable, addon }: FontInputProps = $props();
 
 	let type = $state<'google' | 'local'>('google');
-	let index = $state<number>(-1);
 
 	let visible = $state<boolean>(false);
 	let hoveredIndex = $state<number>(-1);
@@ -35,8 +38,10 @@
 				?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 	});
 	onMount(() => {
-		STATE.fontIndex++;
-		index = STATE.fontIndex;
+		index++;
+		return () => {
+			if (index > 0) index = -1;
+		};
 	});
 
 	const handleKeydown = (e: KeyboardEvent) => {
@@ -84,6 +89,7 @@
 				action: 'removeFont',
 				index
 			});
+			if (STATE.THEME?.fonts) STATE.THEME.fonts[index] = '';
 		}
 
 		STATE.updateVariable({ variable, value }, addon);
@@ -159,7 +165,7 @@
 			<div
 				bind:this={optionsElement}
 				class={[
-					'absolute left-0 max-h-96 w-full -translate-y-5 overflow-x-hidden overflow-y-auto',
+					'absolute left-0 z-10 max-h-96 w-full -translate-y-5 overflow-x-hidden overflow-y-auto',
 					'flex flex-col gap-2 rounded-md bg-zinc-800 p-3'
 				]}
 				{@attach outside({

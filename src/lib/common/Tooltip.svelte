@@ -25,22 +25,24 @@
 	);
 </script>
 
-<Tooltip floatingConfig={{ placement }} {delay}>
+<Tooltip floatingConfig={{ placement, offset: 10 }} {delay}>
 	<TooltipTrigger>
 		{#snippet custom({ props })}
 			{@render children(props)}
 		{/snippet}
 	</TooltipTrigger>
-	<TooltipContent
-		class={[
-			'pointer-events-none rounded-md px-3 py-1 text-sm font-semibold shadow-lg',
-			'bg-white text-zinc-700'
-		]}
-	>
+	<TooltipContent>
 		{#snippet custom({ props, state })}
 			{#if state.visible}
-				<div {...props} transition:fly={{ ...flyConfig, duration: 150 }}>
-					<TooltipArrow class="size-2 rotate-45 bg-zinc-700" />
+				<div
+					{...props}
+					transition:fly={{ ...flyConfig, duration: 150 }}
+					class={[
+						'pointer-events-none rounded-md px-3 py-1 text-sm font-semibold shadow-lg',
+						'bg-white text-zinc-700'
+					]}
+				>
+					<TooltipArrow class="size-2 rotate-45 bg-white" />
 					{content}
 				</div>
 			{/if}

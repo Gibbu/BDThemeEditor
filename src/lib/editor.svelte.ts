@@ -12,7 +12,6 @@ class State {
 	tab = $state<string | null>(null);
 	previewElement = $state<HTMLIFrameElement | null>(null);
 	uploaded = $state<boolean>(false);
-	fontIndex = $state<number>(-1);
 
 	Loaded = $derived(!!this.THEME && !!this.previewElement);
 
