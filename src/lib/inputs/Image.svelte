@@ -137,7 +137,7 @@
 		</TabsContent>
 		<TabsContent value="local">
 			<Modal title="Image upload" description="Choose a local image" class="w-185">
-				{#snippet trigger({ props })}
+				{#snippet trigger(props)}
 					<Button variant="secondary" class="w-full" {...props}>Select an image...</Button>
 				{/snippet}
 

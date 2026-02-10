@@ -18,6 +18,7 @@
 
 <Select
 	bind:value
+	floatingConfig={{ sameWidth: true, offset: 10 }}
 	onValueChanged={(value) => {
 		if (value) STATE.updateVariable({ variable, value }, addon);
 	}}
@@ -36,7 +37,7 @@
 				<div
 					transition:fly={{ y: 5, duration: 150 }}
 					class={[
-						'absolute z-10 m-0 flex scale-95 flex-col gap-1 rounded-lg bg-zinc-800 p-2 opacity-0 shadow-lg',
+						'absolute z-10 m-0 flex flex-col gap-1 rounded-lg bg-zinc-800 p-2 shadow-lg',
 						'focus:outline-none'
 					]}
 					{...props}

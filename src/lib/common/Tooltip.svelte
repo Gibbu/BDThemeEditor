@@ -2,13 +2,13 @@
 	import { Tooltip, TooltipArrow, TooltipContent, TooltipTrigger } from 'lithesome';
 	import { fly } from 'svelte/transition';
 
-	import type { Placement } from '$lib/types';
+	import type { FloatingPlacement } from 'lithesome/types';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
 		children: Snippet<[Record<string, any>]>;
 		content: string;
-		placement?: Placement;
+		placement?: FloatingPlacement;
 		delay?: number | [number, number];
 		class?: string;
 	}

@@ -33,10 +33,6 @@
 		visible = $bindable(false),
 		class: klass
 	}: Props = $props();
-
-	const close = () => {
-		visible = false;
-	};
 </script>
 
 <Modal bind:visible>
