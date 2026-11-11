@@ -11,11 +11,11 @@ const theme: Theme = {
 		author: 'Hawk#4872',
 		version: '1',
 		description: 'A highly customizable theme based off of the OperaGX browser.',
-		source: 'https://github.com/L-Ratio/OperaGXTheme',
+		source: 'https://github.com/HawkRatio/OperaGXTheme',
 		invite: 'Xn7UUQUHbN'
 	},
 	preview: ` 
-    @import url(https://l-ratio.github.io/OperaGXTheme/release/main.css);
+    @import url(https://HawkRatio.github.io/OperaGXTheme/release/main.css);
    :root {                                                                                                                                                                                                                                                                                                                             
       --background:                     url(https://i.imgur.com/9wxpbVw.png)  ;
       --background-behind-appmount:     rgb(var(--darker-background-color))   ;
@@ -81,7 +81,7 @@ const theme: Theme = {
        --other-highlighted-transparency: 1                                     ;
     }`,
 	features: ['background', 'font', 'transparent', 'home'],
-	imports: ['https://l-ratio.github.io/OperaGXTheme/release/main.css'],
+	imports: ['https://HawkRatio.github.io/OperaGXTheme/release/main.css'],
 	variables: [
 		{
 			title: 'Main Settings',
