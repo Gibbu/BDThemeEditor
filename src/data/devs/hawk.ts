@@ -2,7 +2,7 @@ import type { Developer } from '$types/dev';
 
 const dev: Developer = {
 	name: 'Hawk',
-	github: 'L-Ratio',
+	github: 'HawkRatio',
 	colour: '347 70% 57%',
 	server: 'https://discord.gg/Xn7UUQUHbN'
 };
